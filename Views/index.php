@@ -6,19 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <link rel="icon" href="<?php echo base_url?>/Assets/img/logo-min.png" type="image/x-icon">
         <title>Said</title>
+        <link href="<?php echo base_url?>Assets/css/custom.css" rel="stylesheet" />
         <link href="<?php echo base_url?>Assets/css/styles.css" rel="stylesheet" />
         <script src="<?php echo base_url?>Assets/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body class="background">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
+                    <div class="login-said">
+                                <img class="login-said_img" src="<?php echo base_url?>/Assets/img/logo.png" alt="said">
+                                <h2 class="login-said_t1">SAID</h2>
+                                <div class="login-said_seg">
+                                    <h2 class="login-said_t2">SEGURIDAD FISICA</h2>
+                                    <h2 class="login-said_t2">&</h2>
+                                    <h2 class="login-said_t2">ELECTRONICA</h2>
+                                </div>
+                               
+                            </div>
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Autenticar</h3></div>
+                                <div class="card shadow-lg border-0 rounded-lg mt-1">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-2">Autenticar</h3></div>
                                     <div class="card-body">
                                         <form id="frmLogin">
                                             <div class="form-group">
