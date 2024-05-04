@@ -10,6 +10,22 @@ class Usuarios extends Controller{
         $this->views->getView($this,"index");
     }
 
+    public function listar()
+    {
+        $data= $this->model->getUsuarios();       
+        for ($i=0; $i <count($data) ; $i++) { 
+           $data[$i]['acciones'] = '<div>
+           <button class="btn btn-primary" type="button">Editar</button>
+           <button class="btn btn-danger" type="button">Eliminar</button>
+           <div/>';
+        }
+        echo json_encode($data,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+
+
+
     public function validar()
     {
         if(empty($_POST['usuario']) || empty($_POST['clave'])){
@@ -34,3 +50,4 @@ class Usuarios extends Controller{
     }
 }
 ?>
+
