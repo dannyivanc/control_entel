@@ -1,14 +1,14 @@
 </div>
 </main>
-<footer class="py-4 bg-light mt-auto">
+                <footer class="py-3 bg-dark mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
+                            <div class="text-muted">Said &copy; Todos los derechos reservados - 2024</div>
+                            <!-- <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
                                 <a href="#">Terms &amp; Conditions</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </footer>
@@ -26,7 +26,11 @@
         <script>
             const base_url="<?php echo base_url;?>"
         </script>
+
+        <script src="<?php echo base_url;?>Assets/js/sweetalert2.all.min.js"></script>
         <script src="<?php echo base_url;?>Assets/js/funciones.js"></script>
         
+        <!-- //para mostrar contraseñas -->
+        <script src="<?php echo base_url;?>Assets/js/mostrar_contraseña.js"></script>
     </body>
 </html>
