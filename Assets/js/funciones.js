@@ -1,4 +1,5 @@
 let tblUsuarios;
+// para mustrar usuarios
 document.addEventListener("DOMContentLoaded",function(){
   tblUsuarios=$('#tblUsuarios').DataTable( {
     ajax: {
@@ -14,6 +15,9 @@ document.addEventListener("DOMContentLoaded",function(){
     },
     {
       'data':'nombre',
+    },
+    {
+      'data':'carnet',
     },
     {
       'data':'institucion',
@@ -87,19 +91,20 @@ function frmLogin (e){
 
 
 function frmUsuario(){
+  document.getElementById("title").innerHTML="Nuevo usuario";
+  document.getElementById("frmUsuario").reset();
   $("#nuevo_usuario").modal("show");
 }
-
-
 function registrarUser (e){
     e.preventDefault();
     const usuario = document.getElementById("usuario");
     const nombre = document.getElementById("nombre");
+    const carnet = document.getElementById("carnet");
     const clave = document.getElementById("clave");
     const confirmar = document.getElementById("confirmar");
     const institucion = document.getElementById("institucion");
    
-    if(usuario.value=="" ||nombre.value==""||clave.value==""||confirmar.value==""||institucion.value==""){
+    if(usuario.value=="" ||nombre.value=="" ||carnet.value==""||clave.value==""||confirmar.value==""||institucion.value==""){
       Swal.fire({
         position: "top",
         icon: "error",
@@ -180,4 +185,24 @@ function registrarUser (e){
     }
 }
 
+
+function btnEditarUser (id){
+  document.getElementById("title").innerHTML="Actualizar usuario";
+  const url = base_url + "Usuarios/editar/"+id;  
+  const http = new XMLHttpRequest();
+  http.open("GET",url,true);
+  http.send();
+  http.onreadystatechange = function(){
+      if(this.readyState==4 && this.status==200){
+        const res = JSON.parse(this.responseText);
+        document.getElementById("usuario").value=res.usuario;
+        document.getElementById("nombre").value=res.nombre;
+        document.getElementById("carnet").value=res.carnet;
+        document.getElementById("clave").value=res.clave;      
+        document.getElementById("institucion").value=res.id_institucion;
+      }
+  }
+  
+  $("#nuevo_usuario").modal("show");
+}
 

@@ -9,6 +9,7 @@
             <th>Id</th>
             <th>Usuario</th>
             <th>Nombre</th>
+            <th>Carnet</th>
             <th>Institucion</th>  
             <th>Estado</th>  
             <th>Acciones</th>      
@@ -21,7 +22,7 @@
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="my-modal-title">Nuevo Usuario</h5>
+               <h5 class="modal-title" id="title">Nuevo Usuario</h5>
                <button class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -35,6 +36,10 @@
                   <div class="form-group">
                      <label for="nombre">Nombre</label>
                      <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre">
+                  </div>
+                  <div class="form-group">
+                     <label for="carnet">Carnet</label>
+                     <input id="carnet" class="form-control" type="text" name="carnet" placeholder="Carnet">
                   </div>
 
 
@@ -77,7 +82,9 @@
                         <option value="<?php echo $row['id']; ?>" ><?php echo $row['institucion']; ?></option>
                         <?php } ?>
                      </select>
-                     <button class="btn btn-primary" type="button" onclick="registrarUser(event);">Registrar</button>
+                     <button class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
+                        Registrar
+                     </button>
                   </div>
               </form>
             </div>
