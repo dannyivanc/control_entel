@@ -195,6 +195,7 @@ function btnEditarUser (id){
   http.onreadystatechange = function(){
       if(this.readyState==4 && this.status==200){
         const res = JSON.parse(this.responseText);
+        document.getElementById("id").value=res.id;
         document.getElementById("usuario").value=res.usuario;
         document.getElementById("nombre").value=res.nombre;
         document.getElementById("carnet").value=res.carnet;
@@ -205,4 +206,5 @@ function btnEditarUser (id){
   
   $("#nuevo_usuario").modal("show");
 }
+
 

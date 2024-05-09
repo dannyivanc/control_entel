@@ -3,21 +3,23 @@
       <li class="breadcrumb-item active">Usuarios</li>
    </ol>    
    <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">Nuevo</button>  
-   <table class="table table-light" id="tblUsuarios">
-      <thead class="thead-dark">
-         <tr>
-            <th>Id</th>
-            <th>Usuario</th>
-            <th>Nombre</th>
-            <th>Carnet</th>
-            <th>Institucion</th>  
-            <th>Estado</th>  
-            <th>Acciones</th>      
-         </tr>
-      </thead>
-      <tbody>
-      </tbody>
-   </table>      
+
+   <table class="table  table-light custom-table " id="tblUsuarios">
+         <thead class="thead-dark">
+            <tr>
+               <th>Id</th>
+               <th>Usuario</th>
+               <th>Nombre</th>
+               <th>Carnet</th>
+               <th>Institucion</th>  
+               <th>Estado</th>  
+               <th>Acciones</th>      
+            </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>   
+
    <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
@@ -31,6 +33,7 @@
               <form method="post" id="frmUsuario" action="">
                   <div class="form-group">
                      <label for="usuario">Usuario</label>
+                     <input type="hidden"id="id" name="id" >
                      <input id="usuario" class="form-control" type="text" name="usuario" placeholder="Usuario">
                   </div>
                   <div class="form-group">
