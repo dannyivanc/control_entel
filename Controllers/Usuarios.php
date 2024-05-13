@@ -18,8 +18,9 @@ class Usuarios extends Controller{
                 $data[$i]['estado']='<span class="badge badge-danger">Activo</span>';
             }
            $data[$i]['acciones'] = '<div>
-           <button class="btn btn-primary" type="button" onClick="btnEditarUser('.$data[$i]['id'].')">Editar</button>
-           <button class="btn btn-danger" type="button">Eliminar</button>
+           <button class="btn btn-primary" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>
+           <button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>
+           <button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>
            <div/>';
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
@@ -53,22 +54,32 @@ class Usuarios extends Controller{
         $usuario= $_POST['usuario'];
         $nombre= $_POST['nombre'];
         $carnet= $_POST['carnet'];
-        $clave= $_POST['clave'];
-        $confirmar= $_POST['confirmar'];
+        $clave= $_POST['clave'];    
         $institucion= $_POST['institucion'];
+        $id= $_POST['id'];
+        $hash=hash("SHA256",$clave);
         if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)){
             $msg= "todos los campos son obligatorios";
-        }else if ($clave!=$confirmar){
-            $msg= "las contraseñas son diferentes";
         }else{
-           $data= $this->model->registrarUsuario($usuario,$nombre,$carnet,$clave,$institucion);
-            if($data=="ok"){
-                $msg ="si";
-            }else if($data=="existe") {
-                $msg ="El usuario ya se encuentra registrado, Verifique el usuario o carnet";
+            if($id==""){
+                $data= $this->model->registrarUsuario($usuario,$nombre,$carnet,$hash,$institucion);
+                if($data=="ok"){
+                    $msg ="si";
+                }else if($data=="existe") {
+                    $msg ="El usuario ya se encuentra registrado, Verifique el usuario o carnet";
+                }else{
+                    $msg="Error al registrar usuario";
+                }
             }else{
-                $msg="Error al registrar usuario";
+                $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$clave,$institucion,$id);
+                if($data=="modificado"){
+                    $msg ="modificado";
+                }else{
+                    $msg="Error al modificar usuario";
+                }
+
             }
+          
         }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
@@ -78,6 +89,27 @@ class Usuarios extends Controller{
       $data=$this->model->editarUser($id);
       echo json_encode($data, JSON_UNESCAPED_UNICODE);
       die();
+    }
+
+    public function desactivar(int $id){
+        $data=$this->model ->accionUser(0,$id);
+       if($data==1){
+        $msg="ok";
+       }else{
+        $msg="Error al desactivar usuario";
+       }
+       echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+       die();
+    }
+    public function activar(int $id){
+        $data=$this->model ->accionUser(1,$id);
+       if($data==1){
+        $msg="ok";
+       }else{
+        $msg="Error al activar usuario";
+       }
+       echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+       die();
     }
 }
 ?>

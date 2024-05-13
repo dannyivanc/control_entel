@@ -13,21 +13,7 @@
     });
 
     // para contraseña de usuario verificar contraseña
-    $(document).ready(function(){
-        $('#btnMostrarConfirmarContrasena').click(function(){
-            var tipo = $('#confirmar').attr('type');
-            if(tipo == 'password'){
-                $('#confirmar').attr('type', 'text');
-                $(this).html('<i class="fa fa-eye-slash"></i>');
-            } else {
-                $('#confirmar').attr('type', 'password');
-                $(this).html('<i class="fa fa-eye"></i>');
-            }
-        });
-    });
 
-
-    
 
 
 

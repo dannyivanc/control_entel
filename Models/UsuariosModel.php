@@ -1,6 +1,6 @@
 <?php
     class UsuariosModel extends Query{
-        private $usuario,$nombre,$carnet,$clave,$id_institucion;
+        private $id,$usuario,$nombre,$carnet,$clave,$id_institucion,$estado;
         public function __construct(){
             parent::__construct();
         }
@@ -45,10 +45,35 @@
             return $res;
 
         }
-        public function editarUser(int $id)
-        {
+        public function modificarUsuario(string $usuario, string $nombre, string $carnet, string $clave, int $id_institucion, int $id){
+            $this->usuario=$usuario;
+            $this->nombre=$nombre;
+            $this->carnet=$carnet;
+            $this->clave=$clave;
+            $this->id_institucion=$id_institucion;
+            $this->id=$id;
+            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,id_institucion =? WHERE id=?";         
+            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->id_institucion,$this->id);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "modificado";
+            }else{
+                $res = "error";
+            }
+            return $res;
+
+        }
+        public function editarUser(int $id){
             $sql = "SELECT * FROM usuarios WHERE id=$id";
             $data= $this->select($sql);
+            return $data;
+        }
+        public function accionUser (int $estado,int $id){
+            $this->id = $id;
+            $this->estado = $estado;
+            $sql ="UPDATE usuarios SET estado =? WHERE id=?";
+            $datos=array($this->estado,$this->id);
+            $data = $this->save($sql,$datos);
             return $data;
         }
     }

@@ -2,7 +2,7 @@
    <ol class="breadcrumb mb-4">
       <li class="breadcrumb-item active">Usuarios</li>
    </ol>    
-   <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">Nuevo</button>  
+   <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">Nuevo   <i class="fas fa-plus"></i> </button>  
 
    <table class="table  table-light custom-table " id="tblUsuarios">
          <thead class="thead-dark">
@@ -33,7 +33,7 @@
               <form method="post" id="frmUsuario" action="">
                   <div class="form-group">
                      <label for="usuario">Usuario</label>
-                     <input type="hidden"id="id" name="id" >
+                     <input type="hidden"id="id" name="id">                     
                      <input id="usuario" class="form-control" type="text" name="usuario" placeholder="Usuario">
                   </div>
                   <div class="form-group">
@@ -65,17 +65,7 @@
                      <label for="confirmar">Confirmar contraseña</label>
                      <input id="confirmar" class="form-control" type="password" name="confirmar" placeholder="Confirmar contraseña">
                   </div> -->
-                  <div class="form-group">
-                     <label for="confirmar">Confirmar contraseña</label>
-                     <div class="input-group">
-                        <input id="confirmar" class="form-control" type="password" name="confirmar" placeholder="Confirmar contraseña">
-                        <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="button" id="btnMostrarConfirmarContrasena">
-                                 <i class="fa fa-eye"></i>
-                              </button>
-                        </div>
-                     </div>
-                  </div>      
+                
 
 
                   <div class="form-group">
@@ -85,7 +75,7 @@
                         <option value="<?php echo $row['id']; ?>" ><?php echo $row['institucion']; ?></option>
                         <?php } ?>
                      </select>
-                     <button class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
+                     <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
                         Registrar
                      </button>
                   </div>
