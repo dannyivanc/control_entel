@@ -11,17 +11,19 @@ class Usuarios extends Controller{
 
     public function listar(){
         $data= $this->model->getUsuarios();       
+       
         for ($i=0; $i <count($data) ; $i++) { 
+            $btnEditar= '<button class="btn btn-primary" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
                 $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
+                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
             }else{
                 $data[$i]['estado']='<span class="badge badge-danger">Activo</span>';
+                $data[$i]['acciones'] = $btnEditar . $btnActivar;
             }
-           $data[$i]['acciones'] = '<div>
-           <button class="btn btn-primary" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>
-           <button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>
-           <button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>
-           <div/>';
+
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
@@ -33,7 +35,8 @@ class Usuarios extends Controller{
         }else{
             $usuario = $_POST['usuario'];
             $clave = $_POST['clave'];
-            $data =$this->model->getUsuario($usuario,$clave);
+            $hash = hash("SHA256",$clave);
+            $data =$this->model->getUsuario($usuario,$hash);
            
             if($data){
                 $_SESSION['id_usuario']=$data['id'];
@@ -71,7 +74,8 @@ class Usuarios extends Controller{
                     $msg="Error al registrar usuario";
                 }
             }else{
-                $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$clave,$institucion,$id);
+                // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
+                $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{

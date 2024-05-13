@@ -23,8 +23,8 @@
    <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="title">Nuevo Usuario</h5>
+            <div class="modal-header bg-primary">
+               <h5 class="modal-title text-white" id="title">Nuevo Usuario</h5>
                <button class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -77,6 +77,9 @@
                      </select>
                      <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
                         Registrar
+                     </button>
+                     <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
+                        Cancelar
                      </button>
                   </div>
               </form>

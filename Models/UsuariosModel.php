@@ -1,6 +1,7 @@
 <?php
     class UsuariosModel extends Query{
         private $id,$usuario,$nombre,$carnet,$clave,$id_institucion,$estado;
+  
         public function __construct(){
             parent::__construct();
         }
@@ -45,15 +46,14 @@
             return $res;
 
         }
-        public function modificarUsuario(string $usuario, string $nombre, string $carnet, string $clave, int $id_institucion, int $id){
+        public function modificarUsuario(string $usuario, string $nombre, string $carnet, int $id_institucion, int $id){
             $this->usuario=$usuario;
             $this->nombre=$nombre;
             $this->carnet=$carnet;
-            $this->clave=$clave;
             $this->id_institucion=$id_institucion;
             $this->id=$id;
-            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,id_institucion =? WHERE id=?";         
-            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->id_institucion,$this->id);
+            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,id_institucion =? WHERE id=?";         
+            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->id_institucion,$this->id);
             $data =  $this-> save($sql,$datos);
             if($data==1){
                 $res = "modificado";
