@@ -50,7 +50,7 @@
                      <label for="clave">Contraseña</label>
                      <input id="clave" class="form-control" type="password" name="clave" placeholder="Contraseña">
                   </div> -->
-                  <div class="form-group">
+                  <div class="form-group" id="cont-pass">
                      <label for="clave">Contraseña</label>
                      <div class="input-group">
                         <input id="clave" class="form-control" type="password" name="clave" placeholder="Contraseña">

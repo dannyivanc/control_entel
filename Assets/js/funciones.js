@@ -82,6 +82,7 @@ function frmUsuario(){
   document.getElementById("title").innerHTML="Nuevo usuario";
   document.getElementById("btn_form_usuario").innerHTML="Nuevo usuario";
   document.getElementById("frmUsuario").reset();
+  document.getElementById("cont-pass").classList.remove("d-none");
   $("#nuevo_usuario").modal("show");
   document.getElementById("id").value="";
 }
@@ -164,6 +165,7 @@ function btnEditarUser (id){
         document.getElementById("carnet").value=res.carnet;
         document.getElementById("clave").value=res.clave;      
         document.getElementById("institucion").value=res.id_institucion;
+        document.getElementById("cont-pass").classList.add("d-none");
         $("#nuevo_usuario").modal("show");
       }
   }
