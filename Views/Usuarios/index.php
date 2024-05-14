@@ -18,7 +18,7 @@
          </thead>
          <tbody>
          </tbody>
-      </table>   
+      </table>    
 
    <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -45,15 +45,11 @@
                      <input id="carnet" class="form-control" type="text" name="carnet" placeholder="Carnet">
                   </div>
 
-
-                  <!-- <div class="form-group">
-                     <label for="clave">Contraseña</label>
-                     <input id="clave" class="form-control" type="password" name="clave" placeholder="Contraseña">
-                  </div> -->
                   <div class="form-group" id="cont-pass">
                      <label for="clave">Contraseña</label>
                      <div class="input-group">
                         <input id="clave" class="form-control" type="password" name="clave" placeholder="Contraseña">
+                        <input type="hidden"id="clave_ant" name="clave_ant">           
                         <div class="input-group-append">
                               <button class="btn btn-outline-secondary" type="button" id="btnMostrarContrasena">
                                  <i class="fa fa-eye"></i>
@@ -61,13 +57,6 @@
                         </div>
                      </div>
                   </div>            
-                  <!-- <div class="form-group">
-                     <label for="confirmar">Confirmar contraseña</label>
-                     <input id="confirmar" class="form-control" type="password" name="confirmar" placeholder="Confirmar contraseña">
-                  </div> -->
-                
-
-
                   <div class="form-group">
                      <label for="institucion">Institucion</label>
                      <select id="institucion" class="form-control" name="institucion">

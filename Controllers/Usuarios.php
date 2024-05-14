@@ -1,13 +1,14 @@
 <?php
 class Usuarios extends Controller{
     public function __construct(){
-        session_start();
+        session_start();              
+        parent::__construct();
+    
+    }
+    public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
-        parent::__construct();
-    }
-    public function index(){
         $data['instituciones']=$this->model->getInstituciones();
         $this->views->getView($this,"index",$data);
     }
@@ -63,8 +64,11 @@ class Usuarios extends Controller{
         $carnet= $_POST['carnet'];
         $clave= $_POST['clave'];    
         $institucion= $_POST['institucion'];
-        $id= $_POST['id'];
-        $hash=hash("SHA256",$clave);
+        $id= $_POST['id'];      
+        $hash=hash("SHA256",$clave);   
+            
+        $clave_ant=$_POST['clave_ant']; 
+
         if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)){
             $msg= "todos los campos son obligatorios";
         }else{
@@ -78,13 +82,28 @@ class Usuarios extends Controller{
                     $msg="Error al registrar usuario";
                 }
             }else{
-                // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
-                $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id);
-                if($data=="modificado"){
-                    $msg ="modificado";
+                if ( $clave_ant==$clave){
+                    // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
+                    $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id);
+                    if($data=="modificado"){
+                        $msg ="modificado";
+                    }else{
+                        $msg="Error al modificar usuario";
+                    }
                 }else{
-                    $msg="Error al modificar usuario";
+                     // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
+
+                    
+                     $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id);
+                     if($data=="modificado"){
+                         $msg ="modificado";
+                     }else{
+                         $msg="Error al modificar usuario";
+                     }
+                   
                 }
+                
+                
 
             }
           

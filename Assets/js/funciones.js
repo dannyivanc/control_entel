@@ -1,7 +1,7 @@
 let tblUsuarios;
 // para mustrar usuarios
 document.addEventListener("DOMContentLoaded",function(){
- if(window.location.pathname ===`/control/Usuarios`){
+//  if(window.location.pathname ===`/control/Usuarios`){
   tblUsuarios=$('#tblUsuarios').DataTable( {
     ajax: {
         url: base_url+"Usuarios/listar",
@@ -32,57 +32,17 @@ document.addEventListener("DOMContentLoaded",function(){
   ]
 });
 
- }
+//  }
 })
 
 
-function frmLogin (e){
-    e.preventDefault();
-    const usuario = document.getElementById("usuario");
-    const clave = document.getElementById("clave");
-    if(usuario.value==""){
-        clave.classList.remove("is-invalid");      
-        usuario.classList.add("is-invalid");
-        usuario.focus();
-    } else if(clave.value==""){
-        usuario.classList.remove("is-invalid");   
-        clave.classList.add("is-invalid");
-        clave.focus();
-    }else{
-        const url = base_url + "Usuarios/validar";
-        const frm=document.getElementById("frmLogin");
-        const formData = new FormData(frm);
-        fetch(url, {
-            method: "POST",
-            body: formData
-          })
-          .then(response => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error("Error en la solicitud");
-            }
-          })
-          .then(data => {
-            if (data === "ok") {
-              window.location = base_url + "Usuarios";
-            } else {
-              document.getElementById("alerta").classList.remove("d-none");
-              document.getElementById("alerta").innerHTML = data;
-            }
-          })
-          .catch(error => {
-            console.error("Error:", error);
-          });
-    }
-}
 
 
 function frmUsuario(){
   document.getElementById("title").innerHTML="Nuevo usuario";
   document.getElementById("btn_form_usuario").innerHTML="Nuevo usuario";
   document.getElementById("frmUsuario").reset();
-  document.getElementById("cont-pass").classList.remove("d-none");
+  // document.getElementById("cont-pass").classList.remove("d-none");
   $("#nuevo_usuario").modal("show");
   document.getElementById("id").value="";
 }
@@ -109,8 +69,7 @@ function registrarUser (e){
         http.open("POST",url,true);
         http.send(new FormData(frm));
         http.onreadystatechange = function(){
-            if(this.readyState==4 && this.status==200){
-              console.log(JSON.parse(this.responseText));
+            if(this.readyState==4 && this.status==200){ 
               const res= JSON.parse(this.responseText);
               if(res=="si"){
                 Swal.fire({
@@ -157,15 +116,26 @@ function btnEditarUser (id){
   http.open("GET",url,true);
   http.send();
   http.onreadystatechange = function(){
-      if(this.readyState==4 && this.status==200){  
+      if(this.readyState==4 && this.status==200){     
         const res = JSON.parse(this.responseText);
+
+        //provando para la contraseña
+        var clave_ant = document.getElementById("clave_ant");  
+        clave_ant.value = res.clave;
+        //provando para la contraseña
+
         document.getElementById("id").value=res.id;
         document.getElementById("usuario").value=res.usuario;
         document.getElementById("nombre").value=res.nombre;
         document.getElementById("carnet").value=res.carnet;
         document.getElementById("clave").value=res.clave;      
         document.getElementById("institucion").value=res.id_institucion;
-        document.getElementById("cont-pass").classList.add("d-none");
+
+        // document.getElementById("cont-pass").classList.add("d-none");
+
+        //conrovando si la contraseña esta
+        document.getElementById("clave_ant").value= clave_ant.value; 
+        
         $("#nuevo_usuario").modal("show");
       }
   }

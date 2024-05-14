@@ -63,6 +63,25 @@
             return $res;
 
         }
+
+        public function modificarUsuarioPass(string $usuario, string $nombre, string $carnet,string $clave, int $id_institucion, int $id){
+            $this->usuario=$usuario;
+            $this->nombre=$nombre;
+            $this->carnet=$carnet;
+            $this->clave=$clave;
+            $this->id_institucion=$id_institucion;
+            $this->id=$id;
+            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,id_institucion =? WHERE id=?";         
+            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->id_institucion,$this->id);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "modificado";
+            }else{
+                $res = "error";
+            }
+            return $res;
+
+        }
         public function editarUser(int $id){
             $sql = "SELECT * FROM usuarios WHERE id=$id";
             $data= $this->select($sql);
