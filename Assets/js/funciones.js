@@ -1,6 +1,7 @@
 let tblUsuarios;
 // para mustrar usuarios
 document.addEventListener("DOMContentLoaded",function(){
+ if(window.location.pathname ===`/control/Usuarios`){
   tblUsuarios=$('#tblUsuarios').DataTable( {
     ajax: {
         url: base_url+"Usuarios/listar",
@@ -30,6 +31,8 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   ]
 });
+
+ }
 })
 
 
@@ -48,21 +51,6 @@ function frmLogin (e){
     }else{
         const url = base_url + "Usuarios/validar";
         const frm=document.getElementById("frmLogin");
-        
-        // const http = new XMLHttpRequest();
-        // http.open("POST",url,true);
-        // http.send(new FormData(frm));
-        // http.onreadystatechange = function(){
-        //     if(this.readyState==4 &&this.status==200){
-        //         const res = JSON.parse (this.responseText);
-        //         if(res=="ok"){
-        //             window.location = base_url+"Usuarios";
-        //         }else{
-        //             document.getElementById ("alerta").classList.remove("d-none");
-        //             document.getElementById ("alerta").innerHTML=res;
-        //         }
-        //     }
-        // }
         const formData = new FormData(frm);
         fetch(url, {
             method: "POST",

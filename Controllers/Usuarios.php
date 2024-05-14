@@ -2,6 +2,9 @@
 class Usuarios extends Controller{
     public function __construct(){
         session_start();
+        if(empty($_SESSION['activo'])){
+            header("location:".base_url);
+        }
         parent::__construct();
     }
     public function index(){
@@ -42,6 +45,7 @@ class Usuarios extends Controller{
                 $_SESSION['id_usuario']=$data['id'];
                 $_SESSION['usuario']=$data['usuario'];
                 $_SESSION['nombre']=$data['nombre'];
+                $_SESSION['activo']=true;
                 $msg="ok";
             }else{
                 $msg ="Usuario o contraseña incorrecta";
@@ -114,6 +118,11 @@ class Usuarios extends Controller{
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
+    }
+
+    public function salir(){
+        session_destroy();
+        header("location:".base_url);
     }
 }
 ?>
