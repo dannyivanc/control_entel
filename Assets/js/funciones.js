@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded",function(){
         dataSrc: ''
     },
     columns: [ 
-    {
-      'data':'id',    
-    },
+    // {
+    //   'data':'id',    
+    // },
     {
       'data':'usuario',
     },
@@ -31,13 +31,8 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   ]
 });
-
 //  }
 })
-
-
-
-
 function frmUsuario(){
   document.getElementById("title").innerHTML="Nuevo usuario";
   document.getElementById("btn_form_usuario").innerHTML="Nuevo usuario";
@@ -106,8 +101,6 @@ function registrarUser (e){
        
     }
 }
-
-
 function btnEditarUser (id){
   document.getElementById("title").innerHTML="Actualizar usuario";
   document.getElementById("btn_form_usuario").innerHTML="Actualizar";
@@ -140,7 +133,6 @@ function btnEditarUser (id){
       }
   }
 }
-
 function btnDesactivarUsuario(id){
   Swal.fire({
     title: "Desactivar Usuario",
@@ -181,7 +173,6 @@ function btnDesactivarUsuario(id){
     }
   });
 }
-
 function btnActivarUsuario(id){
   Swal.fire({
     title: "Activar Usuario",
@@ -224,3 +215,15 @@ function btnActivarUsuario(id){
 }
 
 
+//fin de usuarios
+
+
+function frmVehiculo(){
+  console.log('perrie')
+  document.getElementById("title").innerHTML="Registro de Vehiculos";
+  document.getElementById("btnAccion").innerHTML="Registrar";
+  document.getElementById("frmVehiculo").reset();
+  // document.getElementById("cont-pass").classList.remove("d-none");
+  $("#nuevo_vehiculo").modal("show");
+  document.getElementById("id").value="";
+}

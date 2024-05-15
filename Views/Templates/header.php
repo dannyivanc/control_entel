@@ -40,19 +40,19 @@
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">                           
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"> <i class="fas fa-tools"></i></div>
-                                 Configuracion
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        <div class="nav">
+                            <a class="nav-link ml-2 mt-3" href="<?php echo base_url?>Usuarios"> 
+                                <i class="fas fa-user mr-3"></i>
+                                Usuarios
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?php echo base_url?>Usuarios"> <i class="fas fa-user mr-2"></i>Usuarios</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Algo</a>
-                                </nav>
-                            </div>           
+                            <a class="nav-link ml-2" href="<?php echo base_url?>Vehiculos"> 
+                                <i class="fas fa-car-side mr-2"></i>
+                                Vehiculos
+                            </a>
+                            <!-- <a class="nav-link ml-2" href="layout-sidenav-light.html">Algo</a> -->
                         </div>
+                        
+                       
                     </div>
                     <!-- <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
