@@ -1,35 +1,38 @@
 <?php include "Views/Templates/header.php";?>
    <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Usuarios</li>
+      <li class="breadcrumb-item active">Vehiculos</li>
    </ol>    
-   <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">Nuevo   <i class="fas fa-plus"></i> </button>  
+   <button class="btn btn-primary mb-2" type="button" onclick="frmVehiculo();">Nuevos <i class="fas fa-plus"></i> </button>  
 
-   <table class="table  table-light custom-table " id="tblUsuarios">
+   <table class="table  table-light custom-table " id="tblVehiculos">
          <thead class="thead-dark">
             <tr>
-               <th>Usuario</th>
-               <th>Nombre</th>
-               <th>Carnet</th>
-               <th>Institucion</th>  
-               <th>Estado</th>  
-               <th>Acciones</th>      
+               <!-- <th>Id</th> -->
+               <th>Fecha</th>
+               <th>Ingreso</th>
+               <th>Salida</th>
+               <th>Tipo</th>  
+               <th>Placa</th>  
+               <th>Km</th>    
+               <th>Conductor</th>  
+               <th>Destino</th>     
             </tr>
          </thead>
          <tbody>
          </tbody>
-   </table>    
+      </table>    
 
-   <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+   <div id="nuevo_vehiculo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header bg-primary">
-               <h5 class="modal-title text-white" id="title">Nuevo Usuario</h5>
+               <h5 class="modal-title text-white" id="title">Nuevo Vehiculo</h5>
                <button class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
             </div>
             <div class="modal-body">
-              <form method="post" id="frmUsuario" action="">
+              <form method="post" id="frmVehiculo" action="">
                   <div class="form-group">
                      <label for="usuario">Usuario</label>
                      <input type="hidden"id="id" name="id">                     
@@ -56,24 +59,23 @@
                         </div>
                      </div>
                   </div>            
-                     <div class="form-group">
-                        <label for="institucion">Institucion</label>
-                        <select id="institucion" class="form-control" name="institucion">
-                           <?php foreach ($data['instituciones']as $row) {?>
-                           <option value="<?php echo $row['id']; ?>" ><?php echo $row['institucion']; ?></option>
-                           <?php } ?>
-                        </select>
-                        <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
-                           Registrar
-                        </button>
-                        <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
-                           Cancelar
-                        </button>
-                     </div>
+                  <div class="form-group">
+                     <label for="institucion">Institucion</label>
+                     <select id="institucion" class="form-control" name="institucion">
+                        <?php foreach ($data['instituciones']as $row) {?>
+                        <option value="<?php echo $row['id']; ?>" ><?php echo $row['institucion']; ?></option>
+                        <?php } ?>
+                     </select>
+                     <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
+                        Registrar
+                     </button>
+                     <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
+                        Cancelar
+                     </button>
+                  </div>
               </form>
             </div>
          </div>
       </div>
    </div>
-
 <?php include "Views/Templates/footer.php";?>

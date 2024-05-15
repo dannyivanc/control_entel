@@ -217,11 +217,11 @@ function btnActivarUsuario(id){
 
 //fin de usuarios
 
-
+let tblVehiculos;
 function frmVehiculo(){
   console.log('perrie')
   document.getElementById("title").innerHTML="Registro de Vehiculos";
-  document.getElementById("btnAccion").innerHTML="Registrar";
+  // document.getElementById("btnAccion").innerHTML="Registrar";
   document.getElementById("frmVehiculo").reset();
   // document.getElementById("cont-pass").classList.remove("d-none");
   $("#nuevo_vehiculo").modal("show");
