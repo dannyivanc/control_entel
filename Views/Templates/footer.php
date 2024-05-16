@@ -28,6 +28,5 @@
         <script src="<?php echo base_url;?>Assets/js/funciones.js"></script>
         
         <!-- //para mostrar contraseñas -->
-        <script src="<?php echo base_url;?>Assets/js/mostrar_contraseña.js"></script>
     </body>
 </html>

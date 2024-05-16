@@ -12,8 +12,10 @@
         });
     });
 
-    // para contraseña de usuario verificar contraseña
 
-
-
+    // para controlar nombre de usuario
+    var userInput = document.getElementById("nombre");
+        userInput.addEventListener("input", function() {
+        this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+    });
 

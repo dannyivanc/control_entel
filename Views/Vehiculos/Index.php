@@ -7,12 +7,13 @@
    <table class="table  table-light custom-table " id="tblVehiculos">
          <thead class="thead-dark">
             <tr>
-               <th>Fecha</th>
-               <th>Ingreso</th>
+               <!-- <th>Fecha</th> -->    
                <th>Salida</th>
+               <th>Retorno</th>
                <th>Tipo</th>  
                <th>Placa</th>  
-               <th>Km</th>    
+               <th>Km Salida</th>
+               <th>Km Retorno</th>      
                <th>Conductor</th>  
                <th>Destino</th>      
             </tr>
@@ -25,46 +26,67 @@
          <div class="modal-content">
             <div class="modal-header bg-primary">
                <h5 class="modal-title text-white" id="title">Nuevo Vehiculo</h5>
-               <button class="close" data-dismiss="modal" aria-label="Close">
+               <button class="close text-white" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
             </div>
-
-
             <div class="modal-body">
                <form method="post" id="frmVehiculo" action="">
                   <input type="hidden"id="id" name="id">   
-                  <!-- <div class="form-group">
-                     <label for="fecha">Fecha</label>                               
-                     <input id="fecha" class="form-control" type="datetime-local" name="fecha" placeholder="Fecha de registro">
-                  </div> -->
-                  <div class="form-group">
-                     <label for="ingreso">Ingreso</label>
-                     <input id="ingreso" class="form-control" type="datetime-local" name="ingreso" placeholder="Hora de ingreso">
-                  </div>
-                  <div class="form-group">
-                     <label for="salida">Salida</label>
-                     <input id="salida" class="form-control" type="datetime-local" name="salida" placeholder="Hora de salida">
-                  </div>
-                  <div class="form-group">
-                     <label for="tipo">Tipo</label>
-                     <input id="tipo" class="form-control" type="text" name="tipo" placeholder="Tipo de Vehiculo">
-                  </div>
-                  <div class="form-group">
-                     <label for="placa">Placa</label>
-                     <input id="placa" class="form-control" type="text" name="placa" placeholder="Placa de Vehiculo">
-                  </div>
-                  <div class="form-group">
-                     <label for="kilometraje">Kilometraje</label>
-                     <input id="kilometraje" class="form-control" type="text" name="kilometraje" placeholder="Kilometraje de Vehiculo">
-                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="salida">Salida</label>
+                           <input id="salida" class="form-control" type="datetime-local" name="salida" placeholder="Hora de salida">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="retorno">Retorno</label>
+                           <input id="retorno" class="form-control" type="datetime-local" name="retorno" placeholder="Hora de retorno">
+                        </div>
+                     </div>
+                  </div>    
+                  
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="tipo">Tipo</label>
+                           <input id="tipo" class="form-control" type="text" name="tipo" placeholder="Tipo de Vehiculo">
+                        </div>
+                     </div>
+                     <div class="col-md-6">                            
+                        <div class="form-group">
+                           <label for="placa">Placa</label>
+                           <input id="placa" class="form-control" type="text" name="placa" placeholder="Placa de Vehiculo">
+                        </div>
+                     </div>
+                  </div>  
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="km_salida">Kilometraje de Salida</label>
+                           <input id="km_salida" class="form-control" type="text" name="km_salida" placeholder="Kilometraje de Retorno">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="km_retorno">Kilometraje de Retorno</label>
+                           <input id="km_retorno" class="form-control" type="text" name="km_retorno" placeholder="Kilometraje de Retorno">
+                        </div>
+                     </div>
+                  </div>  
                   <div class="form-group">
                      <label for="conductor">Conductor</label>
                      <input id="conductor" class="form-control" type="text" name="conductor" placeholder="Conductor de Vehiculo">
                   </div>
+                  
+                  
                   <div class="form-group">
                      <label for="destino">Destino/Origen</label>
-                     <input id="destino" class="form-control" type="text" name="destino" placeholder="Destino- Origen de Vehiculo">
+                     <textarea id="destino" class="form-control" type="text" name="destino" placeholder="Destino- Origen de Vehiculo"></textarea>
                   </div>
                
                
@@ -87,4 +109,6 @@
          </div>
       </div>
    </div>
+
 <?php include "Views/Templates/footer.php";?>
+<script src="<?php echo base_url;?>Assets/js/funciones_vehiculo.js"></script>

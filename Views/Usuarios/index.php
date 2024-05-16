@@ -24,7 +24,7 @@
          <div class="modal-content">
             <div class="modal-header bg-primary">
                <h5 class="modal-title text-white" id="title">Nuevo Usuario</h5>
-               <button class="close" data-dismiss="modal" aria-label="Close">
+               <button class="close text-white" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
             </div>
@@ -77,3 +77,4 @@
    </div>
 
 <?php include "Views/Templates/footer.php";?>
+<script src="<?php echo base_url;?>Assets/js/funciones_usuario.js"></script>
