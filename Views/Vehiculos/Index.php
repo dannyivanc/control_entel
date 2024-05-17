@@ -89,18 +89,12 @@
                      <textarea id="destino" class="form-control" type="text" name="destino" placeholder="Destino- Origen de Vehiculo"></textarea>
                   </div>
                
-               
-                  <div class="form-group">
-                     <!-- <label for="institucion">Institucion</label> -->
-                  
-                  
-                     <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
-                           Registrar
-                        </button>
-                        <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
-                           Cancelar
-                     </button>
-                  </div>
+                  <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
+                     Registrar
+                  </button>
+                  <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
+                     Cancelar
+                  </button>
 
 
                </form>
@@ -112,3 +106,6 @@
 
 <?php include "Views/Templates/footer.php";?>
 <script src="<?php echo base_url;?>Assets/js/funciones_vehiculo.js"></script>
+
+</body>
+</html>

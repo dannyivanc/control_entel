@@ -1,5 +1,5 @@
 <?php
-class Usuarios extends Controller{
+class Instituciones extends Controller{
     public function __construct(){
         session_start();              
         parent::__construct();
@@ -7,30 +7,30 @@ class Usuarios extends Controller{
     }
     public function index(){
         if(empty($_SESSION['activo'])){
-            header("location:".base_url);
-        }
-        $data['instituciones']=$this->model->getInstituciones();
-        $this->views->getView($this,"index",$data);
+           header("location:".base_url);
+         }
+        // $data['instituciones']=$this->model->getInstituciones();
+        $this->views->getView($this,"index");
     }
 
     public function listar(){
-             $data= $this->model->getUsuarios();       
-       
-        for ($i=0; $i <count($data) ; $i++) { 
-            $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
-            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
-            if($data[$i]['estado']==1){
-                $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
-            }else{
-                $data[$i]['estado']='<span class="badge badge-danger">Inactivo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnActivar;
-            }
+        $data= $this->model->getInstituciones2();    
+    
 
-        }
+        // for ($i=0; $i <count($data) ; $i++) { 
+        //     $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+        //     $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+        //     $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
+        //     if($data[$i]['estado']==1){
+        //         $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
+        //         $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+        //     }else{
+        //         $data[$i]['estado']='<span class="badge badge-danger">Inactivo</span>';
+        //         $data[$i]['acciones'] = $btnEditar . $btnActivar;
+        //     }
+        // }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
-        die();
+        // die();
     }
 
       public function validar(){

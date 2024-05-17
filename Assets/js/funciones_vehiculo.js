@@ -1,3 +1,42 @@
+let tblVehiculos;
+
+
+function frmVehiculo(){
+  document.getElementById("title").innerHTML="Registro de Vehiculos";
+  // document.getElementById("btnAccion").innerHTML="Registrar";
+  document.getElementById("frmVehiculo").reset();
+  // document.getElementById("cont-pass").classList.remove("d-none");
+  $("#nuevo_vehiculo").modal("show");
+  document.getElementById("id").value="";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //para controlar salida
     var fechaActual = new Date();    

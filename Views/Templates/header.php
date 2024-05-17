@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -41,19 +41,53 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link ml-2 mt-3" href="<?php echo base_url?>Usuarios"> 
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link ml-1" href="<?php echo base_url?>Usuarios"> 
                                 <i class="fas fa-user mr-3"></i>
                                 Usuarios
                             </a>
-                            <a class="nav-link ml-2" href="<?php echo base_url?>Vehiculos"> 
+                            <!-- para instituciones -->
+                            <a class="nav-link collapsed ml-1" href="#" data-toggle="collapse" data-target="#intitucionesLayouts" aria-expanded="false" aria-controls="intitucionesLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                                    Instituciones
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="intitucionesLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <a class="nav-link ml-3" href="<?php echo base_url?>Instituciones"> 
+                                    <i class="fas fa-building mr-2"></i>
+                                    Institución
+                                </a>
+                                <a class="nav-link ml-3" href="<?php echo base_url?>Vehiculos"> 
+                                    <i class="fas fa-store mr-2"></i>
+                                    Sucursal
+                                </a>
+                            </div>
+
+
+                            <a class="nav-link ml-1" href="<?php echo base_url?>Vehiculos"> 
                                 <i class="fas fa-car-side mr-2"></i>
                                 Vehiculos
                             </a>
-                            <!-- <a class="nav-link ml-2" href="layout-sidenav-light.html">Algo</a> -->
+
+
+                            <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Instituciones
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div> -->
+
+                      
                         </div>
                         
-                       
                     </div>
+
+                    
                     <!-- <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         Start Bootstrap
@@ -65,29 +99,4 @@
                     <div class="container-fluid mt-3">
                         
                        
-                
-                <!-- <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script src="<?php echo base_url?>Assets/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url?>Assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url?>Assets/js/scripts.js"></script>
-        <script src="<?php echo base_url?>Assets/js/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url?>Assets/demo/chart-area-demo.js"></script>
-        <script src="<?php echo base_url?>Assets/demo/chart-bar-demo.js"></script>
-        <script src="<?php echo base_url?>Assets/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url?>Assets/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url?>Assets/demo/datatables-demo.js"></script>
-    </body>
-</html> -->
+    

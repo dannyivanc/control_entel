@@ -56,20 +56,20 @@
                         </div>
                      </div>
                   </div>            
-                     <div class="form-group">
-                        <label for="institucion">Institucion</label>
-                        <select id="institucion" class="form-control" name="institucion">
-                           <?php foreach ($data['instituciones']as $row) {?>
+                  <div class="form-group">
+                     <label for="institucion">Institucion</label>
+                     <select id="institucion" class="form-control" name="institucion">
+                        <?php foreach ($data['instituciones']as $row) {?>
                            <option value="<?php echo $row['id']; ?>" ><?php echo $row['institucion']; ?></option>
-                           <?php } ?>
+                        <?php } ?>
                         </select>
-                        <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
-                           Registrar
-                        </button>
-                        <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
-                           Cancelar
-                        </button>
-                     </div>
+                  </div>
+                  <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
+                     Registrar
+                  </button>
+                  <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
+                     Cancelar
+                  </button>
               </form>
             </div>
          </div>
@@ -77,4 +77,7 @@
    </div>
 
 <?php include "Views/Templates/footer.php";?>
+
 <script src="<?php echo base_url;?>Assets/js/funciones_usuario.js"></script>
+</body>
+</html>
