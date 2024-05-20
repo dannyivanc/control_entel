@@ -1,9 +1,9 @@
-let tblInstituciones;
+let tblSucursales;
 document.addEventListener("DOMContentLoaded",function(){
   //  if(window.location.pathname ===`/control/Usuarios`){
-    tblInstituciones=$('#tblInstituciones').DataTable( {
+    tblInstituciones=$('#tblSucursales').DataTable( {
       ajax: {
-          url: base_url+"Instituciones/listar",
+          url: base_url+"Sucursales/listar",
           dataSrc: ''
       },
       columns: [ 
@@ -11,14 +11,23 @@ document.addEventListener("DOMContentLoaded",function(){
         'data':'index',
       },    
       {
-        'data':'institucion',
+        'data':'Sucursal',
       },
       {
-        'data':'estado',
+        'data':'Institución',
       },
       {
-        'data':'acciones',
+        'data':'Vigilante',
       },
+      {
+        'data':'Ciudad',
+      },
+      {
+        'data':'Direccion',
+      },
+      {
+        'data':'Acciones',
+      }
       
     ],
     language: {

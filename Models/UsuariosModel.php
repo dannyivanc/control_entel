@@ -12,13 +12,13 @@
         }
 
         public function getInstituciones(){
-            $sql="SELECT * FROM institucion WHERE estado = 1";
+            $sql="SELECT * FROM instituciones WHERE estado = 1";
             $data= $this->selectAll($sql);
             return $data;
         }
 
         public function getUsuarios(){
-            $sql="SELECT u.* , i.id as id_institucion, i.institucion FROM usuarios u INNER JOIN institucion i where u.id_institucion = i.id ";
+            $sql="SELECT u.* , i.id as id_institucion, i.institucion FROM usuarios u INNER JOIN instituciones i where u.id_institucion = i.id  ORDER BY id DESC";
             $data= $this->selectAll($sql);
             return $data;
         }

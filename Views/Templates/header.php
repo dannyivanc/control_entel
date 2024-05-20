@@ -57,7 +57,7 @@
                                     <i class="fas fa-building mr-2"></i>
                                     Institución
                                 </a>
-                                <a class="nav-link ml-3" href="<?php echo base_url?>Vehiculos"> 
+                                <a class="nav-link ml-3" href="<?php echo base_url?>Sucursales"> 
                                     <i class="fas fa-store mr-2"></i>
                                     Sucursal
                                 </a>

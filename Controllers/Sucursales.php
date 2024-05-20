@@ -1,5 +1,5 @@
 <?php
-class Instituciones extends Controller{
+class Sucursales extends Controller{
     public function __construct(){
         session_start();              
         parent::__construct();

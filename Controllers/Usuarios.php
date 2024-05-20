@@ -17,6 +17,7 @@ class Usuarios extends Controller{
              $data= $this->model->getUsuarios();       
        
         for ($i=0; $i <count($data) ; $i++) { 
+            $data[$i]['index']=$i+1;
             $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';

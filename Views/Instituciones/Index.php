@@ -1,12 +1,13 @@
 <?php include "Views/Templates/header.php";?>
    <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Registro de Instituciones</li>
+      <li class="breadcrumb-item active">Instituciones</li>
    </ol>    
    <button class="btn btn-primary mb-2" type="button" onclick="frmInstitucion();">Nuevo   <i class="fas fa-plus"></i></button>  
 
    <table class="table  table-light custom-table " id="tblInstituciones">
          <thead class="thead-dark">
             <tr>  
+               <th>Nº</th>
                <th>Institución</th>
                <th>Estado</th>
                <th>Acciones</th>                  
@@ -25,14 +26,14 @@
                </button>
             </div>
             <div class="modal-body">
-               <form method="post" id="frmInstitucion" action="">
-                  <input type="hidden"id="id" name="id">   
+               <form method="post" id="frmInstitucion" action="">            
+               <input type="hidden"id="id" name="id">      
                   <div class="form-group">
                      <label for="institucion">Institucion</label>
                      <input id="institucion" class="form-control" type="text" name="institucion" placeholder="Nombre de la Institución">
                   </div>
                   
-                  <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarInstitucion(event);">
+                  <button id ="btn_form_institucion" class="btn btn-primary mt-3" type="button" onclick="registrarInstitucion(event);">
                      Registrar
                   </button>
                   <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">

@@ -7,6 +7,7 @@
    <table class="table  table-light custom-table " id="tblUsuarios">
          <thead class="thead-dark">
             <tr>
+               <th>Nº</th>
                <th>Usuario</th>
                <th>Nombre</th>
                <th>Carnet</th>
