@@ -12,7 +12,8 @@
                <th>Institución</th>
                <th>Vigilante</th>
                <th>Ciudad</th>
-               <th>Direccion</th>          
+               <th>Direccion</th> 
+               <th>Estado</th>     
                <th>Acciones</th>                  
             </tr>
          </thead>

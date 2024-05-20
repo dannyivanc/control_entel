@@ -1,7 +1,7 @@
 let tblSucursales;
 document.addEventListener("DOMContentLoaded",function(){
   //  if(window.location.pathname ===`/control/Usuarios`){
-    tblInstituciones=$('#tblSucursales').DataTable( {
+    tblSucursales=$('#tblSucursales').DataTable( {
       ajax: {
           url: base_url+"Sucursales/listar",
           dataSrc: ''
@@ -11,22 +11,25 @@ document.addEventListener("DOMContentLoaded",function(){
         'data':'index',
       },    
       {
-        'data':'Sucursal',
+        'data':'sucursal',
       },
       {
-        'data':'Institución',
+        'data':'institucion',
       },
       {
-        'data':'Vigilante',
+        'data':'vigilante',
       },
       {
-        'data':'Ciudad',
+        'data':'ciudad',
       },
       {
-        'data':'Direccion',
+        'data':'direccion',
       },
       {
-        'data':'Acciones',
+        'data':'estado',
+      },
+      {
+        'data':'acciones',
       }
       
     ],
@@ -59,28 +62,35 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 
-function frmInstitucion(){
-  document.getElementById("title").innerHTML="Registro de Instituciones";
+function frmSucursal(){
+  document.getElementById("title").innerHTML="Registro de Sucursal";
   // document.getElementById("btnAccion").innerHTML="Registrar";
-  document.getElementById("frmInstitucion").reset();
+  document.getElementById("frmSucursal").reset();
   // document.getElementById("cont-pass").classList.remove("d-none");
-  $("#nuevo_institucion").modal("show");
+  $("#nuevo_sucursal").modal("show");
   document.getElementById("id").value="";
 }
-function registrarInstitucion (e){
+
+   
+
+function registrarSucursal (e){
   e.preventDefault();
+  const sucursal = document.getElementById("sucursal"); 
   const institucion = document.getElementById("institucion"); 
-  if(institucion.value==""){
+  const vigilante = document.getElementById("vigilante"); 
+  const ciudad = document.getElementById("ciudad"); 
+  const direccion = document.getElementById("direccion"); 
+  if(sucursal.value=="" || institucion.value=="" || vigilante.value=="" || ciudad.value=="" || direccion.value=="" ){
     Swal.fire({
       position: "top",
       icon: "error",
-      title: "Introduzca el nombre de la institución ",
+      title: "Los campos son obligatorios ",
       showConfirmButton: false,
       timer: 2000
     }); 
   }else{
-      const url = base_url + "Instituciones/registrar";
-      const frm=document.getElementById("frmInstitucion");
+      const url = base_url + "Sucursales/registrar";
+      const frm=document.getElementById("frmSucursal");
       const http = new XMLHttpRequest();
       http.open("POST",url,true);
       http.send(new FormData(frm));
@@ -91,23 +101,23 @@ function registrarInstitucion (e){
               Swal.fire({
                 position: "top",
                 icon: "success",
-                title: "Institución registrada con exito",
+                title: "Sucursal registrada con exito",
                 showConfirmButton: false,
                 timer: 2000
               });  
               frm.reset();
-              $("#nuevo_institucion").modal("hide");
-              tblInstituciones.ajax.reload();
+              $("#nuevo_sucursal").modal("hide");
+              tblSucursales.ajax.reload();
             }else if(res=="modificado"){
               Swal.fire({
                 position: "top",
                 icon: "success",
-                title: "Institución modificada con exito",
+                title: "Sucursal modificada con exito",
                 showConfirmButton: false,
                 timer: 2000
               });  
-              $("#nuevo_institucion").modal("hide");
-              tblInstituciones.ajax.reload();
+              $("#nuevo_sucursal").modal("hide");
+              tblSucursales.ajax.reload();
             }else{
               Swal.fire({
                 position: "top",
@@ -119,13 +129,8 @@ function registrarInstitucion (e){
             }
           }
       }
-     
   }
 }
-
-
-
-
 function btnEditarInstitucion(id){
   document.getElementById("title").innerHTML="Actualizar Institución";
   document.getElementById("btn_form_institucion").innerHTML="Actualizar";
@@ -142,7 +147,6 @@ function btnEditarInstitucion(id){
       }
   }
 }
-
 function btnDesactivarInstitucion(id){
   Swal.fire({
     title: "Desactivar Usuario",
@@ -222,4 +226,4 @@ function btnActivarInstitucion(id){
       }    
     }
   });
-}   
+}

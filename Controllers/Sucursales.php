@@ -10,13 +10,13 @@ class Sucursales extends Controller{
     }
 
     public function listar(){
-        $data= $this->model->getInstituciones();   
+        $data= $this->model->getSucursales();   
    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
-            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
+            $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarSucursal('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
                 $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
                 $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
@@ -29,28 +29,31 @@ class Sucursales extends Controller{
         die();
     }
 
-    
     public function registrar(){
-        $institucion= $_POST['institucion'];      
+        $sucursal= $_POST['sucursal'];      
+        $institucion= $_POST['institucion'];   
+        $vigilante= $_POST['vigilante'];   
+        $ciudad= $_POST['ciudad'];   
+        $direccion= $_POST['direccion'];   
         $id= $_POST['id'];     
-        if(empty($institucion)){
-            $msg= "El nombre es obligatorio";
+        if(empty($sucursal)||empty($institucion)|| empty($vigilante)|| empty($vigilante) ||empty($ciudad) ||empty($direccion)){
+            $msg= "Todos lso campos son obligatorios";
         }else{
             if($id==""){
-                $data= $this->model->registrarInstitucion($institucion);
+                $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilante,$ciudad,$direccion);
                 if($data=="ok"){
                     $msg ="si";
                 }else if($data=="existe") {
-                    $msg ="La institucion ya se encuentra registrada";
+                    $msg ="La sucursal ya se encuentra registrada";
                 }else{
-                    $msg="Error al registrar la institucion";
+                    $msg="Error al registrar la sucursal";
                 }
             }else{              
-                $data= $this->model->modificarInstitucion($institucion,$id);
+                $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilante,$ciudad,$direccion,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{
-                    $msg="Error al modificar institucion";
+                    $msg="Error al modificar la sucursal";
                 }      
             }  
         }
