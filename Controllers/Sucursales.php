@@ -6,7 +6,11 @@ class Sucursales extends Controller{
     
     }
     public function index(){     
-        $this->views->getView($this,"index");
+        if(empty($_SESSION['activo'])){
+            header("location:".base_url);
+        }
+        $data['instituciones']=$this->model->getInstituciones();
+        $this->views->getView($this,"index",$data);
     }
 
     public function listar(){
@@ -14,15 +18,15 @@ class Sucursales extends Controller{
    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarSucursal('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarSucursal('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
-                $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
+                $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
                 $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
             }else{
-                $data[$i]['estado']='<span class="badge badge-danger">Inactivo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnActivar;
+                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
+                $data[$i]['acciones'] =  $btnActivar;
             }
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);

@@ -8110,9 +8110,18 @@ textarea.form-control-lg {
   color: #6c757d !important;
 }
 
+.text-black-25 {
+  --bs-text-opacity: 1;
+  color: rgba(0, 0, 0, 0.25) !important;
+}
+
 .text-black-50 {
   --bs-text-opacity: 1;
   color: rgba(0, 0, 0, 0.5) !important;
+}
+.text-black-70 {
+  --bs-text-opacity: 1;
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .text-white-50 {
@@ -8201,8 +8210,15 @@ textarea.form-control-lg {
   background-color: transparent !important;
 }
 
+.bg-opacity-5 {
+  --bs-bg-opacity: 0.05;
+}
+
 .bg-opacity-10 {
   --bs-bg-opacity: 0.1;
+}
+.bg-opacity-20 {
+  --bs-bg-opacity: 0.2;
 }
 
 .bg-opacity-25 {

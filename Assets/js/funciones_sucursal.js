@@ -8,28 +8,28 @@ document.addEventListener("DOMContentLoaded",function(){
       },
       columns: [ 
       {
-        'data':'index',
+        'data':'index','width': '3%','className': 'text-end',
       },    
       {
-        'data':'sucursal',
+        'data':'sucursal','className': 'text-end',
       },
       {
-        'data':'institucion',
+        'data':'institucion','className': 'text-end',
       },
       {
-        'data':'vigilante',
+        'data':'id_vigilante','className': 'text-end',
       },
       {
-        'data':'ciudad',
+        'data':'ciudad','className': 'text-end',
       },
       {
-        'data':'direccion',
+        'data':'direccion','className': 'text-end',
       },
       {
-        'data':'estado',
+        'data':'estado','className': 'text-end',
       },
       {
-        'data':'acciones',
+        'data':'acciones','width': '12%','className': 'text-center',
       }
       
     ],
@@ -70,8 +70,6 @@ function frmSucursal(){
   $("#nuevo_sucursal").modal("show");
   document.getElementById("id").value="";
 }
-
-   
 
 function registrarSucursal (e){
   e.preventDefault();
@@ -142,15 +140,14 @@ function btnEditarInstitucion(id){
       if(this.readyState==4 && this.status==200){     
         const res = JSON.parse(this.responseText);
         document.getElementById("id").value=res.id;
-        document.getElementById("institucion").value=res.institucion;
+        document.getElementById("institucion").value=res.id_institucion;
         $("#nuevo_institucion").modal("show");
       }
   }
 }
-function btnDesactivarInstitucion(id){
+function btnDesactivarSucursal(id){
   Swal.fire({
-    title: "Desactivar Usuario",
-    text: "El usuario ya no tendra acceso",
+    title: "Desactivar Sucursal",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -159,7 +156,7 @@ function btnDesactivarInstitucion(id){
     cancelButtonText :"Cancelar"
   }).then((result) => {
     if (result.isConfirmed) {   
-      const url = base_url + "Instituciones/desactivar/"+id;  
+      const url = base_url + "Sucursales/desactivar/"+id;  
       const http = new XMLHttpRequest();
       http.open("GET",url,true);
       http.send();
@@ -169,7 +166,7 @@ function btnDesactivarInstitucion(id){
            if(res=="ok"){
             Swal.fire({
               title: "Desactivado",
-              text: "El usuario desactivado con exito",
+              text: "La sucursal desactivado con exito",
               icon: "success"
             });
             tblInstituciones.ajax.reload();
@@ -187,10 +184,9 @@ function btnDesactivarInstitucion(id){
     }
   });
 }
-function btnActivarInstitucion(id){
+function btnActivarSucursal(id){
   Swal.fire({
-    title: "Activar Usuario",
-    // text: "El usuario tendra acceso nuevamente",
+    title: "Activar Sucursal",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -199,7 +195,7 @@ function btnActivarInstitucion(id){
     cancelButtonText :"Cancelar"
   }).then((result) => {
     if (result.isConfirmed) {   
-      const url = base_url + "Instituciones/activar/"+id;  
+      const url = base_url + "Sucursales/activar/"+id;  
       const http = new XMLHttpRequest();
       http.open("GET",url,true);
       http.send();
@@ -209,7 +205,7 @@ function btnActivarInstitucion(id){
            if(res=="ok"){
             Swal.fire({
               title: "Activado",
-              text: "El usuario activado con exito",
+              text: "La sucursal activado con exito",
               icon: "success"
             });
             tblInstituciones.ajax.reload();

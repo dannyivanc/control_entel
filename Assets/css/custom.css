@@ -31,6 +31,32 @@
     font-weight: bold; 
     text-shadow: 2px 10px 4px rgba(0, 0, 0); 
 }
+
+/* de header  */
+.logo_said_navbar{
+    width: 58px;
+}
+
+.custom-table{
+    width: 100% !important;
+}
+
+
+
+.btn-x{
+    filter: invert(1) !important;
+}
+
+
+.custom-hei{
+    height: 40px !important;
+}
+
+.mycustom-arrow{
+    right: 10px !important;
+    top:35px !important
+}
+
 @media (min-width: 801) and (max-width: 1400px) {
     .login-said_img {
         margin-top: 50px;
@@ -68,26 +94,10 @@
         text-align: center;
         margin-top: -10px;
         font-size: 20px;
-        /* display:block; */
-       
-        
+        /* display:block; */   
+    }
+    .custom-hei{
+        height: 60px !important;
     }
 }
 
-
-
-
-/* de header  */
-.logo_said_navbar{
-    width: 58px;
-}
-
-.custom-table{
-    width: 100% !important;
-}
-
-
-
-.btn-x{
-    filter: invert(1) !important;
-}

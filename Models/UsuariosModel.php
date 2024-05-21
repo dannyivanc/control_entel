@@ -18,7 +18,10 @@
         }
 
         public function getUsuarios(){
-            $sql="SELECT u.* , i.id as id_institucion, i.institucion FROM usuarios u INNER JOIN instituciones i where u.id_institucion = i.id  ORDER BY id DESC";
+            $sql="SELECT u.* , i.id as id_institucion, i.institucion 
+            FROM usuarios as u 
+            INNER JOIN instituciones as i ON u.id_institucion = i.id  
+            ORDER BY id DESC";
             $data= $this->selectAll($sql);
             return $data;
         }

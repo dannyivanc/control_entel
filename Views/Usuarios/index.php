@@ -1,10 +1,16 @@
 <?php include "Views/Templates/header.php";?>
-   <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Usuarios</li>
-   </ol>    
-   <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">Nuevo   <i class="fas fa-plus"></i> </button>  
 
-   <table class="table  table-light custom-table " id="tblUsuarios">
+   <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3" style="height: 40px;">
+      <h2 class="text-black-50 fs-4" >Usuarios</h4>
+   </div>
+
+   <div class="d-flex justify-content-center justify-content-md-start">
+      <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">
+         Nuevo <i class="fas fa-plus"></i>
+      </button>
+   </div>
+      
+   <table class="table  table-light table-bordered  custom-table " id="tblUsuarios">
          <thead class="thead-dark">
             <tr>
                <th>Nº</th>
@@ -30,9 +36,9 @@
             </div>
             <div class="modal-body">
               <form method="post" id="frmUsuario" action="">
+              <input type="hidden"id="id" name="id">    
                   <div class="form-group">
-                     <label for="usuario">Usuario</label>
-                     <input type="hidden"id="id" name="id">                     
+                     <label for="usuario">Usuario</label>       
                      <input id="usuario" class="form-control" type="text" name="usuario" placeholder="Usuario">
                   </div>
                   <div class="form-group">

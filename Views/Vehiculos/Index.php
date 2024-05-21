@@ -1,8 +1,13 @@
 <?php include "Views/Templates/header.php";?>
-   <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Registro de ingreso y salida de Vehiculos</li>
-   </ol>    
-   <button class="btn btn-primary mb-2" type="button" onclick="frmVehiculo();">Nuevo   <i class="fas fa-plus"></i></button>  
+
+   <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3 custom-hei">
+      <h2 class="text-black-50 fs-4" >Registro de entrada-salida de Vehiculos</h4>
+   </div>
+   <div class="d-flex justify-content-center justify-content-md-start">
+      <button class="btn btn-primary mb-2" type="button" onclick="frmVehiculo();">
+         Nuevo <i class="fas fa-plus"></i>
+      </button>
+   </div>
 
    <table class="table  table-light custom-table " id="tblVehiculos">
          <thead class="thead-dark">
@@ -26,8 +31,7 @@
          <div class="modal-content">
             <div class="modal-header bg-primary">
                <h5 class="modal-title text-white" id="title">Nuevo Vehiculo</h5>
-               <button class="close text-white" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+               <button class="btn-close btn-x" data-bs-dismiss="modal" aria-label="Close">              
                </button>
             </div>
             <div class="modal-body">
@@ -92,7 +96,7 @@
                   <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
                      Registrar
                   </button>
-                  <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
+                  <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">
                      Cancelar
                   </button>
 

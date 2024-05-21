@@ -7,26 +7,26 @@ document.addEventListener("DOMContentLoaded",function(){
             dataSrc: ''
         },
         columns: [ 
-        {
-          'data':'index',    
+        { 
+          'data':'index','width': '3%','className': 'text-end',
         },
         {
-          'data':'usuario',
+          'data':'usuario','className': 'text-end',
         },
         {
-          'data':'nombre',
+          'data':'nombre','className': 'text-end',
         },
         {
-          'data':'carnet',
+          'data':'carnet','className': 'text-end',
         },
         {
-          'data':'institucion',
+          'data':'institucion','className': 'text-end',
         },
         {
-          'data':'estado',
+          'data':'estado','className': 'text-end',
         },
         {
-          'data': 'acciones',
+          'data': 'acciones','width': '12%','className': 'text-center',
         }
       ],
       language: {

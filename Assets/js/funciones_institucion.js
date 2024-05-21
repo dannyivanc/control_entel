@@ -8,16 +8,16 @@ document.addEventListener("DOMContentLoaded",function(){
       },
       columns: [ 
       {
-        'data':'index',
+        'data':'index','width': '3%','className': 'text-end',
       },    
       {
-        'data':'institucion',
+        'data':'institucion','className': 'text-end',
       },
       {
-        'data':'estado',
+        'data':'estado','className': 'text-end',
       },
       {
-        'data':'acciones',
+        'data':'acciones','width': '12%','className': 'text-center',
       },
       
     ],
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded",function(){
   });
   //  }
 })
-
 
 function frmInstitucion(){
   document.getElementById("title").innerHTML="Registro de Instituciones";
@@ -113,9 +112,6 @@ function registrarInstitucion (e){
      
   }
 }
-
-
-
 
 function btnEditarInstitucion(id){
   document.getElementById("title").innerHTML="Actualizar Institución";

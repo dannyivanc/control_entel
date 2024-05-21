@@ -6,6 +6,9 @@ class Instituciones extends Controller{
     
     }
     public function index(){     
+        if(empty($_SESSION['activo'])){
+            header("location:".base_url);
+        }
         $this->views->getView($this,"index");
     }
 
@@ -14,15 +17,15 @@ class Instituciones extends Controller{
    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnEditar= '<button class="btn btn-primary mr-1" type="button" onClick="btnEditarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarInstitucion('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
-                $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
+                $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
                 $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
             }else{
-                $data[$i]['estado']='<span class="badge badge-danger">Inactivo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnActivar;
+                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
+                $data[$i]['acciones'] = $btnActivar;
             }
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
