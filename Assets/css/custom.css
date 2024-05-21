@@ -1,5 +1,5 @@
 .background{
-    background-image: url('../img/bg-image.jpg');
+    background-image: url('../img/bg-image.jpg') !important;
 }
 .login-said{
     text-align: center;
@@ -84,4 +84,10 @@
 
 .custom-table{
     width: 100% !important;
+}
+
+
+
+.btn-x{
+    filter: invert(1) !important;
 }

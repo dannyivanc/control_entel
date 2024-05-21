@@ -25,8 +25,7 @@
          <div class="modal-content">
             <div class="modal-header bg-primary">
                <h5 class="modal-title text-white" id="title">Nuevo Usuario</h5>
-               <button class="close text-white" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+               <button class="btn-close btn-x" data-bs-dismiss="modal" aria-label="Close">              
                </button>
             </div>
             <div class="modal-body">
@@ -68,7 +67,7 @@
                   <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
                      Registrar
                   </button>
-                  <button class="btn btn-danger  mt-3" type="button" data-dismiss="modal">
+                  <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">
                      Cancelar
                   </button>
               </form>

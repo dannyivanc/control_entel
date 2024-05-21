@@ -22,10 +22,10 @@ class Usuarios extends Controller{
             $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
-                $data[$i]['estado']='<span class="badge badge-success">Activo</span>';
+                $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
                 $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
             }else{
-                $data[$i]['estado']='<span class="badge badge-danger">Inactivo</span>';
+                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
                 $data[$i]['acciones'] = $btnEditar . $btnActivar;
             }
 
