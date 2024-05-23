@@ -29,8 +29,8 @@
                         <i class="fas fa-user fa-fw "></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Perfil</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url;?>Usuarios/salir">Cerrar sesion</a></li>
+                        <li><a class="dropdown-item"  href="<?php echo base_url;?>Perfil">Perfil</a></li>
+                        <li><a class="dropdown-item"  href="<?php echo base_url;?>Usuarios/salir">Cerrar sesion</a></li>
                     </ul>
                 </li>
             </ul>

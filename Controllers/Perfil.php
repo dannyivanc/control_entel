@@ -1,5 +1,5 @@
 <?php
-class Usuarios extends Controller{
+class Perfil extends Controller{
     public function __construct(){
         session_start();              
         parent::__construct();
@@ -9,8 +9,11 @@ class Usuarios extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
-        $data['instituciones']=$this->model->getInstituciones();
-        $this->views->getView($this,"index",$data);
+        $this->views->getView($this,"index");
+    }
+
+    public function usuario(){
+        echo($_SESSION['usuario']);
     }
 
     public function listar(){
