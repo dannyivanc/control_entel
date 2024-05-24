@@ -6,17 +6,19 @@
             parent::__construct();
         }
         public function getPerfil(){
-            $id = $_SESSION['id_usuario'];
-            $sql="SELECT * FROM usuarios WHERE id = '$id'";
+            $id = $_SESSION['id_usuario'];          
+            $sql="SELECT *
+            FROM usuarios 
+            where id=$id";
             $data= $this->select($sql);
             return $data;
         }
 
-        public function getInstituciones(){
-            $sql="SELECT * FROM instituciones WHERE estado = 1";
-            $data= $this->selectAll($sql);
-            return $data;
-        }
+        // public function getInstituciones(){
+        //     $sql="SELECT * FROM instituciones WHERE estado = 1";
+        //     $data= $this->selectAll($sql);
+        //     return $data;
+        // }
 
         public function getUsuarios(){
             $sql="SELECT u.* , i.id as id_institucion, i.institucion 
