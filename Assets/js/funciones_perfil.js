@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded",function(){
+  
   //  if(window.location.pathname ===`/control/Usuarios`){
-    tblInstituciones=$('#tblInstituciones').DataTable( {
-      ajax: {
-          url: base_url+"Perfil/usuario",
-          dataSrc: ''
-      },
+  //   tblInstituciones=$('#tblInstituciones').DataTable( {
+  //     ajax: {
+  //         url: base_url+"Perfil/usuario",
+  //         dataSrc: ''
+  //     },
 
 
-  });
+  // });
   //  }
 })
     function frmPerfil(){

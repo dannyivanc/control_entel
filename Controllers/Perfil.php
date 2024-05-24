@@ -12,54 +12,56 @@ class Perfil extends Controller{
         $this->views->getView($this,"index");
     }
 
-    public function usuario(){
-        echo($_SESSION['usuario']);
-    }
-
-    public function listar(){
-             $data= $this->model->getUsuarios();       
-       
-        for ($i=0; $i <count($data) ; $i++) { 
-            $data[$i]['index']=$i+1;
-            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
-            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
-            if($data[$i]['estado']==1){
-                $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
-            }else{
-                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
-                $data[$i]['acciones'] = $btnActivar;
-            }
-
-        }
+    public function verPerfil(){
+        $data= $this->model->getPerfil();   
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
 
-    public function validar(){
-        if(empty($_POST['usuario']) || empty($_POST['clave'])){
-            $msg = "Los campos estan vacios";
-        }else{
-            $usuario = $_POST['usuario'];
-            $clave = $_POST['clave'];
-            $hash = hash("SHA256",$clave);
-            $data =$this->model->getUsuario($usuario,$hash);
-           
-            if($data){
-                $_SESSION['id_usuario']=$data['id'];
-                $_SESSION['usuario']=$data['usuario'];
-                $_SESSION['nombre']=$data['nombre'];
-                $_SESSION['activo']=true;
-                $msg="ok";
-            }else{
-                $msg ="Usuario o contraseña incorrecta";
-            }
-        }
-        echo json_encode($msg, JSON_UNESCAPED_UNICODE);
+    // public function listar(){
+    //          $data= $this->model->getUsuarios();       
        
-        die();
-    }
+    //     for ($i=0; $i <count($data) ; $i++) { 
+    //         $data[$i]['index']=$i+1;
+    //         $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+    //         $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+    //         $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
+    //         if($data[$i]['estado']==1){
+    //             $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
+    //             $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+    //         }else{
+    //             $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
+    //             $data[$i]['acciones'] = $btnActivar;
+    //         }
+
+    //     }
+    //     echo json_encode($data,JSON_UNESCAPED_UNICODE);
+    //     die();
+    // }
+
+    // public function validar(){
+    //     if(empty($_POST['usuario']) || empty($_POST['clave'])){
+    //         $msg = "Los campos estan vacios";
+    //     }else{
+    //         $usuario = $_POST['usuario'];
+    //         $clave = $_POST['clave'];
+    //         $hash = hash("SHA256",$clave);
+    //         $data =$this->model->getUsuario($usuario,$hash);
+           
+    //         if($data){
+    //             $_SESSION['id_usuario']=$data['id'];
+    //             $_SESSION['usuario']=$data['usuario'];
+    //             $_SESSION['nombre']=$data['nombre'];
+    //             $_SESSION['activo']=true;
+    //             $msg="ok";
+    //         }else{
+    //             $msg ="Usuario o contraseña incorrecta";
+    //         }
+    //     }
+    //     echo json_encode($msg, JSON_UNESCAPED_UNICODE);
+       
+    //     die();
+    // }
 
     
     public function registrar(){
