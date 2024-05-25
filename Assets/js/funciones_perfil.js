@@ -6,12 +6,6 @@ document.addEventListener("DOMContentLoaded",function(){
       http.onreadystatechange = function(){
           if(this.readyState==4 && this.status==200){     
             const res = JSON.parse(this.responseText);
-            // console.log(res);
-    
-            //provando para la contraseña
-            // var clave_ant = document.getElementById("clave_ant");  
-            // clave_ant.value = res.clave;
-            //provando para la contraseña
     
             document.getElementById("id").value=res.id;
             document.getElementById("usuario").value=res.usuario;
@@ -19,14 +13,6 @@ document.addEventListener("DOMContentLoaded",function(){
             document.getElementById("carnet").value=res.carnet;
             document.getElementById("clave").value=res.clave;   
             document.getElementById("institucion").value=res.id_institucion;   
-
-            // document.getElementById("institucion").value=res.id_institucion;
-    
-            // document.getElementById("cont-pass").classList.add("d-none");
-    
-            //conrovando si la contraseña esta
-            // document.getElementById("clave_ant").value= clave_ant.value; 
-            
           }
       }
 })
@@ -36,104 +22,92 @@ document.addEventListener("DOMContentLoaded",function(){
     function frmpassword(){
       $("#change_pass").modal("show");
       const id = document.getElementById('id').value;
-      const clave= document.getElementById('clave').value;
-      console.log(id)
-      console.log(clave)
+      const clave = document.getElementById('clave').value;
+      document.getElementById('modal-id').value = id;
+      document.getElementById('modal-clave').value = clave;      
     }
-    function editPass (e){
-      e.preventDefault();
-      const usuario = document.getElementById("usuario");
-      const nombre = document.getElementById("nombre");
-      const carnet = document.getElementById("carnet");
-      const clave = document.getElementById("clave");
-      const institucion = document.getElementById("institucion");
     
-      if(usuario.value=="" ||nombre.value=="" ||carnet.value==""||clave.value==""||institucion.value==""){
-        Swal.fire({
-          position: "top",
-          icon: "error",
-          title: "Todos los campos son obligatorios",
-          showConfirmButton: false,
-          timer: 2000
-        });
-      }else{
-          const url = base_url + "Usuarios/registrar";
-          const frm=document.getElementById("frmUsuario");
-          const http = new XMLHttpRequest();
-          http.open("POST",url,true);
-          http.send(new FormData(frm));
-          http.onreadystatechange = function(){
-              if(this.readyState==4 && this.status==200){ 
-                const res= JSON.parse(this.responseText);
-                if(res=="si"){
-                  Swal.fire({
-                    position: "top",
-                    icon: "success",
-                    title: "Usuario registrado con exito",
-                    showConfirmButton: false,
-                    timer: 2000
-                  });  
-                  frm.reset();
-                  $("#nuevo_usuario").modal("hide");
-                  tblUsuarios.ajax.reload();
-                }else if(res=="modificado"){
-                  Swal.fire({
-                    position: "top",
-                    icon: "success",
-                    title: "Usuario modificado con exito",
-                    showConfirmButton: false,
-                    timer: 2000
-                  });  
-                  $("#nuevo_usuario").modal("hide");
-                  tblUsuarios.ajax.reload();
-                }else{
-                  Swal.fire({
-                    position: "top",
-                    icon: "error",
-                    title: res,
-                    showConfirmButton: false,
-                    timer: 2000
-                  });
-                }
-              }
-          }
-        
-      }
+    function btnEditarPerfil (e){
+      e.preventDefault();
+
+        const id = document.getElementById('modal-id').value;
+        const claveVerificar = document.getElementById('modal-clave').value;
+        const claveActual = document.getElementById('clave-act');
+        const claveNueva = document.getElementById('clave-new');
+        const claveRepetida = document.getElementById('clave-rep'); 
+        console.log("ID: " + id);
+        console.log("asd"+ claveVerificar);
+
+        if(claveActual.value=="" ||claveNueva.value=="" ||claveRepetida.value==""){
+          Swal.fire({
+            position: "top",
+            icon: "error",
+            title: "Todos los campos son obligatorios",
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }else{
+          console.log('perrire')
+          console.log(claveActual.value)
+          console.log(claveNueva)
+          console.log(claveRepetida)
+            // const url = base_url + "Usuarios/registrar";
+            // const frm=document.getElementById("frmUsuario");
+            // const http = new XMLHttpRequest();
+            // http.open("POST",url,true);
+            // http.send(new FormData(frm));
+            // http.onreadystatechange = function(){
+            //     if(this.readyState==4 && this.status==200){ 
+            //       const res= JSON.parse(this.responseText);
+            //       if(res=="si"){
+            //         Swal.fire({
+            //           position: "top",
+            //           icon: "success",
+            //           title: "Usuario registrado con exito",
+            //           showConfirmButton: false,
+            //           timer: 2000
+            //         });  
+            //         frm.reset();
+            //         $("#nuevo_usuario").modal("hide");
+            //         tblUsuarios.ajax.reload();
+            //       }else if(res=="modificado"){
+            //         Swal.fire({
+            //           position: "top",
+            //           icon: "success",
+            //           title: "Usuario modificado con exito",
+            //           showConfirmButton: false,
+            //           timer: 2000
+            //         });  
+            //         $("#nuevo_usuario").modal("hide");
+            //         tblUsuarios.ajax.reload();
+            //       }else{
+            //         Swal.fire({
+            //           position: "top",
+            //           icon: "error",
+            //           title: res,
+            //           showConfirmButton: false,
+            //           timer: 2000
+            //         });
+            //       }
+            //     }
+            // }
+           
+        }
     }
 
  
-    function btnEditarPerfil (id){
-      document.getElementById("title").innerHTML="Actualizar usuario";
-      document.getElementById("btn_form_usuario").innerHTML="Actualizar";
-      const url = base_url + "Perfil/editar/"+id;  
-      const http = new XMLHttpRequest();
-      http.open("GET",url,true);
-      http.send();
-      http.onreadystatechange = function(){
-          if(this.readyState==4 && this.status==200){     
-            const res = JSON.parse(this.responseText);
-    
-            //provando para la contraseña
-            var clave_ant = document.getElementById("clave_ant");  
-            clave_ant.value = res.clave;
-            //provando para la contraseña
-    
-            document.getElementById("id").value=res.id;
-            document.getElementById("usuario").value=res.usuario;
-            document.getElementById("nombre").value=res.nombre;
-            document.getElementById("carnet").value=res.carnet;
-            document.getElementById("clave").value=res.clave;      
-            document.getElementById("institucion").value=res.id_institucion;
-    
-            // document.getElementById("cont-pass").classList.add("d-none");
-    
-            //conrovando si la contraseña esta
-            document.getElementById("clave_ant").value= clave_ant.value; 
-            
-            $("#nuevo_usuario").modal("show");
-          }
-      }
-    }
+    // function btnEditarPerfil (e){
+    //   e.preventDefault();
+    //   console.log('asd')
+    //   // const ids = document.getElementById('modal-id').value;
+    //   // const claveActual = document.getElementById('clave-act').value;
+    //   // const claveNueva = document.getElementById('clave-new').value;
+    //   // const claveRepetida = document.getElementById('clave-rep').value;
+    //   // console.log("ID: " + ids);
+    //   // console.log("Clave Actual: " + claveActual);
+    //   // console.log("Clave Nueva: " + claveNueva);
+    //   // console.log("Clave Repetida: " + claveRepetida);
+    // }
    
    // para contraseñas
     $(document).ready(function(){

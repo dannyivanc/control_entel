@@ -24,7 +24,7 @@
                   </div>
                   <div class="form-group">
                      <label for="institucion">Institucion</label>
-                     <input id="institucion" class="form-control" type="text" name="institucion"  disabled>
+                     <input id="institucion" class="form-control" type="text" name="institucion" placeholder="Institucion"  disabled>
                   </div>
                   
                   <div class="d-flex justify-content-center justify-content-md-start mt-4">
@@ -44,6 +44,8 @@
                      </div>
                      <div class="modal-body">
                      <form method="post" id="frmpassword" action="">
+                           <input type="hidden" id="modal-id" name="modal-i">
+                           <input type="hidden" id="modal-clave" name="modal-clave">
          
                            <div class="form-group" id="cont-old">
                               <label for="clave-act">Contraseña actual</label>
@@ -80,8 +82,8 @@
                                  </div>
                               </div>
                            </div>  
-                           <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
-                              Registrar
+                           <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="btnEditarPerfil(event);">
+                              Modificar
                            </button>
                            <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">
                               Cancelar
