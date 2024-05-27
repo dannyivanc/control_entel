@@ -7,7 +7,7 @@
 
    </div>
       <div>
-            <form method="post" id="frmPerfil" action="">
+            <form method="post" action="">
               <input type="hidden"id="id" name="id">    
               <input type="hidden"id="clave" name="clave">    
                   <div class="form-group">
@@ -28,7 +28,7 @@
                   </div>
                   
                   <div class="d-flex justify-content-center justify-content-md-start mt-4">
-                     <button class="btn btn-primary mb-2" type="button" onclick="frmpassword();">
+                     <button class="btn btn-primary mb-2" type="button" onclick="frmPassword();">
                         Modificar contraseña
                      </button>
                   </div>
@@ -43,10 +43,9 @@
                         </button>
                      </div>
                      <div class="modal-body">
-                     <form method="post" id="frmpassword" action="">
-                           <input type="hidden" id="modal-id" name="modal-i">
-                           <input type="hidden" id="modal-clave" name="modal-clave">
-         
+                     <form method="post" id="frmPassword" action="">
+                           <input type="hidden" id="modal-id" name="modal-id">
+                           <input type="hidden" id="modal-clave" name="modal-clave">         
                            <div class="form-group" id="cont-old">
                               <label for="clave-act">Contraseña actual</label>
                               <div class="input-group">

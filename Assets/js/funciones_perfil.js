@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
-    function frmpassword(){
+    function frmPassword(){
       $("#change_pass").modal("show");
       const id = document.getElementById('id').value;
       const clave = document.getElementById('clave').value;
@@ -29,14 +29,12 @@ document.addEventListener("DOMContentLoaded",function(){
     
     function btnEditarPerfil (e){
       e.preventDefault();
-
-        const id = document.getElementById('modal-id').value;
-        const claveVerificar = document.getElementById('modal-clave').value;
+     
+        const pepe = document.getElementById('modal-clave');
         const claveActual = document.getElementById('clave-act');
         const claveNueva = document.getElementById('clave-new');
         const claveRepetida = document.getElementById('clave-rep'); 
-        console.log("ID: " + id);
-        console.log("asd"+ claveVerificar);
+        console.log(pepe.value)
 
         if(claveActual.value=="" ||claveNueva.value=="" ||claveRepetida.value==""){
           Swal.fire({
@@ -46,69 +44,50 @@ document.addEventListener("DOMContentLoaded",function(){
             showConfirmButton: false,
             timer: 2000
           });
-        }else{
-          console.log('perrire')
-          console.log(claveActual.value)
-          console.log(claveNueva)
-          console.log(claveRepetida)
-            // const url = base_url + "Usuarios/registrar";
-            // const frm=document.getElementById("frmUsuario");
-            // const http = new XMLHttpRequest();
-            // http.open("POST",url,true);
-            // http.send(new FormData(frm));
-            // http.onreadystatechange = function(){
-            //     if(this.readyState==4 && this.status==200){ 
-            //       const res= JSON.parse(this.responseText);
-            //       if(res=="si"){
-            //         Swal.fire({
-            //           position: "top",
-            //           icon: "success",
-            //           title: "Usuario registrado con exito",
-            //           showConfirmButton: false,
-            //           timer: 2000
-            //         });  
-            //         frm.reset();
-            //         $("#nuevo_usuario").modal("hide");
-            //         tblUsuarios.ajax.reload();
-            //       }else if(res=="modificado"){
-            //         Swal.fire({
-            //           position: "top",
-            //           icon: "success",
-            //           title: "Usuario modificado con exito",
-            //           showConfirmButton: false,
-            //           timer: 2000
-            //         });  
-            //         $("#nuevo_usuario").modal("hide");
-            //         tblUsuarios.ajax.reload();
-            //       }else{
-            //         Swal.fire({
-            //           position: "top",
-            //           icon: "error",
-            //           title: res,
-            //           showConfirmButton: false,
-            //           timer: 2000
-            //         });
-            //       }
-            //     }
-            // }
+        }else{  
+          if(claveNueva.value!=claveRepetida.value){
+            Swal.fire({
+                position: "top",
+                icon: "error",
+                title: "Verifique la nueva contraseña",
+                showConfirmButton: false,
+                timer: 2000
+              });
+          }
+          else{
+            const url = base_url + "Perfil/changePass";
+            const frm=document.getElementById("frmPassword");
+            const http = new XMLHttpRequest();
+            http.open("POST",url,true);
+            http.send(new FormData(frm));
+            http.onreadystatechange = function(){
+                if(this.readyState==4 && this.status==200){ 
+                    const res= JSON.parse(this.responseText);
+                    if(res=="modificado"){
+                            Swal.fire({
+                            position: "top",
+                            icon: "success",
+                            title: "Contraseña modificada con exito",
+                            showConfirmButton: false,
+                            timer: 2000
+                            });  
+                            $("#change_pass").modal("hide");                  
+                        }else{
+                            Swal.fire({
+                            position: "top",
+                            icon: "error",
+                            title: res,
+                            showConfirmButton: false,
+                            timer: 2000
+                            });
+                        }
+                    
+                    }
+                }
+            }
            
         }
     }
-
- 
-    // function btnEditarPerfil (e){
-    //   e.preventDefault();
-    //   console.log('asd')
-    //   // const ids = document.getElementById('modal-id').value;
-    //   // const claveActual = document.getElementById('clave-act').value;
-    //   // const claveNueva = document.getElementById('clave-new').value;
-    //   // const claveRepetida = document.getElementById('clave-rep').value;
-    //   // console.log("ID: " + ids);
-    //   // console.log("Clave Actual: " + claveActual);
-    //   // console.log("Clave Nueva: " + claveNueva);
-    //   // console.log("Clave Repetida: " + claveRepetida);
-    // }
-   
    // para contraseñas
     $(document).ready(function(){
         $('#btnMostrarAct').click(function(){

@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded",function(){
             const frm=document.getElementById("frmUsuario");
             const http = new XMLHttpRequest();
             http.open("POST",url,true);
-            http.send(new FormData(frm));
+            http.send(new FormData(frm));      
             http.onreadystatechange = function(){
                 if(this.readyState==4 && this.status==200){ 
                   const res= JSON.parse(this.responseText);
