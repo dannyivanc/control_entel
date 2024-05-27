@@ -28,13 +28,10 @@ document.addEventListener("DOMContentLoaded",function(){
     }
     
     function btnEditarPerfil (e){
-      e.preventDefault();
-     
-        const pepe = document.getElementById('modal-clave');
+      e.preventDefault();     
         const claveActual = document.getElementById('clave-act');
         const claveNueva = document.getElementById('clave-new');
         const claveRepetida = document.getElementById('clave-rep'); 
-        console.log(pepe.value)
 
         if(claveActual.value=="" ||claveNueva.value=="" ||claveRepetida.value==""){
           Swal.fire({
@@ -71,6 +68,7 @@ document.addEventListener("DOMContentLoaded",function(){
                             showConfirmButton: false,
                             timer: 2000
                             });  
+                            frm.reset();
                             $("#change_pass").modal("hide");                  
                         }else{
                             Swal.fire({

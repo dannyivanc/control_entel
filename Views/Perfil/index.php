@@ -44,8 +44,7 @@
                      </div>
                      <div class="modal-body">
                      <form method="post" id="frmPassword" action="">
-                           <input type="hidden" id="modal-id" name="modal-id">
-                           <input type="hidden" id="modal-clave" name="modal-clave">         
+                           <input type="hidden" id="modal-id" name="modal-id">     
                            <div class="form-group" id="cont-old">
                               <label for="clave-act">Contraseña actual</label>
                               <div class="input-group">

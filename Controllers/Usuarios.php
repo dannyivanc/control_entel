@@ -47,7 +47,7 @@ class Usuarios extends Controller{
                 $_SESSION['id_usuario']=$data['id'];
                 $_SESSION['usuario']=$data['usuario'];
                 $_SESSION['nombre']=$data['nombre'];            
-                $_SESSION['activo']=true;
+                $_SESSION['activo']=$data['estado'];
                 $msg="ok";
             }else{
                 $msg ="Usuario o contraseña incorrecta";
@@ -63,18 +63,20 @@ class Usuarios extends Controller{
         $usuario= $_POST['usuario'];
         $nombre= $_POST['nombre'];
         $carnet= $_POST['carnet'];
-        $clave= $_POST['clave'];    
+        $clave= $_POST['clave'];   
+        $cel= $_POST['cel'];
+        $rol= $_POST['rol'];     
         $institucion= $_POST['institucion'];
         $id= $_POST['id'];      
         $hash=hash("SHA256",$clave);   
             
         $clave_ant=$_POST['clave_ant']; 
 
-        if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)){
+        if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)||empty($cel)||empty($rol)){
             $msg= "todos los campos son obligatorios";
         }else{
             if($id==""){
-                $data= $this->model->registrarUsuario($usuario,$nombre,$carnet,$hash,$institucion);
+                $data= $this->model->registrarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$cel,$rol);
                 if($data=="ok"){
                     $msg ="si";
                 }else if($data=="existe") {
@@ -85,7 +87,7 @@ class Usuarios extends Controller{
             }else{
                 if ( $clave_ant==$clave){
                     // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
-                    $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id);
+                    $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id,$cel,$rol);
                     if($data=="modificado"){
                         $msg ="modificado";
                     }else{
@@ -95,7 +97,7 @@ class Usuarios extends Controller{
                      // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
 
                     
-                     $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id);
+                     $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id,$cel,$rol);
                      if($data=="modificado"){
                          $msg ="modificado";
                      }else{
@@ -138,11 +140,16 @@ class Usuarios extends Controller{
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
-    }
+    }   
 
     public function salir(){
         session_destroy();
         header("location:".base_url);
+    }
+    public function pipipi(){
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
     }
 }
 ?>

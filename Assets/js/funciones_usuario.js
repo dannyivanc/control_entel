@@ -23,7 +23,13 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'institucion','className': 'text-end',
         },
         {
-          'data':'estado','className': 'text-end',
+          'data':'cel','className': 'text-end',
+        },
+        {
+          'data':'rol','className': 'text-end','width': '8%',
+        },
+        {
+          'data':'estado','className': 'text-end','width': '5%',
         },
         {
           'data': 'acciones','width': '12%','className': 'text-center',
@@ -69,11 +75,13 @@ document.addEventListener("DOMContentLoaded",function(){
         e.preventDefault();
         const usuario = document.getElementById("usuario");
         const nombre = document.getElementById("nombre");
-        const carnet = document.getElementById("carnet");
+        const carnet = document.getElementById("carnet");      
         const clave = document.getElementById("clave");
+        const rol = document.getElementById("rol");
+        const cel = document.getElementById("cel");
         const institucion = document.getElementById("institucion");
        
-        if(usuario.value=="" ||nombre.value=="" ||carnet.value==""||clave.value==""||institucion.value==""){
+        if(usuario.value=="" ||nombre.value=="" ||carnet.value==""||clave.value==""||institucion.value=="" ||rol.value=="" ||cel.value==""){
           Swal.fire({
             position: "top",
             icon: "error",
@@ -145,6 +153,8 @@ document.addEventListener("DOMContentLoaded",function(){
             document.getElementById("usuario").value=res.usuario;
             document.getElementById("nombre").value=res.nombre;
             document.getElementById("carnet").value=res.carnet;
+            document.getElementById("cel").value=res.cel;
+            document.getElementById("rol").value=res.rol;
             document.getElementById("clave").value=res.clave;      
             document.getElementById("institucion").value=res.id_institucion;
     

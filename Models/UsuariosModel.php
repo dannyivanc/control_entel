@@ -1,6 +1,6 @@
 <?php
     class UsuariosModel extends Query{
-        private $id,$usuario,$nombre,$carnet,$clave,$id_institucion,$estado;
+        private $id,$usuario,$nombre,$carnet,$clave,$id_institucion,$estado,$cel,$rol;
   
         public function __construct(){
             parent::__construct();
@@ -25,17 +25,20 @@
             $data= $this->selectAll($sql);
             return $data;
         }
-        public function registrarUsuario(string $usuario, string $nombre, string $carnet, string $clave, int $id_institucion){
+        
+        public function registrarUsuario(string $usuario, string $nombre, string $carnet, string $clave, int $id_institucion,int $cel,string $rol){
             $this->usuario=$usuario;
             $this->nombre=$nombre;
             $this->carnet=$carnet;
             $this->clave=$clave;
+            $this->cel=$cel;
+            $this->rol=$rol;
             $this->id_institucion=$id_institucion;
             $verificar ="SELECT *FROM usuarios WHERE usuario='$this->usuario' OR carnet ='$this->carnet'";
             $existe =$this->select($verificar);
             if(empty($existe)){
-                $sql = "INSERT INTO usuarios (usuario,nombre,carnet,clave,id_institucion) VALUES (?,?,?,?,?)";
-                $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->id_institucion);
+                $sql = "INSERT INTO usuarios (usuario,nombre,carnet,clave,cel,rol,id_institucion) VALUES (?,?,?,?,?,?,?)";
+                $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->cel,$this->rol,$this->id_institucion);
                 $data =  $this-> save($sql,$datos);
                 if($data==1){
                     $res = "ok";
@@ -49,14 +52,16 @@
             return $res;
 
         }
-        public function modificarUsuario(string $usuario, string $nombre, string $carnet, int $id_institucion, int $id){
+        public function modificarUsuario(string $usuario, string $nombre, string $carnet, int $id_institucion, int $id,int $cel,string $rol){
             $this->usuario=$usuario;
             $this->nombre=$nombre;
             $this->carnet=$carnet;
+            $this->cel=$cel;
+            $this->rol=$rol;
             $this->id_institucion=$id_institucion;
             $this->id=$id;
-            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,id_institucion =? WHERE id=?";         
-            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->id_institucion,$this->id);
+            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,cel=?,rol=?,id_institucion =? WHERE id=?";         
+            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->cel,$this->rol,$this->id_institucion,$this->id);
             $data =  $this-> save($sql,$datos);
             if($data==1){
                 $res = "modificado";
@@ -67,15 +72,17 @@
 
         }
 
-        public function modificarUsuarioPass(string $usuario, string $nombre, string $carnet,string $clave, int $id_institucion, int $id){
+        public function modificarUsuarioPass(string $usuario, string $nombre, string $carnet,string $clave, int $id_institucion, int $id,int $cel,string $rol){
             $this->usuario=$usuario;
             $this->nombre=$nombre;
             $this->carnet=$carnet;
             $this->clave=$clave;
+            $this->cel=$cel;
+            $this->rol=$rol;
             $this->id_institucion=$id_institucion;
             $this->id=$id;
-            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,id_institucion =? WHERE id=?";         
-            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->id_institucion,$this->id);
+            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,cel=?rol=?,id_institucion =? WHERE id=?";         
+            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->cel,$this->rol,$this->clave,$this->id_institucion,$this->id);
             $data =  $this-> save($sql,$datos);
             if($data==1){
                 $res = "modificado";

@@ -14,16 +14,21 @@
         <link href="<?php echo base_url?>Assets/DataTables/datatables.min.css" rel="stylesheet" crossorigin="anonymous">
         <script src="<?php echo base_url?>Assets/js/all.js" crossorigin="anonymous"></script>
     </head>
+        
     <body class="sb-nav-fixed ">
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height: 65px;">
             <a class="navbar-brand ms-3 mt-2" href="index.html" >
                 <img src="<?php echo base_url?>/Assets/img/logo.png" class="logo_said_navbar " alt="logo">
                 <span class="text-white-50  ms-3 ">Said</span>
             </a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>                         
-           
-            <ul class="navbar-nav ms-auto me-3">
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>  
+
+            <ul class="navbar-nav ms-auto me-3 order-lg-1">
+            <span class="my-custom-right text-white-50 mt-2 my-custom-none">
+                   Usuario: <?php echo ($_SESSION['nombre']); ?>
+            </span>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle " id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user fa-fw "></i>
@@ -34,6 +39,9 @@
                     </ul>
                 </li>
             </ul>
+           
+     
+        
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">

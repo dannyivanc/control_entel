@@ -169,7 +169,7 @@ function btnDesactivarSucursal(id){
               text: "La sucursal desactivado con exito",
               icon: "success"
             });
-            tblInstituciones.ajax.reload();
+            tblSucursales.ajax.reload();
            }
            else{
             Swal.fire({
@@ -208,7 +208,7 @@ function btnActivarSucursal(id){
               text: "La sucursal activado con exito",
               icon: "success"
             });
-            tblInstituciones.ajax.reload();
+            tblSucursales.ajax.reload();
            }
            else{
             Swal.fire({

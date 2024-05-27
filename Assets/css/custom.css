@@ -77,7 +77,9 @@
         
     }
 }
-
+.my-custom-right{
+    right: 100% !important;
+}
 
 @media (max-width: 800px) {
     .login-said_img {
@@ -98,6 +100,9 @@
     }
     .custom-hei{
         height: 60px !important;
+    }
+    .my-custom-none{
+        display: none !important;
     }
 }
 

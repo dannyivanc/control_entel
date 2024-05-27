@@ -18,6 +18,8 @@
                <th>Nombre</th>
                <th>Carnet</th>
                <th>Institucion</th>  
+               <th>Celular</th>  
+               <th>Rol</th>  
                <th>Estado</th>  
                <th>Acciones</th>      
             </tr>
@@ -44,6 +46,19 @@
                   <div class="form-group">
                      <label for="nombre">Nombre</label>
                      <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre">
+                  </div>
+                  <div class="form-group">
+                     <label for="cel">Celular</label>
+                     <input id="cel" class="form-control" type="num" name="cel" placeholder="Numero de celular">
+                  </div>
+                  <div class="form-group">
+                     <label for="rol">Rol</label>
+                     <select class="form-control" id="rol" name="rol">
+                        <option value="cliente">Cliente</option>
+                        <option value="admin ">Admin</option>
+                        <option value="supervisor">Supervisor</option>
+                        <option value="vigilante">Vigilante</option>
+                     </select>
                   </div>
                   <div class="form-group">
                      <label for="carnet">Carnet</label>
