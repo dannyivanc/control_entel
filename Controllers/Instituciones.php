@@ -31,7 +31,6 @@ class Instituciones extends Controller{
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
-
     
     public function registrar(){
         $institucion= $_POST['institucion'];      

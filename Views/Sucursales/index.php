@@ -51,9 +51,19 @@
                      <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
                   </div>
                             
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                      <label for="vigilante">Vigilante</label>
                      <input id="vigilante" class="form-control" type="text" name="vigilante" placeholder="Nombre de la Institución">
+                  </div> -->
+
+                  <div class="form-group position-relative">
+                     <label for="vigilante">Vigilantes</label>
+                     <select id="vigilante" class="form-control" name="vigilante">
+                        <?php foreach ($data['vigilantes'] as $row) {?>
+                              <option value="<?php echo $row['id']; ?>"><?php echo $row['vigilante']; ?></option>
+                        <?php } ?>
+                     </select>
+                     <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
                   </div>
                   <div class="form-group">
                      <label for="ciudad">Ciudad</label>
@@ -64,7 +74,7 @@
                      <input id="direccion" class="form-control" type="text" name="direccion" placeholder="Nombre de la Institución">
                   </div>
                   
-                  <button id ="btn_form_institucion" class="btn btn-primary mt-3" type="button" onclick="registrarSucursal(event);">
+                  <button id ="btn_form_sucursal" class="btn btn-primary mt-3" type="button" onclick="registrarSucursal(event);">
                      Registrar
                   </button>
                   <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">

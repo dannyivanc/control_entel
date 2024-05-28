@@ -5,25 +5,34 @@
         public function __construct(){
             parent::__construct();
         }
-
-   
         public function getInstituciones(){
             $sql="SELECT * FROM instituciones WHERE estado = 1";
             $data= $this->selectAll($sql);
             return $data;
-        }           
+        }      
+        
+        public function getVigilantes(){
+            $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
+            $data= $this->selectAll($sql);
+            return $data;
+        }       
         
         public function getSucursales(){
-            $sql="SELECT s.*, i.id AS id_institucion, i.institucion 
+            // $sql="SELECT s.*, i.id AS id_institucion, i.institucion 
+            // FROM sucursales as s
+            // INNER JOIN instituciones as i ON s.id_institucion = i.id
+            // ORDER BY id DESC;";
+            $sql="SELECT s.*, i.id AS id_institucion, i.institucion, u.id AS id_vigilante,u.nombre as vigilante
             FROM sucursales as s
             INNER JOIN instituciones as i ON s.id_institucion = i.id
+            INNER JOIN usuarios as u ON s.id_vigilante = u.id
             ORDER BY id DESC;";
             $data= $this->selectAll($sql);
             return $data;
         }
 
 
-        public function registrarSucursal(string $sucursal,string $id_institucion,string $id_vigilante,string $ciudad,string $direccion){          
+        public function registrarSucursal(string $sucursal,int $id_institucion,int $id_vigilante,string $ciudad,string $direccion){          
             $this->sucursal=$sucursal;
             $this->id_institucion=$id_institucion;
             $this->id_vigilante=$id_vigilante;
@@ -47,26 +56,28 @@
             return $res;
 
         }
-        // public function modificarInstitucion(string $institucion, int $id){
-
-        //     $this->institucion=$institucion;
-        //     $this->id=$id;
-        //     $sql = "UPDATE instituciones SET institucion=? WHERE id=?";         
-        //     $datos =array($this->institucion,$this->id);
-        //     $data =  $this-> save($sql,$datos);
-        //     if($data==1){
-        //         $res = "modificado";
-        //     }else{
-        //         $res = "error";
-        //     }
-        //     return $res;
-        
-        // }
-        // public function editarInstitucion(int $id){
-        //     $sql = "SELECT * FROM instituciones WHERE id=$id";
-        //     $data= $this->select($sql);
-        //     return $data;
-        // }
+        public function modificarSucursal(string $sucursal,int $id_institucion,int $id_vigilante,string $ciudad,string $direccion, int $id){
+            $this->sucursal=$sucursal;
+            $this->id_institucion=$id_institucion;
+            $this->id_vigilante=$id_vigilante;
+            $this->ciudad=$ciudad;
+            $this->direccion=$direccion;
+            $this->id=$id;
+            $sql = "UPDATE sucursales SET sucursal=?,id_institucion=?,id_vigilante=?,ciudad=?,direccion=? WHERE id=?"; 
+            $datos =array( $this->sucursal,$this->id_institucion,$this->id_vigilante,$this->ciudad,$this->direccion,$this->id);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "modificado";
+            }else{
+                $res = "error";
+            }
+            return $res;
+        }
+        public function editarSucursal(int $id){
+            $sql = "SELECT * FROM sucursales WHERE id=$id";
+            $data= $this->select($sql);
+            return $data;
+        }
 
  
   

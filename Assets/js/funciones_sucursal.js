@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded",function(){
         'data':'institucion','className': 'text-end',
       },
       {
-        'data':'id_vigilante','className': 'text-end',
+        // 'data':'id_vigilante','className': 'text-end',
+        'data':'vigilante','className': 'text-end',
       },
       {
         'data':'ciudad','className': 'text-end',
@@ -60,7 +61,6 @@ document.addEventListener("DOMContentLoaded",function(){
   });
   //  }
 })
-
 
 function frmSucursal(){
   document.getElementById("title").innerHTML="Registro de Sucursal";
@@ -129,10 +129,10 @@ function registrarSucursal (e){
       }
   }
 }
-function btnEditarInstitucion(id){
-  document.getElementById("title").innerHTML="Actualizar Institución";
-  document.getElementById("btn_form_institucion").innerHTML="Actualizar";
-  const url = base_url + "Instituciones/editar/"+id;  
+function btnEditarSucursal(id){
+  document.getElementById("title").innerHTML="Actualizar Sucursal";
+  document.getElementById("btn_form_sucursal").innerHTML="Actualizar";
+  const url = base_url + "Sucursales/editar/"+id;  
   const http = new XMLHttpRequest();
   http.open("GET",url,true);
   http.send();
@@ -140,8 +140,12 @@ function btnEditarInstitucion(id){
       if(this.readyState==4 && this.status==200){     
         const res = JSON.parse(this.responseText);
         document.getElementById("id").value=res.id;
+        document.getElementById("sucursal").value=res.sucursal;
         document.getElementById("institucion").value=res.id_institucion;
-        $("#nuevo_institucion").modal("show");
+        document.getElementById("vigilante").value=res.id_vigilante;
+        document.getElementById("ciudad").value=res.ciudad;
+        document.getElementById("direccion").value=res.direccion;
+        $("#nuevo_sucursal").modal("show");
       }
   }
 }

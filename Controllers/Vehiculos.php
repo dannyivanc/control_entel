@@ -13,6 +13,8 @@ class Vehiculos extends Controller{
             header("location:".base_url);
         }
       
+        // $data['institucion']=$this->model->getInstitucion();
+        // $this->views->getView($this,"index",$data);
         $this->views->getView($this,"index");
     }
 

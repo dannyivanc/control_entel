@@ -10,6 +10,7 @@ class Sucursales extends Controller{
             header("location:".base_url);
         }
         $data['instituciones']=$this->model->getInstituciones();
+        $data['vigilantes']=$this->model->getVigilantes();
         $this->views->getView($this,"index",$data);
     }
 
@@ -52,7 +53,7 @@ class Sucursales extends Controller{
                 }else{
                     $msg="Error al registrar la sucursal";
                 }
-            }else{              
+            }else{       
                 $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilante,$ciudad,$direccion,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
@@ -66,7 +67,7 @@ class Sucursales extends Controller{
     }
 
     public function editar (int $id){
-      $data=$this->model->editarInstitucion($id);
+      $data=$this->model->editarSucursal($id);
       echo json_encode($data, JSON_UNESCAPED_UNICODE);
       die();
     }
@@ -81,6 +82,7 @@ class Sucursales extends Controller{
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
     }
+    
     public function activar(int $id){
         $data=$this->model ->accionInstitucion(1,$id);
        if($data==1){

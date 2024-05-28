@@ -51,7 +51,8 @@
                      <label for="cel">Celular</label>
                      <input id="cel" class="form-control" type="num" name="cel" placeholder="Numero de celular">
                   </div>
-                  <div class="form-group">
+
+                  <div class="form-group position-relative">
                      <label for="rol">Rol</label>
                      <select class="form-control" id="rol" name="rol">
                         <option value="cliente">Cliente</option>
@@ -59,7 +60,9 @@
                         <option value="supervisor">Supervisor</option>
                         <option value="vigilante">Vigilante</option>
                      </select>
+                     <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
                   </div>
+
                   <div class="form-group">
                      <label for="carnet">Carnet</label>
                      <input id="carnet" class="form-control" type="text" name="carnet" placeholder="Carnet">
