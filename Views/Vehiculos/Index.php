@@ -3,6 +3,12 @@
    <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3 custom-hei">
       <h2 class="text-black-50 fs-4" >Registro de entrada-salida de Vehiculos</h4>
    </div>
+   <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3 custom-hei">
+            <h2 class="text-black-50 ">
+                   Usuario: <?php echo ( $data['instituciones']['sucursal'] ); ?>
+            </h2>
+   </div>
+   
    <div class="d-flex justify-content-center justify-content-md-start">
       <button class="btn btn-primary mb-2" type="button" onclick="frmVehiculo();">
          Nuevo <i class="fas fa-plus"></i>
