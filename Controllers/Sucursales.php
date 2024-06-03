@@ -42,9 +42,9 @@ class Sucursales extends Controller{
         $direccion= $_POST['direccion'];   
         $id= $_POST['id'];     
         if(empty($sucursal)||empty($institucion)|| empty($vigilante)|| empty($vigilante) ||empty($ciudad) ||empty($direccion)){
-            $msg= "Todos lso campos son obligatorios";
+            $msg= "Todos los campos son obligatorios";
         }else{
-            if($id==""){
+            if($id==""){       
                 $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilante,$ciudad,$direccion);
                 if($data=="ok"){
                     $msg ="si";

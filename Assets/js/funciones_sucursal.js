@@ -1,4 +1,13 @@
 let tblSucursales;
+function mostrarAlerta(icon, title,timer = 2000,position="top") {
+  Swal.fire({    
+      icon: icon,
+      title: title,
+      position: position,
+      showConfirmButton: false,
+      timer: timer
+  });
+}
 document.addEventListener("DOMContentLoaded",function(){
   //  if(window.location.pathname ===`/control/Usuarios`){
     tblSucursales=$('#tblSucursales').DataTable( {
@@ -37,12 +46,12 @@ document.addEventListener("DOMContentLoaded",function(){
     language: {
       "decimal": "",
       "emptyTable": "No hay datos disponibles en la tabla",
-      "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+      "info": "Mostrando _START_ - _END_ de _TOTAL_ entradas",
       "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
       "infoFiltered": "(filtrado de _MAX_ entradas totales)",
       "infoPostFix": "",
       "thousands": ",",
-      "lengthMenu": "Mostrar entradas _MENU_ ",
+      "lengthMenu": "Mostrar _MENU_ ",
       "loadingRecords": "Cargando...",
       "processing": "Procesando...",
       "search": "Buscar:",
@@ -71,7 +80,7 @@ function frmSucursal(){
   document.getElementById("id").value="";
 }
 
-function registrarSucursal (e){
+async function registrarSucursal (e){
   e.preventDefault();
   const sucursal = document.getElementById("sucursal"); 
   const institucion = document.getElementById("institucion"); 
@@ -79,54 +88,40 @@ function registrarSucursal (e){
   const ciudad = document.getElementById("ciudad"); 
   const direccion = document.getElementById("direccion"); 
   if(sucursal.value=="" || institucion.value=="" || vigilante.value=="" || ciudad.value=="" || direccion.value=="" ){
-    Swal.fire({
-      position: "top",
-      icon: "error",
-      title: "Los campos son obligatorios ",
-      showConfirmButton: false,
-      timer: 2000
-    }); 
+    mostrarAlerta("error","Los campos son obligatorios ");
   }else{
       const url = base_url + "Sucursales/registrar";
       const frm=document.getElementById("frmSucursal");
-      const http = new XMLHttpRequest();
-      http.open("POST",url,true);
-      http.send(new FormData(frm));
-      http.onreadystatechange = function(){
-          if(this.readyState==4 && this.status==200){ 
-            const res= JSON.parse(this.responseText);
+      
+      const formData = new FormData(frm);      
+      console.log(formData)  
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                body: formData
+            });
+            
+            if (response.ok) {
+                const res = await response.json();
             if(res=="si"){
-              Swal.fire({
-                position: "top",
-                icon: "success",
-                title: "Sucursal registrada con exito",
-                showConfirmButton: false,
-                timer: 2000
-              });  
+              mostrarAlerta("success","Sucursal registrada con exito");
               frm.reset();
               $("#nuevo_sucursal").modal("hide");
               tblSucursales.ajax.reload();
             }else if(res=="modificado"){
-              Swal.fire({
-                position: "top",
-                icon: "success",
-                title: "Sucursal modificada con exito",
-                showConfirmButton: false,
-                timer: 2000
-              });  
+              mostrarAlerta("success","Sucursal modificada con exito"); 
               $("#nuevo_sucursal").modal("hide");
               tblSucursales.ajax.reload();
             }else{
-              Swal.fire({
-                position: "top",
-                icon: "error",
-                title: res,
-                showConfirmButton: false,
-                timer: 2000
-              });
+              mostrarAlerta("error",res);
             }
-          }
-      }
+          }else {
+            mostrarAlerta("error", "Error en la solicitud");
+        }
+      }catch (error) {
+        mostrarAlerta("error",  "Error de red");
+        console.log(error)
+    }
   }
 }
 function btnEditarSucursal(id){

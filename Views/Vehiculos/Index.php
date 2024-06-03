@@ -1,13 +1,24 @@
 <?php include "Views/Templates/header.php";?>
 
-   <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3 custom-hei">
-      <h2 class="text-black-50 fs-4" >Registro de entrada-salida de Vehiculos</h4>
+   <div class="card mb-3">
+      <div class="card-body text-center bg-opacity-5 bg-black">
+         <span class="text-black-75 fs-5">Registro de entrada - salida de Vehiculos</span> 
+      </div>
+      <table class="table">
+         <tbody>
+            <tr>
+               <td class="table-secondary"  style="width: 10%">Institucion</td>
+               <td> <?php echo($data['institucion']);?></td>
+            </tr>
+            <tr>
+               <td class="table-secondary">Sucursal</td>
+               <td> <?php echo($data['sucursal']);?></td>
+            </tr>
+         </tbody>
+      </table>
    </div>
-   <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3 custom-hei">
-            <h2 class="text-black-50 ">
-                   Usuario: <?php echo ( $data['instituciones']['sucursal'] ); ?>
-            </h2>
-   </div>
+
+
    
    <div class="d-flex justify-content-center justify-content-md-start">
       <button class="btn btn-primary mb-2" type="button" onclick="frmVehiculo();">
@@ -99,7 +110,7 @@
                      <textarea id="destino" class="form-control" type="text" name="destino" placeholder="Destino- Origen de Vehiculo"></textarea>
                   </div>
                
-                  <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
+                  <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarVehiculo(event);">
                      Registrar
                   </button>
                   <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">

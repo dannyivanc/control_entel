@@ -1,7 +1,10 @@
 <?php include "Views/Templates/header.php";?>
-   <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3" style="height: 40px;">
-      <h2 class="text-black-50 fs-4" >Sucursales</h4>
+<div class="card mb-4">
+      <div class="card-body text-center bg-opacity-5 bg-black">
+         <span class="text-black-75 fs-5">Sucursales</span> 
+      </div>
    </div>
+
    <div class="d-flex justify-content-center justify-content-md-start">
       <button class="btn btn-primary mb-2" type="button" onclick="frmSucursal();">
          Nuevo <i class="fas fa-plus"></i>

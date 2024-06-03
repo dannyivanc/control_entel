@@ -1,26 +1,26 @@
 <?php
 class Vehiculos extends Controller{
-    private $info=[];
+    private $sucursalInfo;
     public function __construct(){
         session_start();          
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }    
         parent::__construct();
-    
+        $id = $_SESSION['id_usuario'];
+        $sucursal= $this->model->getSucursal($id);
+        $this->sucursalInfo=$sucursal;
     }
     
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
-        }
-        $id = $_SESSION['id_usuario'];
-        $data['instituciones']  = $this->model->getInstitucion($id);
-        $this->info = json_decode($data['instituciones'], true);  
+        }       
+        $data= $this->sucursalInfo;
         $this->views->getView($this, "index", $data);
     }
     public function perrie(){
-        print_r($this->info);
+        print_r($this->sucursalInfo);
     }
 
     // public function listar(){
@@ -43,84 +43,48 @@ class Vehiculos extends Controller{
     //     die();
     // }
 
-    //   public function validar(){
-    //     if(empty($_POST['usuario']) || empty($_POST['clave'])){
-    //         $msg = "Los campos estan vacios";
-    //     }else{
-    //         $usuario = $_POST['usuario'];
-    //         $clave = $_POST['clave'];
-    //         $hash = hash("SHA256",$clave);
-    //         $data =$this->model->getUsuario($usuario,$hash);
-           
-    //         if($data){
-    //             $_SESSION['id_usuario']=$data['id'];
-    //             $_SESSION['usuario']=$data['usuario'];
-    //             $_SESSION['nombre']=$data['nombre'];
-    //             $_SESSION['activo']=true;
-    //             $msg="ok";
-    //         }else{
-    //             $msg ="Usuario o contraseña incorrecta";
-    //         }
-    //     }
-    //     echo json_encode($msg, JSON_UNESCAPED_UNICODE);
-       
-    //     die();
-    // }
-
     
-    // public function registrar(){
-    //     $usuario= $_POST['usuario'];
-    //     $nombre= $_POST['nombre'];
-    //     $carnet= $_POST['carnet'];
-    //     $clave= $_POST['clave'];    
-    //     $institucion= $_POST['institucion'];
-    //     $id= $_POST['id'];      
-    //     $hash=hash("SHA256",$clave);   
+    public function registrar(){
+        
+             
+        $salida= $_POST['salida'];
+        $retorno= $_POST['retorno'];
+        $tipo= $_POST['tipo'];
+        $placa= $_POST['placa'];    
+        $km_salida= $_POST['km_salida'];
+        $km_retorno= $_POST['km_retorno'];      
+        $conductor=$_POST['conductor'];  
+        $destino=$_POST['destino']; 
+        $id_sucursal=$this->sucursalInfo['id'];
+        $id_vigilante= $this->sucursalInfo['id_vigilante'];   
+        $id= $_POST['id'];   
             
-    //     $clave_ant=$_POST['clave_ant']; 
-
-    //     if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)){
-    //         $msg= "todos los campos son obligatorios";
-    //     }else{
-    //         if($id==""){
-    //             $data= $this->model->registrarUsuario($usuario,$nombre,$carnet,$hash,$institucion);
-    //             if($data=="ok"){
-    //                 $msg ="si";
-    //             }else if($data=="existe") {
-    //                 $msg ="El usuario ya se encuentra registrado, Verifique el usuario o carnet";
-    //             }else{
-    //                 $msg="Error al registrar usuario";
-    //             }
-    //         }else{
-    //             if ( $clave_ant==$clave){
-    //                 // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
-    //                 $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id);
-    //                 if($data=="modificado"){
-    //                     $msg ="modificado";
-    //                 }else{
-    //                     $msg="Error al modificar usuario";
-    //                 }
-    //             }else{
-    //                  // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
-
-                    
-    //                  $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id);
-    //                  if($data=="modificado"){
-    //                      $msg ="modificado";
-    //                  }else{
-    //                      $msg="Error al modificar usuario";
-    //                  }
-                   
-    //             }
-                
-                
-
-    //         }
-          
-    //     }
-    //     echo json_encode($msg,JSON_UNESCAPED_UNICODE);
-    //     die();
-    // }
+        if(empty($salida)||empty($retorno)||empty($tipo)||empty($placa)||empty($km_salida)||empty($km_retorno)||empty($conductor)||empty($destino)){
+            $msg= "todos los campos son obligatorios";
+        }else{
+            if($id==""){
+                $data= $this->model->registrarUsuario($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante);
+                if($data=="ok"){
+                    $msg ="si";
+                }else if($data=="existe") {
+                    $msg ="El usuario ya se encuentra registrado, Verifique el usuario o carnet";
+                }else{
+                    $msg="Error al registrar usuario";
+                }
+            }else{
+                     
+                $data= $this->model->modificarUsuarioPass($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante,$id);
+                if($data=="modificado"){
+                    $msg ="modificado";
+                }else{
+                    $msg="Error al modificar usuario";
+                }
+            
+            }
+        }
+        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+        die();
+    }
 
     // public function editar (int $id){
     //   $data=$this->model->editarUser($id);

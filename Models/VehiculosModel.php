@@ -5,8 +5,10 @@
         public function __construct(){
             parent::__construct();
         }
-        public function getInstitucion(int $id){
-            $sql="SELECT * FROM sucursales WHERE id_vigilante = $id";
+        public function getSucursal(int $id){
+            $sql="SELECT su.id,su.sucursal,su.id_institucion,su.id_vigilante,inst.institucion  FROM sucursales as su
+            INNER JOIN instituciones as inst ON su.id_institucion = inst.id
+            WHERE id_vigilante = $id";
             $data= $this->select($sql);
             return $data;
         }      

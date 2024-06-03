@@ -49,6 +49,7 @@
             $verificar ="SELECT *FROM sucursales WHERE sucursal='$this->sucursal'";
             $existe =$this->select($verificar);
             if(empty($existe)){
+                
                     $updateVi = "UPDATE sucursales SET id_vigilante = NULL WHERE id_vigilante = ?";
                     $dataVi = array($this->id_vigilante);
                     $this->save($updateVi, $dataVi);
