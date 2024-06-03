@@ -1,6 +1,6 @@
 <?php
     class VehiculosModel extends Query{
-        private $id,$sucursal,$id_institucion,$id_vigilante,$ciudad,$direccion,$estado;
+        private $id,$salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante;
   
         public function __construct(){
             parent::__construct();
@@ -33,31 +33,34 @@
         //     return $data;
         // }
 
+        // $salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante
+        public function registrarVehiculo(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $estado,int $id_sucursal,int $id_vigilante){          
+            $this->salida=$salida;
+            $this->retorno=$retorno;
+            $this->tipo=$tipo;
+            $this->placa=$placa;
+            $this->km_salida=$km_salida;
+            $this->km_retorno=$km_retorno;
+            $this->conductor=$conductor;
+            $this->destino=$destino;
+            $this->estado=$estado;
+            $this->id_sucursal=$id_sucursal;
+            $this->id_vigilante=$id_vigilante;
 
-        // public function registrarSucursal(string $sucursal,int $id_institucion,int $id_vigilante,string $ciudad,string $direccion){          
-        //     $this->sucursal=$sucursal;
-        //     $this->id_institucion=$id_institucion;
-        //     $this->id_vigilante=$id_vigilante;
-        //     $this->ciudad=$ciudad;
-        //     $this->direccion=$direccion;
-        //     $verificar ="SELECT *FROM sucursales WHERE sucursal='$this->sucursal'";
-        //     $existe =$this->select($verificar);
-        //     if(empty($existe)){
-        //         $sql = "INSERT INTO sucursales (sucursal,id_institucion,id_vigilante,ciudad,direccion) VALUES (?,?,?,?,?)";
-        //         $datos =array($this->sucursal,$this->id_institucion,$this->id_vigilante,$this->ciudad,$this->direccion);
-        //         $data =  $this-> save($sql,$datos);
-        //         if($data==1){
-        //             $res = "ok";
-        //         }else{
-        //             $res = "error";
-        //         }
-        //     }else {
-        //         $res ="existe";
-        //     }
+         
+                $sql = "INSERT INTO vehiculos (salida,retorno,tipo,placa,km_salida,km_retorno,conductor,destino,estado,id_sucursal,id_vigilante) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                $datos =array($this->salida,$this->retorno,$this->tipo,$this->placa,$this->km_salida,$this->km_retorno,$this->conductor,$this->destino,$this->estado,$this->id_sucursal,$this->id_vigilante);
+                $data =  $this-> save($sql,$datos);
+                if($data==1){
+                    $res = "ok";
+                }else{
+                    $res = "error";
+                }
+            
           
-        //     return $res;
+            return $res;
+        }
 
-        // }
         // public function modificarSucursal(string $sucursal,int $id_institucion,int $id_vigilante,string $ciudad,string $direccion, int $id){
         //     $this->sucursal=$sucursal;
         //     $this->id_institucion=$id_institucion;

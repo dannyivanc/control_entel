@@ -109,6 +109,14 @@
                      <label for="destino">Destino/Origen</label>
                      <textarea id="destino" class="form-control" type="text" name="destino" placeholder="Destino- Origen de Vehiculo"></textarea>
                   </div>
+                  <div class="form-group mt-3">
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="estado">
+                        <label class="form-check-label" for="estado">
+                          Completar registro (ya no se podra modificar)
+                        </label>
+                     </div>
+                  </div>
                
                   <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarVehiculo(event);">
                      Registrar

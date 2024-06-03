@@ -45,8 +45,6 @@ class Vehiculos extends Controller{
 
     
     public function registrar(){
-        
-             
         $salida= $_POST['salida'];
         $retorno= $_POST['retorno'];
         $tipo= $_POST['tipo'];
@@ -55,15 +53,16 @@ class Vehiculos extends Controller{
         $km_retorno= $_POST['km_retorno'];      
         $conductor=$_POST['conductor'];  
         $destino=$_POST['destino']; 
+        $estado=$_POST['estado']; 
         $id_sucursal=$this->sucursalInfo['id'];
         $id_vigilante= $this->sucursalInfo['id_vigilante'];   
         $id= $_POST['id'];   
             
-        if(empty($salida)||empty($retorno)||empty($tipo)||empty($placa)||empty($km_salida)||empty($km_retorno)||empty($conductor)||empty($destino)){
+        if(empty($salida)||empty($tipo)||empty($placa)||empty($km_salida)||empty($conductor)||empty($destino)){
             $msg= "todos los campos son obligatorios";
         }else{
             if($id==""){
-                $data= $this->model->registrarUsuario($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante);
+                $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante);
                 if($data=="ok"){
                     $msg ="si";
                 }else if($data=="existe") {

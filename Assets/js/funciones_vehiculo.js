@@ -9,6 +9,7 @@ function mostrarAlerta(icon, title,position="top", timer = 2000) {
         timer: timer
     });
 }
+
 function frmVehiculo(){
   document.getElementById("title").innerHTML="Registro de Vehiculos";
   // document.getElementById("btnAccion").innerHTML="Registrar";
@@ -29,61 +30,64 @@ async function registrarVehiculo (e){
     const km_retorno = document.getElementById("km_retorno");
     const conductor = document.getElementById("conductor");
     const destino = document.getElementById("destino");
+    const estado =   document.getElementById("estado") ;
+    // .checked ? "1" : "0"
+
    
-    if(salida.value=="" ||retorno.value=="" ||tipo.value==""||placa.value==""||km_salida.value=="" ||km_retorno.value=="" ||conductor.value=="" ||destino.value==""){
+    if(tipo.value==""||placa.value==""||km_salida.value==""||conductor.value=="" ||destino.value==""){
         mostrarAlerta("error", "Todos los campos son obligatorios");
     }else{
-        const url = base_url + "vehiculos/registrar";
+        const url = base_url + "Vehiculos/registrar";
         const frm=document.getElementById("frmVehiculo");
 
-        const formData = new FormData(frm);        
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                body: formData
-            });
-            
-            if (response.ok) {
-                const res = await response.json();
-                if (res == "si") {
-                    mostrarAlerta("success", "Entrada registrada con éxito");
-                    frm.reset();
-                    $("#nuevo_usuario").modal("hide");
-                    tblUsuarios.ajax.reload();
-                } else if (res == "modificado") {
-                    mostrarAlerta("success", "Registro completado");
-                    $("#nuevo_usuario").modal("hide");
-                    tblUsuarios.ajax.reload();
-                } else {
-                    mostrarAlerta("error", res);
-                }
-            } else {
-                mostrarAlerta("error", "Error en la solicitud");
-            }
-        } catch (error) {
-            mostrarAlerta("error", "Error de red");
-        }
-        
-        // const http = new XMLHttpRequest();
-        // http.open("POST",url,true);
-        // http.send(new FormData(frm));      
-        // http.onreadystatechange = function(){
-        //     if(this.readyState==4 && this.status==200){ 
-        //       const res= JSON.parse(this.responseText);
-        //       if(res=="si"){
-        //         mostrarAlerta("success", "Entrada registrada con exito");
-        //         frm.reset();
-        //         $("#nuevo_usuario").modal("hide");
-        //         tblUsuarios.ajax.reload();
-        //       }else if(res=="modificado"){
-        //         mostrarAlerta("success", "Registor completado");
-        //         $("#nuevo_usuario").modal("hide");
-        //         tblUsuarios.ajax.reload();
-        //       }else{
-        //         mostrarAlerta("error",res);
-        //       }
+        // const formData = new FormData(frm);      
+        // try {
+        //     const response = await fetch(url, {
+        //         method: "POST",
+        //         body: formData
+        //     });
+        //     if (response.ok) {
+        //         const res = await response.json();
+        //         mostrarAlerta("success", res);
+        //         // if (res == "si") {
+        //         //     mostrarAlerta("success", "Entrada registrada con éxito");
+        //         //     frm.reset();
+        //         //     $("#nuevo_usuario").modal("hide");
+        //         //     tblUsuarios.ajax.reload();
+        //         // } else if (res == "modificado") {
+        //         //     mostrarAlerta("success", "Registro completado");
+        //         //     $("#nuevo_usuario").modal("hide");
+        //         //     tblUsuarios.ajax.reload();
+        //         // } else {
+        //         //     mostrarAlerta("error", res);
+        //         // }
+        //     } else {
+        //         mostrarAlerta("error", "Error en la solicitud");
         //     }
+        // } catch (error) {
+        //     mostrarAlerta("error", 'Error en el servidor' );
         // }
+
+        const http = new XMLHttpRequest();
+        http.open("POST",url,true);
+        http.send(new FormData(frm));      
+        http.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){ 
+              const res= JSON.parse(this.responseText);
+              if(res=="si"){
+                mostrarAlerta("success", "Entrada registrada con exito");
+                frm.reset();
+                $("#nuevo_usuario").modal("hide");
+                tblUsuarios.ajax.reload();
+              }else if(res=="modificado"){
+                mostrarAlerta("success", "Registor completado");
+                $("#nuevo_usuario").modal("hide");
+                tblUsuarios.ajax.reload();
+              }else{
+                mostrarAlerta("error",res);
+              }
+            }
+        }
     }
 }
 

@@ -99,19 +99,13 @@ class Usuarios extends Controller{
                     }
                 }else{
                      // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
-
-                    
                      $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id,$cel,$rol);
                      if($data=="modificado"){
                          $msg ="modificado";
                      }else{
                          $msg="Error al modificar usuario";
                      }
-                   
                 }
-                
-                
-
             }
           
         }
