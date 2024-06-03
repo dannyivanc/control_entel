@@ -53,7 +53,6 @@ class Vehiculos extends Controller{
         $km_retorno= $_POST['km_retorno'];      
         $conductor=$_POST['conductor'];  
         $destino=$_POST['destino']; 
-        $estado=$_POST['estado']; 
         $id_sucursal=$this->sucursalInfo['id'];
         $id_vigilante= $this->sucursalInfo['id_vigilante'];   
         $id= $_POST['id'];   
@@ -62,24 +61,23 @@ class Vehiculos extends Controller{
             $msg= "todos los campos son obligatorios";
         }else{
             if($id==""){
-                $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante);
+                $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante);
                 if($data=="ok"){
                     $msg ="si";
-                }else if($data=="existe") {
-                    $msg ="El usuario ya se encuentra registrado, Verifique el usuario o carnet";
                 }else{
-                    $msg="Error al registrar usuario";
+                    $msg="Error al registrar vehiculo";
                 }
-            }else{
-                     
-                $data= $this->model->modificarUsuarioPass($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante,$id);
-                if($data=="modificado"){
-                    $msg ="modificado";
-                }else{
-                    $msg="Error al modificar usuario";
-                }
-            
             }
+            // else{
+                     
+            //     $data= $this->model->modificarUsuarioPass($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante,$id);
+            //     if($data=="modificado"){
+            //         $msg ="modificado";
+            //     }else{
+            //         $msg="Error al modificar usuario";
+            //     }
+            
+            // }
         }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();

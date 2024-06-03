@@ -74,8 +74,7 @@ class Usuarios extends Controller{
         $id= $_POST['id'];      
         $hash=hash("SHA256",$clave);   
             
-        $clave_ant=$_POST['clave_ant']; 
-
+        $clave_ant=$_POST['clave_ant'];
         if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)||empty($cel)||empty($rol)){
             $msg= "todos los campos son obligatorios";
         }else{

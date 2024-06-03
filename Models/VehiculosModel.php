@@ -34,30 +34,31 @@
         // }
 
         // $salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante
-        public function registrarVehiculo(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $estado,int $id_sucursal,int $id_vigilante){          
-            $this->salida=$salida;
-            $this->retorno=$retorno;
+        public function registrarVehiculo(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $id_sucursal,int $id_vigilante){    
+
+  
+            list($fecha_salida, $hora_salida) = explode('T', $salida);
+            list($fecha_retorno, $hora_retorno) = explode('T', $retorno);
+            
+            $this->salida = $fecha_salida . ' ' . substr($hora_salida, 0, 5) . ':00';
+            $this->retorno = $fecha_retorno . ' ' . substr($hora_retorno, 0, 5) . ':00';
             $this->tipo=$tipo;
             $this->placa=$placa;
             $this->km_salida=$km_salida;
             $this->km_retorno=$km_retorno;
             $this->conductor=$conductor;
             $this->destino=$destino;
-            $this->estado=$estado;
             $this->id_sucursal=$id_sucursal;
             $this->id_vigilante=$id_vigilante;
-
-         
-                $sql = "INSERT INTO vehiculos (salida,retorno,tipo,placa,km_salida,km_retorno,conductor,destino,estado,id_sucursal,id_vigilante) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-                $datos =array($this->salida,$this->retorno,$this->tipo,$this->placa,$this->km_salida,$this->km_retorno,$this->conductor,$this->destino,$this->estado,$this->id_sucursal,$this->id_vigilante);
-                $data =  $this-> save($sql,$datos);
-                if($data==1){
-                    $res = "ok";
-                }else{
-                    $res = "error";
-                }
-            
-          
+            // $res =   $this->salida;
+            $sql = "INSERT INTO vehiculos (salida,retorno,tipo,placa,km_salida,km_retorno,conductor,destino,id_vigilante,id_sucursal) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            $datos =array($this->salida,$this->retorno,$this->tipo,$this->placa,$this->km_salida,$this->km_retorno,$this->conductor,$this->destino,$this->id_sucursal,$this->id_vigilante);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "ok";
+            }else{
+                $res = "error";
+            }
             return $res;
         }
 
