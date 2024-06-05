@@ -26,10 +26,10 @@
       </button>
    </div>
 
-   <table class="table  table-light custom-table " id="tblVehiculos">
+   <table class="table  table-light table-bordered  custom-table" id="tblVehiculos">
          <thead class="thead-dark">
             <tr>
-               <!-- <th>Fecha</th> -->    
+               <th>Nº</th>  
                <th>Salida</th>
                <th>Retorno</th>
                <th>Tipo</th>  
@@ -37,7 +37,8 @@
                <th>Km Salida</th>
                <th>Km Retorno</th>      
                <th>Conductor</th>  
-               <th>Destino</th>      
+               <th>Destino</th>     
+               <th>Acciones</th>       
             </tr>
          </thead>
          <tbody>
@@ -109,17 +110,14 @@
                      <label for="destino">Destino/Origen</label>
                      <textarea id="destino" class="form-control" type="text" name="destino" placeholder="Destino- Origen de Vehiculo"></textarea>
                   </div>               
-                  <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarVehiculo(event);">
+                  <button id ="btn_form_vehiculo" class="btn btn-primary mt-3" type="button" onclick="registrarVehiculo(event);">
                      Registrar
                   </button>
                   <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">
                      Cancelar
                   </button>
-
-
                </form>
             </div>
-         
          </div>
       </div>
    </div>

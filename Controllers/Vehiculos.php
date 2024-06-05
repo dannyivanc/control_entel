@@ -20,28 +20,33 @@ class Vehiculos extends Controller{
         $this->views->getView($this, "index", $data);
     }
     public function perrie(){
-        print_r($this->sucursalInfo);
+        print_r($_SESSION['id_usuario']);
+        print_r('---');
+        print_r($this->sucursalInfo['id']);
     }
 
-    // public function listar(){
-    //     $data= $this->model->getUsuarios();       
+    public function listar(){
+        $id = $_SESSION['id_usuario'];
+        $id_sucursal= $this->sucursalInfo['id'];
+        $data= $this->model->getVehiculos($id,$id_sucursal);       
        
-    //     for ($i=0; $i <count($data) ; $i++) { 
-    //         $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-    //         $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
-    //         $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
-    //         if($data[$i]['estado']==1){
-    //             $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
-    //             $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
-    //         }else{
-    //             $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
-    //             $data[$i]['acciones'] = $btnActivar;
-    //         }
+        for ($i=0; $i <count($data) ; $i++) { 
+            $data[$i]['index']=$i+1;
+            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
+            if($data[$i]['estado']==1){
+                $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
+                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+            }else{
+                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
+                $data[$i]['acciones'] = $btnActivar;
+            }
 
-    //     }
-    //     echo json_encode($data,JSON_UNESCAPED_UNICODE);
-    //     die();
-    // }
+        }
+        echo json_encode($data,JSON_UNESCAPED_UNICODE);
+        die();
+    }
 
     
     public function registrar(){
@@ -61,7 +66,7 @@ class Vehiculos extends Controller{
             $msg= "todos los campos son obligatorios";
         }else{
             if($id==""){
-                $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante);
+                $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_vigilante,$id_sucursal);
                 if($data=="ok"){
                     $msg ="si";
                 }else{

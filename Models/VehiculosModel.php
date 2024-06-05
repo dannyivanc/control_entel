@@ -19,19 +19,16 @@
         //     return $data;
         // }       
         
-        // public function getSucursales(){
-        //     // $sql="SELECT s.*, i.id AS id_institucion, i.institucion 
-        //     // FROM sucursales as s
-        //     // INNER JOIN instituciones as i ON s.id_institucion = i.id
-        //     // ORDER BY id DESC;";
-        //     $sql="SELECT s.*, i.id AS id_institucion, i.institucion, u.id AS id_vigilante,u.nombre as vigilante
-        //     FROM sucursales as s
-        //     INNER JOIN instituciones as i ON s.id_institucion = i.id
-        //     INNER JOIN usuarios as u ON s.id_vigilante = u.id
-        //     ORDER BY id DESC;";
-        //     $data= $this->selectAll($sql);
-        //     return $data;
-        // }
+        public function getVehiculos(int $id_vig,int $id_suc){
+           
+            $sql="SELECT *
+            FROM vehiculos 
+            WHERE id_vigilante=$id_vig and id_sucursal = $id_suc;
+      
+            ORDER BY id DESC;";
+            $data= $this->selectAll($sql);
+            return $data;
+        }
 
         // $salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante
         public function registrarVehiculo(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $id_sucursal,int $id_vigilante){    

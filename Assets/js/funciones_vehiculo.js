@@ -9,12 +9,12 @@ function mostrarAlerta(icon, title,position="top", timer = 2000) {
         timer: timer
     });
 }
-
+  
 document.addEventListener("DOMContentLoaded",function(){
     //  if(window.location.pathname ===`/control/Usuarios`){
         tblVehiculos=$('#tblVehiculos').DataTable( {
         ajax: {
-            url: base_url+"Usuarios/listar",
+            url: base_url+"Vehiculos/listar",
             dataSrc: ''
         },
         columns: [ 
@@ -22,25 +22,28 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'index','width': '3%','className': 'text-end',
         },
         {
-          'data':'usuario','className': 'text-end',
+          'data':'salida','width': '11%','className': 'text-end',
         },
         {
-          'data':'nombre','className': 'text-end',
+          'data':'retorno','width': '11%','className': 'text-end',
         },
         {
-          'data':'carnet','className': 'text-end',
+          'data':'tipo','width': '6%','className': 'text-end',
         },
         {
-          'data':'institucion','className': 'text-end',
+          'data':'placa','width': '7%','className': 'text-end',
         },
         {
-          'data':'cel','className': 'text-end',
+          'data':'km_salida','width': '7%','className': 'text-end',
         },
         {
-          'data':'rol','className': 'text-end','width': '8%',
+          'data':'km_retorno','width': '7%','className': 'text-end',
         },
         {
-          'data':'estado','className': 'text-end','width': '5%',
+          'data':'conductor','width': '12%','className': 'text-end',
+        },
+        {
+          'data':'destino', 'className': 'text-end',
         },
         {
           'data': 'acciones','width': '12%','className': 'text-center',
@@ -74,7 +77,6 @@ document.addEventListener("DOMContentLoaded",function(){
     //  }
 })
    
-
 function frmVehiculo(){
   document.getElementById("title").innerHTML="Registro de Vehiculos";
   // document.getElementById("btnAccion").innerHTML="Registrar";
@@ -83,7 +85,6 @@ function frmVehiculo(){
   $("#nuevo_vehiculo").modal("show");
   document.getElementById("id").value="";
 }
-
 
 async function registrarVehiculo (e){
     e.preventDefault();
@@ -151,6 +152,23 @@ async function registrarVehiculo (e){
 
     }
 }
+
+function btnEditarVehiculo(id){
+    document.getElementById("title").innerHTML="Actualizar Vehiculo";
+    document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
+    const url = base_url + "Instituciones/editar/"+id;  
+    const http = new XMLHttpRequest();
+    http.open("GET",url,true);
+    http.send();
+    http.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200){     
+          const res = JSON.parse(this.responseText);
+          document.getElementById("id").value=res.id;
+          document.getElementById("institucion").value=res.institucion;
+          $("#nuevo_institucion").modal("show");
+        }
+    }
+  }
 
 
 
