@@ -11,7 +11,6 @@ function mostrarAlerta(icon, title,position="top", timer = 2000) {
 }
   
 document.addEventListener("DOMContentLoaded",function(){
-    //  if(window.location.pathname ===`/control/Usuarios`){
         tblVehiculos=$('#tblVehiculos').DataTable( {
         ajax: {
             url: base_url+"Vehiculos/listar",
@@ -79,9 +78,8 @@ document.addEventListener("DOMContentLoaded",function(){
    
 function frmVehiculo(){
   document.getElementById("title").innerHTML="Registro de Vehiculos";
-  // document.getElementById("btnAccion").innerHTML="Registrar";
+  document.getElementById("btn_form_vehiculo").innerHTML="Nuevo Vehiculo";
   document.getElementById("frmVehiculo").reset();
-  // document.getElementById("cont-pass").classList.remove("d-none");
   $("#nuevo_vehiculo").modal("show");
   document.getElementById("id").value="";
 }
@@ -153,22 +151,47 @@ async function registrarVehiculo (e){
     }
 }
 
-function btnEditarVehiculo(id){
-    document.getElementById("title").innerHTML="Actualizar Vehiculo";
-    document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
-    const url = base_url + "Instituciones/editar/"+id;  
-    const http = new XMLHttpRequest();
-    http.open("GET",url,true);
-    http.send();
-    http.onreadystatechange = function(){
-        if(this.readyState==4 && this.status==200){     
-          const res = JSON.parse(this.responseText);
-          document.getElementById("id").value=res.id;
-          document.getElementById("institucion").value=res.institucion;
-          $("#nuevo_institucion").modal("show");
+// function btnEditarVehiculo  (id){
+//     document.getElementById("title").innerHTML="Actualizar Vehiculo";
+//     document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
+//     const url = base_url + "Vehiculos/editar/"+id;  
+//     const http = new XMLHttpRequest();
+//     http.open("GET",url,true);
+//     http.send();
+//     http.onreadystatechange = function(){
+//         if(this.readyState==4 && this.status==200){     
+//           const res = JSON.parse(this.responseText);
+//           document.getElementById("id").value=res.id;
+//           document.getElementById("institucion").value=res.institucion;
+//           $("#nuevo_vehiculo").modal("show");
+//         }
+//     }
+//   }
+async function btnEditarVehiculo(id) {
+    document.getElementById("title").innerHTML = "Actualizar Vehiculo";
+    document.getElementById("btn_form_vehiculo").innerHTML = "Actualizar";
+    const url = base_url + "Vehiculos/editar/" + id;
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+            const res = await response.json();
+            document.getElementById("id").value = res.id;
+            document.getElementById("salida").value = res.salida;
+            document.getElementById("retorno").value = res.retorno;
+            document.getElementById("tipo").value = res.tipo;
+            document.getElementById("placa").value = res.placa;
+            document.getElementById("km_salida").value = res.km_salida;
+            document.getElementById("km_retorno").value = res.km_retorno;
+            document.getElementById("conductor").value = res.conductor;
+            document.getElementById("destino").value = res.destino;
+            $("#nuevo_vehiculo").modal("show");
+        } else {
+            mostrarAlerta("error", "Error en la solicitud");
         }
+    } catch (error) {
+        mostrarAlerta("error", "Error en el servidor");
     }
-  }
+}
 
 
 

@@ -19,13 +19,12 @@
         //     return $data;
         // }       
         
-        public function getVehiculos(int $id_vig,int $id_suc){
+        public function getVehiculos(int $id_suc){
            
             $sql="SELECT *
             FROM vehiculos 
-            WHERE id_vigilante=$id_vig and id_sucursal = $id_suc;
-      
-            ORDER BY id DESC;";
+            WHERE id_sucursal = $id_suc
+            ORDER BY id DESC";
             $data= $this->selectAll($sql);
             return $data;
         }
@@ -76,18 +75,18 @@
         //     }
         //     return $res;
         // }
-        // public function editarSucursal(int $id){
-        //     $sql = "SELECT * FROM sucursales WHERE id=$id";
-        //     $data= $this->select($sql);
-        //     return $data;
-        // }
-        // public function accionInstitucion (int $estado,int $id){
-        //     $this->id = $id;
-        //     $this->estado = $estado;
-        //     $sql ="UPDATE sucursales SET estado =? WHERE id=?";
-        //     $datos=array($this->estado,$this->id);
-        //     $data = $this->save($sql,$datos);
-        //     return $data;
-        // }
+        public function editarVehiculo(int $id){
+            $sql = "SELECT * FROM vehiculos WHERE id=$id";
+            $data= $this->select($sql);
+            return $data;
+        }
+        public function accionInstitucion (int $estado,int $id){
+            $this->id = $id;
+            $this->estado = $estado;
+            $sql ="UPDATE sucursales SET estado =? WHERE id=?";
+            $datos=array($this->estado,$this->id);
+            $data = $this->save($sql,$datos);
+            return $data;
+        }
     }
 ?> 

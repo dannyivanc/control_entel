@@ -1,6 +1,5 @@
 let tblUsuarios;
 document.addEventListener("DOMContentLoaded",function(){
-    //  if(window.location.pathname ===`/control/Usuarios`){
       tblUsuarios=$('#tblUsuarios').DataTable( {
         ajax: {
             url: base_url+"Usuarios/listar",

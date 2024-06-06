@@ -26,9 +26,8 @@ class Vehiculos extends Controller{
     }
 
     public function listar(){
-        $id = $_SESSION['id_usuario'];
         $id_sucursal= $this->sucursalInfo['id'];
-        $data= $this->model->getVehiculos($id,$id_sucursal);       
+        $data= $this->model->getVehiculos($id_sucursal);       
        
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
@@ -73,26 +72,26 @@ class Vehiculos extends Controller{
                     $msg="Error al registrar vehiculo";
                 }
             }
-            // else{
+            else{
                      
-            //     $data= $this->model->modificarUsuarioPass($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_sucursal,$id_vigilante,$id);
-            //     if($data=="modificado"){
-            //         $msg ="modificado";
-            //     }else{
-            //         $msg="Error al modificar usuario";
-            //     }
+                $data= $this->model->modificarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id);
+                if($data=="modificado"){
+                    $msg ="modificado";
+                }else{
+                    $msg="Error al modificar el vehiculo";
+                }
             
-            // }
+            }
         }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
     }
 
-    // public function editar (int $id){
-    //   $data=$this->model->editarUser($id);
-    //   echo json_encode($data, JSON_UNESCAPED_UNICODE);
-    //   die();
-    // }
+    public function editar (int $id){
+      $data=$this->model->editarVehiculo($id);
+      echo json_encode($data, JSON_UNESCAPED_UNICODE);
+      die();
+    }
 
     // public function desactivar(int $id){
     //     $data=$this->model ->accionUser(0,$id);
