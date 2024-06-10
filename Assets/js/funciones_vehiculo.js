@@ -1,6 +1,6 @@
 let tblVehiculos;
 
-function mostrarAlerta(icon, title,position="top", timer = 2000) {
+function mostrarAlerta(icon, title, timer = 2000,position="top") {
     Swal.fire({    
         icon: icon,
         title: title,
@@ -9,6 +9,8 @@ function mostrarAlerta(icon, title,position="top", timer = 2000) {
         timer: timer
     });
 }
+
+
   
 document.addEventListener("DOMContentLoaded",function(){
         tblVehiculos=$('#tblVehiculos').DataTable( {
@@ -93,7 +95,7 @@ async function registrarVehiculo (e){
     const km_salida = document.getElementById("km_salida");
     const km_retorno = document.getElementById("km_retorno");
     const conductor = document.getElementById("conductor");
-    const destino = document.getElementById("destino");
+    const destino = document.getElementById("destino"); 
     if(salida.value==""||tipo.value==""||placa.value==""||km_salida.value==""||conductor.value=="" ||destino.value==""){
         mostrarAlerta("error", "Solo los retornos pueden estar en blanco");
     }else{
@@ -115,7 +117,7 @@ async function registrarVehiculo (e){
                     $("#nuevo_vehiculo").modal("hide");
                     tblVehiculos.ajax.reload();
                 } else if (res === "modificado") {
-                    mostrarAlerta("success", "Registro completado");
+                    mostrarAlerta("success", "Modificacion completada");
                     $("#nuevo_vehiculo").modal("hide");
                     tblVehiculos.ajax.reload();
                 } else {
@@ -127,46 +129,25 @@ async function registrarVehiculo (e){
         } catch (error) {
                 mostrarAlerta("error","Error de servidor");
         }
-        // const http = new XMLHttpRequest();
-        // http.open("POST",url,true);
-        // http.send(new FormData(frm));      
-        // http.onreadystatechange = function(){
-        //     if(this.readyState==4 && this.status==200){ 
-        //       const res= JSON.parse(this.responseText);
-        //       if(res=="si"){
-        //         mostrarAlerta("success", "Entrada registrada con exito");
-        //         frm.reset();
-        //         $("#nuevo_vehiculo").modal("hide");
-        //         // tblVehiculos.ajax.reload();
-        //       }else if(res=="modificado"){
-        //         mostrarAlerta("success", "Registor completado");
-        //         $("#nuevo_vehiculo").modal("hide");
-        //         // tblVehiculos.ajax.reload();
-        //       }else{
-        //         mostrarAlerta("error",res);
-        //       }
-        //     }
-        // }
-
     }
 }
 
-// function btnEditarVehiculo  (id){
-//     document.getElementById("title").innerHTML="Actualizar Vehiculo";
-//     document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
-//     const url = base_url + "Vehiculos/editar/"+id;  
-//     const http = new XMLHttpRequest();
-//     http.open("GET",url,true);
-//     http.send();
-//     http.onreadystatechange = function(){
-//         if(this.readyState==4 && this.status==200){     
-//           const res = JSON.parse(this.responseText);
-//           document.getElementById("id").value=res.id;
-//           document.getElementById("institucion").value=res.institucion;
-//           $("#nuevo_vehiculo").modal("show");
-//         }
-//     }
-//   }
+function btnEditarVehiculo  (id){
+    document.getElementById("title").innerHTML="Actualizar Vehiculo";
+    document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
+    const url = base_url + "Vehiculos/editar/"+id;  
+    const http = new XMLHttpRequest();
+    http.open("GET",url,true);
+    http.send();
+    http.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200){     
+          const res = JSON.parse(this.responseText);
+          document.getElementById("id").value=res.id;
+          document.getElementById("institucion").value=res.institucion;
+          $("#nuevo_vehiculo").modal("show");
+        }
+    }
+  }
 async function btnEditarVehiculo(id) {
     document.getElementById("title").innerHTML = "Actualizar Vehiculo";
     document.getElementById("btn_form_vehiculo").innerHTML = "Actualizar";
@@ -193,32 +174,41 @@ async function btnEditarVehiculo(id) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function btnDesactivarVehiculo(id){
+    Swal.fire({
+      title: "Completar registro",
+      icon: "warning",
+      text: "El registro del vehiculo ya no podra ser visualizado",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Desactivar",
+      cancelButtonText :"Cancelar"
+    }).then(async(result) => {
+      if (result.isConfirmed) {   
+        try {
+            const url = base_url + "Vehiculos/desactivar/"+id;
+            const response = await fetch(url);
+            if (response.ok) {
+                const res = await response.json();
+                if (res == "ok") {
+                    mostrarAlerta("success", "Registro completado con éxito");
+                    tblVehiculos.ajax.reload();
+                } else if(res == "void"){
+                    mostrarAlerta("error", "Completar los campos de RETORNO y KILOMETRAJE DE RETORNO",4000);
+                }
+                else {
+                    mostrarAlerta("error ",res);
+                }
+            } else {
+                mostrarAlerta("error ","Error en la solicitud");
+            }
+        } catch (error) {
+            mostrarAlerta("error ","Error en el servidor");
+        }  
+      }
+    });
+  }
     //para controlar salida
     var fechaActual = new Date();    
     var FechaControl = new Date(fechaActual.getTime() - (14 * 60 * 60 * 1000));

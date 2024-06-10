@@ -32,7 +32,7 @@ class Vehiculos extends Controller{
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
             $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+            $btnDesactivar = '<button class="btn btn-warning" type="button" onClick="btnDesactivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-check-double"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
                 $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
@@ -50,20 +50,21 @@ class Vehiculos extends Controller{
     
     public function registrar(){
         $salida= $_POST['salida'];
-        $retorno= $_POST['retorno'];
+        $retorno = empty($_POST['retorno']) ? '2000-00-00T00:00:00' : $_POST['retorno'];
         $tipo= $_POST['tipo'];
         $placa= $_POST['placa'];    
-        $km_salida= $_POST['km_salida'];
-        $km_retorno= $_POST['km_retorno'];      
+        $km_salida= $_POST['km_salida'];       
+        $km_retorno = empty($_POST['km_retorno']) ? 0: $_POST['km_retorno'];    
         $conductor=$_POST['conductor'];  
         $destino=$_POST['destino']; 
         $id_sucursal=$this->sucursalInfo['id'];
         $id_vigilante= $this->sucursalInfo['id_vigilante'];   
         $id= $_POST['id'];   
-            
+        $msg= $retorno;   
         if(empty($salida)||empty($tipo)||empty($placa)||empty($km_salida)||empty($conductor)||empty($destino)){
             $msg= "todos los campos son obligatorios";
         }else{
+
             if($id==""){
                 $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_vigilante,$id_sucursal);
                 if($data=="ok"){
@@ -72,15 +73,13 @@ class Vehiculos extends Controller{
                     $msg="Error al registrar vehiculo";
                 }
             }
-            else{
-                     
-                $data= $this->model->modificarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id);
+            else{       
+                $data= $this->model->modificarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_vigilante,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{
                     $msg="Error al modificar el vehiculo";
                 }
-            
             }
         }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
@@ -93,31 +92,21 @@ class Vehiculos extends Controller{
       die();
     }
 
-    // public function desactivar(int $id){
-    //     $data=$this->model ->accionUser(0,$id);
-    //    if($data==1){
-    //     $msg="ok";
-    //    }else{
-    //     $msg="Error al desactivar usuario";
-    //    }
-    //    echo json_encode($msg,JSON_UNESCAPED_UNICODE);
-    //    die();
-    // }
-    // public function activar(int $id){
-    //     $data=$this->model ->accionUser(1,$id);
-    //    if($data==1){
-    //     $msg="ok";
-    //    }else{
-    //     $msg="Error al activar usuario";
-    //    }
-    //    echo json_encode($msg,JSON_UNESCAPED_UNICODE);
-    //    die();
-    // }
+    public function desactivar(int $id){
+        $data=$this->model ->accionVehiculo($id);
+       if($data=="ok"){
+        $msg="ok";
+       }else if($data=="void"){
+        $msg="void";
+       }
+       else{
+        $msg="Error al desactivar el vehiculo";
+       }
+       echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+       die();
+    }
 
-    // public function salir(){
-    //     session_destroy();
-    //     header("location:".base_url);
-    // }
+
 }
 ?>
 

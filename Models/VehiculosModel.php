@@ -11,28 +11,18 @@
             WHERE id_vigilante = $id";
             $data= $this->select($sql);
             return $data;
-        }      
-        
-        // public function getVigilantes(){
-        //     $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
-        //     $data= $this->selectAll($sql);
-        //     return $data;
-        // }       
-        
+        }           
         public function getVehiculos(int $id_suc){
-           
             $sql="SELECT *
             FROM vehiculos 
-            WHERE id_sucursal = $id_suc
+            WHERE id_sucursal = $id_suc and estado = 1
             ORDER BY id DESC";
             $data= $this->selectAll($sql);
             return $data;
         }
-
         // $salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$estado,$id_sucursal,$id_vigilante
         public function registrarVehiculo(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $id_sucursal,int $id_vigilante){    
 
-  
             list($fecha_salida, $hora_salida) = explode('T', $salida);
             list($fecha_retorno, $hora_retorno) = explode('T', $retorno);
             
@@ -58,35 +48,60 @@
             return $res;
         }
 
-        // public function modificarSucursal(string $sucursal,int $id_institucion,int $id_vigilante,string $ciudad,string $direccion, int $id){
-        //     $this->sucursal=$sucursal;
-        //     $this->id_institucion=$id_institucion;
-        //     $this->id_vigilante=$id_vigilante;
-        //     $this->ciudad=$ciudad;
-        //     $this->direccion=$direccion;
-        //     $this->id=$id;
-        //     $sql = "UPDATE sucursales SET sucursal=?,id_institucion=?,id_vigilante=?,ciudad=?,direccion=? WHERE id=?"; 
-        //     $datos =array( $this->sucursal,$this->id_institucion,$this->id_vigilante,$this->ciudad,$this->direccion,$this->id);
-        //     $data =  $this-> save($sql,$datos);
-        //     if($data==1){
-        //         $res = "modificado";
-        //     }else{
-        //         $res = "error";
-        //     }
-        //     return $res;
-        // }
+        public function modificarVehiculo(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $id_vigilante,int $id){
+            list($fecha_salida, $hora_salida) = explode('T', $salida);
+            list($fecha_retorno, $hora_retorno) = explode('T', $retorno);
+            $this->salida = $fecha_salida . ' ' . substr($hora_salida, 0, 5) . ':00';
+            $this->retorno = $fecha_retorno . ' ' . substr($hora_retorno, 0, 5) . ':00';
+            $this->tipo=$tipo;
+            $this->placa=$placa;
+            $this->km_salida=$km_salida;
+            $this->km_retorno=$km_retorno;
+            $this->conductor=$conductor;
+            $this->destino=$destino;
+            $this->id_vigilante=$id_vigilante;
+            $this->id=$id;
+            $sql = "UPDATE vehiculos SET salida=?,retorno=?,tipo=?,placa=?,km_salida=?,km_retorno=?,conductor=?,destino=?,id_vigilante=? WHERE id=?"; 
+            $datos =array($this->salida,$this->retorno,$this->tipo,$this->placa,$this->km_salida,$this->km_retorno,$this->conductor,$this->destino,$this->id_vigilante,$this->id);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "modificado";
+            }else{
+                $res = "error";
+            }
+            return $res;
+        }
         public function editarVehiculo(int $id){
             $sql = "SELECT * FROM vehiculos WHERE id=$id";
             $data= $this->select($sql);
             return $data;
         }
-        public function accionInstitucion (int $estado,int $id){
+
+
+
+        public function accionVehiculo (int $id){
             $this->id = $id;
-            $this->estado = $estado;
-            $sql ="UPDATE sucursales SET estado =? WHERE id=?";
-            $datos=array($this->estado,$this->id);
-            $data = $this->save($sql,$datos);
-            return $data;
+            // $this->estado = $estado;
+            // $sql ="UPDATE vehiculos SET estado =? WHERE id=?";
+            // $datos=array($this->estado,$this->id);
+            // $data = $this->save($sql,$datos);
+            // return $data;
+            $verificar ="SELECT *FROM vehiculos WHERE id=$id AND retorno!= '0000-00-00 00:00:00' AND km_retorno != 0";           
+            $existe =$this->select($verificar);
+            if(!empty($existe)){
+                $sql ="UPDATE vehiculos SET estado =? WHERE id=?";
+                $datos=array(0,$this->id);
+                $data =  $this-> save($sql,$datos);
+                if($data==1){
+                    $res = "ok";
+                }else{
+                    $res = "error";
+                }
+            }else {
+                $res ="void";
+            }
+            return $res;
+          
         }
     }
 ?> 
