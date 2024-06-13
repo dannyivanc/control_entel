@@ -1,14 +1,45 @@
 <?php
     class UsuariosModel extends Query{
         private $id,$usuario,$nombre,$carnet,$clave,$id_institucion,$estado,$cel,$rol;
+        private $conn;
   
         public function __construct(){
             parent::__construct();
+         
+         
+             // para cborrar 
+            $this->conn = new mysqli(host, user, pass, db);
+            if ($this->conn->connect_error) {
+                die("Connection failed: " . $this->conn->connect_error);
+            }
+            $this->conn->set_charset(charset);
+            //para borrar
         }
         public function getUsuario(string $usuario, string $clave){
-            $sql="SELECT * FROM usuarios WHERE usuario = '$usuario' AND clave ='$clave'";
-            $data= $this->select($sql);
-            return $data;
+            // $sql="SELECT * FROM usuarios WHERE usuario = '$usuario' AND clave ='$clave'";
+            // $data= $this->select($sql);
+            // return $data;
+
+            //cambiar
+            try {
+                // Preparar la consulta SQL
+                $sql = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?";
+                $stmt = $this->conn->prepare($sql);
+                if ($stmt === false) {
+                    throw new Exception("Error al preparar la declaración: " . $this->conn->error);
+                }
+                $stmt->bind_param("ss", $usuario, $clave);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $data = $result->fetch_assoc();
+                $stmt->close();
+                return $data;
+            } catch (Exception $e) {
+                echo 'Error: ' . $e->getMessage();
+                return null;
+            }
+
+            //cambiar
         }
 
         public function getInstituciones(){

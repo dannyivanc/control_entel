@@ -11,6 +11,7 @@
     const user = "saidbolivia_sistemas";
     const pass = "Tic2023@";
     const db = "saidbolivia_control";   
+    const charset = "utf8";
 
 
 ?>

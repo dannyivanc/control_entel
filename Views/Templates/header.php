@@ -75,6 +75,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-car-side"></i></div>
                                 Vehiculos
                             </a>
+                            <a class="nav-link " href="<?php echo base_url?>Materiales">                     
+                                <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                                Materiales
+                            </a>
                          
                         </div>
                     </div>
