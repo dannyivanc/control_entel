@@ -182,7 +182,7 @@ function btnDesactivarVehiculo(id){
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Desactivar",
+      confirmButtonText: "Completar",
       cancelButtonText :"Cancelar"
     }).then(async(result) => {
       if (result.isConfirmed) {   

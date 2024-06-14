@@ -49,7 +49,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">Menu</div>
                             <a class="nav-link ml-1" href="<?php echo base_url?>Usuarios"> 
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Usuarios
@@ -71,6 +71,23 @@
                                     Sucursal
                                 </a>
                             </div>    
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#supervisores" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                                Supervisores
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Supervisores"> 
+                                    <div class="sb-nav-link-icon "><i class="fas fa-building"></i></div>
+                                    Supervicion de Institucion
+                                </a>
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Sucursales">                                   
+                                    <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
+                                    Patrullaje Motorizado 
+                                </a>
+                            </div>  
+                            
                             <a class="nav-link " href="<?php echo base_url?>Vehiculos">                     
                                 <div class="sb-nav-link-icon"><i class="fas fa-car-side"></i></div>
                                 Vehiculos

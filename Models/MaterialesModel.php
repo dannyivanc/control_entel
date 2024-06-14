@@ -13,10 +13,17 @@
             return $data;
         }           
         public function getMateriales(int $id_suc){
+            // $sql="SELECT *
+            // FROM materiales 
+            // WHERE id_sucursal = $id_suc and estado = 1
+            // ORDER BY id DESC";
             $sql="SELECT *
-            FROM materiales 
-            WHERE id_sucursal = $id_suc and estado = 1
+            FROM materiales
+            WHERE id_sucursal = $id_suc and estado = 1 
+            and MONTH(fecha) = MONTH(CURRENT_DATE())
+            and YEAR(fecha) = YEAR(CURRENT_DATE())
             ORDER BY id DESC";
+
             $data= $this->selectAll($sql);
             return $data;
         }
@@ -44,31 +51,29 @@
             return $res;
         }
 
-        public function modificarMaterial(string $salida,string $retorno,string $tipo,string $placa,int $km_salida,int $km_retorno,string $conductor,string $destino,int $id_vigilante,int $id){
-            // list($fecha_salida, $hora_salida) = explode('T', $salida);
-            // list($fecha_retorno, $hora_retorno) = explode('T', $retorno);
-            // $this->salida = $fecha_salida . ' ' . substr($hora_salida, 0, 5) . ':00';
-            // $this->retorno = $fecha_retorno . ' ' . substr($hora_retorno, 0, 5) . ':00';
-            // $this->tipo=$tipo;
-            // $this->placa=$placa;
-            // $this->km_salida=$km_salida;
-            // $this->km_retorno=$km_retorno;
-            // $this->conductor=$conductor;
-            // $this->destino=$destino;
-            // $this->id_vigilante=$id_vigilante;
-            // $this->id=$id;
-            // $sql = "UPDATE vehiculos SET salida=?,retorno=?,tipo=?,placa=?,km_salida=?,km_retorno=?,conductor=?,destino=?,id_vigilante=? WHERE id=?"; 
-            // $datos =array($this->salida,$this->retorno,$this->tipo,$this->placa,$this->km_salida,$this->km_retorno,$this->conductor,$this->destino,$this->id_vigilante,$this->id);
-            // $data =  $this-> save($sql,$datos);
-            // if($data==1){
-            //     $res = "modificado";
-            // }else{
-            //     $res = "error";
-            // }
-            // return $res;
+        public function modificarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_vigilante,int $id){
+            
+            list($fecha_registro, $hora_registro) = explode('T', $fecha);
+            $this->fecha = $fecha_registro . ' ' . substr($hora_registro, 0, 5) . ':00';
+            $this->movimiento=$movimiento;
+            $this->persona=$persona;
+            $this->destino=$destino;
+            $this->descripcion=$descripcion;
+            $this->observacion=$observacion;       
+            $this->id_vigilante=$id_vigilante;
+            $this->id=$id;
+            $sql = "UPDATE materiales SET fecha=?,movimiento=?,persona=?,destino=?,descripcion=?,observacion=?,id_vigilante=? WHERE id=?"; 
+            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "modificado";
+            }else{
+                $res = "error";
+            }
+            return $res;
         }
-        public function editarVehiculo(int $id){
-            $sql = "SELECT * FROM vehiculos WHERE id=$id";
+        public function editarMaterial(int $id){
+            $sql = "SELECT * FROM materiales WHERE id=$id";
             $data= $this->select($sql);
             return $data;
         }

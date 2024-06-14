@@ -22,7 +22,7 @@ class Materiales extends Controller{
     public function perrie(){
         print_r($_SESSION['id_usuario']);
         print_r('---');
-        print_r($this->sucursalInfo['id']);
+        print_r($this->sucursalInfo);
     }
 
     public function listar(){
@@ -31,12 +31,13 @@ class Materiales extends Controller{
        
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-            $btnDesactivar = '<button class="btn btn-warning" type="button" onClick="btnDesactivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-check-double"></i> </button>';
-            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarVehiculo('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
+            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarMaterial('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnDesactivar = '<button class="btn btn-warning" type="button" onClick="btnDesactivarMaterial('.$data[$i]['id'].')"> <i class="fas fa-check-double"></i> </button>';
+            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarMaterial('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
                 $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+                // $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+                $data[$i]['acciones'] = $btnEditar  ;
             }else{
                 $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
                 $data[$i]['acciones'] = $btnActivar;
@@ -49,7 +50,7 @@ class Materiales extends Controller{
 
     
     public function registrar(){
-        $fecha= $_POST['salida'];
+        $fecha= $_POST['fecha'];
         $movimiento =  $_POST['movimiento'];
         $persona= $_POST['persona'];
         $destino= $_POST['destino'];    
@@ -59,33 +60,32 @@ class Materiales extends Controller{
         $id_sucursal=$this->sucursalInfo['id'];
         $id= $_POST['id'];  
 
-        $msg="si";
-        // if(empty($fecha)||empty($movimiento)||empty($persona)||empty($destino)||empty($descripcion)){
-        //     $msg= "Solo las observaciones pueden esta vacias";
-        // }else{
-        //     if($id==""){
-        //         $data= $this->model->registrarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_vigilante,$id_sucursal);
-        //         if($data=="ok"){
-        //             $msg ="si";
-        //         }else{
-        //             $msg="Error al registrar movimiento";
-        //         }
-        //     }
-        //     else{       
-        //         $data= $this->model->modificarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_vigilante,$id);
-        //         if($data=="modificado"){
-        //             $msg ="modificado";
-        //         }else{
-        //             $msg="Error al modificar el movimiento";
-        //         }
-        //     }
-        // }
+        if(empty($fecha)||empty($movimiento)||empty($persona)||empty($destino)||empty($descripcion)){
+            $msg= "Solo las observaciones pueden esta vacias";
+        }else{
+            if($id==""){
+                $data= $this->model->registrarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_vigilante,$id_sucursal);
+                if($data=="ok"){
+                    $msg ="si";
+                }else{
+                    $msg="Error al registrar movimiento";
+                }
+            }
+            else{       
+                $data= $this->model->modificarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_vigilante,$id);
+                if($data=="modificado"){
+                    $msg ="modificado";
+                }else{
+                    $msg="Error al modificar el movimiento";
+                }
+            }
+        }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
     }
 
     public function editar (int $id){
-      $data=$this->model->editarVehiculo($id);
+      $data=$this->model->editarMaterial($id);
       echo json_encode($data, JSON_UNESCAPED_UNICODE);
       die();
     }

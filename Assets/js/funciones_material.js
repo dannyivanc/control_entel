@@ -94,7 +94,7 @@ async function registrarMaterial (e){
         const url = base_url + "Materiales/registrar";
         const frm=document.getElementById("frmMaterial");
 
-        const formData = new FormData(frm);      
+        const formData = new FormData(frm);
         try {
            const response = await fetch(url, {
                 method: "POST",
@@ -123,40 +123,38 @@ async function registrarMaterial (e){
     }
 }
 
-function btnEditarVehiculo  (id){
-    document.getElementById("title").innerHTML="Actualizar Vehiculo";
-    document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
-    const url = base_url + "Vehiculos/editar/"+id;  
-    const http = new XMLHttpRequest();
-    http.open("GET",url,true);
-    http.send();
-    http.onreadystatechange = function(){
-        if(this.readyState==4 && this.status==200){     
-          const res = JSON.parse(this.responseText);
-          document.getElementById("id").value=res.id;
-          document.getElementById("institucion").value=res.institucion;
-          $("#nuevo_vehiculo").modal("show");
-        }
-    }
-  }
-async function btnEditarVehiculo(id) {
-    document.getElementById("title").innerHTML = "Actualizar Vehiculo";
-    document.getElementById("btn_form_vehiculo").innerHTML = "Actualizar";
-    const url = base_url + "Vehiculos/editar/" + id;
+// function btnEditarVehiculo  (id){
+//     document.getElementById("title").innerHTML="Actualizar Registro";
+//     document.getElementById("btn_form_material").innerHTML="Actualizar";
+//     const url = base_url + "Materiales/editar/"+id;  
+//     const http = new XMLHttpRequest();
+//     http.open("GET",url,true);
+//     http.send();
+//     http.onreadystatechange = function(){
+//         if(this.readyState==4 && this.status==200){     
+//           const res = JSON.parse(this.responseText);
+//           document.getElementById("id").value=res.id;
+//           document.getElementById("institucion").value=res.institucion;
+//           $("#nuevo_vehiculo").modal("show");
+//         }
+//     }
+//   }
+async function btnEditarMaterial(id) {
+    document.getElementById("title").innerHTML = "Actualizar Registro";
+    document.getElementById("btn_form_material").innerHTML = "Actualizar";
+    const url = base_url + "Materiales/editar/" + id;
     try {
         const response = await fetch(url);
         if (response.ok) {
-            const res = await response.json();
+             const res = await response.json();
             document.getElementById("id").value = res.id;
-            document.getElementById("salida").value = res.salida;
-            document.getElementById("retorno").value = res.retorno;
-            document.getElementById("tipo").value = res.tipo;
-            document.getElementById("placa").value = res.placa;
-            document.getElementById("km_salida").value = res.km_salida;
-            document.getElementById("km_retorno").value = res.km_retorno;
-            document.getElementById("conductor").value = res.conductor;
+            document.getElementById("fecha").value = res.fecha;
+            document.getElementById("movimiento").value = res.movimiento;
+            document.getElementById("persona").value = res.persona;
             document.getElementById("destino").value = res.destino;
-            $("#nuevo_vehiculo").modal("show");
+            document.getElementById("descripcion").value = res.descripcion;
+            document.getElementById("observacion").value = res.observacion;
+            $("#nuevo_material").modal("show");
         } else {
             mostrarAlerta("error", "Error en la solicitud");
         }
@@ -243,3 +241,5 @@ function btnDesactivarVehiculo(id){
     conductorImput.addEventListener("input", function() {
         this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
     });
+
+
