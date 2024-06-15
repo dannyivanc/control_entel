@@ -41,11 +41,13 @@ class Sucursales extends Controller{
         $ciudad= $_POST['ciudad'];   
         $direccion= $_POST['direccion'];   
         $id= $_POST['id'];     
-        if(empty($sucursal)||empty($institucion)|| empty($vigilante)|| empty($vigilante) ||empty($ciudad) ||empty($direccion)){
+
+        $vigilantes_arr = implode(',', $vigilante);
+        if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
             $msg= "Todos los campos son obligatorios";
         }else{
             if($id==""){       
-                $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilante,$ciudad,$direccion);
+                $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion);
                 if($data=="ok"){
                     $msg ="si";
                 }else if($data=="existe") {

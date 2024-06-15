@@ -11,6 +11,7 @@
         <link href="<?php echo base_url?>Assets/css/custom.css" rel="stylesheet" />
         <link href="<?php echo base_url?>Assets/css/style.min.css" rel="stylesheet" />
         <link href="<?php echo base_url?>Assets/css/styles.css" rel="stylesheet" />
+        <link href="<?php echo base_url?>Assets/css/select2.min.css" rel="stylesheet" />
         <link href="<?php echo base_url?>Assets/DataTables/datatables.min.css" rel="stylesheet" crossorigin="anonymous">
         <script src="<?php echo base_url?>Assets/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -73,18 +74,18 @@
                             </div>    
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#supervisores" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
                                 Supervisores
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <a class="nav-link ms-3" href="<?php echo base_url?>Supervisores"> 
-                                    <div class="sb-nav-link-icon "><i class="fas fa-building"></i></div>
-                                    Supervicion de Institucion
+                                    <div class="sb-nav-link-icon "><i class="fas fa-bullseye"></i></div>
+                                    Supervicion
                                 </a>
                                 <a class="nav-link ms-3" href="<?php echo base_url?>Sucursales">                                   
-                                    <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
-                                    Patrullaje Motorizado 
+                                    <div class="sb-nav-link-icon"><i class="fas fa-building-shield"></i></div>
+                                    Patrullaje 
                                 </a>
                             </div>  
                             

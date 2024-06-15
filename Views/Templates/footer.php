@@ -18,6 +18,7 @@
         <script src="<?php echo base_url;?>Assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="<?php echo base_url;?>Assets/js/scripts.js"></script>   
         <script src="<?php echo base_url;?>Assets/js/chart.min.js"></script>   
+        <script src="<?php echo base_url;?>Assets/js/select2.min.js"></script>   
         <script src="<?php echo base_url;?>Assets/DataTables/datatables.min.js" crossorigin="anonymous"></script>
       
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

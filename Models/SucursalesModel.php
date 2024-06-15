@@ -40,7 +40,7 @@
         }
 
 
-        public function registrarSucursal(string $sucursal,int $id_institucion,int $id_vigilante,string $ciudad,string $direccion){          
+        public function registrarSucursal(string $sucursal,int $id_institucion,string $id_vigilante,string $ciudad,string $direccion){          
             $this->sucursal=$sucursal;
             $this->id_institucion=$id_institucion;
             $this->id_vigilante=$id_vigilante;
@@ -49,10 +49,6 @@
             $verificar ="SELECT *FROM sucursales WHERE sucursal='$this->sucursal'";
             $existe =$this->select($verificar);
             if(empty($existe)){
-                
-                    $updateVi = "UPDATE sucursales SET id_vigilante = NULL WHERE id_vigilante = ?";
-                    $dataVi = array($this->id_vigilante);
-                    $this->save($updateVi, $dataVi);
 
                     $sql = "INSERT INTO sucursales (sucursal,id_institucion,id_vigilante,ciudad,direccion) VALUES (?,?,?,?,?)";
                     $datos =array($this->sucursal,$this->id_institucion,$this->id_vigilante,$this->ciudad,$this->direccion);

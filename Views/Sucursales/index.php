@@ -54,20 +54,18 @@
                      <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
                   </div>
                             
-                  <!-- <div class="form-group">
-                     <label for="vigilante">Vigilante</label>
-                     <input id="vigilante" class="form-control" type="text" name="vigilante" placeholder="Nombre de la Institución">
-                  </div> -->
-
-                  <div class="form-group position-relative">
-                     <label for="vigilante">Vigilantes</label>
-                     <select id="vigilante" class="form-control" name="vigilante">
+          
+                  <div class="form-group">
+                     <!-- <p for="vigilante">Vigilantes</p> -->
+                     <p class="mbn-0">Vigilantes</p>
+                     <select id="vigilante" class="form-control" name="vigilante[] " multiple="multiple">
                         <?php foreach ($data['vigilantes'] as $row) {?>
-                              <option value="<?php echo $row['id']; ?>"><?php echo $row['vigilante']; ?></option>
+                           <option value="<?php echo $row['id']; ?>"><?php echo $row['vigilante']; ?></option>
                         <?php } ?>
                      </select>
-                     <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
+   
                   </div>
+ 
                   <div class="form-group">
                      <label for="ciudad">Ciudad</label>
                      <input id="ciudad" class="form-control" type="text" name="ciudad" placeholder="Nombre de la Institución">
@@ -83,9 +81,6 @@
                   <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">
                      Cancelar
                   </button>
-               
-
-
                </form>
             </div>
          

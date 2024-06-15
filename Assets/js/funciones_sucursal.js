@@ -87,6 +87,9 @@ async function registrarSucursal (e){
   const vigilante = document.getElementById("vigilante"); 
   const ciudad = document.getElementById("ciudad"); 
   const direccion = document.getElementById("direccion"); 
+  
+
+  // console.log(vigilante.value)
   if(sucursal.value=="" || institucion.value=="" || vigilante.value=="" || ciudad.value=="" || direccion.value=="" ){
     mostrarAlerta("error","Los campos son obligatorios ");
   }else{
@@ -94,7 +97,6 @@ async function registrarSucursal (e){
       const frm=document.getElementById("frmSucursal");
       
       const formData = new FormData(frm);      
-      console.log(formData)  
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -117,7 +119,7 @@ async function registrarSucursal (e){
             }
           }else {
             mostrarAlerta("error", "Error en la solicitud");
-        }
+          }
       }catch (error) {
         mostrarAlerta("error",  "Error de red");
         console.log(error)
@@ -222,3 +224,14 @@ function btnActivarSucursal(id){
     }
   });
 }
+
+
+
+//para el select 2
+$(document).ready(function() {
+    $('#vigilante').select2({
+        placeholder: "Seleccione los vigilantes",
+        allowClear: true,
+        width: '470px',
+    });
+});
