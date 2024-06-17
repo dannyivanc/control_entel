@@ -25,16 +25,16 @@ document.addEventListener("DOMContentLoaded",function(){
       {
         'data':'institucion','className': 'text-end',
       },
-      // {
-      //   'data':'vigilante','className': 'text-end',
-      // },
       {
-        'data': 'vigilantes',
-        'className': 'text-end',
-        'render': function(data) {
-          return data.join('<br>'); 
-        }
+        'data':'vigilante','className': 'text-end',
       },
+      // {
+      //   'data': 'vigilantes',
+      //   'className': 'text-end',
+      //   'render': function(data) {
+      //     return data.join('<br>'); 
+      //   }
+      // },
       {
         'data':'ciudad','className': 'text-end',
       },

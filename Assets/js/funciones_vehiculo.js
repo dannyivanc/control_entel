@@ -9,8 +9,6 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
         timer: timer
     });
 }
-
-
   
 document.addEventListener("DOMContentLoaded",function(){
         tblVehiculos=$('#tblVehiculos').DataTable( {

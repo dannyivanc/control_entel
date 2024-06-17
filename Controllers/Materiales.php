@@ -56,7 +56,7 @@ class Materiales extends Controller{
         $destino= $_POST['destino'];    
         $descripcion= $_POST['descripcion'];   
         $observacion= $_POST['observacion'];   
-        $id_vigilante= $this->sucursalInfo['id_vigilante'];   
+        $id_vigilante= $_SESSION['id_usuario'];   
         $id_sucursal=$this->sucursalInfo['id'];
         $id= $_POST['id'];  
 

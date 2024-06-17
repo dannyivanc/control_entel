@@ -6,9 +6,11 @@
             parent::__construct();
         }
         public function getSucursal(int $id){
-            $sql="SELECT su.id,su.sucursal,su.id_institucion,su.id_vigilante,inst.institucion  FROM sucursales as su
+            $sql="SELECT su.id,su.sucursal,su.id_institucion,inst.institucion  
+            FROM sucursales as su
             INNER JOIN instituciones as inst ON su.id_institucion = inst.id
-            WHERE id_vigilante = $id";
+            INNER JOIN suc_vig ON su.id = suc_vig.id_sucursal
+            WHERE suc_vig.id_vigilante = $id";
             $data= $this->select($sql);
             return $data;
         }           

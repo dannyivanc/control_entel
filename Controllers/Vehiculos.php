@@ -58,7 +58,7 @@ class Vehiculos extends Controller{
         $conductor=$_POST['conductor'];  
         $destino=$_POST['destino']; 
         $id_sucursal=$this->sucursalInfo['id'];
-        $id_vigilante= $this->sucursalInfo['id_vigilante'];   
+        $id_vigilante= $_SESSION['id_usuario'];   
         $id= $_POST['id'];   
         $msg= $retorno;   
         if(empty($salida)||empty($tipo)||empty($placa)||empty($km_salida)||empty($conductor)||empty($destino)){
