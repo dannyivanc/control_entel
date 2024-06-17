@@ -25,9 +25,15 @@ document.addEventListener("DOMContentLoaded",function(){
       {
         'data':'institucion','className': 'text-end',
       },
+      // {
+      //   'data':'vigilante','className': 'text-end',
+      // },
       {
-        // 'data':'id_vigilante','className': 'text-end',
-        'data':'vigilante','className': 'text-end',
+        'data': 'vigilantes',
+        'className': 'text-end',
+        'render': function(data) {
+          return data.join('<br>'); 
+        }
       },
       {
         'data':'ciudad','className': 'text-end',
@@ -78,6 +84,7 @@ function frmSucursal(){
   // document.getElementById("cont-pass").classList.remove("d-none");
   $("#nuevo_sucursal").modal("show");
   document.getElementById("id").value="";
+  frm.reset();
 }
 
 async function registrarSucursal (e){
@@ -121,7 +128,7 @@ async function registrarSucursal (e){
             mostrarAlerta("error", "Error en la solicitud");
           }
       }catch (error) {
-        mostrarAlerta("error",  "Error de red");
+        mostrarAlerta("error",  Error);
         console.log(error)
     }
   }

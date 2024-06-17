@@ -53,14 +53,15 @@ class Sucursales extends Controller{
                 }else if($data=="existe") {
                     $msg ="La sucursal ya se encuentra registrada";
                 }else{
-                    $msg="Error al registrar la sucursal";
+                    $msg=$data;
                 }
             }else{       
-                $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilante,$ciudad,$direccion,$id);
+                $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{
                     $msg="Error al modificar la sucursal";
+                    
                 }      
             }  
         }
@@ -101,5 +102,5 @@ class Sucursales extends Controller{
         header("location:".base_url);
     }
 }
-?>
+?>  
 

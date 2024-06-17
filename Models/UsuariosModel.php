@@ -5,9 +5,6 @@
   
         public function __construct(){
             parent::__construct();
-         
-         
-             // para cborrar 
             $this->conn = new mysqli(host, user, pass, db);
             if ($this->conn->connect_error) {
                 die("Connection failed: " . $this->conn->connect_error);
@@ -26,7 +23,7 @@
                 $sql = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?";
                 $stmt = $this->conn->prepare($sql);
                 if ($stmt === false) {
-                    throw new Exception("Error al preparar la declaración: " . $this->conn->error);
+                    throw new Exception("Error" . $this->conn->error);
                 }
                 $stmt->bind_param("ss", $usuario, $clave);
                 $stmt->execute();
@@ -49,6 +46,7 @@
         }
 
         public function getUsuarios(){
+            
             $sql="SELECT u.* , i.id as id_institucion, i.institucion 
             FROM usuarios as u 
             INNER JOIN instituciones as i ON u.id_institucion = i.id  
