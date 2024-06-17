@@ -79,9 +79,9 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Supervisores"> 
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Supervisiones"> 
                                     <div class="sb-nav-link-icon "><i class="fas fa-bullseye"></i></div>
-                                    Supervicion
+                                    Supervisión
                                 </a>
                                 <a class="nav-link ms-3" href="<?php echo base_url?>Sucursales">                                   
                                     <div class="sb-nav-link-icon"><i class="fas fa-building-shield"></i></div>
