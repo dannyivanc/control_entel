@@ -6,6 +6,7 @@ class Controller{
     {
         $this->views=new Views();
         $this->cargarModel();
+       
     }
     public function cargarModel()
     {
@@ -14,7 +15,7 @@ class Controller{
        if(file_exists($ruta)){
         require_once $ruta;
         $this->model =new $model();
-           }
+        }
     }
 }
 ?>

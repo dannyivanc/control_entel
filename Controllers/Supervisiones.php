@@ -15,8 +15,15 @@ class Supervisiones extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
-        }       
-        $data= $this->sucursalInfo;
+        }      
+         
+        $data['institucion']= $this->sucursalInfo;
+        $data['instituciones']=$this->model->getInstituciones();
+        $data['sucursales']=$this->model->getSucursales();
+        $data['vigilantes']=$this->model->getVigilantes();
+        // $this->views->getView($this,"index",$data);
+
+
         $this->views->getView($this, "index", $data);
     }
     public function perrie(){

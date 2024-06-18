@@ -115,4 +115,9 @@
  .mbn-0{
     margin-bottom: 0px;
  }
+ #map{
+    height: 250px;
+    width: 100%;
+    display: none; 
+ }
 
