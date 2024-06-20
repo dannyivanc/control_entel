@@ -115,6 +115,11 @@
  .mbn-0{
     margin-bottom: 0px;
  }
+
+ .custom-h-200{
+    height: 150px !important;
+ }
+
  #map{
     height: 250px;
     width: 100%;

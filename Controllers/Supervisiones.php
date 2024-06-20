@@ -7,20 +7,21 @@ class Supervisiones extends Controller{
             header("location:".base_url);
         }    
         parent::__construct();
-        $inst= $this->model->getInstituciones();
-        $this->instituciones=$inst;
+        // $inst= $this->model->getInstituciones();
+        // $this->instituciones=$inst;
     }
     
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }      
-        $data=$this->instituciones;
+        $data=$this->model->getInstituciones();
 
         $this->views->getView($this, "index", $data);
     }
     public function perrie(){
-        print_r( $this->instituciones);
+        // print_r( $this->instituciones);
+        print_r('hola mundo');
     }
 
     public function listar(){

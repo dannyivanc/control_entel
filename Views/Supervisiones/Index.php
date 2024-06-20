@@ -3,30 +3,56 @@
       <div class="card-body text-center bg-opacity-5 bg-black">
          <span class="text-black-75 fs-5">Lista de Proyectos</span> 
       </div>
-
    </div>
-   
    <div class="row">
-      <?php 
-      echo ('
-        <div class="col-xl-3 col-md-6">
-          <div class="card bg-primary text-white mb-4">
-              <div class="card-body">Entel</div>
-              <div class="card-footer d-flex align-items-center justify-content-between">
-                  <a class="small text-white stretched-link" href="#">View Details</a>
-                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-              </div>
-          </div>
-      </div>');
-      
-      ?>
+      <?php
+         $colors = ["bg-primary", "bg-secondary", "bg-success", "bg-danger", "bg-info", "bg-dark"];
+         $colorIndex = 0;
+      ?> 
+      <?php foreach ($data as $institucion): ?>
+         <div class="col-xl-3 col-md-6" onclick="viewInstitucion('<?php echo $institucion['id']; ?>')">
+            <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
+                  <div class="card-body text-center fs-3"> 
+                     <?php echo $institucion["institucion"]; ?>
+                  </div>
+            </div>
+         </div>
 
-      
-    
+       
+         <?php
+         $colorIndex++;
+         if ($colorIndex >= count($colors)) {
+            $colorIndex = 0;
+         }
+         ?>
+      <?php endforeach; ?>
    </div>
 
 <?php include "Views/Templates/footer.php";?>
-<!-- <script src="<?php echo base_url;?>Assets/js/funciones_supervisiones.js"></script> -->
+
+
+<h1>Detalle de Supervisión</h1>
+    <input type="hidden" id="supervisionId" value="<?php echo $id; ?>">
+    <table id="tblUsuarios" class="display">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Carnet</th>
+                <th>Institución</th>
+                <th>Cel</th>
+                <th>Rol</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se cargarán dinámicamente -->
+        </tbody>
+    </table>
+
+<script src="<?php echo base_url;?>Assets/js/funciones_supervisiones.js"></script>
 
 </body>
 </html>
