@@ -1,40 +1,74 @@
 <?php
 class Supervisiones extends Controller{
-    private $instituciones;
+    private $institucionInfo;
     public function __construct(){
         session_start();          
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }    
         parent::__construct();
-        // $inst= $this->model->getInstituciones();
-        // $this->instituciones=$inst;
+
+
+        // $id = $_SESSION['id_usuario'];
+        // $sucursal= $this->model->getSucursal($id);
+        // $this->sucursalInfo=$sucursal;
+        
+       
     }
-    
+    // public function verInstitucion() {
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
+    //         $id_institucion = $_POST['id_institucion'];
+    //         // Supongamos que tienes una función en el modelo para obtener los datos de la institución por ID
+    //         $institucion_data = $this->model->getInstitucion($id_institucion);
+
+    //         if (!empty($institucion_data)) {
+    //             // $data['institucion'] = $institucion_data;
+    //             $this->institucionInfo= $institucion_data;
+    //             // $this->views->getView($this, "verInstitucion", $data);
+    //         } else {
+    //             // Redirigir a una página de error o a la lista principal si no hay un ID válido
+    //             header('Location: '.base_url.'Supervisiones');
+    //             exit();
+    //         }
+    //     } else {
+    //         // Redirigir a la lista principal si no hay un ID válido
+    //         header('Location: '.base_url.'Supervisiones');
+    //         exit();
+    //     }
+    // }
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }      
-        $data=$this->model->getInstituciones();
-
-        $this->views->getView($this, "index", $data);
-    }
-    public function perrie(){
-        // print_r( $this->instituciones);
-        print_r('hola mundo');
-    }
-
-    public function listar(){
-        $data= $this->model->getInstituciones();       
-        
-        for ($i=0; $i <count($data) ; $i++) { 
-            $data[$i]['index']=$i+1;         
-            $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
-            
-
+      
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
+            $id_institucion = $_POST['id_institucion'];
+            // Supongamos que tienes una función en el modelo para obtener los datos de la institución por ID
+            $institucion_data = $this->model->getInstitucion($id_institucion);
+            $this->institucionInfo= $institucion_data;
+            if (!empty($institucion_data)) {
+                $data['institucion'] =  $institucion_data;
+                // $this->institucionInfo= $institucion_data;
+                $this->views->getView($this, "index", $data);
+            } else {
+                // Redirigir a una página de error o a la lista principal si no hay un ID válido
+                header('Location: '.base_url.'Proyectos');
+                exit();
+            }
+        } 
+        else {
+            // Redirigir a la lista principal si no hay un ID válido
+            header('Location: '.base_url.'Proyectos');
+            exit();
         }
-        echo json_encode($data,JSON_UNESCAPED_UNICODE);
-        die();
+
+
+    }
+
+    public function perrie(){
+        print_r($_SESSION['id_usuario']);
+        print_r('---');
+        print_r($this->institucionInfo);
     }
 
 }

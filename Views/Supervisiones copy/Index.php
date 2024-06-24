@@ -199,8 +199,8 @@
    </div>
 
 <?php include "Views/Templates/footer.php";?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArnsC-St34MYG-ZWpAlcwl6r0k_mLZMbA"></script>
-<script src="<?php echo base_url;?>Assets/js/funciones_supervisiones.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArnsC-St34MYG-ZWpAlcwl6r0k_mLZMbA"></script> -->
+<script src="<?php echo base_url;?>Assets/js/funciones_supervision.js"></script>
 
 </body>
 </html>
