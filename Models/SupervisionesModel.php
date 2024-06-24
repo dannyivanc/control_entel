@@ -6,31 +6,26 @@
             parent::__construct();
         }
 
-        
-
-
-        public function getInstitucion( int $id){
+        public function getInstitucion(int $id){
             $sql="SELECT * FROM instituciones WHERE id = $id";
             $data= $this->select($sql);
             return $data;
         }    
         
-
-        public function getInstituciones(){
-            $sql="SELECT * FROM instituciones WHERE estado = 1";
-            $data= $this->selectAll($sql);
-            return $data;
-        }    
-        
-        public function getSucursales(){
-            $sql="SELECT * FROM sucursales ORDER BY id DESC";
+        public function getSucursales(int $id){
+            $sql="SELECT * FROM sucursales WHERE id_institucion= $id ORDER BY id DESC";
             $data= $this->selectAll($sql);
             return $data;
            
         }
         
         public function getVigilantes(){
-            $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
+            // $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
+            $sql="SELECT u.id AS id_vigilante, u.nombre AS nombre
+            FROM sucursales AS su
+            INNER JOIN suc_vig AS sv ON su.id = sv.id_sucursal
+            INNER JOIN usuarios AS u ON sv.id_vigilante = u.id
+            WHERE su.id_institucion = 1";
             $data= $this->selectAll($sql);
             return $data;
         }   

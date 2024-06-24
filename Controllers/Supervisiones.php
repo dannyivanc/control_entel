@@ -6,69 +6,58 @@ class Supervisiones extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }    
-        parent::__construct();
-
-
-        // $id = $_SESSION['id_usuario'];
-        // $sucursal= $this->model->getSucursal($id);
-        // $this->sucursalInfo=$sucursal;
-        
-       
+        parent::__construct();      
     }
-    // public function verInstitucion() {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
-    //         $id_institucion = $_POST['id_institucion'];
-    //         // Supongamos que tienes una función en el modelo para obtener los datos de la institución por ID
-    //         $institucion_data = $this->model->getInstitucion($id_institucion);
 
-    //         if (!empty($institucion_data)) {
-    //             // $data['institucion'] = $institucion_data;
-    //             $this->institucionInfo= $institucion_data;
-    //             // $this->views->getView($this, "verInstitucion", $data);
-    //         } else {
-    //             // Redirigir a una página de error o a la lista principal si no hay un ID válido
-    //             header('Location: '.base_url.'Supervisiones');
-    //             exit();
-    //         }
-    //     } else {
-    //         // Redirigir a la lista principal si no hay un ID válido
-    //         header('Location: '.base_url.'Supervisiones');
-    //         exit();
-    //     }
-    // }
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }      
-      
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
-            $id_institucion = $_POST['id_institucion'];
-            // Supongamos que tienes una función en el modelo para obtener los datos de la institución por ID
+            $id_institucion = $_POST['id_institucion'];          
             $institucion_data = $this->model->getInstitucion($id_institucion);
+
             $this->institucionInfo= $institucion_data;
             if (!empty($institucion_data)) {
-                $data['institucion'] =  $institucion_data;
-                // $this->institucionInfo= $institucion_data;
+                $data['institucion'] =  $institucion_data;    
+                $data['Sucursales'] =  $this->model->getSucursales($id_institucion);   
+                $data['Vigilantes']= $this->model->GetVigilantes($id_institucion);   
                 $this->views->getView($this, "index", $data);
             } else {
-                // Redirigir a una página de error o a la lista principal si no hay un ID válido
                 header('Location: '.base_url.'Proyectos');
                 exit();
             }
         } 
-        else {
-            // Redirigir a la lista principal si no hay un ID válido
+        else {          
             header('Location: '.base_url.'Proyectos');
             exit();
         }
-
-
     }
 
     public function perrie(){
         print_r($_SESSION['id_usuario']);
         print_r('---');
         print_r($this->institucionInfo);
+    }
+
+    public function listar(){
+        $data= $this->model->getSucursales();   
+   
+        for ($i=0; $i <count($data) ; $i++) { 
+            $data[$i]['index']=$i+1;
+            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarSucursal('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
+            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
+            if($data[$i]['estado']==1){
+                $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
+                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+            }else{
+                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
+                $data[$i]['acciones'] =  $btnActivar;
+            }
+        }
+        echo json_encode($data,JSON_UNESCAPED_UNICODE);
+        die();
     }
 
 }

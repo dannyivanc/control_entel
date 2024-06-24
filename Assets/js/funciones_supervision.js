@@ -1,4 +1,4 @@
-let tblMateriales;
+let tblInstituciones;
 
 function mostrarAlerta(icon, title, timer = 2000,position="top") {
     Swal.fire({    
@@ -13,9 +13,9 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
 
   
 document.addEventListener("DOMContentLoaded",function(){
-        tblMateriales=$('#tblMateriales').DataTable( {
+        tblInstituciones=$('#tblInstituciones').DataTable( {
         ajax: {
-            url: base_url+"Materiales/listar",
+            url: base_url+"Supervisiones/listar",
             dataSrc: ''
         },
         columns: [ 
