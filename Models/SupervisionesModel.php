@@ -19,6 +19,9 @@
            
         }
         
+
+
+        
         public function getVigilantes(){
             // $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
             $sql="SELECT u.id AS id_vigilante, u.nombre AS nombre
