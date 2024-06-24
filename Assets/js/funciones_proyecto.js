@@ -1,5 +1,5 @@
 
-function viewInstitucion(id,institucion) { 
+function viewInstitucion(id) { 
 
   var form = document.createElement('form');
   form.method = 'post';

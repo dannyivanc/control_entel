@@ -15,7 +15,7 @@
    </div>
    
    <div class="d-flex justify-content-center justify-content-md-start">
-      <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">
+      <button class="btn btn-primary mb-2" type="button" onclick="frmSupervision();">
          Nuevo <i class="fas fa-plus"></i>
       </button>
    </div>
@@ -48,22 +48,9 @@
             </div>
             <div class="modal-body">
                
-               <form method="post" id="frmMaterial" action="">
+               <form method="post" id="frmSupervision" action="">
                   <input type="hidden"id="id" name="id">   
                   <div class="row">
-                     <div class="col-md-6">
-                        <div class="form-group position-relative">
-                        <label for="id_institucion">Institución</label>
-                        <select id="id_institucion" class="form-control" name="id_institucion">
-                        <option value="" selected disabled>Seleccione una opción</option>
-                           <?php foreach ($data['instituciones'] as $row) {?>
-                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['institucion']; ?></option>
-                           <?php } ?>
-                        </select>
-                        <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
-                        </div>
-                     </div>
-
                      <div class="col-md-6">
                         <div class="form-group position-relative">
                            <label for="id_sucursal">Sucursal</label>
@@ -76,23 +63,25 @@
                            <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
                         </div>
                      </div>
-                  </div> 
 
+                     <div class="col-md-6">
+                           <div class="form-group position-relative">
+                              <label for="id_vigilante">Vigilantes</label>                        
+                              <select id="id_vigilante" class="form-control" name="id_vigilante">
+                              <option value="" selected disabled>Seleccione una opción</option>
+                                 <?php foreach ($data['vigilantes'] as $row) {?>
+                                       <option value="<?php echo $row['id_vigilante']; ?>"><?php echo $row['vigilante']; ?></option>
+                                 <?php } ?>
+                              </select>
+                              <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
+                           </div>
+                        </div>
+
+
+                  </div> 
                   <div class="row">
                      <div class="col-md-6">
-                        <div class="form-group position-relative">
-                           <label for="id_vigilante">Vigilantes</label>                        
-                           <select id="id_vigilante" class="form-control" name="id_vigilante">
-                           <option value="" selected disabled>Seleccione una opción</option>
-                              <?php foreach ($data['vigilantes'] as $row) {?>
-                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['vigilante']; ?></option>
-                              <?php } ?>
-                           </select>
-                           <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <button class="btn btn-primary mt-4" type="button" onclick="obtenerUbicacion();">
+                        <button class="btn btn-primary mt-2" type="button" onclick="obtenerUbicacion();">
                            Obtener ubicación
                         </button>
                      </div>
@@ -149,7 +138,7 @@
                         </div>
                      </div>
                   </div>          
-                  <button id ="btn_form_material" class="btn btn-primary mt-3" type="button" onclick="registrarMaterial(event);">
+                  <button id ="btn_form_material" class="btn btn-primary mt-3" type="button" onclick="registrarSupevision(event);">
                      Registrar
                   </button>
                   <button class="btn btn-danger  mt-3" type="button" data-bs-dismiss="modal">
@@ -165,6 +154,17 @@
 
 <?php include "Views/Templates/footer.php";?>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArnsC-St34MYG-ZWpAlcwl6r0k_mLZMbA"></script> -->
+
+<!-- <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArnsC-St34MYG-ZWpAlcwl6r0k_mLZMbA&loading=async&callback=initMap">
+</script> -->
+
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "AIzaSyArnsC-St34MYG-ZWpAlcwl6r0k_mLZMbA",
+    v: "weekly",
+  });
+</script>
 <script src="<?php echo base_url;?>Assets/js/funciones_supervision.js"></script>
 
 </body>

@@ -1,4 +1,5 @@
 let tblInstituciones;
+let lati,long;
 
 function mostrarAlerta(icon, title, timer = 2000,position="top") {
     Swal.fire({    
@@ -11,13 +12,12 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
 }
 
 
-  
 document.addEventListener("DOMContentLoaded",function(){
-        tblInstituciones=$('#tblInstituciones').DataTable( {
-        ajax: {
-            url: base_url+"Supervisiones/listar",
-            dataSrc: ''
-        },
+        tblInstituciones=$('#tblInstituciones').DataTable({
+        // ajax: {
+        //     url: base_url+"Supervisiones/listar",
+        //     dataSrc: ''
+        // },
         columns: [ 
         { 
           'data':'index','width': '1%','className': 'text-end',
@@ -26,23 +26,29 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'fecha','width': '6%','className': 'text-end',
         },
         {
-          'data':'movimiento','width': '5%','className': 'text-end',
+          'data':'id_vigilante','width': '5%','className': 'text-end',
         },
         {
-          'data':'descripcion','width': '4%','className': 'text-end',
+          'data':'puntualidad','width': '4%','className': 'text-end',
         },
         {
-          'data':'persona','width': '10%','className': 'text-end',
+          'data':'pres_per','width': '10%','className': 'text-end',
         },
         {
-          'data':'destino','width': '10%','className': 'text-end',
+          'data':'patrulla','width': '10%','className': 'text-end',
         },
         {
-          'data':'observacion','width': '10%','className': 'text-end',
+          'data':'epp','width': '10%','className': 'text-end',
         },
         {
-          'data': 'acciones','width': '5%','className': 'text-center',
-        }
+          'data': 'libro','width': '5%','className': 'text-center',
+        },
+        {
+          'data': 'verif_vehi','width': '5%','className': 'text-center',
+        },
+        {
+            'data':'acciones','width': '12%','className': 'text-center',
+          }
       ],
       language: {
         "decimal": "",
@@ -72,55 +78,89 @@ document.addEventListener("DOMContentLoaded",function(){
     //  }
 })
    
-function frmMaterial(){
+function frmSupervision(){
+    document.getElementById("map").style.display = "none";
   document.getElementById("title").innerHTML="Registro de Materiales";
   document.getElementById("btn_form_material").innerHTML="Nuevo Registro";
-  document.getElementById("frmMaterial").reset();
-  $("#nuevo_material").modal("show");
+  document.getElementById("frmSupervision").reset();
+  $("#nuevo_supervision").modal("show");
   document.getElementById("id").value="";
 }
 
-async function registrarMaterial (e){
+async function registrarSupevision (e){
     e.preventDefault();
 
-    const fecha = document.getElementById("fecha");
-    const movimiento = document.getElementById("movimiento");
-    const persona = document.getElementById("persona");      
-    const destino = document.getElementById("destino");
-    const descripcion = document.getElementById("descripcion");
-    if(fecha.value==""||movimiento.value==""||persona.value==""||destino.value==""||descripcion.value==""){
-        mostrarAlerta("error", "Solo las observaciones pueden esta vacias");
-    }else{
-        const url = base_url + "Materiales/registrar";
-        const frm=document.getElementById("frmMaterial");
+ 
 
-        const formData = new FormData(frm);
-        try {
-           const response = await fetch(url, {
-                method: "POST",
-                body: formData
-            });
-            if (response.ok) {
-                const res = await response.json();
-                if (res === "si") {
-                    mostrarAlerta("success", "Entrada registrada con éxito");
-                    frm.reset();
-                    $("#nuevo_material").modal("hide");
-                    tblMateriales.ajax.reload();
-                } else if (res === "modificado") {
-                    mostrarAlerta("success", "Modificacion completada");
-                    $("#nuevo_material").modal("hide");
-                    tblMateriales.ajax.reload();
-                } else {
-                    mostrarAlerta("error", res);
-                }
-            } else {
-                mostrarAlerta("error", "Error en la solicitud");
-            }
-        } catch (error) {
-                mostrarAlerta("error","Error de servidor");
-        }
-    }
+
+    const id_sucursal = document.getElementById("id_sucursal");
+    const id_vigilante = document.getElementById("id_vigilante");
+    const puntualidad = document.getElementById("puntualidad");      
+    const pres_per = document.getElementById("pres_per");
+    const patrulla = document.getElementById("patrulla");
+    const epp = document.getElementById("epp");
+    const libro = document.getElementById("libro");      
+    const verif_vehi = document.getElementById("verif_vehi");
+    const id = document.getElementById("id");
+
+    console.log(id_sucursal.value)
+    console.log('---')
+    console.log(id_vigilante.value)
+    console.log('---')
+    console.log(puntualidad.value)
+    console.log('---')
+    console.log(pres_per.value)
+    console.log('---')
+    console.log(patrulla.value)
+    console.log('---')
+    console.log(epp.value)
+    console.log('---')
+    console.log(libro.value)
+    console.log('---')
+    console.log(verif_vehi.value)
+    console.log('---')
+    console.log(id.value)
+    console.log('---')
+    console.log(lati)
+    console.log('---')
+    console.log(long)
+    console.log('---')
+
+
+
+    // if(fecha.value==""||movimiento.value==""||persona.value==""||destino.value==""||descripcion.value==""){
+    //     mostrarAlerta("error", "Solo las observaciones pueden esta vacias");
+    // }else{
+    //     const url = base_url + "Materiales/registrar";
+    //     const frm=document.getElementById("frmSupervision");
+
+    //     const formData = new FormData(frm);
+    //     try {
+    //        const response = await fetch(url, {
+    //             method: "POST",
+    //             body: formData
+    //         });
+    //         if (response.ok) {
+    //             const res = await response.json();
+    //             if (res === "si") {
+    //                 mostrarAlerta("success", "Entrada registrada con éxito");
+    //                 frm.reset();
+    //                 $("#nuevo_supervision").modal("hide");
+    //                 tblMateriales.ajax.reload();
+    //             } else if (res === "modificado") {
+    //                 mostrarAlerta("success", "Modificacion completada");
+    //                 $("#nuevo_supervision").modal("hide");
+    //                 tblMateriales.ajax.reload();
+    //             } else {
+    //                 mostrarAlerta("error", res);
+    //             }
+    //         } else {
+    //             mostrarAlerta("error", "Error en la solicitud");
+    //         }
+    //     } catch (error) {
+    //             mostrarAlerta("error","Error de servidor");
+    //     }
+    // }
 }
 
 // function btnEditarVehiculo  (id){
@@ -154,7 +194,7 @@ async function btnEditarMaterial(id) {
             document.getElementById("destino").value = res.destino;
             document.getElementById("descripcion").value = res.descripcion;
             document.getElementById("observacion").value = res.observacion;
-            $("#nuevo_material").modal("show");
+            $("#nuevo_supervision").modal("show");
         } else {
             mostrarAlerta("error", "Error en la solicitud");
         }
@@ -182,7 +222,7 @@ function btnDesactivarVehiculo(id){
                 const res = await response.json();
                 if (res == "ok") {
                     mostrarAlerta("success", "Registro completado con éxito");
-                    tblMateriales.ajax.reload();
+                    tblInstituciones .ajax.reload();
                 } else if(res == "void"){
                     mostrarAlerta("error", "Completar los campos de RETORNO y KILOMETRAJE DE RETORNO",4000);
                 }
@@ -199,20 +239,82 @@ function btnDesactivarVehiculo(id){
     });
   }
   
-// para el mapa
 
-function initMap() {
-            // Define las coordenadas del punto
-    const latLng = { lat:  -19.583309, lng: -65.759771 }; // Coordenadas de ejemplo (Nueva York)
-            // Inicializa el mapa centrado en las coordenadas especificadas
-    const map = new google.maps.Map(document.getElementById("map"), {
+
+
+
+
+
+
+
+//para los switch
+const updateSwitchLabel = (switchElement, labelElement) => {
+    if (switchElement.checked) {
+        labelElement.textContent = 'Si';
+        switchElement.value = 'Si';
+    } else {
+        labelElement.textContent = 'No';
+        switchElement.value = 'No';
+    }
+};
+// Función para inicializar un interruptor y su etiqueta
+const switchLabel = (switchId, labelId) => {
+    const switchElement = document.getElementById(switchId);
+    const labelElement = document.getElementById(labelId);
+
+    // Inicializar la etiqueta con el estado actual del interruptor
+    updateSwitchLabel(switchElement, labelElement);
+
+    // Agregar el event listener para actualizar la etiqueta al cambiar el interruptor
+    switchElement.addEventListener('change', () => updateSwitchLabel(switchElement, labelElement));
+};
+
+// Inicializar todos los interruptores y etiquetas
+switchLabel('puntualidad', 'labelPuntualidad');
+switchLabel('pres_per', 'labelPres_per');
+switchLabel('patrulla', 'labelPatrulla');
+switchLabel('epp', 'labelEpp');
+switchLabel('libro', 'labelLibro');
+switchLabel('verif_vehi', 'labelVerif_vehi');
+// para el mapa
+function obtenerUbicacion (){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                initMap(lat, lng);
+            },
+            function(error) {
+                console.log('Error obteniendo la ubicación: ', error);
+                initMap();
+            }
+        );
+    } else {
+        console.log('El navegador no soporta geolocalización.');
+        initMap();
+    }
+
+}
+
+async function initMap(lat=-19.583309,lng=-65.759771)  {
+    lati=lat;
+    long=lng;
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    document.getElementById("map").style.display = "block";
+    const latLng = { lat:lat, lng:lng }; 
+
+    const { Map } = await google.maps.importLibrary("maps");
+    // Short namespaces can be used.
+    map = new Map(document.getElementById("map"), {
+        center: latLng,
         zoom: 15,
-        center: latLng
+        mapId: "map"
     });
-            // Añade un marcador en las coordenadas especificadas
-    const marker = new google.maps.Marker({
+        const marker = new google.maps.marker.AdvancedMarkerElement({
         position: latLng,
-        map: map
+        map:map,
+        title: 'Uluru',
     });}
-        // Llama a la función initMap una vez que la página haya cargado
-    window.onload = initMap;
+
+

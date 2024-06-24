@@ -18,17 +18,13 @@
             return $data;
            
         }
-        
-
-
-        
-        public function getVigilantes(){
+        public function getVigilantes(int $id){
             // $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
-            $sql="SELECT u.id AS id_vigilante, u.nombre AS nombre
+            $sql="SELECT u.id AS id_vigilante, u.nombre AS vigilante
             FROM sucursales AS su
             INNER JOIN suc_vig AS sv ON su.id = sv.id_sucursal
             INNER JOIN usuarios AS u ON sv.id_vigilante = u.id
-            WHERE su.id_institucion = 1";
+            WHERE su.id_institucion = $id";
             $data= $this->selectAll($sql);
             return $data;
         }   

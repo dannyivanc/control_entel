@@ -20,8 +20,8 @@ class Supervisiones extends Controller{
             $this->institucionInfo= $institucion_data;
             if (!empty($institucion_data)) {
                 $data['institucion'] =  $institucion_data;    
-                $data['Sucursales'] =  $this->model->getSucursales($id_institucion);   
-                $data['Vigilantes']= $this->model->GetVigilantes($id_institucion);   
+                $data['sucursales'] =  $this->model->getSucursales($id_institucion);   
+                $data['vigilantes']= $this->model->getVigilantes($id_institucion);   
                 $this->views->getView($this, "index", $data);
             } else {
                 header('Location: '.base_url.'Proyectos');
@@ -59,6 +59,53 @@ class Supervisiones extends Controller{
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
+
+    public function registrar(){
+        $id_sucursal= $_POST['id_sucursal'];      
+        $id_vigilante= $_POST['id_vigilante']; 
+        
+        
+        $puntualidad= $_POST['puntualidad'];   
+        $pres_per= $_POST['pres_per'];   
+        $patrulla= $_POST['patrulla'];   
+        $epp= $_POST['epp'];  
+        $libro= $_POST['libro'];   
+        $verif_vehi= $_POST['verif_vehi'];   
+        $id= $_POST['id'];     
+   
+
+        // $vigilantes_arr = implode(',', $vigilante);
+        $msg="asd00";
+        // if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
+        //     $msg= "Todos los campos son obligatorios";
+        // }else{
+        //     if($id==""){       
+        //         $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion);
+        //         if($data=="ok"){
+        //             $msg ="si";
+        //         }else if($data=="existe") {
+        //             $msg ="La sucursal ya se encuentra registrada";
+        //         }else{
+        //             $msg=$data;
+        //         }
+        //     }else{       
+        //         $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion,$id);
+        //         if($data=="modificado"){
+        //             $msg ="modificado";
+        //         }else{
+        //             $msg="Error al modificar la sucursal";
+                    
+        //         }      
+        //     }  
+        // }
+        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+
+
+
+
 
 }
 ?>

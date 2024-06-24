@@ -10,10 +10,11 @@
          $colorIndex = 0;
       ?> 
       <?php foreach ($data as $institucion): ?>
-         <div class="col-xl-3 col-md-6" onclick="viewInstitucion('<?php echo $institucion['id']?>','<?php echo $institucion['institucion']?>')">
+         <div class="col-xl-3 col-md-6" onclick="viewInstitucion('<?php echo $institucion['id']?>')">
             <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
                   <div class="card-body text-center fs-3"> 
                      <?php echo $institucion["institucion"]; ?>
+                     <?php echo $institucion["id"]; ?>
                   </div>
             </div>
          </div>
