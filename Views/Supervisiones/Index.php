@@ -20,7 +20,7 @@
       </button>
    </div>
    
-   <table class="table  table-light table-bordered  custom-table" id="tblInstituciones">
+   <table class="table  table-light table-bordered  custom-table" id="tblSupervisiones">
          <thead class="thead-dark">
             <tr>
                <th>Nº</th>  
@@ -49,7 +49,10 @@
             <div class="modal-body">
                
                <form method="post" id="frmSupervision" action="">
-                  <input type="hidden"id="id" name="id">   
+                  <input type="hidden"id="id_institucion" name="id_institucion" value=""> 
+                  <input type="hidden"id="lat" name="lat" value=""> 
+                  <input type="hidden"id="lng" name="lng" value=""> 
+
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group position-relative">
@@ -88,19 +91,18 @@
                   </div> 
 
                   <div id="map" class="mt-3"></div>
-
                   <div class="row" >
                      <div class="col-md-4">
                         <label >Puntualidad</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="puntualidad" checked>
+                              <input class="form-check-input" type="checkbox" role="switch" id="puntualidad" name="puntualidad" checked>
                               <label class="form-check-label" for="puntualidad" id="labelPuntualidad">Si</label>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label >Presentacion</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="pres_per" checked>
+                              <input class="form-check-input" type="checkbox" role="switch" id="pres_per" name="pres_per" checked>
                               <label class="form-check-label" for="pres_per" id="labelPres_per">Si</label>
                         </div>
                      </div>
@@ -108,7 +110,7 @@
                      <div class="col-md-4">
                         <label  label >Patrulla</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="patrulla" checked>
+                              <input class="form-check-input" type="checkbox" role="switch" id="patrulla" name="patrulla" checked>
                               <label class="form-check-label" for="patrulla" id="labelPatrulla">Si</label>
                         </div>
                      </div>
@@ -118,22 +120,22 @@
                      <div class="col-md-4">
                         <label >Epp</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="epp" checked>
-                              <label class="form-check-label" for="epp" id="labelEpp">Si</label>
+                              <input class="form-check-input" type="checkbox" role="switch" id="epp" name="epp" checked>
+                              <label class="form-check-label" for="epp" id="labelEpp"></label>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label >Libro</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="libro" checked>
-                              <label class="form-check-label" for="libro" id="labelLibro">Si</label>
+                              <input class="form-check-input" type="checkbox" role="switch" id="libro" name="libro" checked>
+                              <label class="form-check-label" for="libro" id="labelLibro"></label>
                         </div>
                      </div>
                      
                      <div class="col-md-4">
                         <label >Verif. vehi.</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="verif_vehi" checked>
+                              <input class="form-check-input" type="checkbox" role="switch" id="verif_vehi" name="verif_vehi" checked>
                               <label class="form-check-label" for="verif_vehi" id="labelVerif_vehi">Si</label>
                         </div>
                      </div>

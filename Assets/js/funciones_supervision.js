@@ -1,5 +1,5 @@
-let tblInstituciones;
-let lati,long;
+let tblSupervisiones;
+let lati="",long="";
 
 function mostrarAlerta(icon, title, timer = 2000,position="top") {
     Swal.fire({    
@@ -13,7 +13,7 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
 
 
 document.addEventListener("DOMContentLoaded",function(){
-        tblInstituciones=$('#tblInstituciones').DataTable({
+        tblSupervisiones=$('#tblSupervisiones').DataTable({
         // ajax: {
         //     url: base_url+"Supervisiones/listar",
         //     dataSrc: ''
@@ -90,9 +90,6 @@ function frmSupervision(){
 async function registrarSupevision (e){
     e.preventDefault();
 
- 
-
-
     const id_sucursal = document.getElementById("id_sucursal");
     const id_vigilante = document.getElementById("id_vigilante");
     const puntualidad = document.getElementById("puntualidad");      
@@ -101,66 +98,50 @@ async function registrarSupevision (e){
     const epp = document.getElementById("epp");
     const libro = document.getElementById("libro");      
     const verif_vehi = document.getElementById("verif_vehi");
-    const id = document.getElementById("id");
+    const lat = document.getElementById("lat");
+    const lng = document.getElementById("lng");
+    lat.value=lati;
+    lng.value=long;
 
-    console.log(id_sucursal.value)
-    console.log('---')
-    console.log(id_vigilante.value)
-    console.log('---')
-    console.log(puntualidad.value)
-    console.log('---')
-    console.log(pres_per.value)
-    console.log('---')
-    console.log(patrulla.value)
-    console.log('---')
-    console.log(epp.value)
-    console.log('---')
-    console.log(libro.value)
-    console.log('---')
-    console.log(verif_vehi.value)
-    console.log('---')
-    console.log(id.value)
-    console.log('---')
-    console.log(lati)
-    console.log('---')
-    console.log(long)
-    console.log('---')
+    // console.log(document.getElementById("libro").value)
 
+    if(id_sucursal.value==""||id_vigilante.value==""||lat.value==""||lng.value==""){
+        mostrarAlerta("error", "Complete el formulario correctamente");
+    }else{
+        const url = base_url + "Supervisiones/registrar";
+        const frm=document.getElementById("frmSupervision");
+        // console.log(frm)
 
-
-    // if(fecha.value==""||movimiento.value==""||persona.value==""||destino.value==""||descripcion.value==""){
-    //     mostrarAlerta("error", "Solo las observaciones pueden esta vacias");
-    // }else{
-    //     const url = base_url + "Materiales/registrar";
-    //     const frm=document.getElementById("frmSupervision");
-
-    //     const formData = new FormData(frm);
-    //     try {
-    //        const response = await fetch(url, {
-    //             method: "POST",
-    //             body: formData
-    //         });
-    //         if (response.ok) {
-    //             const res = await response.json();
-    //             if (res === "si") {
-    //                 mostrarAlerta("success", "Entrada registrada con éxito");
-    //                 frm.reset();
-    //                 $("#nuevo_supervision").modal("hide");
-    //                 tblMateriales.ajax.reload();
-    //             } else if (res === "modificado") {
-    //                 mostrarAlerta("success", "Modificacion completada");
-    //                 $("#nuevo_supervision").modal("hide");
-    //                 tblMateriales.ajax.reload();
-    //             } else {
-    //                 mostrarAlerta("error", res);
-    //             }
-    //         } else {
-    //             mostrarAlerta("error", "Error en la solicitud");
-    //         }
-    //     } catch (error) {
-    //             mostrarAlerta("error","Error de servidor");
-    //     }
-    // }
+        const formData = new FormData(frm);
+        // try {
+           const response = await fetch(url, {
+                method: "POST",
+                body: formData
+            });
+        //    console.log(response)
+            if (response.ok) {
+                const res = await response.json();
+                console.log(res)
+                if (res === "si") {
+                    mostrarAlerta("error", res);
+                    mostrarAlerta("success", "Entrada registrada con éxito");
+                    frm.reset();
+                    $("#nuevo_supervision").modal("hide");
+                    tblSupervisiones.ajax.reload();
+                } else if (res === "modificado") {
+                    mostrarAlerta("success", "Modificacion completada");
+                    $("#nuevo_supervision").modal("hide");
+                    tblSupervisiones.ajax.reload();
+                } else {
+                    mostrarAlerta("error", res);
+                }
+            } else {
+                mostrarAlerta("error", res);
+            }
+        // } catch (error) {
+        //         mostrarAlerta("error","Error de servidor");
+        // }
+    }
 }
 
 // function btnEditarVehiculo  (id){
@@ -222,7 +203,7 @@ function btnDesactivarVehiculo(id){
                 const res = await response.json();
                 if (res == "ok") {
                     mostrarAlerta("success", "Registro completado con éxito");
-                    tblInstituciones .ajax.reload();
+                    tblSupervisiones .ajax.reload();
                 } else if(res == "void"){
                     mostrarAlerta("error", "Completar los campos de RETORNO y KILOMETRAJE DE RETORNO",4000);
                 }
@@ -261,11 +242,7 @@ const updateSwitchLabel = (switchElement, labelElement) => {
 const switchLabel = (switchId, labelId) => {
     const switchElement = document.getElementById(switchId);
     const labelElement = document.getElementById(labelId);
-
-    // Inicializar la etiqueta con el estado actual del interruptor
     updateSwitchLabel(switchElement, labelElement);
-
-    // Agregar el event listener para actualizar la etiqueta al cambiar el interruptor
     switchElement.addEventListener('change', () => updateSwitchLabel(switchElement, labelElement));
 };
 
@@ -276,13 +253,16 @@ switchLabel('patrulla', 'labelPatrulla');
 switchLabel('epp', 'labelEpp');
 switchLabel('libro', 'labelLibro');
 switchLabel('verif_vehi', 'labelVerif_vehi');
+
+
+
 // para el mapa
 function obtenerUbicacion (){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             function(position) {
-                var lat = position.coords.latitude;
-                var lng = position.coords.longitude;
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
                 initMap(lat, lng);
             },
             function(error) {

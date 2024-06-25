@@ -61,43 +61,41 @@ class Supervisiones extends Controller{
     }
 
     public function registrar(){
+        $date =date('Y-m-d H:i:s');
+        $lat= $_POST['lat'];    
+        $lng= $_POST['lng'];           
+        $puntualidad = isset($_POST['puntualidad']) ? "Si" : "No";
+        $pres_per= isset($_POST['pres_per']) ? "Si" : "No";
+        $patrulla= isset($_POST['patrulla']) ? "Si" : "No";  
+        $epp= isset($_POST['epp']) ? "Si" : "No";
+        $libro= isset($_POST['libro']) ? "Si" : "No"; 
+        $verif_vehi= isset($_POST['verif_vehi']) ? "Si" : "No";  
         $id_sucursal= $_POST['id_sucursal'];      
         $id_vigilante= $_POST['id_vigilante']; 
-        
-        
-        $puntualidad= $_POST['puntualidad'];   
-        $pres_per= $_POST['pres_per'];   
-        $patrulla= $_POST['patrulla'];   
-        $epp= $_POST['epp'];  
-        $libro= $_POST['libro'];   
-        $verif_vehi= $_POST['verif_vehi'];   
         $id= $_POST['id'];     
-   
 
-        // $vigilantes_arr = implode(',', $vigilante);
-        $msg="asd00";
-        // if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
-        //     $msg= "Todos los campos son obligatorios";
-        // }else{
-        //     if($id==""){       
-        //         $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion);
-        //         if($data=="ok"){
-        //             $msg ="si";
-        //         }else if($data=="existe") {
-        //             $msg ="La sucursal ya se encuentra registrada";
-        //         }else{
-        //             $msg=$data;
-        //         }
-        //     }else{       
-        //         $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion,$id);
-        //         if($data=="modificado"){
-        //             $msg ="modificado";
-        //         }else{
-        //             $msg="Error al modificar la sucursal";
+        if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
+            $msg= "Todos los campos son obligatorios";
+        }else{
+            if($id==""){       
+                $data= $this->model->registrarSucursal($date,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante);
+                if($data=="ok"){
+                    $msg ="si";
+                }else if($data=="existe") {
+                    $msg ="La sucursal ya se encuentra registrada";
+                }else{
+                    $msg=$data;
+                }
+            }else{       
+                $data= $this->model->modificarSucursal($date,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id);
+                if($data=="modificado"){
+                    $msg ="modificado";
+                }else{
+                    $msg="Error al modificar la sucursal";
                     
-        //         }      
-        //     }  
-        // }
+                }      
+            }  
+        }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
     }
