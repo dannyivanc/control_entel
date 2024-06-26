@@ -6,7 +6,7 @@ class Supervisiones extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }    
-        parent::__construct();      
+        parent::__construct();    
     }
 
     public function index(){
@@ -17,7 +17,8 @@ class Supervisiones extends Controller{
             $id_institucion = $_POST['id_institucion'];          
             $institucion_data = $this->model->getInstitucion($id_institucion);
 
-            $this->institucionInfo= $institucion_data;
+            // $this->institucionInfo= $institucion_data;
+            $_SESSION['institucionInfo'] = $institucion_data; 
             if (!empty($institucion_data)) {
                 $data['institucion'] =  $institucion_data;    
                 $data['sucursales'] =  $this->model->getSucursales($id_institucion);   
@@ -37,24 +38,19 @@ class Supervisiones extends Controller{
     public function perrie(){
         print_r($_SESSION['id_usuario']);
         print_r('---');
-        print_r($this->institucionInfo);
+        // $id_sucursal= $this->institucionInfo;
+        $id_sucursal= $_SESSION['institucionInfo'];
+        print_r($id_sucursal);
     }
 
     public function listar(){
-        $data= $this->model->listarSupervisiones($_SESSION['id_usuario']);   
+        $data= $this->model->listarSupervisiones($_SESSION['institucionInfo']['id']);   
    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarSucursal('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
-            $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
-            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
-            // if($data[$i]['estado']==1){
-            //     $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
-            //     $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
-            // }else{
-                // $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
-                $data[$i]['acciones'] =  $btnActivar;
-            // }
+            $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarSupervision('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
+            $data[$i]['acciones'] = $btnEditar;
+
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
@@ -90,7 +86,7 @@ class Supervisiones extends Controller{
                 }
                
             }else{       
-                $data= $this->model->modificarSucursal($fecha,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id);
+                $data= $this->model->modificarSupervision($puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{
@@ -103,6 +99,11 @@ class Supervisiones extends Controller{
         die();
     }
 
+    public function editar (int $id){
+        $data=$this->model->editarSupervision($id);
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+      }
 
 
 

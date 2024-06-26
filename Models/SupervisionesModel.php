@@ -28,18 +28,24 @@
             $data= $this->selectAll($sql);
             return $data;
         }   
-      
-
-
         public function listarSupervisiones(int $id){
-            $sql="SELECT * FROM supervicion WHERE id_supervisor= $id ORDER BY id DESC";
+            // $sql="SELECT su.id,su.fecha,su.puntualidad,su.pres_per,su.patrulla,su.epp,su.libro,su.verif_vehi, us.nombre as id_vigilante,sucursales.sucursal as id_sucursal
+            // FROM supervision AS su INNER JOIN usuarios AS us ON us.id=su.id_vigilante
+            // INNER JOIN sucursales ON sucursales.id= su.id_sucursal
+            // WHERE su.id_institucion= $id ORDER BY id DESC";
+
+
+           $sql=" SELECT su.id, su.fecha, su.puntualidad, su.pres_per, su.patrulla, su.epp, su.libro, su.verif_vehi, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
+            FROM supervision AS su
+            INNER JOIN usuarios AS us ON us.id = su.id_vigilante
+            INNER JOIN sucursales ON sucursales.id = su.id_sucursal
+            INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion
+            WHERE instituciones.id = $id
+            ORDER BY su.id DESC";
             $data= $this->selectAll($sql);
             return $data;
            
         }
-
-
-
 
         public function getSucursal(int $id){
             $sql="SELECT su.id,su.sucursal,su.id_institucion,inst.institucion  FROM sucursales as su
@@ -82,7 +88,7 @@
             $this->id_sucursal=$id_sucursal;
             $this->id_supervisor=$id_supervisor;
             $this->id_vigilante=$id_vigilante;
-            $sql = "INSERT INTO supervicion (fecha,lat,lng,puntualidad,pres_per,patrulla,epp,libro,verif_vehi,id_sucursal,id_supervisor,id_vigilante) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO supervision (fecha,lat,lng,puntualidad,pres_per,patrulla,epp,libro,verif_vehi,id_sucursal,id_supervisor,id_vigilante) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             $datos =array($this->fecha,$this->lat,$this->lng,$this->puntualidad,$this->pres_per,$this->patrulla,$this->epp,$this->libro,$this->verif_vehi,$this->id_sucursal,$this->id_supervisor,$this->id_vigilante);
             $data =  $this-> save($sql,$datos);
             if($data==1){
@@ -93,29 +99,32 @@
             return $res;
         }
 
-        // public function modificarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_vigilante,int $id){
+        // $puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id
+        public function modificarSupervision(string $puntualidad,string $pres_per,string $patrulla,string $epp,string $libro,string $verif_vehi,int $id_sucursal,int $id_vigilante,int $id){
             
-        //     list($fecha_registro, $hora_registro) = explode('T', $fecha);
-        //     $this->fecha = $fecha_registro . ' ' . substr($hora_registro, 0, 5) . ':00';
-        //     $this->movimiento=$movimiento;
-        //     $this->persona=$persona;
-        //     $this->destino=$destino;
-        //     $this->descripcion=$descripcion;
-        //     $this->observacion=$observacion;       
-        //     $this->id_vigilante=$id_vigilante;
-        //     $this->id=$id;
-        //     $sql = "UPDATE materiales SET fecha=?,movimiento=?,persona=?,destino=?,descripcion=?,observacion=?,id_vigilante=? WHERE id=?"; 
-        //     $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id);
-        //     $data =  $this-> save($sql,$datos);
-        //     if($data==1){
-        //         $res = "modificado";
-        //     }else{
-        //         $res = "error";
-        //     }
-        //     return $res;
-        // }
-        public function editarMaterial(int $id){
-            $sql = "SELECT * FROM materiales WHERE id=$id";
+            $this->puntualidad=$puntualidad;
+            $this->pres_per=$pres_per;
+            $this->patrulla=$patrulla;       
+            $this->epp=$epp;
+            $this->libro=$libro;
+            $this->verif_vehi=$verif_vehi;       
+            $this->id_sucursal=$id_sucursal;
+            $this->id_vigilante=$id_vigilante;
+            $this->id=$id;
+            $sql = "UPDATE supervision SET puntualidad=?,pres_per=?,patrulla=?,epp=?,libro=?,verif_vehi=?,id_sucursal=?,id_vigilante=? WHERE id=?"; 
+            $datos =array($this->puntualidad,$this->pres_per,$this->patrulla,$this->epp,$this->libro,$this->verif_vehi,$this->id_sucursal,$this->id_vigilante,$this->id);
+            $data =  $this-> save($sql,$datos);
+            if($data==1){
+                $res = "modificado";
+            }else{
+                $res = "error";
+            }
+            return $res;
+        }
+
+
+        public function editarSupervision(int $id){
+            $sql = "SELECT * FROM supervision WHERE id=$id";
             $data= $this->select($sql);
             return $data;
         }

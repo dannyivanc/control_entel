@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded",function(){
           'data': 'verif_vehi','width': '5%','className': 'text-center',
         },
         {
-            'data':'acciones','width': '12%','className': 'text-center',
-          }
+          'data':'acciones','width': '3%','className': 'text-center',
+        }
       ],
       language: {
         "decimal": "",
@@ -83,40 +83,30 @@ document.addEventListener("DOMContentLoaded",function(){
    
 function frmSupervision(){
     document.getElementById("map").style.display = "none";
-  document.getElementById("title").innerHTML="Registro de Materiales";
-  document.getElementById("btn_form_material").innerHTML="Nuevo Registro";
+  document.getElementById("title").innerHTML="Registro Supervision";
+  document.getElementById("btn_form_supervision").innerHTML="Nuevo Registro";
   document.getElementById("frmSupervision").reset();
+  document.getElementById("btn_obtener").style.display = "block";
   $("#nuevo_supervision").modal("show");
   document.getElementById("id").value="";
 }
 
 async function registrarSupevision (e){
-    e.preventDefault();
-
+    e.preventDefault();   
     const id_sucursal = document.getElementById("id_sucursal");
     const id_vigilante = document.getElementById("id_vigilante");
-    const puntualidad = document.getElementById("puntualidad");      
-    const pres_per = document.getElementById("pres_per");
-    const patrulla = document.getElementById("patrulla");
-    const epp = document.getElementById("epp");
-    const libro = document.getElementById("libro");      
-    const verif_vehi = document.getElementById("verif_vehi");
     const lat = document.getElementById("lat");
     const lng = document.getElementById("lng");
     lat.value=lati;
     lng.value=long;
-
-    // console.log(document.getElementById("libro").value)
 
     if(id_sucursal.value==""||id_vigilante.value==""||lat.value==""||lng.value==""){
         mostrarAlerta("error", "Complete el formulario correctamente");
     }else{
         const url = base_url + "Supervisiones/registrar";
         const frm=document.getElementById("frmSupervision");
-        // console.log(frm)
-
         const formData = new FormData(frm);
-        // try {
+        try {
            const response = await fetch(url, {
                 method: "POST",
                 body: formData
@@ -141,43 +131,34 @@ async function registrarSupevision (e){
             } else {
                 mostrarAlerta("error", res);
             }
-        // } catch (error) {
-        //         mostrarAlerta("error","Error de servidor");
-        // }
+        } catch (error) {
+                mostrarAlerta("error","Error de servidor");
+        }
     }
 }
 
-// function btnEditarVehiculo  (id){
-//     document.getElementById("title").innerHTML="Actualizar Registro";
-//     document.getElementById("btn_form_material").innerHTML="Actualizar";
-//     const url = base_url + "Materiales/editar/"+id;  
-//     const http = new XMLHttpRequest();
-//     http.open("GET",url,true);
-//     http.send();
-//     http.onreadystatechange = function(){
-//         if(this.readyState==4 && this.status==200){     
-//           const res = JSON.parse(this.responseText);
-//           document.getElementById("id").value=res.id;
-//           document.getElementById("institucion").value=res.institucion;
-//           $("#nuevo_vehiculo").modal("show");
-//         }
-//     }
-//   }
-async function btnEditarMaterial(id) {
-    document.getElementById("title").innerHTML = "Actualizar Registro";
-    document.getElementById("btn_form_material").innerHTML = "Actualizar";
-    const url = base_url + "Materiales/editar/" + id;
+
+async function btnEditarSupervision(id) {
+    document.getElementById("title").innerHTML = "Modificar Supervision";
+    document.getElementById("btn_form_supervision").innerHTML = "Actualizar";
+    const url = base_url + "Supervisiones/editar/" + id;
     try {
         const response = await fetch(url);
         if (response.ok) {
-             const res = await response.json();
-            document.getElementById("id").value = res.id;
-            document.getElementById("fecha").value = res.fecha;
-            document.getElementById("movimiento").value = res.movimiento;
-            document.getElementById("persona").value = res.persona;
-            document.getElementById("destino").value = res.destino;
-            document.getElementById("descripcion").value = res.descripcion;
-            document.getElementById("observacion").value = res.observacion;
+            const res = await response.json();      
+            document.getElementById("btn_obtener").style.display = "none";
+            document.getElementById("id").value = res.id;       
+            document.getElementById("id_sucursal").value = res.id_sucursal;
+            document.getElementById("id_vigilante").value = res.id_vigilante;
+            document.getElementById("puntualidad").value = res.puntualidad;
+            document.getElementById("pres_per").value = res.pres_per;
+            document.getElementById("patrulla").value = res.patrulla;
+            document.getElementById("epp").value = res.epp;
+            document.getElementById("libro").value = res.libro;
+            document.getElementById("verif_vehi").value = res.verif_vehi;
+            const lat=parseFloat(res.lat);
+            const lng=parseFloat(res.lng);
+            initMap(lat,lng)
             $("#nuevo_supervision").modal("show");
         } else {
             mostrarAlerta("error", "Error en la solicitud");
@@ -187,42 +168,6 @@ async function btnEditarMaterial(id) {
     }
 }
 
-function btnDesactivarVehiculo(id){
-    Swal.fire({
-      title: "Completar registro",
-      icon: "warning",
-      text: "El registro del vehiculo ya no podra ser visualizado",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Desactivar",
-      cancelButtonText :"Cancelar"
-    }).then(async(result) => {
-      if (result.isConfirmed) {   
-        try {
-            const url = base_url + "Vehiculos/desactivar/"+id;
-            const response = await fetch(url);
-            if (response.ok) {
-                const res = await response.json();
-                if (res == "ok") {
-                    mostrarAlerta("success", "Registro completado con éxito");
-                    tblSupervisiones .ajax.reload();
-                } else if(res == "void"){
-                    mostrarAlerta("error", "Completar los campos de RETORNO y KILOMETRAJE DE RETORNO",4000);
-                }
-                else {
-                    mostrarAlerta("error ",res);
-                }
-            } else {
-                mostrarAlerta("error ","Error en la solicitud");
-            }
-        } catch (error) {
-            mostrarAlerta("error ","Error en el servidor");
-        }  
-      }
-    });
-  }
-  
 
 
 
@@ -257,8 +202,6 @@ switchLabel('epp', 'labelEpp');
 switchLabel('libro', 'labelLibro');
 switchLabel('verif_vehi', 'labelVerif_vehi');
 
-
-
 // para el mapa
 function obtenerUbicacion (){
     if (navigator.geolocation) {
@@ -277,8 +220,10 @@ function obtenerUbicacion (){
         console.log('El navegador no soporta geolocalización.');
         initMap();
     }
-
 }
+
+
+
 
 async function initMap(lat=-19.583309,lng=-65.759771)  {
     lati=lat;

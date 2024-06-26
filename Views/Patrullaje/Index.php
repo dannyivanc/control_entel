@@ -1,7 +1,7 @@
 <?php include "Views/Templates/header.php";?>
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
-         <span class="text-black-75 fs-5">Supervisión de Proyectos</span> 
+         <span class="text-black-75 fs-5">Patrullajes</span> 
       </div>
       <table class="table">
          <tbody>
@@ -26,13 +26,8 @@
                <th>Nº</th>  
                <th>Fecha</th>
                <th>Sucursal</th>
-               <th>Vigilante</th>
-               <th>Puntualidad</th>
-               <th>Pres. Pers.</th>  
-               <th>Patrulla</th>  
-               <th>Epp</th>
-               <th>Libro</th>  
-               <th>Verif. Vehi.</th>  
+               <th>Supervisor</th>
+               <th>Descripción</th>
                <th>Acciones</th>
             </tr>
          </thead>
