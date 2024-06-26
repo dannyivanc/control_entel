@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'fecha','width': '6%','className': 'text-end',
         },
         {
+          'data':'id_sucursal','width': '5%','className': 'text-end',
+        },
+        {
           'data':'id_vigilante','width': '5%','className': 'text-end',
         },
         {

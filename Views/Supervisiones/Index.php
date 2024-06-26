@@ -25,6 +25,7 @@
             <tr>
                <th>Nº</th>  
                <th>Fecha</th>
+               <th>Sucursal</th>
                <th>Vigilante</th>
                <th>Puntualidad</th>
                <th>Pres. Pers.</th>  
