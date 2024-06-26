@@ -41,27 +41,27 @@ class Supervisiones extends Controller{
     }
 
     public function listar(){
-        $data= $this->model->getSucursales();   
+        $data= $this->model->listarSupervisiones($_SESSION['id_usuario']);   
    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
             $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarSucursal('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarSucursal('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
-            if($data[$i]['estado']==1){
-                $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
-            }else{
-                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
+            // if($data[$i]['estado']==1){
+            //     $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
+            //     $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+            // }else{
+                // $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
                 $data[$i]['acciones'] =  $btnActivar;
-            }
+            // }
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
 
     public function registrar(){
-        $date =date('Y-m-d H:i:s');
+        $fecha =date('Y-m-d H:i:s');
         $lat= $_POST['lat'];    
         $lng= $_POST['lng'];           
         $puntualidad = isset($_POST['puntualidad']) ? "Si" : "No";
@@ -70,15 +70,17 @@ class Supervisiones extends Controller{
         $epp= isset($_POST['epp']) ? "Si" : "No";
         $libro= isset($_POST['libro']) ? "Si" : "No"; 
         $verif_vehi= isset($_POST['verif_vehi']) ? "Si" : "No";  
-        $id_sucursal= $_POST['id_sucursal'];      
+        $id_sucursal= $_POST['id_sucursal'];     
+        $id_supervisor= $_SESSION['id_usuario'];     
         $id_vigilante= $_POST['id_vigilante']; 
-        $id= $_POST['id'];     
+        $id= $_POST['id'];    
 
-        if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
+
+        if(empty($lat)||empty($lng)||empty($id_sucursal) ||empty($id_vigilante)){
             $msg= "Todos los campos son obligatorios";
         }else{
             if($id==""){       
-                $data= $this->model->registrarSucursal($date,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante);
+                $data= $this->model->registrarSupervision($fecha,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_supervisor,$id_vigilante);
                 if($data=="ok"){
                     $msg ="si";
                 }else if($data=="existe") {
@@ -86,8 +88,9 @@ class Supervisiones extends Controller{
                 }else{
                     $msg=$data;
                 }
+               
             }else{       
-                $data= $this->model->modificarSucursal($date,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id);
+                $data= $this->model->modificarSucursal($fecha,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{

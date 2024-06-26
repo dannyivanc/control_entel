@@ -1,6 +1,6 @@
 <?php
     class SupervisionesModel extends Query{
-        private $id,$fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_sucursal,$id_vigilante;
+        private $id, $fecha,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_supervisor,$id_vigilante;
   
         public function __construct(){
             parent::__construct();
@@ -30,6 +30,13 @@
         }   
       
 
+
+        public function listarSupervisiones(int $id){
+            $sql="SELECT * FROM supervicion WHERE id_supervisor= $id ORDER BY id DESC";
+            $data= $this->selectAll($sql);
+            return $data;
+           
+        }
 
 
 
@@ -61,20 +68,22 @@
             return $data;
         }
         
-        public function registrarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_sucursal,int $id_vigilante){    
-
-            list($fecha_registro, $hora_registro) = explode('T', $fecha);
-          
-            $this->fecha = $fecha_registro . ' ' . substr($hora_registro, 0, 5) . ':00';
-            $this->movimiento=$movimiento;
-            $this->persona=$persona;
-            $this->destino=$destino;
-            $this->descripcion=$descripcion;
-            $this->observacion=$observacion;       
-            $this->id_vigilante=$id_vigilante;
+        public function registrarSupervision(string $fecha,float $lat,float $lng,string $puntualidad,string $pres_per,string $patrulla,string $epp,string $libro,string $verif_vehi,int $id_sucursal,int $id_supervisor,int $id_vigilante){    
+           
+            $this->fecha = $fecha;
+            $this->lat=$lat;
+            $this->lng=$lng;
+            $this->puntualidad=$puntualidad;
+            $this->pres_per=$pres_per;
+            $this->patrulla=$patrulla;       
+            $this->epp=$epp;
+            $this->libro=$libro;
+            $this->verif_vehi=$verif_vehi;       
             $this->id_sucursal=$id_sucursal;
-            $sql = "INSERT INTO materiales (fecha,movimiento,persona,destino,descripcion,observacion,id_vigilante,id_sucursal) VALUES (?,?,?,?,?,?,?,?)";
-            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id_sucursal);
+            $this->id_supervisor=$id_supervisor;
+            $this->id_vigilante=$id_vigilante;
+            $sql = "INSERT INTO supervicion (fecha,lat,lng,puntualidad,pres_per,patrulla,epp,libro,verif_vehi,id_sucursal,id_supervisor,id_vigilante) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            $datos =array($this->fecha,$this->lat,$this->lng,$this->puntualidad,$this->pres_per,$this->patrulla,$this->epp,$this->libro,$this->verif_vehi,$this->id_sucursal,$this->id_supervisor,$this->id_vigilante);
             $data =  $this-> save($sql,$datos);
             if($data==1){
                 $res = "ok";
@@ -84,27 +93,27 @@
             return $res;
         }
 
-        public function modificarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_vigilante,int $id){
+        // public function modificarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_vigilante,int $id){
             
-            list($fecha_registro, $hora_registro) = explode('T', $fecha);
-            $this->fecha = $fecha_registro . ' ' . substr($hora_registro, 0, 5) . ':00';
-            $this->movimiento=$movimiento;
-            $this->persona=$persona;
-            $this->destino=$destino;
-            $this->descripcion=$descripcion;
-            $this->observacion=$observacion;       
-            $this->id_vigilante=$id_vigilante;
-            $this->id=$id;
-            $sql = "UPDATE materiales SET fecha=?,movimiento=?,persona=?,destino=?,descripcion=?,observacion=?,id_vigilante=? WHERE id=?"; 
-            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id);
-            $data =  $this-> save($sql,$datos);
-            if($data==1){
-                $res = "modificado";
-            }else{
-                $res = "error";
-            }
-            return $res;
-        }
+        //     list($fecha_registro, $hora_registro) = explode('T', $fecha);
+        //     $this->fecha = $fecha_registro . ' ' . substr($hora_registro, 0, 5) . ':00';
+        //     $this->movimiento=$movimiento;
+        //     $this->persona=$persona;
+        //     $this->destino=$destino;
+        //     $this->descripcion=$descripcion;
+        //     $this->observacion=$observacion;       
+        //     $this->id_vigilante=$id_vigilante;
+        //     $this->id=$id;
+        //     $sql = "UPDATE materiales SET fecha=?,movimiento=?,persona=?,destino=?,descripcion=?,observacion=?,id_vigilante=? WHERE id=?"; 
+        //     $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id);
+        //     $data =  $this-> save($sql,$datos);
+        //     if($data==1){
+        //         $res = "modificado";
+        //     }else{
+        //         $res = "error";
+        //     }
+        //     return $res;
+        // }
         public function editarMaterial(int $id){
             $sql = "SELECT * FROM materiales WHERE id=$id";
             $data= $this->select($sql);

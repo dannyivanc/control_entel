@@ -14,10 +14,10 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
 
 document.addEventListener("DOMContentLoaded",function(){
         tblSupervisiones=$('#tblSupervisiones').DataTable({
-        // ajax: {
-        //     url: base_url+"Supervisiones/listar",
-        //     dataSrc: ''
-        // },
+        ajax: {
+            url: base_url+"Supervisiones/listar",
+            dataSrc: ''
+        },
         columns: [ 
         { 
           'data':'index','width': '1%','className': 'text-end',

@@ -49,9 +49,9 @@
             <div class="modal-body">
                
                <form method="post" id="frmSupervision" action="">
-                  <input type="hidden"id="id_institucion" name="id_institucion" value=""> 
+                  <input type="hidden"id="id" name="id" value=""> 
                   <input type="hidden"id="lat" name="lat" value=""> 
-                  <input type="hidden"id="lng" name="lng" value=""> 
+                  <input type="hidden"id="lng" name="lng"> 
 
                   <div class="row">
                      <div class="col-md-6">
