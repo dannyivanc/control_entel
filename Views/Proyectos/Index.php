@@ -2,6 +2,9 @@
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
          <span class="text-black-75 fs-5">Lista de Proyectos</span> 
+         <div>
+      
+         </div>
       </div>
    </div>
    <div class="row">
@@ -9,12 +12,11 @@
          $colors = ["bg-primary", "bg-secondary", "bg-success", "bg-danger", "bg-info", "bg-dark"];
          $colorIndex = 0;
       ?> 
-      <?php foreach ($data as $institucion): ?>
-         <div class="col-xl-3 col-md-6" onclick="viewInstitucion('<?php echo $institucion['id']?>')">
+      <?php foreach ($data['instituciones'] as $institucion): ?>
+         <div class="col-xl-3 col-md-6" onclick="viewInstitucion('<?php echo $institucion['id']?>','<?php echo $data["vista"]?>')">
             <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
                   <div class="card-body text-center fs-3"> 
                      <?php echo $institucion["institucion"]; ?>
-                     <?php echo $institucion["id"]; ?>
                   </div>
             </div>
          </div>

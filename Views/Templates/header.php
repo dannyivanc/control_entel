@@ -79,11 +79,11 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos"> 
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=supervision"> 
                                     <div class="sb-nav-link-icon "><i class="fas fa-bullseye"></i></div>
                                     Supervisión
                                 </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Sucursales">                                   
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=patrullaje">                                   
                                     <div class="sb-nav-link-icon"><i class="fas fa-building-shield"></i></div>
                                     Patrullaje 
                                 </a>

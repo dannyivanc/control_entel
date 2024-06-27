@@ -15,12 +15,12 @@
    </div>
    
    <div class="d-flex justify-content-center justify-content-md-start">
-      <button class="btn btn-primary mb-2" type="button" onclick="frmSupervision();">
+      <button class="btn btn-primary mb-2" type="button" onclick="frmPatrullaje();">
          Nuevo <i class="fas fa-plus"></i>
       </button>
    </div>
    
-   <table class="table  table-light table-bordered  custom-table" id="tblSupervisiones">
+   <table class="table  table-light table-bordered  custom-table" id="tblPatrullajes">
          <thead class="thead-dark">
             <tr>
                <th>Nº</th>  
@@ -35,7 +35,7 @@
          </tbody>
    </table> 
 
-<?php include "Views/Supervisiones/ModalNuevo.php";?>
+<?php include "Views/Patrullajes/ModalNuevo.php";?>
 <?php include "Views/Templates/footer.php";?>
 
 <script>
@@ -44,7 +44,7 @@
     v: "weekly",
   });
 </script>
-<script src="<?php echo base_url;?>Assets/js/funciones_supervision.js"></script>
+<script src="<?php echo base_url;?>Assets/js/funciones_patrullaje.js"></script>
 
 </body>
 </html>

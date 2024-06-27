@@ -129,31 +129,5 @@
             return $data;
         }
 
-
-
-        public function accionVehiculo (int $id){
-            $this->id = $id;
-            // $this->estado = $estado;
-            // $sql ="UPDATE vehiculos SET estado =? WHERE id=?";
-            // $datos=array($this->estado,$this->id);
-            // $data = $this->save($sql,$datos);
-            // return $data;
-            $verificar ="SELECT *FROM vehiculos WHERE id=$id AND retorno!= '0000-00-00 00:00:00' AND km_retorno != 0";           
-            $existe =$this->select($verificar);
-            if(!empty($existe)){
-                $sql ="UPDATE vehiculos SET estado =? WHERE id=?";
-                $datos=array(0,$this->id);
-                $data =  $this-> save($sql,$datos);
-                if($data==1){
-                    $res = "ok";
-                }else{
-                    $res = "error";
-                }
-            }else {
-                $res ="void";
-            }
-            return $res;
-          
-        }
     }
 ?> 

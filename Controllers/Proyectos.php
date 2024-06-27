@@ -15,8 +15,9 @@ class Proyectos extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }      
-        $data=$this->model->getInstituciones();
-
+        $type = $_GET['view'];
+        $data['instituciones']=$this->model->getInstituciones();
+        $data['vista']=$type;
         $this->views->getView($this, "index", $data);
     }
     public function perrie(){
@@ -27,12 +28,10 @@ class Proyectos extends Controller{
     public function listar(){
         $data= $this->model->getInstituciones();       
         
-        for ($i=0; $i <count($data) ; $i++) { 
-            $data[$i]['index']=$i+1;         
-            $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
-            
-
-        }
+        // for ($i=0; $i <count($data) ; $i++) { 
+        //     $data[$i]['index']=$i+1;         
+        //     $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
+        // }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
