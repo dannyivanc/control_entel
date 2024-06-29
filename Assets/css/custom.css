@@ -43,6 +43,8 @@
 
 
 
+
+
 .btn-x{
     filter: invert(1) !important;
 }
@@ -105,6 +107,17 @@
         display: none !important;
     }
 }
+
+
+
+
+/* @media (max-width: 1000px) {
+    .ovs{
+        overflow-x: scroll !important;
+    }
+} */
+
+
 
 
 

@@ -2,13 +2,14 @@ let tblInstituciones;
 document.addEventListener("DOMContentLoaded",function(){
   //  if(window.location.pathname ===`/control/Usuarios`){
     tblInstituciones=$('#tblInstituciones').DataTable( {
+      responsive: true,
       ajax: {
           url: base_url+"Instituciones/listar",
           dataSrc: ''
       },
       columns: [ 
       {
-        'data':'index','width': '3%','className': 'text-end',
+        'data':'index','width': '2%','className': 'text-end',
       },    
       {
         'data':'institucion','className': 'text-end',
@@ -21,6 +22,12 @@ document.addEventListener("DOMContentLoaded",function(){
       },
       
     ],
+    columnDefs: [
+      { responsivePriority: 1, targets: 0 },
+      { responsivePriority: 2, targets: 1 },
+      { responsivePriority: 3, targets: 3 },
+      { responsivePriority: 4, targets: 2 },
+  ],
     language: {
       "decimal": "",
       "emptyTable": "No hay datos disponibles en la tabla",

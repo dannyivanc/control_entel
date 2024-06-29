@@ -14,6 +14,7 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
   
 document.addEventListener("DOMContentLoaded",function(){
         tblMateriales=$('#tblMateriales').DataTable( {
+        responsive: true,
         ajax: {
             url: base_url+"Materiales/listar",
             dataSrc: ''
@@ -41,9 +42,19 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'observacion','width': '10%','className': 'text-end',
         },
         {
-          'data': 'acciones','width': '5%','className': 'text-center',
+          'data':'acciones','width': '5%','className': 'text-center',
         }
       ],
+      columnDefs: [
+        { responsivePriority: 1, targets: 0 },
+        { responsivePriority: 2, targets: 1 },
+        { responsivePriority: 3, targets: 3 },
+        { responsivePriority: 4, targets: 2 },
+        { responsivePriority: 5, targets: 4 },
+        { responsivePriority: 6, targets: 5 },
+        { responsivePriority: 7, targets: 6 },
+        { responsivePriority: 8, targets: 7 },
+    ],
       language: {
         "decimal": "",
         "emptyTable": "No hay datos disponibles en la tabla",

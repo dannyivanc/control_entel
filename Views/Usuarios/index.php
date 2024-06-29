@@ -15,23 +15,24 @@
       </button>
    </div>
       
-   <table class="table  table-light table-bordered  custom-table " id="tblUsuarios">
-         <thead class="thead-dark">
-            <tr>
-               <th>Nº</th>
-               <th>Usuario</th>
-               <th>Nombre</th>
-               <th>Carnet</th>
-               <th>Institucion</th>  
-               <th>Celular</th>  
-               <th>Rol</th>  
-               <th>Estado</th>  
-               <th>Acciones</th>      
-            </tr>
+   <!-- <table class="table  table-light table-bordered " id="tblUsuarios"> -->
+   
+   <table class="table  table-light table-bordered custom-table" id="tblUsuarios">
+       <thead class="thead-dark">
+               <tr>
+                  <th>Nº</th>
+                  <th>Usuario</th>
+                  <th>Nombre</th>
+                  <th>Carnet</th>
+                  <th>Institucion</th>  
+                  <th>Celular</th>  
+                  <th>Rol</th>  
+                  <th>Estado</th>  
+                  <th>Acciones</th>      
+               </tr>           
          </thead>
-         <tbody>
-         </tbody>
    </table>    
+
 
    <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -54,7 +55,7 @@
                   </div>
                   <div class="form-group">
                      <label for="cel">Celular</label>
-                     <input id="cel" class="form-control" type="num" name="cel" placeholder="Numero de celular">
+                     <input id="cel" class="form-control" type="number" name="cel" placeholder="Numero de celular">
                   </div>
 
                   <div class="form-group position-relative">

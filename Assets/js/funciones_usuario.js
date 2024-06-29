@@ -1,13 +1,14 @@
 let tblUsuarios;
 document.addEventListener("DOMContentLoaded",function(){
       tblUsuarios=$('#tblUsuarios').DataTable( {
+        responsive: true,
         ajax: {
             url: base_url+"Usuarios/listar",
             dataSrc: ''
         },
         columns: [ 
         { 
-          'data':'index','width': '3%','className': 'text-end',
+          'data':'index','width': '2%','className': 'text-end',
         },
         {
           'data':'usuario','className': 'text-end',
@@ -34,6 +35,17 @@ document.addEventListener("DOMContentLoaded",function(){
           'data': 'acciones','width': '12%','className': 'text-center',
         }
       ],
+      // columnDefs: [
+      //   { responsivePriority: 1, targets: 0 },
+      //   { responsivePriority: 2, targets: 2 },
+      //   { responsivePriority: 3, targets: 8 },
+      //   { responsivePriority: 4, targets: 1 },
+      //   { responsivePriority: 5, targets: 3 },
+      //   { responsivePriority: 6, targets: 4 },
+      //   { responsivePriority: 7, targets: 5 },
+      //   { responsivePriority: 8, targets: 6 },
+      //   { responsivePriority: 9, targets: 7 }
+      // ],
       language: {
         "decimal": "",
         "emptyTable": "No hay datos disponibles en la tabla",

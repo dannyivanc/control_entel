@@ -14,6 +14,7 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
 
 document.addEventListener("DOMContentLoaded",function(){
         tblPatrullajes=$('#tblPatrullajes').DataTable({
+        responsive: true,
         ajax: {
             url: base_url+"Patrullajes/listar",
             dataSrc: ''

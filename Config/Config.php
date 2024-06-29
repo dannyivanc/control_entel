@@ -23,8 +23,8 @@
     // const charset = "utf8";
 
 
-    // const base_url = "http://192.168.100.23/control/";  
-    const base_url = "http://localhost/control/"; 
+    const base_url = "http://192.168.1.2/control/";  
+    // const base_url = "http://localhost/control/"; 
     const host   = "localhost";
     const user = "saidbolivia_sistemas";
     const pass = "Tic2023@";

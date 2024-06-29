@@ -12,6 +12,7 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
   
 document.addEventListener("DOMContentLoaded",function(){
         tblVehiculos=$('#tblVehiculos').DataTable( {
+        responsive: true,
         ajax: {
             url: base_url+"Vehiculos/listar",
             dataSrc: ''

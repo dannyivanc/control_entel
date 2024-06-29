@@ -11,13 +11,14 @@ function mostrarAlerta(icon, title,timer = 2000,position="top") {
 document.addEventListener("DOMContentLoaded",function(){
   //  if(window.location.pathname ===`/control/Usuarios`){
     tblSucursales=$('#tblSucursales').DataTable( {
+      responsive: true,
       ajax: {
           url: base_url+"Sucursales/listar",
           dataSrc: ''
       },
       columns: [ 
       {
-        'data':'index','width': '3%','className': 'text-end',
+        'data':'index','width': '2%','className': 'text-end',
       },    
       {
         'data':'sucursal','className': 'text-end',
@@ -28,13 +29,6 @@ document.addEventListener("DOMContentLoaded",function(){
       {
         'data':'vigilante','className': 'text-end',
       },
-      // {
-      //   'data': 'vigilantes',
-      //   'className': 'text-end',
-      //   'render': function(data) {
-      //     return data.join('<br>'); 
-      //   }
-      // },
       {
         'data':'ciudad','className': 'text-end',
       },
@@ -49,6 +43,16 @@ document.addEventListener("DOMContentLoaded",function(){
       }
       
     ],
+    // columnDefs: [
+    //   { responsivePriority: 1, targets: 0 },
+    //   { responsivePriority: 2, targets: 1 },
+    //   { responsivePriority: 3, targets: 7 },
+    //   { responsivePriority: 4, targets: 2 },
+    //   { responsivePriority: 5, targets: 3 },
+    //   { responsivePriority: 6, targets: 4 },
+    //   { responsivePriority: 7, targets: 5 },
+    //   { responsivePriority: 8, targets: 6 },
+    // ],
     language: {
       "decimal": "",
       "emptyTable": "No hay datos disponibles en la tabla",
