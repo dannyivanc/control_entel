@@ -1,4 +1,7 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     require_once "Config/Config.php";
     $ruta= !empty($_GET ['url'])? $_GET['url'] :"Home/index";
     $array =explode("/",$ruta);
@@ -31,4 +34,7 @@
    }else{
     echo "no existe controlador";
    }
+   
+
+
 ?>

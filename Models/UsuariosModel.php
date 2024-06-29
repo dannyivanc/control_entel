@@ -1,43 +1,24 @@
 <?php
     class UsuariosModel extends Query{
-        private $id,$usuario,$nombre,$carnet,$clave,$id_institucion,$estado,$cel,$rol;
-        private $conn;
-  
-        public function __construct(){
-            parent::__construct();
-            $this->conn = new mysqli(host, user, pass, db);
-            if ($this->conn->connect_error) {
-                die("Connection failed: " . $this->conn->connect_error);
-            }
-            $this->conn->set_charset(charset);
-            //para borrar
-        }
-        public function getUsuario(string $usuario, string $clave){
-            // $sql="SELECT * FROM usuarios WHERE usuario = '$usuario' AND clave ='$clave'";
-            // $data= $this->select($sql);
-            // return $data;
+         private $id, $usuario, $nombre, $carnet, $clave, $id_institucion, $estado, $cel, $rol;
 
-            //cambiar
-            try {
-                // Preparar la consulta SQL
-                $sql = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?";
-                $stmt = $this->conn->prepare($sql);
-                if ($stmt === false) {
-                    throw new Exception("Error" . $this->conn->error);
-                }
-                $stmt->bind_param("ss", $usuario, $clave);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $data = $result->fetch_assoc();
-                $stmt->close();
-                return $data;
-            } catch (Exception $e) {
-                echo 'Error: ' . $e->getMessage();
-                return null;
-            }
+    public function __construct() {
+        parent::__construct();
+    }
 
-            //cambiar
+    public function getUsuario(string $usuario, string $clave) {
+        try {
+            $sql = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?";
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$usuario, $clave]);
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+            return null;
         }
+    }
+
 
         public function getInstituciones(){
             $sql="SELECT * FROM instituciones WHERE estado = 1";
@@ -63,11 +44,11 @@
             $this->cel=$cel;
             $this->rol=$rol;
             $this->id_institucion=$id_institucion;
-            $verificar ="SELECT * FROM usuarios WHERE usuario='$this->usuario' OR carnet ='$this->carnet'";
+            $verificar ="SELECT *FROM usuarios WHERE usuario='$this->usuario' OR carnet ='$this->carnet'";
             $existe =$this->select($verificar);
             if(empty($existe)){
-                $sql = "INSERT INTO usuarios (usuario,nombre,carnet,clave,cel,rol,id_institucion) VALUES (?,?,?,?,?,?,?)";
-                $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->cel,$this->rol,$this->id_institucion);
+                $sql = "INSERT INTO usuarios (usuario,nombre,carnet,clave,rol,cel,id_institucion) VALUES (?,?,?,?,?,?,?)";
+                $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->rol,$this->cel,$this->id_institucion);
                 $data =  $this-> save($sql,$datos);
                 if($data==1){
                     $res = "ok";

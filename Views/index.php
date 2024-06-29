@@ -32,9 +32,9 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-3">
                                     <div class="card-header bg-dark"><h3 class="text-center font-weight-light my-1 text-white ">Autenticar</h3></div>
                                     <div class="card-body">
-                                        <form id="frmLogin">
+                                        <form id="frmLogin" onsubmit="frmLogin(event);">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="usuario" name="usuario" type="email" placeholder="Ingrese su usuario" />
+                                                <input class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario" />
                                                 <label for="usuario"> <i class="fas fa-user"></i> Usuario</label>
                                             </div>
                                             <div class="form-floating mb-3">
@@ -44,7 +44,7 @@
                                             <div class="alert alert-danger text-center d-none" id="alerta" role="alert"> 
                                             </div>  
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">                                            
-                                                <button class="btn btn-primary" type="submit" onclick="frmLogin(event);">Iniciar Sesion</button>
+                                                <button class="btn btn-primary" type="submit" >Iniciar Sesion</button>
                                             </div>
                                            
                                         </form>

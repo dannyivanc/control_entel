@@ -1,8 +1,5 @@
 <?php
 
-// echo '<pre>';
-// print_r($_SESSION['id_usuario']);
-// echo '</pre>';
 class Usuarios extends Controller{
     public function __construct(){
         session_start();              

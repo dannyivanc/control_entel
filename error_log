@@ -1,0 +1,2024 @@
+[27-Jun-2024 16:59:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 16:59:10 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 16:59:47 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:02 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:05 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:09 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:32 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:39 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:51 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:52 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:53 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:53 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:53 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:54 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:54 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:54 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[27-Jun-2024 17:02:55 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:21:36 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(25): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:32:12 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:32:17 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:34:55 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:34:56 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:34:57 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:34:57 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:35:09 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:35:10 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:35:36 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:36:10 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:36:33 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:36:38 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:36:42 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:41:23 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:41:24 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:44:56 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:44:59 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(9): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:45:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:45:29 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:45:41 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:46:17 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:46:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:46:29 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:46:50 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:46:52 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:47:10 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:48:11 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:51:24 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 10:51:26 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 10:51:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 10:51:39 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 10:52:12 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 10:55:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:55:58 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:55:59 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 10:56:05 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/UsuariosModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): UsuariosModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(6): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Usuarios->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 8
+[28-Jun-2024 11:08:46 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 11:10:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:36:05 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:36:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:36:09 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:40:10 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:40:14 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:40:15 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:40:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:43:02 America/La_Paz] PHP Fatal error:  Uncaught TypeError: PDO::__construct(): Argument #4 ($options) must be of type ?array, string given in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Models/SucursalesModel.php(8): PDO->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#2 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#3 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#4 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#5 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:43:05 America/La_Paz] PHP Fatal error:  Uncaught TypeError: PDO::__construct(): Argument #4 ($options) must be of type ?array, string given in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Models/SucursalesModel.php(8): PDO->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#2 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#3 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#4 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#5 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:44:07 America/La_Paz] PHP Deprecated:  Creation of dynamic property SucursalesModel::$conect is deprecated in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 9
+[28-Jun-2024 14:44:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Config/App/Query.php:20
+Stack trace:
+#0 /home/samiboli/public_html/control/Models/SucursalesModel.php(41): Query->selectAll()
+#1 /home/samiboli/public_html/control/Controllers/Sucursales.php(18): SucursalesModel->getSucursales()
+#2 /home/samiboli/public_html/control/index.php(30): Sucursales->listar()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 20
+[28-Jun-2024 14:44:08 America/La_Paz] PHP Deprecated:  Creation of dynamic property SucursalesModel::$conect is deprecated in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 9
+[28-Jun-2024 14:44:08 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Config/App/Query.php:20
+Stack trace:
+#0 /home/samiboli/public_html/control/Models/SucursalesModel.php(41): Query->selectAll()
+#1 /home/samiboli/public_html/control/Controllers/Sucursales.php(18): SucursalesModel->getSucursales()
+#2 /home/samiboli/public_html/control/index.php(30): Sucursales->listar()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 20
+[28-Jun-2024 14:47:19 America/La_Paz] PHP Warning:  Attempt to read property "connect_error" on null in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 9
+[28-Jun-2024 14:47:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on null in /home/samiboli/public_html/control/Models/SucursalesModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 12
+[28-Jun-2024 14:47:21 America/La_Paz] PHP Warning:  Attempt to read property "connect_error" on null in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 9
+[28-Jun-2024 14:47:21 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on null in /home/samiboli/public_html/control/Models/SucursalesModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 12
+[28-Jun-2024 14:48:02 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to undefined function PDO() in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:48:03 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to undefined function PDO() in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:48:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to undefined function PDO() in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:48:29 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to undefined function PDO() in /home/samiboli/public_html/control/Models/SucursalesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Controller.php(18): SucursalesModel->__construct()
+#1 /home/samiboli/public_html/control/Config/App/Controller.php(9): Controller->cargarModel()
+#2 /home/samiboli/public_html/control/Controllers/Sucursales.php(5): Controller->__construct()
+#3 /home/samiboli/public_html/control/index.php(28): Sucursales->__construct()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Models/SucursalesModel.php on line 8
+[28-Jun-2024 14:52:36 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conn in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:52:36 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:19
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:52:37 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conn in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:52:37 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:19
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:52:52 America/La_Paz] PHP Warning:  Undefined array key "nombre" in /home/samiboli/public_html/control/Views/Templates/header.php on line 31
+[28-Jun-2024 14:53:07 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conn in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:53:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:19
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:54:44 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conn in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:54:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:19
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 19
+[28-Jun-2024 14:59:06 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:06 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:07 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:08 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:08 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:10 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:10 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:11 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:11 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:56 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 14:59:56 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:01:16 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:01:16 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:01:17 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:01:17 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:01:17 America/La_Paz] PHP Warning:  Undefined property: UsuariosModel::$conect in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:01:17 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/samiboli/public_html/control/Models/UsuariosModel.php:12
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(45): UsuariosModel->getUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->validar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 12
+[28-Jun-2024 15:03:29 America/La_Paz] PHP Warning:  require(Views/Proyectos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:29 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Proyectos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Proyectos.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Proyectos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:37 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:37 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:41 America/La_Paz] PHP Warning:  require(Views/Vehiculos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:41 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Vehiculos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Vehiculos.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Vehiculos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:44 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:46 America/La_Paz] PHP Warning:  require(Views/Vehiculos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:03:46 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Vehiculos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Vehiculos.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Vehiculos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:04 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:04 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:12 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:12 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:19 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:22 America/La_Paz] PHP Warning:  require(Views/Vehiculos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:22 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Vehiculos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Vehiculos.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Vehiculos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:24 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:24 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:28 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:35 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:04:35 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:10:47 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:10:47 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:12:07 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:12:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:12:22 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:12:22 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:22 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:22 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:23 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:23 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:23 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:23 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:23 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:23 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:27 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:27 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:28 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:29 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:14:29 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:16:18 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:16:18 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:40:35 America/La_Paz] PHP Warning:  require(Views/Proyectos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:40:35 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Proyectos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Proyectos.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Proyectos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:40:38 America/La_Paz] PHP Warning:  require(Views/Proyectos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:40:38 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Proyectos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Proyectos.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Proyectos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:41:28 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:41:29 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:41:29 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:41:33 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:41:33 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:41:34 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:41:34 America/La_Paz] PHP Fatal error:  Uncaught TypeError: UsuariosModel::registrarUsuario(): Argument #6 ($cel) must be of type int, string given, called in /home/samiboli/public_html/control/Controllers/Usuarios.php on line 79 and defined in /home/samiboli/public_html/control/Models/UsuariosModel.php:39
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#1 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/UsuariosModel.php on line 39
+[28-Jun-2024 15:52:01 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'cel' at row 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(52): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 15:52:02 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'cel' at row 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(52): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 15:52:05 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'cel' at row 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(52): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 15:52:07 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'cel' at row 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(52): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(79): UsuariosModel->registrarUsuario()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 15:52:41 America/La_Paz] PHP Warning:  require(Views/Proyectos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:52:41 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Proyectos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Proyectos.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Proyectos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:15 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:15 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:19 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:26 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:26 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:27 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:27 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:28 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:53:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:55:25 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:55:25 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:56:49 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:56:49 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:56:56 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:56:56 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:35 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:35 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:36 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:36 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:37 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:37 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:37 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:37 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:38 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:38 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:39 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:39 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:48 America/La_Paz] PHP Warning:  require(Views/Instituciones/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:48 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Instituciones/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Instituciones.php(12): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Instituciones->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:52 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 15:57:52 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:00:35 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:00:35 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:00:36 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:00:36 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:00:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:00:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:01:24 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:01:24 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:01:30 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:01:30 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:05:00 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:05:00 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:05:01 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:05:01 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:05:01 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:05:01 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:05:55 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:05:55 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:06:02 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:06:02 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:06:58 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:06:58 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:08:45 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:08:45 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:08:47 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:08:47 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(19): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:09:27 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:27 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:28 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:30 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:30 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:31 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:31 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:32 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:32 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:37 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:09:37 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:10:27 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:10:27 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(21): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:11:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:11:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:11:45 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:11:45 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:15:35 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 31
+[28-Jun-2024 16:15:35 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getMateriales(): Argument #1 ($id_suc) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 32 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:16
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(32): MaterialesModel->getMateriales()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->listar()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 16
+[28-Jun-2024 16:18:34 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:18:34 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:18 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:18 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:19 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:20 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:20 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:47 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:47 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:19:48 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:06 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:06 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:43 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:43 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:45 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:20:45 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:21:19 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:21:19 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:21:19 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:22:14 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:22:14 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:22:14 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:22:14 America/La_Paz] PHP Deprecated:  implode(): Passing null to parameter #1 ($separator) of type array|string is deprecated in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:22:14 America/La_Paz] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:27
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(27): implode()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:23:09 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:23:09 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:23:09 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:23:09 America/La_Paz] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:27
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(27): implode()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:27 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:27 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:27 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:27 America/La_Paz] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:27
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(27): implode()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:41 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:41 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:41 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:41 America/La_Paz] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:27
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(27): implode()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:43 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:24:43 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:24:47 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:47 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:47 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 16:24:47 America/La_Paz] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:27
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(27): implode()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 27
+[28-Jun-2024 20:33:55 UTC] PHP Parse error:  Unclosed '{' on line 24 does not match ')' in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:38 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:38 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:38 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:38 America/La_Paz] PHP Deprecated:  join(): Passing null to parameter #1 ($separator) of type array|string is deprecated in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:38 America/La_Paz] PHP Fatal error:  Uncaught TypeError: join(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:28
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(28): join()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:39 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:39 America/La_Paz] PHP Warning:  Undefined property: Materiales::$Array in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:39 America/La_Paz] PHP Warning:  Trying to access array offset on value of type null in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:39 America/La_Paz] PHP Deprecated:  join(): Passing null to parameter #1 ($separator) of type array|string is deprecated in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:39 America/La_Paz] PHP Fatal error:  Uncaught TypeError: join(): Argument #1 ($array) must be of type array, string given in /home/samiboli/public_html/control/Controllers/Materiales.php:28
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(28): join()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->perrie()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 28
+[28-Jun-2024 16:36:53 America/La_Paz] PHP Warning:  Undefined variable $hola in /home/samiboli/public_html/control/Controllers/Materiales.php on line 29
+[28-Jun-2024 16:36:54 America/La_Paz] PHP Warning:  Undefined variable $hola in /home/samiboli/public_html/control/Controllers/Materiales.php on line 29
+[28-Jun-2024 16:37:11 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:37:11 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:37:44 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:37:44 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:37:45 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:37:45 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:17 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:17 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:39 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:39 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:40 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:40 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:41 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:41 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:41 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:41 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:42 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:42 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:42 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:42 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:42 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:42 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:43 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:43 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:43 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:43 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:43 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:43 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:50 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:50 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:51 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:38:51 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:57 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:57 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:58 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:58 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:59 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:59 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:59 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:39:59 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:00 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:01 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:01 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:01 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:01 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:01 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:40:01 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:07 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:08 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:08 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:08 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:08 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:28 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:28 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:29 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:29 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:30 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:30 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:47:45 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:47:51 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:48:30 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:49:16 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:49:43 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:50:05 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:50:16 America/La_Paz] PHP Fatal error:  Uncaught Error: Call to a member function getView() on null in /home/samiboli/public_html/control/Controllers/Materiales.php:22
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 22
+[28-Jun-2024 16:50:33 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:50:33 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:51:14 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:51:14 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:51:36 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:51:36 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:51:37 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:51:37 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 20:51:59 UTC] PHP Parse error:  syntax error, unexpected token "/" in /home/samiboli/public_html/control/Controllers/Materiales.php on line 18
+[28-Jun-2024 16:52:14 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:14 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:15 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:15 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:17 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:17 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:47 America/La_Paz] PHP Warning:  Undefined variable $data in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:52:47 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:47 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:47 America/La_Paz] PHP Warning:  Undefined variable $data in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:52:47 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:52:47 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:53:11 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 11
+[28-Jun-2024 16:53:11 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 11 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(11): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(28): Materiales->__construct()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:53:12 America/La_Paz] PHP Warning:  Undefined variable $id in /home/samiboli/public_html/control/Controllers/Materiales.php on line 11
+[28-Jun-2024 16:53:12 America/La_Paz] PHP Fatal error:  Uncaught TypeError: MaterialesModel::getSucursal(): Argument #1 ($id) must be of type int, null given, called in /home/samiboli/public_html/control/Controllers/Materiales.php on line 11 and defined in /home/samiboli/public_html/control/Models/MaterialesModel.php:8
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(11): MaterialesModel->getSucursal()
+#1 /home/samiboli/public_html/control/index.php(28): Materiales->__construct()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Models/MaterialesModel.php on line 8
+[28-Jun-2024 16:53:19 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:53:19 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:53:20 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:53:20 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:53:35 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:53:35 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(22): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:54:34 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:54:34 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:55:12 America/La_Paz] PHP Fatal error:  Uncaught Error: Object of class Materiales could not be converted to string in /home/samiboli/public_html/control/Controllers/Materiales.php:19
+Stack trace:
+#0 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#1 {main}
+  thrown in /home/samiboli/public_html/control/Controllers/Materiales.php on line 19
+[28-Jun-2024 16:55:46 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:55:46 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:55:46 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:04 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:04 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:04 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:05 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:05 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:05 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:05 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:05 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:05 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:06 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:06 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:06 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:06 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:06 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:06 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:07 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:07 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:07 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:08 America/La_Paz] PHP Warning:  Array to string conversion in /home/samiboli/public_html/control/Controllers/Materiales.php on line 23
+[28-Jun-2024 16:56:08 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:08 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(24): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:50 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:50 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:51 America/La_Paz] PHP Warning:  require(Views/Materiales/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:56:51 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Materiales/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Materiales.php(23): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 16:59:40 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:00 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:03 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:08 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:29 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:30 America/La_Paz] PHP Warning:  require(Views/Vehiculos/index.php): Failed to open stream: No such file or directory in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 17:00:30 America/La_Paz] PHP Fatal error:  Uncaught Error: Failed opening required 'Views/Vehiculos/index.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/samiboli/public_html/control/Config/App/Views.php:10
+Stack trace:
+#0 /home/samiboli/public_html/control/Controllers/Vehiculos.php(20): Views->getView()
+#1 /home/samiboli/public_html/control/index.php(30): Vehiculos->index()
+#2 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Views.php on line 10
+[28-Jun-2024 17:00:32 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:48 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:52 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:00:53 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:01:08 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:01:29 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:01:30 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:01:31 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 17:01:33 America/La_Paz] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/samiboli/public_html/control/Views/Materiales/index.php:11
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Views.php(10): require()
+#1 /home/samiboli/public_html/control/Controllers/Materiales.php(20): Views->getView()
+#2 /home/samiboli/public_html/control/index.php(30): Materiales->index()
+#3 {main}
+  thrown in /home/samiboli/public_html/control/Views/Materiales/index.php on line 11
+[28-Jun-2024 18:43:22 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rol='6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',id_instit' at line 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(96): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(98): UsuariosModel->modificarUsuarioPass()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 18:43:24 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rol='6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',id_instit' at line 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(96): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(98): UsuariosModel->modificarUsuarioPass()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 18:43:28 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rol='6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',id_instit' at line 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(96): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(98): UsuariosModel->modificarUsuarioPass()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 18:43:29 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rol='6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',id_instit' at line 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(96): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(98): UsuariosModel->modificarUsuarioPass()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 18:43:31 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rol='6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',id_instit' at line 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(96): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(98): UsuariosModel->modificarUsuarioPass()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24
+[28-Jun-2024 18:43:41 America/La_Paz] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rol='6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3',id_instit' at line 1 in /home/samiboli/public_html/control/Config/App/Query.php:24
+Stack trace:
+#0 /home/samiboli/public_html/control/Config/App/Query.php(24): PDOStatement->execute()
+#1 /home/samiboli/public_html/control/Models/UsuariosModel.php(96): Query->save()
+#2 /home/samiboli/public_html/control/Controllers/Usuarios.php(98): UsuariosModel->modificarUsuarioPass()
+#3 /home/samiboli/public_html/control/index.php(30): Usuarios->registrar()
+#4 {main}
+  thrown in /home/samiboli/public_html/control/Config/App/Query.php on line 24

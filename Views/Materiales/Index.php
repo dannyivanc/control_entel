@@ -27,7 +27,7 @@
    <table class="table  table-light table-bordered  custom-table" id="tblMateriales">
          <thead class="thead-dark">
             <tr>
-               <th>N潞</th>  
+               <th>Nº</th>  
                <th>Fecha</th>
                <th>Movimiento</th>
                <th>Descripcion</th>
@@ -63,7 +63,7 @@
                         <div class="form-group position-relative">
                            <label for="movimiento">Movimiento</label>
                            <select class="form-control" id="movimiento" name="movimiento">
-                              <option value="" selected disabled>Seleccione una opci贸n</option>
+                              <option value="" selected disabled>Seleccione una opción</option>
                               <option value="ingreso">Ingreso</option>
                               <option value="salida ">Salida</option>
                            </select>
@@ -81,8 +81,8 @@
                      <input id="destino" class="form-control" type="text" name="destino" placeholder="Destino/Origen">
                   </div>
                   <div class="form-group">
-                     <label for="descripcion">Descripci贸n</label>
-                     <textarea id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripci贸n"></textarea>
+                     <label for="descripcion">Descripción</label>
+                     <textarea id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripción"></textarea>
                   </div>       
                   <div class="form-group">
                      <label for="observacion">Observaciones</label>
@@ -106,3 +106,4 @@
 
 </body>
 </html>
+
