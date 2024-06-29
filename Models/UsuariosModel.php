@@ -63,7 +63,7 @@
             $this->cel=$cel;
             $this->rol=$rol;
             $this->id_institucion=$id_institucion;
-            $verificar ="SELECT *FROM usuarios WHERE usuario='$this->usuario' OR carnet ='$this->carnet'";
+            $verificar ="SELECT * FROM usuarios WHERE usuario='$this->usuario' OR carnet ='$this->carnet'";
             $existe =$this->select($verificar);
             if(empty($existe)){
                 $sql = "INSERT INTO usuarios (usuario,nombre,carnet,clave,cel,rol,id_institucion) VALUES (?,?,?,?,?,?,?)";
