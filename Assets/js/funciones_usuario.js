@@ -259,7 +259,22 @@ document.addEventListener("DOMContentLoaded",function(){
       });
     }   
    
-   
+  //para mostrar /ocultar institucion
+   function mostrarInstitucion() {
+      const rol = document.getElementById('rol').value;
+      const institucionContainer = document.getElementById('institucion-container');
+      
+      if (rol === 'cliente') {
+          institucionContainer.style.display = 'block';
+      } else {
+          institucionContainer.style.display = 'none';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      mostrarInstitucion();
+    });
+
+
    // para contraseña de usuario
     $(document).ready(function(){
         $('#btnMostrarContrasena').click(function(){

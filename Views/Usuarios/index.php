@@ -1,22 +1,15 @@
 <?php include "Views/Templates/header.php";?>
-
-   <!-- <div class=" bg-opacity-5 bg-black d-flex justify-content-center align-items-center mb-3" style="height: 40px;">
-      <h2 class="text-black-50 fs-4" >Usuarios</h4>
-   </div> -->
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
          <span class="text-black-75 fs-5">Usuarios</span> 
       </div>
    </div>
-
    <div class="d-flex justify-content-center justify-content-md-start">
       <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();">
          Nuevo <i class="fas fa-plus"></i>
       </button>
    </div>
-      
-   <!-- <table class="table  table-light table-bordered " id="tblUsuarios"> -->
-   
+         
    <table class="table  table-light table-bordered custom-table" id="tblUsuarios">
        <thead class="thead-dark">
                <tr>
@@ -32,7 +25,6 @@
                </tr>           
          </thead>
    </table>    
-
 
    <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -57,18 +49,6 @@
                      <label for="cel">Celular</label>
                      <input id="cel" class="form-control" type="number" name="cel" placeholder="Numero de celular">
                   </div>
-
-                  <div class="form-group position-relative">
-                     <label for="rol">Rol</label>
-                     <select class="form-control" id="rol" name="rol">
-                        <option value="cliente">Cliente</option>
-                        <option value="admin ">Admin</option>
-                        <option value="supervisor">Supervisor</option>
-                        <option value="vigilante">Vigilante</option>
-                     </select>
-                     <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
-                  </div>
-
                   <div class="form-group">
                      <label for="carnet">Carnet</label>
                      <input id="carnet" class="form-control" type="text" name="carnet" placeholder="Carnet">
@@ -85,15 +65,26 @@
                               </button>
                         </div>
                      </div>
-                  </div>            
-                  <div class="form-group">
+                  </div>     
+                  <div class="form-group position-relative">
+                     <label for="rol">Rol</label>
+                     <select class="form-control" id="rol" name="rol" onchange="mostrarInstitucion()">
+                        <option value="" selected disabled>Seleccione un Rol</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="admin ">Admin</option>
+                        <option value="supervisor">Supervisor</option>
+                        <option value="vigilante">Vigilante</option>
+                     </select>
+                     <i class="fas fa-chevron-down position-absolute mycustom-arrow" ></i>
+                  </div>
+                  <div class="form-group" id="institucion-container">
                      <label for="institucion">Institucion</label>
                      <select id="institucion" class="form-control" name="institucion">
                         <?php foreach ($data['instituciones']as $row) {?>
                            <option value="<?php echo $row['id']; ?>" ><?php echo $row['institucion']; ?></option>
                         <?php } ?>
                         </select>
-                  </div>
+                  </div>       
                   <button id ="btn_form_usuario" class="btn btn-primary mt-3" type="button" onclick="registrarUser(event);">
                      Registrar
                   </button>

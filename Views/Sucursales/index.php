@@ -47,6 +47,7 @@
                   <div class="form-group position-relative">
                      <label for="institucion">Institución</label>
                      <select id="institucion" class="form-control" name="institucion">
+                     <option value="" selected disabled>Seleccione una sucursal</option>
                         <?php foreach ($data['instituciones'] as $row) {?>
                               <option value="<?php echo $row['id']; ?>"><?php echo $row['institucion']; ?></option>
                         <?php } ?>
