@@ -53,7 +53,46 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
-function descargarPdf (){
-  console.log('hilamundo');
+async function descargarPdf (){
+  const url = base_url + "ReporteVigilantes/generarPdf";
+  try {
+      const response = await fetch(url, {
+          method: "GET"
+      });
+      if (response.ok) {
+        const blob = await response.blob();
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'reporte_vigilantes.pdf'; // Especifica el nombre del archivo
+        link.click();
+
+
+          // const blob = await response.blob();
+          // const url = window.URL.createObjectURL(blob);
+          // window.open(url);
+      } else {
+          mostrarAlerta("error", "Error en la solicitud");
+      }
+  } catch (error) {
+      mostrarAlerta("error", "Error de servidor");
+  }
+
+
+
+  // const url = base_url + "ReporteVigilantes/generarPdf";
+  // try {
+  //     const response = await fetch(url, {
+  //         method: "GET"
+  //     });
+  //     if (response.ok) {
+  //         const blob = await response.blob();
+  //         const url = window.URL.createObjectURL(blob);
+  //         window.open(url); // Abre el PDF en una nueva pestaña
+  //     } else {
+  //         mostrarAlerta("error", "Error en la solicitud");
+  //     }
+  // } catch (error) {
+  //     mostrarAlerta("error", "Error de servidor");
+  // }
 }
     

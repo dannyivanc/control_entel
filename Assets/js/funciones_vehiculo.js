@@ -88,11 +88,9 @@ function frmVehiculo(){
 async function registrarVehiculo (e){
     e.preventDefault();
     const salida = document.getElementById("salida");
-    const retorno = document.getElementById("retorno");
     const tipo = document.getElementById("tipo");      
     const placa = document.getElementById("placa");
     const km_salida = document.getElementById("km_salida");
-    const km_retorno = document.getElementById("km_retorno");
     const conductor = document.getElementById("conductor");
     const destino = document.getElementById("destino"); 
     if(salida.value==""||tipo.value==""||placa.value==""||km_salida.value==""||conductor.value=="" ||destino.value==""){
