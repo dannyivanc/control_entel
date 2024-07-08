@@ -189,33 +189,71 @@ document.addEventListener("DOMContentLoaded",function(){
         confirmButtonText: "Desactivar",
         cancelButtonText :"Cancelar"
       }).then((result) => {
-        if (result.isConfirmed) {   
-          const url = base_url + "Usuarios/desactivar/"+id;  
-          const http = new XMLHttpRequest();
-          http.open("GET",url,true);
-          http.send();
-          http.onreadystatechange = function(){
-              if(this.readyState==4 && this.status==200){ 
-                const res=JSON.parse(this.responseText); 
-               if(res=="ok"){
-                Swal.fire({
-                  title: "Desactivado",
-                  text: "El usuario desactivado con exito",
-                  icon: "success"
-                });
-                tblUsuarios.ajax.reload();
-               }
-               else{
-                Swal.fire({
-                  title: "Se produjo un error",
-                  text: res,
-                  icon: "error"
-                });
-               }
+        // if (result.isConfirmed) {   
+        //   const url = base_url + "Usuarios/desactivar/"+id;  
+        //   const http = new XMLHttpRequest();
+        //   http.open("GET",url,true);
+        //   http.send();
+        //   http.onreadystatechange = function(){
+        //       if(this.readyState==4 && this.status==200){ 
+        //         const res=JSON.parse(this.responseText); 
+        //        if(res=="ok"){
+        //         Swal.fire({
+        //           title: "Desactivado",
+        //           text: "El usuario desactivado con exito",
+        //           icon: "success"
+        //         });
+        //         tblUsuarios.ajax.reload();
+        //        }
+        //        else{
+        //         Swal.fire({
+        //           title: "Se produjo un error",
+        //           text: res,
+        //           icon: "error"
+        //         });
+        //        }
                
+        //       }
+        //   }   
+        // }
+
+        if (result.isConfirmed) {
+          const url = base_url + "Usuarios/desactivar/" + id;
+
+          fetch(url, {
+              method: 'GET'
+          })
+          .then(response => {
+              if (response.ok) {
+                  return response.json();
+              } else {
+                  throw new Error('Error en la solicitud');
               }
-          }   
-        }
+          })
+          .then(res => {
+              if (res === "ok") {
+                  Swal.fire({
+                      title: "Desactivado",
+                      text: "El usuario fue desactivado con éxito",
+                      icon: "success"
+                  });
+                  tblUsuarios.ajax.reload();
+              } else {
+                  Swal.fire({
+                      title: "Se produjo un error",
+                      text: res,
+                      icon: "error"
+                  });
+              }
+          })
+          .catch(error => {
+              Swal.fire({
+                  title: "Error",
+                  text: "Hubo un problema con la solicitud: " + error.message,
+                  icon: "error"
+              });
+          });
+      }
       });
     }
     function btnActivarUsuario(id){
@@ -258,6 +296,38 @@ document.addEventListener("DOMContentLoaded",function(){
         }
       });
     }   
+
+    function registrarPermisos(e){
+      e.preventDefault();
+      
+    
+        //  const response = await fetch(url, {
+        //       method: "POST",
+        //       body: formData
+        //   });
+          // if (response.ok) {
+            
+              // const res = await response.json();
+              console.log('response')
+              // if (res === "si") {
+              //     mostrarAlerta("success", "Entrada registrada con éxito");
+              //     frm.reset();
+              //     $("#nuevo_vehiculo").modal("hide");
+              //     tblVehiculos.ajax.reload();
+              // } else if (res === "modificado") {
+              //     mostrarAlerta("success", "Modificacion completada");
+              //     $("#nuevo_vehiculo").modal("hide");
+              //     tblVehiculos.ajax.reload();
+              // } else {
+              //     mostrarAlerta("error", res);
+              // }
+      //     } else {
+      //         mostrarAlerta("error", "Error en la solicitud");
+    
+    
+    }
+    
+
    
   //para mostrar /ocultar institucion
    function mostrarInstitucion() {
@@ -273,6 +343,9 @@ document.addEventListener("DOMContentLoaded",function(){
     document.addEventListener('DOMContentLoaded', function() {
       mostrarInstitucion();
     });
+
+
+
 
 
    // para contraseña de usuario

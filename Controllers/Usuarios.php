@@ -19,12 +19,13 @@ class Usuarios extends Controller{
        
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
+            $btnPermisos= '<a class="btn btn-dark me-1" href="'.base_url.'Usuarios/permisos/'.$data[$i]['id'].'"> <i class="fas fa-key"></i> </a>';
             $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarUser('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $btnDesactivar = '<button class="btn btn-danger" type="button" onClick="btnDesactivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-ban"></i> </button>';
             $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarUsuario('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
                 $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
-                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
+                $data[$i]['acciones'] =  $btnPermisos . $btnEditar . $btnDesactivar;
             }else{
                 $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
                 $data[$i]['acciones'] = $btnActivar;
@@ -135,6 +136,20 @@ class Usuarios extends Controller{
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
     }   
+
+    public function permisos($id){
+        if(empty($_SESSION['activo'])){
+            header("location:".base_url);
+        }
+        $data['datos']=$this->model->getPermisos();
+        $data['id_usuario']=$id;
+        $this->views->getView($this,"permisos",$data);
+    }
+
+    public function registrarPermiso(){
+     print_r($_POST);
+    }
+
 
     public function salir(){
         session_destroy();
