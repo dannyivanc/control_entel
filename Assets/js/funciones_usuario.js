@@ -297,18 +297,18 @@ document.addEventListener("DOMContentLoaded",function(){
       });
     }   
 
-    function registrarPermisos(e){
+   async function registrarPermisos(e){
       e.preventDefault();
-      
-    
-        //  const response = await fetch(url, {
-        //       method: "POST",
-        //       body: formData
-        //   });
-          // if (response.ok) {
-            
-              // const res = await response.json();
-              console.log('response')
+         const url = base_url + "Usuarios/registrarPermiso";
+         const frm=document.getElementById("frmPermisos");
+         const formData = new FormData(frm);    
+         const response = await fetch(url, {
+              method: "POST",
+              body: formData
+          });
+          if (response.ok) {
+              const res = await response.json();
+              console.log(res)
               // if (res === "si") {
               //     mostrarAlerta("success", "Entrada registrada con éxito");
               //     frm.reset();
@@ -321,8 +321,9 @@ document.addEventListener("DOMContentLoaded",function(){
               // } else {
               //     mostrarAlerta("error", res);
               // }
-      //     } else {
-      //         mostrarAlerta("error", "Error en la solicitud");
+          } else {
+              mostrarAlerta("error", "Error en la solicitud");
+          }
     
     
     }
@@ -341,7 +342,10 @@ document.addEventListener("DOMContentLoaded",function(){
       }
     }
     document.addEventListener('DOMContentLoaded', function() {
-      mostrarInstitucion();
+      const indexPageElement = document.querySelector('.index-page');
+      if (indexPageElement) {
+          mostrarInstitucion();
+      }
     });
 
 
@@ -349,23 +353,23 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
    // para contraseña de usuario
-    $(document).ready(function(){
-        $('#btnMostrarContrasena').click(function(){
-            var tipo = $('#clave').attr('type');
-            if(tipo == 'password'){
-                $('#clave').attr('type', 'text');
-                $(this).html('<i class="fa fa-eye-slash"></i>');
-            } else {
-                $('#clave').attr('type', 'password');
-                $(this).html('<i class="fa fa-eye"></i>');
-            }
-        });
-    });
-    // para controlar nombre de usuario
-    var userInput = document.getElementById("nombre");
-        userInput.addEventListener("input", function() {
-        this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-    });
-
+    $(document).ready(function() {     
+      if ($('.index-page').length > 0) {
+          $('#btnMostrarContrasena').click(function() {
+              var tipo = $('#clave').attr('type');
+              if (tipo == 'password') {
+                  $('#clave').attr('type', 'text');
+                  $(this).html('<i class="fa fa-eye-slash"></i>');
+              } else {
+                  $('#clave').attr('type', 'password');
+                  $(this).html('<i class="fa fa-eye"></i>');
+              }
+          });
+          var userInput = document.getElementById("nombre");
+          userInput.addEventListener("input", function() {
+              this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+          });
+      }
+  });
 
 

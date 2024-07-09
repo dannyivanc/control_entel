@@ -1,4 +1,5 @@
 <?php include "Views/Templates/header.php";?>
+<div class="index-page">
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
          <span class="text-black-75 fs-5">Usuarios</span> 
@@ -96,6 +97,8 @@
          </div>
       </div>
    </div>
+
+</div>
 
 <?php include "Views/Templates/footer.php";?>
 

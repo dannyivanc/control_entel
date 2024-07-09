@@ -13,7 +13,7 @@
                             <input type="checkbox" name="permisos[]" value="<?php echo $row ['id']?>">
                         </div>
                     <?php } ?>
-                    <input type="hidden" value="<?php echo $data['id_usuario']?>" name="id_usuario" id=="id_usuario">
+                    <input type="hidden" value="<?php echo $data['id_usuario']?>" name="id_usuario" id="id_usuario">
                 </div>
                 <div class="d-grid gap-2">
                     <button class="btn btn-outline-primary" type="submit">Asignar Permisos</button>
@@ -26,6 +26,6 @@
 
 <?php include "Views/Templates/footer.php";?>
 
-<!-- <script src="<?php echo base_url;?>Assets/js/funciones_usuario.js"></script> -->
+<script src="<?php echo base_url;?>Assets/js/funciones_usuario.js"></script>
 </body>
 </html>
