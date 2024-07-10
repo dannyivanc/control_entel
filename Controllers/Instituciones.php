@@ -5,11 +5,23 @@ class Instituciones extends Controller{
         parent::__construct();
     
     }
-    public function index(){     
+    public function index(){    
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
-        $this->views->getView($this,"index");
+        $id_user= $_SESSION['id_usuario'];
+        $verificar =    $this->model ->verificarPermiso($id_user,'instituciones');
+        if(!empty ($verificar)){
+        
+            $this->views->getView($this,"index");
+        }
+        else{
+            header('Location:'.base_url.'Errors/permisos');
+
+        }
+
+       
+      
     }
 
     public function listar(){

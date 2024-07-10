@@ -1,4 +1,14 @@
 let tblUsuarios;
+function mostrarAlerta(icon, title, timer = 2000,position="top") {
+  Swal.fire({    
+      icon: icon,
+      title: title,
+      position: position,
+      showConfirmButton: false,
+      timer: timer
+  });
+}
+
 document.addEventListener("DOMContentLoaded",function(){
       tblUsuarios=$('#tblUsuarios').DataTable( {
         responsive: true,
@@ -307,22 +317,13 @@ document.addEventListener("DOMContentLoaded",function(){
               body: formData
           });
           if (response.ok) {
-              const res = await response.json();
-              console.log(res)
-              // if (res === "si") {
-              //     mostrarAlerta("success", "Entrada registrada con éxito");
-              //     frm.reset();
-              //     $("#nuevo_vehiculo").modal("hide");
-              //     tblVehiculos.ajax.reload();
-              // } else if (res === "modificado") {
-              //     mostrarAlerta("success", "Modificacion completada");
-              //     $("#nuevo_vehiculo").modal("hide");
-              //     tblVehiculos.ajax.reload();
-              // } else {
-              //     mostrarAlerta("error", res);
-              // }
+              const res = await response.json();    
+              console.log(res)    
+              mostrarAlerta(res.ico,res.msg);
+
+              
           } else {
-              mostrarAlerta("error", "Error en la solicitud");
+              mostrarAlerta(res.ico,res.msg);
           }
     
     
