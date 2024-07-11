@@ -50,6 +50,8 @@ class Usuarios extends Controller{
                 $_SESSION['usuario']=$data['usuario'];
                 $_SESSION['nombre']=$data['nombre'];            
                 $_SESSION['activo']=$data['estado'];
+                $_SESSION['rol']=$data['rol'];
+                $_SESSION['id_institucion']=$data['id_institucion'];
                 $msg="ok";
             }else{
                 $msg ="Usuario o contraseña incorrecta";

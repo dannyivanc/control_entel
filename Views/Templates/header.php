@@ -45,11 +45,12 @@
                         <div class="nav">
                             
                             <div class="sb-sidenav-menu-heading">Menu</div>
+                            <?php if ($_SESSION['rol']!= "cliente") : ?>
                             <a class="nav-link ml-1" href="<?php echo base_url?>Usuarios"> 
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Usuarios
                             </a>
-                            
+
                           <!-- para instituciones -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
@@ -83,7 +84,6 @@
                                     Patrullaje 
                                 </a>
                             </div>  
-
                             <!-- para controles -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#controles" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
@@ -101,7 +101,8 @@
                                 </a>
                             </div> 
 
-                            <!-- para controles -->
+                            <?php endif; ?>
+                            <!-- para reportes -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#reportes" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-column"></i></div>
                                 Reportes
@@ -112,14 +113,16 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Vigilantes
                                 </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
-                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Sucursales
-                                </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
+
+                                <a class="nav-link ms-3" href="<?php echo base_url?>ReporteSupervisiones">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Supervisión
                                 </a>
+                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
+                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Sucursales
+                                </a>
+                               
                                 <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Patrullajes
@@ -131,7 +134,7 @@
                                 <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Control de Vehiculos
-                                </a>
+                                </a> -->
                             </div> 
 
 

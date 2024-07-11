@@ -1,7 +1,7 @@
 <?php
 require('Libraries/fpdf/fpdf.php');
 
-class CustomPDFVigilantes extends FPDF {
+class CustomPDFSupervisiones extends FPDF {
     // Cabecera de página
     function Header() {
         // Logo
@@ -15,16 +15,23 @@ class CustomPDFVigilantes extends FPDF {
 
         $this->SetFont('Arial', 'B', 12);
         $this->SetFillColor(200, 220, 255);
-        $this->Cell(9, 10, 'N', 1, 0, 'C', true);
-        $this->Cell(75, 10, 'Nombre', 1, 0, 'C', true);
-        $this->Cell(28, 10, 'Carnet', 1, 0, 'C', true);
-        $this->Cell(25, 10, 'Celular', 1, 0, 'C', true);
-        $this->Cell(55, 10, 'Sucursal', 1, 1, 'C', true);
+        $this->Cell(7, 10, 'N', 1, 0, 'C', true);
+        $this->Cell(43, 10, 'Fecha/hora', 1, 0, 'C', true);
+        $this->Cell(28, 10, 'Sucursal', 1, 0, 'C', true);
+        $this->Cell(25, 10, 'Vigilante', 1, 0, 'C', true);
+        $this->Cell(25, 10, 'Puntualidad', 1, 0, 'C', true);
+
+        $this->Cell(20, 10, 'Pres_per', 1, 0, 'C', true);
+        $this->Cell(17, 10, 'Patrulla', 1, 0, 'C', true);
+        $this->Cell(10, 10, 'Epp', 1, 0, 'C', true);
+        $this->Cell(22, 10, 'Verif_vehi', 1, 1, 'C', true);
+
+
     }
     // Pie de página
     function Footer() {
         $this->SetY(-15); // Ajusta esta posición si es necesario
-        $this->Line(10, $this->GetY(), 200, $this->GetY());
+        $this->Line(10, $this->GetY(), 270, $this->GetY());
         // Posición a 1.5 cm del final
         $this->SetY(-15);
         // Arial italic 8
@@ -38,7 +45,7 @@ class CustomPDFVigilantes extends FPDF {
     }
 }
 
-class ReporteVigilantes extends Controller{
+class ReporteSupervisiones extends Controller{
     public function __construct(){
         session_start();              
         parent::__construct();
@@ -59,7 +66,8 @@ class ReporteVigilantes extends Controller{
     }
 
     public function listar(){
-        $data= $this->model->getUsuarios();       
+        $id_institucion= $_SESSION['id_institucion'];
+        $data= $this->model->getSupervisiones($id_institucion);       
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
         }
@@ -68,44 +76,27 @@ class ReporteVigilantes extends Controller{
     }
     public function generarPDF() {
         ob_end_clean();
-        $data = $this->model->getUsuarios();   
-        $pdf = new CustomPDFVigilantes('P', 'mm', 'Letter');  
+        $id_institucion= $_SESSION['id_institucion'];
+        $data= $this->model->getSupervisiones($id_institucion);      
+        $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
 
         $pdf->AddPage();
-        
-        // Logo de la empresa
-        // $pdf->Image('Assets/img/logo_web.png', 10, 10, 30);
-        
-        // Título y descripción
-        // $titulo = 'Reporte de Vigilantes';
-        // $descripcion = "Lista de vigilantes asignados";
-        // $pdf->SetFont('Arial', 'B', 18);
-        // $pdf->Cell(0, 10, $titulo, 0, 1, 'C');
-        // $pdf->SetFont('Arial', 'B', 14);
-        // $pdf->Cell(0, 10, $descripcion, 0, 1, 'C');
-        // $pdf->Cell(0, 10, '', 0, 1, 'C');
-        // $pdf->SetFont('Arial', 'B', 12);
-   
-        // Encabezados de la tabla
-        // $pdf->SetFont('Arial', 'B', 12);
-        // $pdf->SetFillColor(81, 195, 247); 
-        // $pdf->Cell(9, 10, 'N', 1, null,null, true); 
-        // $pdf->Cell(75, 10, 'Nombre', 1, null,null, true); 
-        // $pdf->Cell(28, 10, 'Carnet', 1, null,null, true); 
-        // $pdf->Cell(25, 10, 'Celular', 1, null,null, true); 
-        // $pdf->Cell(55, 10, 'Sucursal', 1, null,null, true);
-        // $pdf->Ln();
-        
+       
         // Datos de la tabla
         $pdf->SetFont('Arial', '', 12);
         $fill = false; 
         $index=1;
         foreach($data as $row) {
             // Ajustar el tamaño del texto para cada celda
-            $nombre = $this->ajustarTexto($pdf, $row['nombre'], 75);
-            $carnet = $this->ajustarTexto($pdf, $row['carnet'], 30);
-            $cel = $this->ajustarTexto($pdf, $row['cel'], 30);
-            $sucursal = $this->ajustarTexto($pdf, $row['nombre'], 57);
+            $fecha = $this->ajustarTexto($pdf, $row['fecha'], 43);
+            $id_sucursal = $this->ajustarTexto($pdf, $row['id_sucursal'], 28);
+            $id_vigilante = $this->ajustarTexto($pdf, $row['id_vigilante'], 25);
+            $puntualidad = $this->ajustarTexto($pdf, $row['puntualidad'], 25);
+
+            $pres_per = $this->ajustarTexto($pdf, $row['pres_per'], 25);
+            $patrulla = $this->ajustarTexto($pdf, $row['patrulla'], 25);
+            $epp = $this->ajustarTexto($pdf, $row['epp'], 25);
+            $verif_vehi = $this->ajustarTexto($pdf, $row['verif_vehi'], 25);
 
             //para color de las filas
             if ($fill) {
@@ -113,11 +104,16 @@ class ReporteVigilantes extends Controller{
             } else {
                 $pdf->SetFillColor(255, 255, 255);
             }
-            $pdf->Cell(9, 10, $index, 1,null, null,  $fill);
-            $pdf->Cell(75, 10, $nombre, 1,null, null,  $fill);
-            $pdf->Cell(28, 10, $carnet, 1, null, null,  $fill);
-            $pdf->Cell(25, 10, $cel, 1, null, null,  $fill);
-            $pdf->Cell(55, 10, $sucursal, 1,null, null,  $fill);
+            $pdf->Cell(7, 10, $index, 1,null, null,  $fill);
+            $pdf->Cell(43, 10, $fecha, 1,null, null,  $fill);
+            $pdf->Cell(28, 10, $id_sucursal, 1, null, null,  $fill);
+            $pdf->Cell(25, 10, $id_vigilante, 1, null, null,  $fill);
+            $pdf->Cell(25, 10, $puntualidad, 1,null, null,  $fill);
+
+            $pdf->Cell(20, 10, $pres_per, 1,null, null,  $fill);
+            $pdf->Cell(17, 10, $patrulla, 1, null, null,  $fill);
+            $pdf->Cell(10, 10, $epp, 1, null, null,  $fill);
+            $pdf->Cell(22, 10, $verif_vehi, 1,null, null,  $fill);
             $index++;
             $fill = !$fill;
             $pdf->Ln();
@@ -126,9 +122,6 @@ class ReporteVigilantes extends Controller{
 
 
         $pdf->Output('I', 'reporte_vigilantes.pdf');
-
-
-
         ob_end_clean();
         exit;
     }
@@ -138,6 +131,12 @@ class ReporteVigilantes extends Controller{
             $textoAjustado = substr($textoAjustado, 0, -1);
         }
         return $textoAjustado;
+    }
+
+    public function pipipi(){
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
     }
 }
 ?>

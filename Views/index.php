@@ -18,14 +18,13 @@
                 <main>
                     <div class="container">
                         <div class="login-said">
-                                <img class="login-said_img" src="<?php echo base_url?>/Assets/img/logo.png" alt="said">
-                                <h2 class="login-said_t1">SAID</h2>
-                                <div class="login-said_seg">
-                                    <h2 class="login-said_t2">SEGURIDAD FISICA</h2>
-                                    <h2 class="login-said_t2">&</h2>
-                                    <h2 class="login-said_t2">ELECTRONICA</h2>
-                                </div>
-                               
+                            <img class="login-said_img" src="<?php echo base_url?>/Assets/img/logo.png" alt="said">
+                            <h2 class="login-said_t1">SAID</h2>
+                            <div class="login-said_seg">
+                                <h2 class="login-said_t2">SEGURIDAD FISICA</h2>
+                                <h2 class="login-said_t2">&</h2>
+                                <h2 class="login-said_t2">ELECTRONICA</h2>
+                            </div>                               
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
