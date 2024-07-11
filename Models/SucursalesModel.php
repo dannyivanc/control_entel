@@ -35,69 +35,7 @@
             $data= $this->selectAll($sql);
             return $data;
 
-        }
-        // public function getSucursales(){
-
-        //     // $sql="SELECT s.*, i.id AS id_institucion, i.institucion, u.id AS id_vigilante, u.nombre AS vigilante
-        //     // FROM sucursales AS s
-        //     // INNER JOIN instituciones AS i ON s.id_institucion = i.id
-        //     // LEFT JOIN usuarios AS u ON s.id_vigilante = u.id
-        //     // ORDER BY s.id DESC;";            
-        //     // $data= $this->selectAll($sql);
-        //     // return $data;
-
-        //         // Consulta para obtener las sucursales
-        //     $sql = "SELECT s.*, i.id AS id_institucion, i.institucion, s.id_vigilante
-        //     FROM sucursales AS s
-        //     INNER JOIN instituciones AS i ON s.id_institucion = i.id
-        //     ORDER BY s.id DESC";    
-
-        //     $sucursales = $this->selectAll($sql);
-
-        //     // Si no hay sucursales, retorna inmediatamente
-        //     if (empty($sucursales)) {
-        //     return $sucursales;
-        //     }
-
-        //     // Obtener todos los IDs de vigilantes únicos
-        //     $vigilante_ids = [];
-        //     foreach ($sucursales as $sucursal) {
-        //     $ids = explode(',', $sucursal['id_vigilante']);
-        //     foreach ($ids as $id) {
-        //         $vigilante_ids[] = intval($id);
-        //     }
-        //     }
-
-        //     $vigilante_ids = array_unique($vigilante_ids);
-        //     if (empty($vigilante_ids)) {
-        //     return $sucursales; // Si no hay IDs de vigilantes, retornar directamente las sucursales
-        //     }
-
-        //     $id_list = implode(',', $vigilante_ids);
-
-        //     // Consulta para obtener los nombres de los vigilantes
-        //     $sql = "SELECT id, nombre AS vigilante FROM usuarios WHERE id IN ($id_list)";
-        //     $vigilantes = $this->selectAll($sql);
-
-        //     // Mapear los vigilantes por su ID
-        //     $vigilante_map = [];
-        //     foreach ($vigilantes as $vigilante) {
-        //     $vigilante_map[$vigilante['id']] = $vigilante['vigilante'];
-        //     }
-
-        //     // Asociar los nombres de los vigilantes con las sucursales
-        //     foreach ($sucursales as &$sucursal) {
-        //     $ids = explode(',', $sucursal['id_vigilante']);
-        //     $sucursal['vigilantes'] = [];
-        //     foreach ($ids as $id) {
-        //         if (isset($vigilante_map[intval($id)])) {
-        //             $sucursal['vigilantes'][] = $vigilante_map[intval($id)];
-        //         }
-        //     }
-        //     }
-        //     return $sucursales;
-        // }
-        
+        } 
         public function registrarSucursal(string $sucursal, int $id_institucion, string $id_vigilante, string $ciudad, string $direccion) {
             $this->sucursal=$sucursal;
             $this->id_institucion=$id_institucion;

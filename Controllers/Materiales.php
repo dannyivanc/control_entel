@@ -16,8 +16,19 @@ class Materiales extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }       
-        $data= $this->sucursalInfo;
-        $this->views->getView($this, "index", $data);
+        $id_user= $_SESSION['id_usuario'];
+        $verificar =    $this->model ->verificarPermiso($id_user,'materiales');
+        if(!empty ($verificar)){
+            $data= $this->sucursalInfo;
+            $this->views->getView($this, "index", $data);
+        }
+        else{
+            header('Location:'.base_url.'Errors');
+        }
+
+
+        // $data= $this->sucursalInfo;
+        // $this->views->getView($this, "index", $data);
     }
     public function perrie(){
         print_r($_SESSION['id_usuario']);

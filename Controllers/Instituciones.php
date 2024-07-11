@@ -10,18 +10,14 @@ class Instituciones extends Controller{
             header("location:".base_url);
         }
         $id_user= $_SESSION['id_usuario'];
-        $verificar =    $this->model ->verificarPermiso($id_user,'instituciones');
+        $verificar =    $this->model ->verificarPermiso($id_user,'institucion');
         if(!empty ($verificar)){
         
             $this->views->getView($this,"index");
         }
         else{
-            header('Location:'.base_url.'Errors/permisos');
-
+            header('Location:'.base_url.'Errors');
         }
-
-       
-      
     }
 
     public function listar(){

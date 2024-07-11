@@ -1,6 +1,6 @@
 
 <div class="index-page">
-   <h1>permisie</h1>
+   <h1>404</h1>
 
 </div>
 

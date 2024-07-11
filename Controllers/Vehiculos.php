@@ -16,6 +16,7 @@ class Vehiculos extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }       
+        
         $data= $this->sucursalInfo;
         $this->views->getView($this, "index", $data);
     }

@@ -48,7 +48,15 @@ class ReporteVigilantes extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
-        $this->views->getView($this,"index");
+        $id_user= $_SESSION['id_usuario'];
+        $verificar =    $this->model ->verificarPermiso($id_user,'reporte vigilantes');
+        if(!empty ($verificar)){
+            $this->views->getView($this,"index");
+        }
+        else{
+            header('Location:'.base_url.'Errors');
+        }
+        // $this->views->getView($this,"index");
     }
 
     public function listar(){

@@ -14,11 +14,22 @@ class Proyectos extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
-        }      
-        $type = $_GET['view'];
-        $data['instituciones']=$this->model->getInstituciones();
-        $data['vista']=$type;
-        $this->views->getView($this, "index", $data);
+        }     
+        $id_user= $_SESSION['id_usuario'];
+        $verificar =    $this->model ->verificarPermiso($id_user,'materiales');
+        if(!empty ($verificar)){
+            $type = $_GET['view'];
+            $data['instituciones']=$this->model->getInstituciones();
+            $data['vista']=$type;
+            $this->views->getView($this, "index", $data);
+        }
+        else{
+            header('Location:'.base_url.'Errors');
+        }
+        // $type = $_GET['view'];
+        // $data['instituciones']=$this->model->getInstituciones();
+        // $data['vista']=$type;
+        // $this->views->getView($this, "index", $data);
     }
     public function perrie(){
         // print_r( $this->instituciones);
