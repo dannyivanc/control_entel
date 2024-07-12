@@ -14,7 +14,7 @@
             // return $data;
 
 
-            $sql=" SELECT su.id, su.fecha, su.puntualidad, su.pres_per, su.patrulla, su.epp, su.libro, su.verif_vehi, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
+            $sql=" SELECT su.*, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
             FROM supervision AS su
             INNER JOIN usuarios AS us ON us.id = su.id_vigilante
             INNER JOIN sucursales ON sucursales.id = su.id_sucursal

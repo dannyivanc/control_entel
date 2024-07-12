@@ -1,6 +1,5 @@
 <?php
 require('Libraries/fpdf/fpdf.php');
-
 class CustomPDFSupervisiones extends FPDF {
     // Cabecera de página
     function Header() {
@@ -8,23 +7,24 @@ class CustomPDFSupervisiones extends FPDF {
         $this->Image('Assets/img/logo_web.png', 10, 10, 30);
         // Título
         $this->SetFont('Arial', 'B', 18);
-        $this->Cell(0, 10, 'Reporte de Vigilantes', 0, 1, 'C');
+        $this->Cell(0, 10,  iconv('UTF-8', 'ISO-8859-1','Reporte de Supervisiones'), 0, 1, 'C');
         $this->SetFont('Arial', 'B', 14);
-        $this->Cell(0, 10, 'Lista de vigilantes asignados a la institución', 0, 1, 'C');
-        $this->Ln(10);
+        // $this->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1','Lista de vigilantes asignados a la institución'), 0, 1, 'C');
+        $this->Ln(20);
 
-        $this->SetFont('Arial', 'B', 12);
+        $this->SetFont('Arial', 'B', 8);
         $this->SetFillColor(200, 220, 255);
-        $this->Cell(7, 10, 'N', 1, 0, 'C', true);
-        $this->Cell(43, 10, 'Fecha/hora', 1, 0, 'C', true);
-        $this->Cell(28, 10, 'Sucursal', 1, 0, 'C', true);
-        $this->Cell(25, 10, 'Vigilante', 1, 0, 'C', true);
-        $this->Cell(25, 10, 'Puntualidad', 1, 0, 'C', true);
-
-        $this->Cell(20, 10, 'Pres_per', 1, 0, 'C', true);
-        $this->Cell(17, 10, 'Patrulla', 1, 0, 'C', true);
-        $this->Cell(10, 10, 'Epp', 1, 0, 'C', true);
-        $this->Cell(22, 10, 'Verif_vehi', 1, 1, 'C', true);
+        $this->Cell( 8, 10, 'N', 1, 0, 'C', true);
+        $this->Cell(29, 10, 'Fecha/Hora', 1, 0, 'C', true);
+        $this->Cell(50, 10, 'Sucursal', 1, 0, 'C', true);
+        $this->Cell(55, 10, 'Vigilante', 1, 0, 'C', true);
+        $this->Cell(18, 10, 'Puntualidad', 1, 0, 'C', true);
+        $this->Cell(14, 10, 'Pres_per', 1, 0, 'C', true);
+        $this->Cell(12, 10, 'Patrulla', 1, 0, 'C', true);
+        $this->Cell( 9, 10, 'Epp', 1, 0, 'C', true);
+        $this->Cell(10, 10, 'Libro', 1, 0, 'C', true);
+        $this->Cell(16, 10, 'Verif_vehi', 1, 0, 'C', true);
+        $this->Cell(36, 10, 'Ubicacion', 1, 1, 'C', true);
 
 
     }
@@ -44,7 +44,6 @@ class CustomPDFSupervisiones extends FPDF {
         $this->Cell(0, 10, 'Pg ' . $this->PageNo(), 0, 0, 'R');
     }
 }
-
 class ReporteSupervisiones extends Controller{
     public function __construct(){
         session_start();              
@@ -70,6 +69,8 @@ class ReporteSupervisiones extends Controller{
         $data= $this->model->getSupervisiones($id_institucion);       
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
+            $btnUbicacion= '<button class="btn btn-primary me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
+            $data[$i]['acciones'] =  $btnUbicacion;
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
@@ -81,39 +82,40 @@ class ReporteSupervisiones extends Controller{
         $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
 
         $pdf->AddPage();
-       
         // Datos de la tabla
-        $pdf->SetFont('Arial', '', 12);
+        $pdf->SetFont('Arial', '', 8);
         $fill = false; 
         $index=1;
         foreach($data as $row) {
             // Ajustar el tamaño del texto para cada celda
             $fecha = $this->ajustarTexto($pdf, $row['fecha'], 43);
-            $id_sucursal = $this->ajustarTexto($pdf, $row['id_sucursal'], 28);
-            $id_vigilante = $this->ajustarTexto($pdf, $row['id_vigilante'], 25);
-            $puntualidad = $this->ajustarTexto($pdf, $row['puntualidad'], 25);
-
-            $pres_per = $this->ajustarTexto($pdf, $row['pres_per'], 25);
-            $patrulla = $this->ajustarTexto($pdf, $row['patrulla'], 25);
-            $epp = $this->ajustarTexto($pdf, $row['epp'], 25);
-            $verif_vehi = $this->ajustarTexto($pdf, $row['verif_vehi'], 25);
-
+            $id_sucursal = $this->ajustarTexto($pdf, $row['id_sucursal'], 50);
+            $id_vigilante = $this->ajustarTexto($pdf, $row['id_vigilante'], 55);
+            $puntualidad = $this->ajustarTexto($pdf, $row['puntualidad'], 18);
+            $pres_per = $this->ajustarTexto($pdf, $row['pres_per'], 14);
+            $patrulla = $this->ajustarTexto($pdf, $row['patrulla'], 12);
+            $epp = $this->ajustarTexto($pdf, $row['epp'], 9);
+            $libro = $this->ajustarTexto($pdf, $row['libro'], 10);
+            $verif_vehi = $this->ajustarTexto($pdf, $row['verif_vehi'], 16);           
+            $ubicacion = $this->ajustarTexto($pdf,$row['lat'].",".$row['lng'],36);
             //para color de las filas
             if ($fill) {
                 $pdf->SetFillColor(241, 249, 254);
             } else {
                 $pdf->SetFillColor(255, 255, 255);
             }
-            $pdf->Cell(7, 10, $index, 1,null, null,  $fill);
-            $pdf->Cell(43, 10, $fecha, 1,null, null,  $fill);
-            $pdf->Cell(28, 10, $id_sucursal, 1, null, null,  $fill);
-            $pdf->Cell(25, 10, $id_vigilante, 1, null, null,  $fill);
-            $pdf->Cell(25, 10, $puntualidad, 1,null, null,  $fill);
+            $pdf->Cell(8, 10, $index, 1,null, null,  $fill);
+            $pdf->Cell(29, 10, $fecha, 1,null, null,  $fill);
+            $pdf->Cell(50, 10, $id_sucursal, 1, null, null,  $fill);
+            $pdf->Cell(55, 10, $id_vigilante, 1, null, null,  $fill);
+            $pdf->Cell(18, 10, $puntualidad, 1,null, null,  $fill);
+            $pdf->Cell(14, 10, $pres_per, 1,null, null,  $fill);
+            $pdf->Cell(12, 10, $patrulla, 1, null, null,  $fill);
+            $pdf->Cell( 9, 10, $epp, 1, null, null,  $fill);
+            $pdf->Cell(10, 10, $libro, 1, null, null,  $fill);
+            $pdf->Cell(16, 10, $verif_vehi, 1,null, null,  $fill);
+            $pdf->Cell(36, 10, $ubicacion, 1,null, null,  $fill);
 
-            $pdf->Cell(20, 10, $pres_per, 1,null, null,  $fill);
-            $pdf->Cell(17, 10, $patrulla, 1, null, null,  $fill);
-            $pdf->Cell(10, 10, $epp, 1, null, null,  $fill);
-            $pdf->Cell(22, 10, $verif_vehi, 1,null, null,  $fill);
             $index++;
             $fill = !$fill;
             $pdf->Ln();
@@ -132,6 +134,9 @@ class ReporteSupervisiones extends Controller{
         }
         return $textoAjustado;
     }
+
+ 
+    
 
     public function pipipi(){
         echo '<pre>';

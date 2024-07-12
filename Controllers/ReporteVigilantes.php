@@ -10,7 +10,7 @@ class CustomPDFVigilantes extends FPDF {
         $this->SetFont('Arial', 'B', 18);
         $this->Cell(0, 10, 'Reporte de Vigilantes', 0, 1, 'C');
         $this->SetFont('Arial', 'B', 14);
-        $this->Cell(0, 10, 'Lista de vigilantes asignados a la institución', 0, 1, 'C');
+        $this->Cell(0, 10,  iconv('UTF-8', 'ISO-8859-1','Lista de vigilantes asignados a la institución'), 0, 1, 'C');
         $this->Ln(10);
 
         $this->SetFont('Arial', 'B', 12);

@@ -1,14 +1,11 @@
 <?php
-class Proyectos extends Controller{
-    private $instituciones;
+class Proyectos extends Controller{   
     public function __construct(){
         session_start();          
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }    
         parent::__construct();
-        // $inst= $this->model->getInstituciones();
-        // $this->instituciones=$inst;
     }
     
     public function index(){
@@ -26,10 +23,6 @@ class Proyectos extends Controller{
         else{
             header('Location:'.base_url.'Errors');
         }
-        // $type = $_GET['view'];
-        // $data['instituciones']=$this->model->getInstituciones();
-        // $data['vista']=$type;
-        // $this->views->getView($this, "index", $data);
     }
     public function perrie(){
         // print_r( $this->instituciones);
@@ -38,11 +31,6 @@ class Proyectos extends Controller{
 
     public function listar(){
         $data= $this->model->getInstituciones();       
-        
-        // for ($i=0; $i <count($data) ; $i++) { 
-        //     $data[$i]['index']=$i+1;         
-        //     $data[$i]['estado']='<span class="badge  bg-success">Activo</span>';
-        // }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }

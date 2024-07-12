@@ -171,12 +171,6 @@ async function btnEditarSupervision(id) {
 
 
 
-
-
-
-
-
-
 //para los switch
 const updateSwitchLabel = (switchElement, labelElement) => {
     if (switchElement.checked) {

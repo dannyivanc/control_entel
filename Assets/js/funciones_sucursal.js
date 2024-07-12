@@ -145,14 +145,32 @@ function btnEditarSucursal(id){
   http.open("GET",url,true);
   http.send();
   http.onreadystatechange = function(){
+
       if(this.readyState==4 && this.status==200){     
         const res = JSON.parse(this.responseText);
-        document.getElementById("id").value=res.id;
-        document.getElementById("sucursal").value=res.sucursal;
-        document.getElementById("institucion").value=res.id_institucion;
-        document.getElementById("vigilante").value=res.id_vigilante;
-        document.getElementById("ciudad").value=res.ciudad;
-        document.getElementById("direccion").value=res.direccion;
+        console.log(res)
+        document.getElementById("id").value=res.sucursal.id;
+        document.getElementById("sucursal").value=res.sucursal.sucursal;
+        document.getElementById("institucion").value=res.sucursal.id_institucion;
+
+
+        const vigilanteSelect = document.getElementById("vigilante");
+        for (var i = 0; i < vigilanteSelect.options.length; i++) {
+          vigilanteSelect.options[i].selected = false;
+        } 
+        const vigilantesSeleccionados = res.vigilantes; 
+        console.log(vigilanteSelect)
+        if (Array.isArray(vigilantesSeleccionados)) {
+          for (var i = 0; i < vigilanteSelect.options.length; i++) {
+            if (vigilantesSeleccionados.includes(vigilanteSelect.options[i].value)) {
+              vigilanteSelect.options[i].selected = true;
+            }
+          }
+        }
+        // document.getElementById("vigilante").value=res.id_vigilante;
+   
+        document.getElementById("ciudad").value=res.sucursal.ciudad;
+        document.getElementById("direccion").value=res.sucursal.direccion;
         $("#nuevo_sucursal").modal("show");
       }
   }

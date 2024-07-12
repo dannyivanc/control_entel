@@ -11,35 +11,35 @@ document.addEventListener("DOMContentLoaded",function(){
             'data':'index','width': '1%','className': 'text-end',
           },
           {
-            'data':'fecha','width': '6%','className': 'text-end',
+            'data':'fecha','width': '7%','className': 'text-end',
           },
           {
-            'data':'id_sucursal','width': '5%','className': 'text-end',
+            'data':'id_sucursal','width': '10%','className': 'text-end',
           },
           {
-            'data':'id_vigilante','width': '5%','className': 'text-end',
+            'data':'id_vigilante','width': '10%','className': 'text-end',
           },
           {
             'data':'puntualidad','width': '4%','className': 'text-end',
           },
           {
-            'data':'pres_per','width': '10%','className': 'text-end',
+            'data':'pres_per','width': '5%','className': 'text-end',
           },
           {
-            'data':'patrulla','width': '10%','className': 'text-end',
+            'data':'patrulla','width': '4%','className': 'text-end',
           },
           {
-            'data':'epp','width': '10%','className': 'text-end',
+            'data':'epp','width': '4%','className': 'text-end',
           },
           {
-            'data': 'libro','width': '5%','className': 'text-center',
+            'data': 'libro','width': '4%','className': 'text-center',
           },
           {
-            'data': 'verif_vehi','width': '5%','className': 'text-center',
+            'data': 'verif_vehi','width': '6%','className': 'text-center',
           },
-          // {
-          //   'data':'Ver ubicacion','width': '3%','className': 'text-center',
-          // }
+          {
+            'data':'acciones','width': '3%','className': 'text-center',
+          }
       ],
       language: {
         "decimal": "",
@@ -69,7 +69,10 @@ document.addEventListener("DOMContentLoaded",function(){
     //  }
 })
 
-
+function btnUbicacion(lat,lng){ 
+  var url = `https://www.google.com/maps?q=${lat},${lng}&z=15&hl=es`;
+  window.open(url, '_blank');
+}
 
 async function descargarPdf (){
   const url = base_url + "ReporteSupervisiones/generarPdf";

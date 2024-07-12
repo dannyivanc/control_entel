@@ -35,16 +35,17 @@ class Sucursales extends Controller{
     }
 
     public function registrar(){
+        $msg='';
         $sucursal= $_POST['sucursal'];      
         $institucion= $_POST['institucion'];   
         $vigilante= $_POST['vigilante'];   
         $ciudad= $_POST['ciudad'];   
         $direccion= $_POST['direccion'];   
         $id= $_POST['id'];     
-
         $vigilantes_arr = implode(',', $vigilante);
         if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
             $msg= "Todos los campos son obligatorios";
+            // $msg=array('ico'=>'success','msg'=> 'permisos asignados');
         }else{
             if($id==""){       
                 $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion);

@@ -10,8 +10,17 @@ class Usuarios extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
-        $data['instituciones']=$this->model->getInstituciones();
-        $this->views->getView($this,"index",$data);
+        $id_user= $_SESSION['id_usuario'];
+        $verificar =    $this->model ->verificarPermiso($id_user,'institucion');
+        if(!empty ($verificar)){
+            $data['instituciones']=$this->model->getInstituciones();
+            $this->views->getView($this,"index",$data);
+        }
+        else{
+            header('Location:'.base_url.'Inicio');
+        }
+        // $data['instituciones']=$this->model->getInstituciones();
+        // $this->views->getView($this,"index",$data);
     }
 
     public function listar(){
@@ -139,6 +148,8 @@ class Usuarios extends Controller{
        die();
     }   
 
+
+    //permisos
     public function permisos($id){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
