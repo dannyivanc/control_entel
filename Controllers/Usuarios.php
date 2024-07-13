@@ -181,7 +181,6 @@ class Usuarios extends Controller{
             $msg='Error no identificado';
         }
         echo json_encode($msg);
-  
     }
 
 

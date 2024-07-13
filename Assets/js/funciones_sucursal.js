@@ -83,12 +83,9 @@ document.addEventListener("DOMContentLoaded",function(){
 
 function frmSucursal(){
   document.getElementById("title").innerHTML="Registro de Sucursal";
-  // document.getElementById("btnAccion").innerHTML="Registrar";
   document.getElementById("frmSucursal").reset();
-  // document.getElementById("cont-pass").classList.remove("d-none");
   $("#nuevo_sucursal").modal("show");
   document.getElementById("id").value="";
-  frm.reset();
 }
 
 async function registrarSucursal (e){
@@ -98,7 +95,6 @@ async function registrarSucursal (e){
   const vigilante = document.getElementById("vigilante"); 
   const ciudad = document.getElementById("ciudad"); 
   const direccion = document.getElementById("direccion"); 
-  
 
   // console.log(vigilante.value)
   if(sucursal.value=="" || institucion.value=="" || vigilante.value=="" || ciudad.value=="" || direccion.value=="" ){
@@ -113,6 +109,8 @@ async function registrarSucursal (e){
                 method: "POST",
                 body: formData
             });
+            const res = await response.json();
+            console.log(res)
             
             if (response.ok) {
                 const res = await response.json();
@@ -148,26 +146,27 @@ function btnEditarSucursal(id){
 
       if(this.readyState==4 && this.status==200){     
         const res = JSON.parse(this.responseText);
-        console.log(res)
+        // console.log(res)
         document.getElementById("id").value=res.sucursal.id;
         document.getElementById("sucursal").value=res.sucursal.sucursal;
         document.getElementById("institucion").value=res.sucursal.id_institucion;
 
 
-        const vigilanteSelect = document.getElementById("vigilante");
-        for (var i = 0; i < vigilanteSelect.options.length; i++) {
-          vigilanteSelect.options[i].selected = false;
-        } 
-        const vigilantesSeleccionados = res.vigilantes; 
-        console.log(vigilanteSelect)
-        if (Array.isArray(vigilantesSeleccionados)) {
-          for (var i = 0; i < vigilanteSelect.options.length; i++) {
-            if (vigilantesSeleccionados.includes(vigilanteSelect.options[i].value)) {
-              vigilanteSelect.options[i].selected = true;
-            }
-          }
-        }
+        // const vigilanteSelect = document.getElementById("vigilante");
+        // for (var i = 0; i < vigilanteSelect.options.length; i++) {
+        //   vigilanteSelect.options[i].selected = false;
+        // } 
+        // const vigilantesSeleccionados = res.vigilantes; 
+        // console.log(vigilanteSelect)
+        // if (Array.isArray(vigilantesSeleccionados)) {
+        //   for (var i = 0; i < vigilanteSelect.options.length; i++) {
+        //     if (vigilantesSeleccionados.includes(vigilanteSelect.options[i].value)) {
+        //       vigilanteSelect.options[i].selected = true;
+        //     }
+        //   }
+        // }
         // document.getElementById("vigilante").value=res.id_vigilante;
+        console.log(res.id_vigilante)
    
         document.getElementById("ciudad").value=res.sucursal.ciudad;
         document.getElementById("direccion").value=res.sucursal.direccion;

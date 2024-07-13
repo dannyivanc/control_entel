@@ -38,35 +38,82 @@ class Sucursales extends Controller{
         $msg='';
         $sucursal= $_POST['sucursal'];      
         $institucion= $_POST['institucion'];   
-        $vigilante= $_POST['vigilante'];   
+        $vigilantes= $_POST['vigilante'];   
         $ciudad= $_POST['ciudad'];   
         $direccion= $_POST['direccion'];   
         $id= $_POST['id'];     
-        $vigilantes_arr = implode(',', $vigilante);
-        if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
-            $msg= "Todos los campos son obligatorios";
-            // $msg=array('ico'=>'success','msg'=> 'permisos asignados');
-        }else{
-            if($id==""){       
-                $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion);
-                if($data=="ok"){
-                    $msg ="si";
-                }else if($data=="existe") {
-                    $msg ="La sucursal ya se encuentra registrada";
-                }else{
-                    $msg=$data;
+        // $ids = array_map('intval', explode(",", $vigilante)); 
+                // $msg=$this->model->registrarPermisos($id_vigilante,$id);
+            if($id==""){  
+                $data= $this->model->registrarSucursal($sucursal,$institucion,$ciudad,$direccion); 
+                print_r($data);
+                // if($data=="ok"){
+                //     $msg ="si";
+                // }else if($data=="existe") {
+                //     $msg ="La sucursal ya se encuentra registrada";
+                //     }else{
+                //     $msg=$data;
+                // }
+                foreach( $vigilantes as $vigilante ){
+                    $this->model->elimiarVigilante( $vigilante);    
                 }
-            }else{       
-                $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion,$id);
-                if($data=="modificado"){
-                    $msg ="modificado";
-                }else{
-                    $msg="Error al modificar la sucursal";
-                    
-                }      
-            }  
-        }
+        
+             
+              
+                // if($data=="ok"){
+                //     $msg ="si";
+                // }else if($data=="existe") {
+                //     $msg ="La sucursal ya se encuentra registrada";
+                //     }else{
+                //     $msg=$data;
+                // }
+            }
+            // else{       
+            //     $data= $this->model->modificarSucursal($sucursal,$institucion,$ciudad,$direccion,$id);
+            //     if($data=="modificado"){
+            //             $msg ="modificado";
+            //    }else{
+            //         $msg="Error al modificar la sucursal";
+                            
+            //     }      
+            // } 
+            
+            // if($msg=='ok'){
+            //     $msg=array('ico'=>'success','msg'=> 'permisos asignados');
+            // }else{
+            //     $msg='Error al error al asignar los permisos';
+            // }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+        
+        
+
+
+
+        // $vigilantes_arr = implode(',', $vigilante);        
+        // if(empty($sucursal)||empty($institucion)||empty($vigilante) ||empty($ciudad) ||empty($direccion)){
+        //     $msg= "Todos los campos son obligatorios";
+        //     // $msg=array('ico'=>'success','msg'=> 'permisos asignados');
+        // }else{
+        //     if($id==""){       
+        //         $data= $this->model->registrarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion);
+        //         if($data=="ok"){
+        //             $msg ="si";
+        //         }else if($data=="existe") {
+        //             $msg ="La sucursal ya se encuentra registrada";
+        //         }else{
+        //             $msg=$data;
+        //         }
+        //     }else{       
+        //         $data= $this->model->modificarSucursal($sucursal,$institucion,$vigilantes_arr,$ciudad,$direccion,$id);
+        //         if($data=="modificado"){
+        //             $msg ="modificado";
+        //         }else{
+        //             $msg="Error al modificar la sucursal";
+                    
+        //         }      
+        //     }  
+        // }
+        // echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
     }
 

@@ -199,33 +199,6 @@ document.addEventListener("DOMContentLoaded",function(){
         confirmButtonText: "Desactivar",
         cancelButtonText :"Cancelar"
       }).then((result) => {
-        // if (result.isConfirmed) {   
-        //   const url = base_url + "Usuarios/desactivar/"+id;  
-        //   const http = new XMLHttpRequest();
-        //   http.open("GET",url,true);
-        //   http.send();
-        //   http.onreadystatechange = function(){
-        //       if(this.readyState==4 && this.status==200){ 
-        //         const res=JSON.parse(this.responseText); 
-        //        if(res=="ok"){
-        //         Swal.fire({
-        //           title: "Desactivado",
-        //           text: "El usuario desactivado con exito",
-        //           icon: "success"
-        //         });
-        //         tblUsuarios.ajax.reload();
-        //        }
-        //        else{
-        //         Swal.fire({
-        //           title: "Se produjo un error",
-        //           text: res,
-        //           icon: "error"
-        //         });
-        //        }
-               
-        //       }
-        //   }   
-        // }
 
         if (result.isConfirmed) {
           const url = base_url + "Usuarios/desactivar/" + id;
