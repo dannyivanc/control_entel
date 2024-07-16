@@ -43,7 +43,12 @@
             $this->clave=$clave;
             $this->cel=$cel;
             $this->rol=$rol;
-            $this->id_institucion=$id_institucion;
+            if($rol=='cliente'){
+                $this->id_institucion=$id_institucion;
+            }
+            else{
+                $this->id_institucion=1;
+            }
             $verificar ="SELECT *FROM usuarios WHERE usuario='$this->usuario' OR carnet ='$this->carnet'";
             $existe =$this->select($verificar);
             if(empty($existe)){
@@ -68,7 +73,13 @@
             $this->carnet=$carnet;
             $this->cel=$cel;
             $this->rol=$rol;
-            $this->id_institucion=$id_institucion;
+            // $this->id_institucion=$id_institucion;
+            if($rol=='cliente'){
+                $this->id_institucion=$id_institucion;
+            }
+            else{
+                $this->id_institucion=1;
+            }
             $this->id=$id;
             $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,cel=?,rol=?,id_institucion =? WHERE id=?";         
             $datos =array($this->usuario,$this->nombre,$this->carnet,$this->cel,$this->rol,$this->id_institucion,$this->id);
