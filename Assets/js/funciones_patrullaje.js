@@ -72,6 +72,7 @@ function frmPatrullaje(){
   document.getElementById("title").innerHTML="Registro Patrullaje";
   document.getElementById("btn_form_patrullaje").innerHTML="Nuevo Registro";
   document.getElementById("frmPatrullaje").reset();
+  document.getElementById("descripcion").value="Sin novedad";
   document.getElementById("btn_obtener").style.display = "block";
   $("#nuevo_patrullaje").modal("show");
   document.getElementById("id").value="";

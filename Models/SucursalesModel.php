@@ -37,108 +37,68 @@
 
         } 
 
-        public function elimiarVigilante(int $id_vigilante){
+        public function cambiarVigilante(int $id_vigilante,int $id_sucursal){
+            $this->id_vigilante=$id_vigilante;
+            $this->sucursal=$id_sucursal;
             $sql = "DELETE FROM suc_vig WHERE id_vigilante=?";
             $datos =array($id_vigilante);
-            $data =  $this-> save($sql,$datos);
-            if($data==1){
-                $res = "ok";
-            }else{
-                $res = "error";
-            }
-            return $res;
+            $this-> save($sql,$datos);
+            $sqlsuc_vib = "INSERT INTO suc_vig (id_sucursal,id_vigilante) VALUES (?,?)";
+            $datos_suc_vig= array($this->sucursal, $this->id_vigilante);
+            $this-> save($sqlsuc_vib,$datos_suc_vig);  
         }
 
-    public function registrarSucursal(string $sucursal, int $id_institucion, string $ciudad, string $direccion) {
+
+        public function registrarSucursal(string $sucursal, int $id_institucion, string $ciudad, string $direccion) {
+                $res='';
+                $this->sucursal=$sucursal;
+                $this->id_institucion=$id_institucion;
+                $this->ciudad=$ciudad;
+                $this->direccion=$direccion;
+                $verificar ="SELECT * FROM sucursales WHERE sucursal='$this->sucursal' AND id_institucion='$this->id_institucion' ";
+                $existe =$this->select($verificar);
+                if(empty($existe)){
+                    $sqlsuc = "INSERT INTO sucursales (sucursal,id_institucion,ciudad,direccion) VALUES (?,?,?,?)";
+                    $datos= array($this->sucursal, $this->id_institucion, $this->ciudad, $this->direccion);
+                    $data =  $this-> save($sqlsuc,$datos);       
+                    if(!empty($data)){             
+                        $sqlLastId = "SELECT id FROM sucursales ORDER BY id DESC LIMIT 1;";
+                        $id= $this->select($sqlLastId);
+                        $res =$id['id']; ;
+                    }else{
+                        $res = "error";
+                    }  
+                }
+                else{
+                    $res ="existe";
+                }
+                return $res;
+        }
+
+        public function modificarSucursal(string $sucursal,int $id_institucion,string $ciudad,string $direccion, int $id){
             $this->sucursal=$sucursal;
             $this->id_institucion=$id_institucion;
-            // $this->id_vigilante=$id_vigilante;
             $this->ciudad=$ciudad;
             $this->direccion=$direccion;
-
-            $sqlsuc = "INSERT INTO sucursales (sucursal,id_institucion,ciudad,direccion) VALUES (?,?,?,?)";
-            $datos= array($this->sucursal, $this->id_institucion, $this->ciudad, $this->direccion);
-            $data =  $this-> save($sqlsuc,$datos);         
-            if(!empty($data)){
-                $res = "ok";
+            $this->id=$id;
+            $sql = "UPDATE sucursales SET sucursal=?,id_institucion=?,ciudad=?,direccion=? WHERE id=?"; 
+            $datos =array( $this->sucursal,$this->id_institucion,$this->ciudad,$this->direccion,$this->id);
+            $datasuc =  $this-> save($sql,$datos);
+            if(!empty($datasuc)){
+                $sql_del = "DELETE FROM suc_vig WHERE id_sucursal=?";
+                $datos_del =array($id);                    $this-> save($sql_del,$datos_del); 
+                $res = "modificado";
             }else{
-                $res = "error";
-            }  
-            return $res;
-
+                $res ="error";
+            }
+            return $res;            
         }
-
-        // public function registrarSucursals(string $sucursal, int $id_institucion, string $id_vigilante, string $ciudad, string $direccion) {
-        //     $this->sucursal=$sucursal;
-        //     $this->id_institucion=$id_institucion;
-        //     $this->id_vigilante=$id_vigilante;
-        //     $this->ciudad=$ciudad;
-        //     $this->direccion=$direccion;
-
-
-        //     $verificar ="SELECT *FROM sucursales WHERE sucursal='$this->sucursal'";
-        //     $existe =$this->select($verificar);
-        //     if(empty($existe)){
-        //         $sqlsuc = "INSERT INTO sucursales (sucursal,id_institucion,ciudad,direccion) VALUES (?,?,?,?)";
-        //         $datos= array($this->sucursal, $this->id_institucion, $this->ciudad, $this->direccion);
-        //         $data =  $this-> save($sqlsuc,$datos);
-
-        //         $ids = array_map('intval', explode(",", $id_vigilante)); 
-        //         foreach ($ids as $valor) {
-        //             $sql_suc_vig = "DELETE FROM suc_vig WHERE id_vigilante = $valor";                    
-        //             $this->conect->query($sql_suc_vig);
-
-        //             $sql_reg = "INSERT INTO suc_vig (id_sucursal,id_vigilante ) VALUES (?,?)";
-        //             $datos_Reg =array($data,$valor);
-        //             $this-> save($sql_reg,$datos_Reg);
-        //         }                
-        //         if(!empty($data)){
-        //             $res = "ok";
-        //         }else{
-        //             $res = "error";
-        //         }  
-        //     }
-        //     else {
-        //         $res ="existe";
-        //     }
-        //     return $res;
-
-        // }
-        // public function modificarSucursal(string $sucursal,int $id_institucion,string $id_vigilante,string $ciudad,string $direccion, int $id){
-        //     $this->sucursal=$sucursal;
-        //     $this->id_institucion=$id_institucion;
-        //     $this->id_vigilante=$id_vigilante;
-        //     $this->ciudad=$ciudad;
-        //     $this->direccion=$direccion;
-        //     $this->id=$id;
-        //     $sql = "UPDATE sucursales SET sucursal=?,id_institucion=?,ciudad=?,direccion=? WHERE id=?"; 
-        //     $datos =array( $this->sucursal,$this->id_institucion,$this->ciudad,$this->direccion,$this->id);
-        //     $datasuc =  $this-> save($sql,$datos);
-        //     $ids = array_map('intval', explode(",", $id_vigilante)); 
-        //     foreach ($ids as $valor) {
-        
-        //         $sql_suc_vig = "DELETE FROM suc_vig WHERE id_vigilante = $valor";                    
-        //         $this->conect->query($sql_suc_vig);
-
-        //         $sql_reg = "INSERT INTO suc_vig (id_sucursal,id_vigilante ) VALUES (?,?)";
-        //         $datos_Reg =array($id,$valor);
-        //         $this-> save($sql_reg,$datos_Reg);
-        //     } 
-        //     if(!empty($datasuc)){
-        //         $res = "modificado";
-        //     }else{
-        //         $res ="error";
-        //     }
-        //     return $res;
-        
-        // }
-        public function editarSucursal(int $id){
+         public function editarSucursal(int $id){
             $sql = "SELECT * FROM sucursales WHERE id=$id";
             $sql2 = "SELECT s_v.id_vigilante as id  , us.nombre as vigilante FROM suc_vig as s_v INNER JOIN usuarios as us ON s_v.id_vigilante=us.id WHERE s_v.id_sucursal=$id";
             $data['sucursal']= $this->select($sql);
-            $data['vigilantes']= $this->selectall($sql2);
+            $data['vigilantes']= $this->selectall($sql2);                
             return $data;
-            // return $data;
         }
         public function accionInstitucion (int $estado,int $id){
             $this->id = $id;
@@ -149,4 +109,6 @@
             return $data;
         }
     }
+
+        
 ?> 

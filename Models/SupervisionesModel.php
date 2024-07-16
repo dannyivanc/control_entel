@@ -11,7 +11,7 @@
             $data= $this->select($sql);
             return $data;
         }    
-        
+      
         public function getSucursales(int $id){
             $sql="SELECT * FROM sucursales WHERE id_institucion= $id ORDER BY id DESC";
             $data= $this->selectAll($sql);
@@ -35,12 +35,13 @@
             // WHERE su.id_institucion= $id ORDER BY id DESC";
 
 
-           $sql=" SELECT su.id, su.fecha, su.puntualidad, su.pres_per, su.patrulla, su.epp, su.libro, su.verif_vehi, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
+            $sql=" SELECT su.id, su.fecha, su.puntualidad, su.pres_per, su.patrulla, su.epp, su.libro, su.verif_vehi, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
             FROM supervision AS su
             INNER JOIN usuarios AS us ON us.id = su.id_vigilante
             INNER JOIN sucursales ON sucursales.id = su.id_sucursal
             INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion
             WHERE instituciones.id = $id
+            AND su.fecha >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
             ORDER BY su.id DESC";
             $data= $this->selectAll($sql);
             return $data;

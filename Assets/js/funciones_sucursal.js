@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded",function(){
 function frmSucursal(){
   document.getElementById("title").innerHTML="Registro de Sucursal";
   document.getElementById("frmSucursal").reset();
+  $('#vigilante').val([{}]).trigger('change');; 
   $("#nuevo_sucursal").modal("show");
   document.getElementById("id").value="";
 }
@@ -94,44 +95,34 @@ async function registrarSucursal (e){
   const institucion = document.getElementById("institucion"); 
   const vigilante = document.getElementById("vigilante"); 
   const ciudad = document.getElementById("ciudad"); 
-  const direccion = document.getElementById("direccion"); 
-
-  // console.log(vigilante.value)
+  const direccion = document.getElementById("direccion");   
   if(sucursal.value=="" || institucion.value=="" || vigilante.value=="" || ciudad.value=="" || direccion.value=="" ){
     mostrarAlerta("error","Los campos son obligatorios ");
   }else{
       const url = base_url + "Sucursales/registrar";
       const frm=document.getElementById("frmSucursal");
-      
       const formData = new FormData(frm);      
         try {
             const response = await fetch(url, {
                 method: "POST",
                 body: formData
             });
-            const res = await response.json();
-            console.log(res)
-            
-            if (response.ok) {
+            if (response.ok) {  
                 const res = await response.json();
-            if(res=="si"){
-              mostrarAlerta("success","Sucursal registrada con exito");
-              frm.reset();
-              $("#nuevo_sucursal").modal("hide");
-              tblSucursales.ajax.reload();
-            }else if(res=="modificado"){
-              mostrarAlerta("success","Sucursal modificada con exito"); 
-              $("#nuevo_sucursal").modal("hide");
-              tblSucursales.ajax.reload();
-            }else{
-              mostrarAlerta("error",res);
-            }
+                if(res.ico =='success'){  
+                  mostrarAlerta(res.ico,res.msg);  
+                  $("#nuevo_sucursal").modal("hide");
+                  tblSucursales.ajax.reload();               
+                }
+                else {
+                  mostrarAlerta(res.ico,res.msg);  
+                }
           }else {
             mostrarAlerta("error", "Error en la solicitud");
           }
       }catch (error) {
-        mostrarAlerta("error",  Error);
-        console.log(error)
+        mostrarAlerta("error",  error);
+        // console.log(error)
     }
   }
 }
@@ -143,33 +134,15 @@ function btnEditarSucursal(id){
   http.open("GET",url,true);
   http.send();
   http.onreadystatechange = function(){
-
-      if(this.readyState==4 && this.status==200){     
+    if(this.readyState==4 && this.status==200){     
         const res = JSON.parse(this.responseText);
-        // console.log(res)
         document.getElementById("id").value=res.sucursal.id;
         document.getElementById("sucursal").value=res.sucursal.sucursal;
-        document.getElementById("institucion").value=res.sucursal.id_institucion;
-
-
-        // const vigilanteSelect = document.getElementById("vigilante");
-        // for (var i = 0; i < vigilanteSelect.options.length; i++) {
-        //   vigilanteSelect.options[i].selected = false;
-        // } 
-        // const vigilantesSeleccionados = res.vigilantes; 
-        // console.log(vigilanteSelect)
-        // if (Array.isArray(vigilantesSeleccionados)) {
-        //   for (var i = 0; i < vigilanteSelect.options.length; i++) {
-        //     if (vigilantesSeleccionados.includes(vigilanteSelect.options[i].value)) {
-        //       vigilanteSelect.options[i].selected = true;
-        //     }
-        //   }
-        // }
-        // document.getElementById("vigilante").value=res.id_vigilante;
-        console.log(res.id_vigilante)
-   
+        document.getElementById("institucion").value=res.sucursal.id_institucion;          
         document.getElementById("ciudad").value=res.sucursal.ciudad;
-        document.getElementById("direccion").value=res.sucursal.direccion;
+        document.getElementById("direccion").value=res.sucursal.direccion;    
+        let vigilanteValues = res.vigilantes.map(v => v.id); 
+        $('#vigilante').val(vigilanteValues).trigger('change');
         $("#nuevo_sucursal").modal("show");
       }
   }

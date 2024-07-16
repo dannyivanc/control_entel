@@ -289,12 +289,9 @@ document.addEventListener("DOMContentLoaded",function(){
               method: "POST",
               body: formData
           });
-          if (response.ok) {
-              const res = await response.json();    
-              console.log(res)    
-              mostrarAlerta(res.ico,res.msg);
-
-              
+          if (response.ok) {           
+              const res = await response.json();     
+              mostrarAlerta(res.ico,res.msg);   
           } else {
               mostrarAlerta(res.ico,res.msg);
           }

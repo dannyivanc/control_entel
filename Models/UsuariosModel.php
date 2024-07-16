@@ -6,18 +6,18 @@
         parent::__construct();
     }
 
-    public function getUsuario(string $usuario, string $clave) {
-        try {
-            $sql = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?";
-            $stmt = $this->conect->prepare($sql);
-            $stmt->execute([$usuario, $clave]);
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $data;
-        } catch (Exception $e) {
-            echo 'Error: ' . $e->getMessage();
-            return null;
+        public function getUsuario(string $usuario, string $clave) {
+            try {
+                $sql = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?";
+                $stmt = $this->conect->prepare($sql);
+                $stmt->execute([$usuario, $clave]);
+                $data = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $data;
+            } catch (Exception $e) {
+                echo 'Error: ' . $e->getMessage();
+                return null;
+            }
         }
-    }
 
 
         public function getInstituciones(){
@@ -116,6 +116,12 @@
             return $data;
         }
         //para permisos
+
+        public function getUser(int $id){
+            $sql="SELECT * FROM usuarios WHERE id=$id";
+            $data= $this->selectAll($sql);
+            return $data;
+        }
         public function getPermisos(){
             $sql="SELECT * FROM permisos";
             $data= $this->selectAll($sql);

@@ -20,22 +20,16 @@
         }
  
         public function listarPatrullajes(int $id){
-            // $sql="SELECT su.id,su.fecha,su.puntualidad,su.pres_per,su.patrulla,su.epp,su.libro,su.verif_vehi, us.nombre as id_vigilante,sucursales.sucursal as id_sucursal
-            // FROM supervision AS su INNER JOIN usuarios AS us ON us.id=su.id_vigilante
-            // INNER JOIN sucursales ON sucursales.id= su.id_sucursal
-            // WHERE su.id_institucion= $id ORDER BY id DESC";
-
-
-           $sql=" SELECT pa.id, pa.fecha,pa.descripcion, us.nombre AS id_supervisor, sucursales.sucursal AS id_sucursal
+            $sql=" SELECT pa.id, pa.fecha,pa.descripcion, us.nombre AS id_supervisor, sucursales.sucursal AS id_sucursal
             FROM patrullaje AS pa
             INNER JOIN usuarios AS us ON us.id = pa.id_supervisor
             INNER JOIN sucursales ON sucursales.id = pa.id_sucursal
             INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion
             WHERE instituciones.id = $id
+            AND pa.fecha >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
             ORDER BY pa.id DESC";
             $data= $this->selectAll($sql);
-            return $data;
-           
+            return $data; 
         }
 
         public function getSucursal(int $id){

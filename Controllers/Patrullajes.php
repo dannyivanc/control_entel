@@ -52,6 +52,18 @@ class Patrullajes extends Controller{
         die();
     }
 
+    // public function popopo(){
+    //     $fecha =date('Y-m-d H:i:s');
+    //     $lat= 19.90;
+    //     $lng= 19.90;           
+    //     $descripcion= 'hola';
+    //     $id_sucursal= 6;     
+    //     $id_supervisor= 2;   
+    //     for ($i = 130001; $i < 500000; $i++) {
+    //         $data= $this->model->registrarPatrullaje($fecha,$lat,$lng,$i,$id_sucursal,$id_supervisor);        
+    //     }
+       
+    // }
     public function registrar(){
         $fecha =date('Y-m-d H:i:s');
         $lat= $_POST['lat'];    

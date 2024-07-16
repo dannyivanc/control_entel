@@ -54,9 +54,14 @@
         public function accionInstitucion (int $estado,int $id){
             $this->id = $id;
             $this->estado = $estado;
-            $sql ="UPDATE instituciones SET estado =? WHERE id=?";
+            $sql ="UPDATE instituciones SET estado =? WHERE id=?";          
             $datos=array($this->estado,$this->id);
             $data = $this->save($sql,$datos);
+
+            $sql_suc ="UPDATE sucursales SET estado =? WHERE id_institucion=?";
+            $datos_suc=array($this->estado,$this->id);
+            $this->save($sql_suc,$datos_suc);
+
             return $data;
         }
 

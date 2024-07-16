@@ -59,7 +59,7 @@
                   <div class="form-group">
                      <!-- <p for="vigilante">Vigilantes</p> -->
                      <p class="mbn-0">Vigilantes</p>
-                     <select id="vigilante" class="form-control" name="vigilante[] " multiple="multiple">
+                     <select id="vigilante" class="form-control" name="vigilante[] "  multiple="multiple">
                         <?php foreach ($data['vigilantes'] as $row) {?>
                            <option value="<?php echo $row['id']; ?>"><?php echo $row['vigilante']; ?></option>
                         <?php } ?>
