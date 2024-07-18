@@ -1,4 +1,13 @@
 let tblRepSupervisiones;
+function mostrarAlerta(icon, title, timer = 2000,position="top") {
+  Swal.fire({    
+      icon: icon,
+      title: title,
+      position: position,
+      showConfirmButton: false,
+      timer: timer
+  });
+}
 document.addEventListener("DOMContentLoaded",function(){
         tblRepSupervisiones=$('#tblRepSupervisiones').DataTable( {
         responsive: true,
@@ -68,6 +77,39 @@ document.addEventListener("DOMContentLoaded",function(){
     });
     //  }
 })
+async function enviarRango(e){
+  e.preventDefault();
+  const inicio= document.getElementById('inicio').value;
+  const fin=document.getElementById('fin').value;
+
+  if(inicio=="" ||fin==""){
+    mostrarAlerta("error", "Ingrese el rango de fechas");
+  }else{
+    const url = base_url + "ReporteSupervisiones/fechasSupervisiones";
+    const frm=document.getElementById("frmReporte");
+    const formData = new FormData(frm);
+    try {
+       const response = await fetch(url, {
+            method: "POST",
+            body: formData
+        });
+        if (response.ok) {
+            const res = await response.json();
+            tblRepSupervisiones.clear();
+            tblRepSupervisiones.rows.add(res);
+            tblRepSupervisiones.draw();
+        } else {
+            mostrarAlerta("error", res);
+        }
+    } catch (error) {
+            mostrarAlerta("error","Error de servidor");
+    }
+     
+  }
+
+}
+
+
 
 function btnUbicacion(lat,lng){ 
   var url = `https://www.google.com/maps?q=${lat},${lng}&z=15&hl=es`;
@@ -77,8 +119,12 @@ function btnUbicacion(lat,lng){
 async function descargarPdf (){
   const url = base_url + "ReporteSupervisiones/generarPdf";
   try {
+    const frm=document.getElementById("frmReporte");
+    const formData = new FormData(frm);
       const response = await fetch(url, {
-          method: "GET"
+        method: "POST",
+        body: formData
+
       });
       if (response.ok) {
         const blob = await response.blob();

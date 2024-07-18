@@ -18,7 +18,7 @@
         
     <body class="sb-nav-fixed ">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height: 65px;">
-            <a class="navbar-brand ms-3 mt-2" href="index.html" >
+            <a class="navbar-brand ms-3 mt-2" href="<?php echo base_url;?>Inicio" >
                 <img src="<?php echo base_url?>/Assets/img/logo.png" class="logo_said_navbar " alt="logo">
                 <span class="text-white-50  ms-3 ">Said</span>
             </a>

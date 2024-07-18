@@ -6,28 +6,19 @@
         parent::__construct();
     }
 
-    public function getSupervisiones(int $id_inst) {     
-            // $sql = "SELECT sup.*, suc.id_institucion FROM supervision as sup INNER JOIN sucursales as   suc ON sup.id_sucursal=suc.id WHERE suc.id_institucion = ?";
-            // $stmt = $this->conect->prepare($sql);
-            // $stmt->execute([$id_inst]);
-            // $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            // return $data;
-
-
-            $sql=" SELECT su.*, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
-            FROM supervision AS su
-            INNER JOIN usuarios AS us ON us.id = su.id_vigilante
-            INNER JOIN sucursales ON sucursales.id = su.id_sucursal
-            INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion
-            WHERE instituciones.id =?
-            ORDER BY su.id DESC";
-            $stmt = $this->conect->prepare($sql);
-            $stmt->execute([$id_inst]);
-            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
-
-            
-    }
+        public function getSupervisiones(int $id_inst) {   
+                $sql=" SELECT su.*, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
+                FROM supervision AS su
+                INNER JOIN usuarios AS us ON us.id = su.id_vigilante
+                INNER JOIN sucursales ON sucursales.id = su.id_sucursal
+                INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion
+                WHERE instituciones.id =? AND su.fecha >= DATE_SUB(CURDATE(), INTERVAL 31 DAY)
+                ORDER BY su.fecha DESC";
+                $stmt = $this->conect->prepare($sql);
+                $stmt->execute([$id_inst]);
+                $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $data;
+        }
 
 
         public function getInstituciones(){
@@ -129,6 +120,22 @@
         public function verificarPermiso(int $id_user, string $nombre){
             $sql="SELECT p.id,p.permiso, d.id,d.id_usuario,d.id_permiso FROM permisos p INNER JOIN detalle_permisos d ON p.id=d.id_permiso WHERE d.id_usuario=$id_user AND p.permiso='$nombre'";
             $data= $this-> selectAll($sql);
+            return $data;
+        }
+
+       
+
+        public function listarRango(int $id_inst,string $inicio,string $fin){
+            $sql=" SELECT su.*, us.nombre AS id_vigilante, sucursales.sucursal AS id_sucursal
+            FROM supervision AS su
+            INNER JOIN usuarios AS us ON us.id = su.id_vigilante
+            INNER JOIN sucursales ON sucursales.id = su.id_sucursal
+            INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion
+            WHERE instituciones.id =? AND su.fecha BETWEEN ? AND ?
+            ORDER BY su.fecha DESC";
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$id_inst, $inicio, $fin]);
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
     }

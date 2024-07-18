@@ -55,7 +55,7 @@ class ReporteSupervisiones extends Controller{
         }
         $id_user= $_SESSION['id_usuario'];
         $verificar =    $this->model ->verificarPermiso($id_user,'reporte vigilantes');
-        if(!empty ($verificar)){
+        if(!empty ($verificar)){ 
             $this->views->getView($this,"index");
         }
         else{
@@ -69,7 +69,7 @@ class ReporteSupervisiones extends Controller{
         $data= $this->model->getSupervisiones($id_institucion);       
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnUbicacion= '<button class="btn btn-primary me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
+            $btnUbicacion= '<button class="btn btn-success me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
             $data[$i]['acciones'] =  $btnUbicacion;
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
@@ -77,8 +77,17 @@ class ReporteSupervisiones extends Controller{
     }
     public function generarPDF() {
         ob_end_clean();
-        $id_institucion= $_SESSION['id_institucion'];
-        $data= $this->model->getSupervisiones($id_institucion);      
+        $id_institucion= $_SESSION['id_institucion'];        
+        $inicio= $_POST['inicio'];
+        $fin= $_POST['fin'];
+        if(empty($inicio)||empty($fin)){
+            $data= $this->model->getSupervisiones($id_institucion);   
+        }
+        else{
+            $data= $this->model->listarRango($id_institucion,$inicio,$fin);     
+        }
+        // 
+        // $data= $this->model->listarRango($id_institucion);      
         $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
 
         $pdf->AddPage();
@@ -133,6 +142,23 @@ class ReporteSupervisiones extends Controller{
             $textoAjustado = substr($textoAjustado, 0, -1);
         }
         return $textoAjustado;
+    }
+
+    public function fechasSupervisiones(){
+        $id_institucion= $_SESSION['id_institucion'];
+        $inicio= $_POST['inicio'];
+        $fin= $_POST['fin'];
+        $data= $this->model->listarRango($id_institucion,$inicio,$fin);  
+        for ($i=0; $i <count($data) ; $i++) { 
+            $data[$i]['index']=$i+1;
+            $btnUbicacion= '<button class="btn btn-primary me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
+            $data[$i]['acciones'] =  $btnUbicacion;
+        }
+    
+    
+        echo json_encode($data);
+        die();
+
     }
 
  
