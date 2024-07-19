@@ -15,10 +15,17 @@ class Vehiculos extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
-        }       
+        }    
         
-        $data= $this->sucursalInfo;
-        $this->views->getView($this, "index", $data);
+        $id_user= $_SESSION['id_usuario'];
+        $verificar = $this->model ->verificarPermiso($id_user,'vehiculos');
+        if(!empty ($verificar)){
+            $data= $this->sucursalInfo;
+            $this->views->getView($this, "index", $data);
+        }
+        else{
+            header('Location:'.base_url.'Inicio');
+        }
     }
     public function perrie(){
         print_r($_SESSION['id_usuario']);

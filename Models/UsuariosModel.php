@@ -166,6 +166,11 @@
             $data= $this->selectAll($sql);
             return $data;
         }
+        public function  getArrPermiso(int $id_usuario){
+            $sql="SELECT id_permiso  as vista FROM detalle_permisos WHERE id_usuario=$id_usuario";
+            $data= $this->selectAll($sql);
+            return $data;
+        }
 
         public function verificarPermiso(int $id_user, string $nombre){
             $sql="SELECT p.id,p.permiso, d.id,d.id_usuario,d.id_permiso FROM permisos p INNER JOIN detalle_permisos d ON p.id=d.id_permiso WHERE d.id_usuario=$id_user AND p.permiso='$nombre'";

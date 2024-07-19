@@ -55,7 +55,6 @@ class ReporteVigilantes extends Controller{
         else{
             header('Location:'.base_url.'Errors');
         }
-        // $this->views->getView($this,"index");
     }
 
     public function listar(){
@@ -71,32 +70,8 @@ class ReporteVigilantes extends Controller{
         $data = $this->model->getUsuarios();   
         $pdf = new CustomPDFVigilantes('P', 'mm', 'Letter');  
 
-        $pdf->AddPage();
-        
-        // Logo de la empresa
-        // $pdf->Image('Assets/img/logo_web.png', 10, 10, 30);
-        
-        // Título y descripción
-        // $titulo = 'Reporte de Vigilantes';
-        // $descripcion = "Lista de vigilantes asignados";
-        // $pdf->SetFont('Arial', 'B', 18);
-        // $pdf->Cell(0, 10, $titulo, 0, 1, 'C');
-        // $pdf->SetFont('Arial', 'B', 14);
-        // $pdf->Cell(0, 10, $descripcion, 0, 1, 'C');
-        // $pdf->Cell(0, 10, '', 0, 1, 'C');
-        // $pdf->SetFont('Arial', 'B', 12);
-   
-        // Encabezados de la tabla
-        // $pdf->SetFont('Arial', 'B', 12);
-        // $pdf->SetFillColor(81, 195, 247); 
-        // $pdf->Cell(9, 10, 'N', 1, null,null, true); 
-        // $pdf->Cell(75, 10, 'Nombre', 1, null,null, true); 
-        // $pdf->Cell(28, 10, 'Carnet', 1, null,null, true); 
-        // $pdf->Cell(25, 10, 'Celular', 1, null,null, true); 
-        // $pdf->Cell(55, 10, 'Sucursal', 1, null,null, true);
-        // $pdf->Ln();
-        
-        // Datos de la tabla
+        $pdf->AddPage();       
+
         $pdf->SetFont('Arial', '', 12);
         $fill = false; 
         $index=1;

@@ -9,9 +9,16 @@ class Sucursales extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
-        $data['instituciones']=$this->model->getInstituciones();
-        $data['vigilantes']=$this->model->getVigilantes();
-        $this->views->getView($this,"index",$data);
+        $id_user= $_SESSION['id_usuario'];
+        $verificar = $this->model ->verificarPermiso($id_user,'sucursal');
+        if(!empty ($verificar)){
+            $data['instituciones']=$this->model->getInstituciones();
+            $data['vigilantes']=$this->model->getVigilantes();
+            $this->views->getView($this,"index",$data);
+        }
+        else{
+            header('Location:'.base_url.'Inicio');
+        }
     }
 
     public function listar(){

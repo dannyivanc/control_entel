@@ -12,27 +12,32 @@ class Supervisiones extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
-        }      
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
-            $id_institucion = $_POST['id_institucion'];          
-            $institucion_data = $this->model->getInstitucion($id_institucion);
-
-            // $this->institucionInfo= $institucion_data;
-            $_SESSION['institucionInfo'] = $institucion_data; 
-            if (!empty($institucion_data)) {
-                $data['institucion'] =  $institucion_data;    
-                $data['sucursales'] =  $this->model->getSucursales($id_institucion);   
-                $data['vigilantes']= $this->model->getVigilantes($id_institucion);   
-                $this->views->getView($this, "index", $data);
-            } else {
+        }     
+        $id_user= $_SESSION['id_usuario'];
+        $verificar = $this->model ->verificarPermiso($id_user,'supervision');
+        if(!empty ($verificar)){
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
+                $id_institucion = $_POST['id_institucion'];          
+                $institucion_data = $this->model->getInstitucion($id_institucion);
+                $_SESSION['institucionInfo'] = $institucion_data; 
+                if (!empty($institucion_data)) {
+                    $data['institucion'] =  $institucion_data;    
+                    $data['sucursales'] =  $this->model->getSucursales($id_institucion);   
+                    $data['vigilantes']= $this->model->getVigilantes($id_institucion);   
+                    $this->views->getView($this, "index", $data);
+                } else {
+                    header('Location: '.base_url.'Proyectos?view=supervision');
+                    exit();
+                }
+            } 
+            else {          
                 header('Location: '.base_url.'Proyectos?view=supervision');
                 exit();
             }
-        } 
-        else {          
-            header('Location: '.base_url.'Proyectos?view=supervision');
-            exit();
         }
+        else{
+            header('Location:'.base_url.'Inicio');
+        }    
     }
 
     public function perrie(){

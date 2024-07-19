@@ -18,7 +18,7 @@ class Usuarios extends Controller{
             header("location:".base_url);
         }
         $id_user= $_SESSION['id_usuario'];
-        $verificar =    $this->model ->verificarPermiso($id_user,'institucion');
+        $verificar = $this->model ->verificarPermiso($id_user,'usuarios');
         if(!empty ($verificar)){
             $data['instituciones']=$this->model->getInstituciones();
             $this->views->getView($this,"index",$data);
@@ -26,8 +26,6 @@ class Usuarios extends Controller{
         else{
             header('Location:'.base_url.'Inicio');
         }
-        // $data['instituciones']=$this->model->getInstituciones();
-        // $this->views->getView($this,"index",$data);
     }
 
     public function listar(){
@@ -62,22 +60,24 @@ class Usuarios extends Controller{
             $usuario = $_POST['usuario'];
             $clave = $_POST['clave'];
             $hash = hash("SHA256",$clave);
-            $data =$this->model->getUsuario($usuario,$hash);
-           
-            if($data){
+            $data =$this->model->getUsuario($usuario,$hash); 
+            if($data){             
                 $_SESSION['id_usuario']=$data['id'];
                 $_SESSION['usuario']=$data['usuario'];
                 $_SESSION['nombre']=$data['nombre'];            
                 $_SESSION['activo']=$data['estado'];
                 $_SESSION['rol']=$data['rol'];
                 $_SESSION['id_institucion']=$data['id_institucion'];
+                $permisos =$this->model->getArrPermiso($data['id']); 
+                foreach ($permisos as $permiso) {
+                    $_SESSION['v_' . $permiso["vista"]] = $permiso["vista"];
+                }
                 $msg="ok";
             }else{
                 $msg ="Usuario o contraseña incorrecta";
             }
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
-       
         die();
     }
 
@@ -225,10 +225,12 @@ class Usuarios extends Controller{
         header("location:".base_url);
     }
     public function pipipi(){
+        $_SESSION['rol']='laputie';
         echo '<pre>';
         print_r($_SESSION);
         echo '</pre>';
     }
+    
 }
 ?>
 
