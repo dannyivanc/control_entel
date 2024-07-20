@@ -1,7 +1,7 @@
 <?php include "Views/Templates/header.php";?>
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
-         <span class="text-black-75 fs-5">Reporte de supervisiones</span> 
+         <span class="text-black-75 fs-5">Reporte de entrada - salida de vehiculos</span> 
       </div>
    </div>
       <div >               
@@ -24,7 +24,8 @@
                </button>
             </div>
          </form>
-      </div>         
+      </div>
+         
    <table class="table  table-light table-bordered custom-table" id="tblRepSupervisiones">
        <thead class="thead-dark">
                <tr>
@@ -49,7 +50,7 @@
     v: "weekly",
   });
 </script>
-<script src="<?php echo base_url;?>Assets/js/funciones_reporte_supervisiones.js"></script>
+<script src="<?php echo base_url;?>Assets/js/funciones_reporte_vehiculos.js"></script>
 
 </body>
 </html>

@@ -137,9 +137,9 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Supervisión
                                 </a>
-                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
+                                <a class="nav-link ms-3" href="<?php echo base_url?>ReporteVehiculos">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Sucursales
+                                    Vehiculos
                                 </a>
                                
                                 <!-- <?php if (isset($_SESSION['v_2'])||isset($_SESSION['v_3'])) : ?>
