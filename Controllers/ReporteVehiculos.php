@@ -69,7 +69,7 @@ class ReporteVehiculos extends Controller{
                 $this->views->getView($this,"index");
             }
             else{
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
                     $_SESSION['id_institucion'] = $_POST['id_institucion'];    
                     $this->views->getView($this,"index"); 
                 } 

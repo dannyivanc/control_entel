@@ -5,6 +5,9 @@
     text-align: center;
     
 }
+.pri_mayus::first-letter {
+    text-transform: uppercase;
+}
 .login-said_img{
     margin-top: 90px;
     width: 200px;

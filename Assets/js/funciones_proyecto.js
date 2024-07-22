@@ -35,15 +35,26 @@ function viewInstitucion(id,vista) {
       document.body.appendChild(form);
       form.submit();
     }
+
+
+
     else if(vista=="reporteVehiculos"){
       var form = document.createElement('form');
       form.method = 'post';
-      form.action =  base_url+"ReporteSupervisiones";
+      form.action =  base_url+"ProyectoSucursal?view=reporteVehiculos";
+
       var input = document.createElement('input');
       input.type = 'hidden';
       input.name = 'id_institucion';
       input.value = id;
       form.appendChild(input);
+
+      // var input2 = document.createElement('input');
+      // input2.type = 'hidden';
+      // input2.name = 'view';
+      // input2.value = vista;
+      // form.appendChild(input2);
+
       document.body.appendChild(form);
       form.submit();
     }

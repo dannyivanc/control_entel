@@ -225,7 +225,7 @@ class Usuarios extends Controller{
         header("location:".base_url);
     }
     public function pipipi(){
-        $_SESSION['rol']='laputie';
+        // $_SESSION['rol']='laputie';
         echo '<pre>';
         print_r($_SESSION);
         echo '</pre>';
