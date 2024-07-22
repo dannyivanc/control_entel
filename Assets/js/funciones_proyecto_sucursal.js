@@ -8,8 +8,10 @@ function viewInstitucion(id,vista) {
       var input = document.createElement('input');
       input.type = 'hidden';
       input.name = 'id_sucursal';
-      input.value = id;
+      input.value = id;      
       form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
     }
 
 
