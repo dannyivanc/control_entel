@@ -58,7 +58,7 @@ class ReporteVehiculos extends Controller{
         session_start();              
         parent::__construct();
     }
-    public function index(){
+    public function index(){       
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
@@ -67,6 +67,7 @@ class ReporteVehiculos extends Controller{
         if(!empty ($verificar)){
             if($_SESSION['rol']=='cliente'){ 
                 $this->views->getView($this,"index");
+                
             }
             else{
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
@@ -172,6 +173,12 @@ class ReporteVehiculos extends Controller{
         echo json_encode($data);
         die();
 
+    }
+    public function pipipi(){
+        // $_SESSION['rol']='laputie';
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
     }
 }
 ?>

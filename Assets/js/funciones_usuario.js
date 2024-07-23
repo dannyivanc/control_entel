@@ -344,3 +344,21 @@ document.addEventListener("DOMContentLoaded",function(){
   });
 
 
+  function handleClick(e,data){
+    e.preventDefault();
+    console.log(data)
+    // if(vista=="reporteVehiculos"){
+    //   var form = document.createElement('form');
+    //   form.method = 'post';
+    //   // form.action =  base_url+"ReporteVehiculos";
+    //   // form.action = vista === "reporteVehiculos" ? base_url + "ReporteVehiculos" : base_url + "Errors";
+    //   form.action =  base_url+"ReporteVehiculos";
+    //   var input = document.createElement('input');
+    //   input.type = 'hidden';
+    //   input.name = 'id_sucursal';
+    //   input.value = id;      
+    //   form.appendChild(input);
+    //   document.body.appendChild(form);
+    //   form.submit();
+    // }
+  }

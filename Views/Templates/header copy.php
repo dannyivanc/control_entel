@@ -43,67 +43,84 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            
                             <div class="sb-sidenav-menu-heading">Menu</div>
                             <?php if ($_SESSION['rol']!= "cliente") : ?>
                             <?php if (isset($_SESSION['v_1'])) : ?>
-                                
+                                <a class="nav-link ml-1" href="<?php echo base_url?>Usuarios"> 
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    Usuarios
+                                </a> 
                             <?php endif; ?>
-                            <a class="nav-link ml-1" href="<?php echo base_url?>Usuarios"> 
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Usuarios
-                            </a>
-
                           <!-- para instituciones -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
-                                Instituciones
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Instituciones"> 
-                                    <div class="sb-nav-link-icon "><i class="fas fa-building"></i></div>
-                                    Institución
+                            <?php if (isset($_SESSION['v_2'])||isset($_SESSION['v_3'])) : ?>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-city"></i></div>
+                                    Instituciones
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Sucursales">                                   
-                                    <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
-                                    Sucursal
-                                </a>
-                            </div>    
-
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <?php if (isset($_SESSION['v_2'])) : ?>
+                                        <a class="nav-link ms-3" href="<?php echo base_url?>Instituciones"> 
+                                            <div class="sb-nav-link-icon "><i class="fas fa-building"></i></div>
+                                            Institución
+                                        </a>
+                                    <?php endif; ?>                                   
+                                    <?php if (isset($_SESSION['v_3'])) : ?>
+                                        <a class="nav-link ms-3" href="<?php echo base_url?>Sucursales">                                   
+                                            <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
+                                            Sucursal
+                                        </a>
+                                    <?php endif; ?>
+                                </div>    
+                            <?php endif; ?>
+                      
                             <!-- para supervisores -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#supervisores" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
-                                Supervisores
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=supervision"> 
-                                    <div class="sb-nav-link-icon "><i class="fas fa-bullseye"></i></div>
-                                    Supervisión
+                            <?php if (isset($_SESSION['v_4'])||isset($_SESSION['v_5'])) : ?>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#supervisores" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
+                                    Supervisores
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=patrullaje">                                   
-                                    <div class="sb-nav-link-icon"><i class="fas fa-building-shield"></i></div>
-                                    Patrullaje 
-                                </a>
-                            </div>  
+                                <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <?php if (isset($_SESSION['v_4'])) : ?>
+                                        <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=supervision"> 
+                                            <div class="sb-nav-link-icon "><i class="fas fa-bullseye"></i></div>
+                                            Supervisión
+                                        </a>
+                                    <?php endif; ?>
+                                    <?php if (isset($_SESSION['v_5'])) : ?>
+                                        <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=patrullaje">                                   
+                                            <div class="sb-nav-link-icon"><i class="fas fa-building-shield"></i></div>
+                                            Patrullaje 
+                                        </a>
+                                    <?php endif; ?>                                   
+                                </div>  
+                            <?php endif; ?>                           
                             <!-- para controles -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#controles" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                                Controles
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="controles" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Vehiculos">                     
-                                    <div class="sb-nav-link-icon"><i class="fas fa-car-side"></i></div>
-                                    Vehiculos
+                            <?php if (isset($_SESSION['v_6'])||isset($_SESSION['v_7'])) : ?>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#controles" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                    Controles
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
-                                    <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
-                                    Materiales
-                                </a>
-                            </div> 
+                                <div class="collapse" id="controles" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
 
+                                
+                                <?php if (isset($_SESSION['v_6'])) : ?>
+                                    <a class="nav-link ms-3" href="<?php echo base_url?>Vehiculos">                     
+                                        <div class="sb-nav-link-icon"><i class="fas fa-car-side"></i></div>
+                                        Vehiculos
+                                    </a>
+                                    
+                                <?php endif; ?>                                
+                                <?php if (isset($_SESSION['v_7'])) : ?>
+                                    <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
+                                        <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                                        Materiales
+                                    </a>
+                                <?php endif; ?>                                       
+                            </div>
+                            <?php endif; ?>
                             <?php endif; ?>
                             <!-- para reportes -->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#reportes" aria-expanded="false" aria-controls="collapseLayouts">
@@ -116,34 +133,18 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Vigilantes
                                 </a>
-
                                 <a class="nav-link ms-3" href="<?php echo base_url?>ReporteSupervisiones">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Supervisión
                                 </a>
-                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
+                                <a class="nav-link ms-3" href="<?php echo base_url?>ReporteVehiculos">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Sucursales
+                                    Vehiculos
                                 </a>
                                
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
-                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Patrullajes
-                                </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
-                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Control de Materiales
-                                </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
-                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Control de Vehiculos
-                                </a> -->
+                                <!-- <?php if (isset($_SESSION['v_2'])||isset($_SESSION['v_3'])) : ?>
+                                <?php endif; ?> -->
                             </div> 
-
-
-                            
-            
-                         
                         </div>
                     </div>
                 </nav>

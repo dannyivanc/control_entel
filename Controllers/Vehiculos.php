@@ -114,6 +114,13 @@ class Vehiculos extends Controller{
        die();
     }
 
+    public function pipipi(){
+        // $_SESSION['rol']='laputie';
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
+    }
+
 
 }
 ?>

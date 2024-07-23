@@ -7,7 +7,7 @@
         }
 
         public function getSucursales(int $id_institucion){
-            $sql="SELECT * FROM sucursales WHERE id_institucion = ?";
+            $sql="SELECT id,sucursal FROM sucursales WHERE id_institucion = ?";
             $stmt = $this->conect->prepare($sql);
             $stmt->execute([$id_institucion]);
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -17,6 +17,10 @@
     </head>
         
     <body class="sb-nav-fixed ">
+    <?php
+    session_start();
+    $sessionData = json_encode($_SESSION, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+    ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height: 65px;">
             <a class="navbar-brand ms-3 mt-2" href="<?php echo base_url;?>Inicio" >
                 <img src="<?php echo base_url?>/Assets/img/logo.png" class="logo_said_navbar " alt="logo">
@@ -141,15 +145,15 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Vehiculos
                                 </a>
+                                <!-- <a class="nav-link ms-3"  onclick="handleClick(event,<?php echo json_encode($_SESSION);?>)"> -->
+                                <a class="nav-link ms-3"  onclick='handleClick(event,<?php echo json_encode($_SESSION, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>)'>    
+                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Supervisión
+                                </a>
                                
                                 <!-- <?php if (isset($_SESSION['v_2'])||isset($_SESSION['v_3'])) : ?>
                                 <?php endif; ?> -->
                             </div> 
-
-
-                            
-            
-                         
                         </div>
                     </div>
                 </nav>

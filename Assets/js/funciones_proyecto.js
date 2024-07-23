@@ -42,6 +42,7 @@ function viewInstitucion(id,vista) {
       var form = document.createElement('form');
       form.method = 'post';
       form.action =  base_url+"ProyectoSucursal?view=reporteVehiculos";
+      console.log('asd')
 
       var input = document.createElement('input');
       input.type = 'hidden';
