@@ -17,13 +17,14 @@ class Proyectos extends Controller{
         $permiso= $this->verificarPermiso($type);
         $verificar =    $this->model ->verificarPermiso($id_user,$permiso);
         if(!empty ($verificar)){
-           
             $data['instituciones']=$this->model->getInstituciones();
             $data['vista']=$type;
             $this->views->getView($this, "index", $data);
         }
         else{
-            header('Location:'.base_url.'Errors');
+            // header('Location:'.base_url.'Errors');
+            header('Location:'.base_url.'Proyectos?view='.$type);
+            
         }
     }
     private function verificarPermiso(string $data){
@@ -35,10 +36,10 @@ class Proyectos extends Controller{
             case 'patrullaje':
                 $permiso = 'patrullaje';
                 break;
-            case 'reporteSupervision':
+            case 'ReporteSupervision':
                 $permiso = 'reporte supervisiones';
                 break;
-            case 'reporteVehiculos':
+            case 'ReporteVehiculos':
                 $permiso = 'reporte vehiculos';
                 break;
         }

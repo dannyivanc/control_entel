@@ -74,7 +74,7 @@ class ReporteSupervisiones extends Controller{
                     $this->views->getView($this,"index"); 
                 } 
                 else{                   
-                    header("Location: ".base_url."Proyectos?view=reporteSupervision");
+                    header("Location: ".base_url."Proyectos?view=ReporteSupervision");
                 }
             }
         }

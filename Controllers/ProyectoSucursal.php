@@ -76,7 +76,7 @@ class ProyectoSucursal extends Controller{
                 }
             }
         } else {
-            header('Location:' . base_url . 'Errors');
+            // header('Location:' . base_url . 'Errors');
             exit;
         }
     }

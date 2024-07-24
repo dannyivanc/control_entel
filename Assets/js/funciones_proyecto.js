@@ -1,4 +1,6 @@
 function viewInstitucion(id,vista) { 
+  console.log(id)
+  console.log(vista)
     if(vista=="patrullaje"){
       var form = document.createElement('form');
       form.method = 'post';
@@ -23,7 +25,7 @@ function viewInstitucion(id,vista) {
       document.body.appendChild(form);
       form.submit();
     }
-    else if(vista=="reporteSupervision"){
+    else if(vista=="ReporteSupervision"){
       var form = document.createElement('form');
       form.method = 'post';
       form.action =  base_url+"ReporteSupervisiones";
@@ -38,7 +40,7 @@ function viewInstitucion(id,vista) {
 
 
 
-    else if(vista=="reporteVehiculos"){
+    else if(vista=="ReporteVehiculos"){
       var form = document.createElement('form');
       form.method = 'post';
       form.action =  base_url+"ProyectoSucursal?view=reporteVehiculos";

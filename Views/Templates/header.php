@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+$aux = ["id_usuario", "id_institucion", "rol"];
+$datos = json_encode(array_intersect_key($_SESSION,array_flip($aux)));
+?>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,10 +21,7 @@
     </head>
         
     <body class="sb-nav-fixed ">
-    <?php
-    session_start();
-    $sessionData = json_encode($_SESSION, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
-    ?>
+    
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height: 65px;">
             <a class="navbar-brand ms-3 mt-2" href="<?php echo base_url;?>Inicio" >
                 <img src="<?php echo base_url?>/Assets/img/logo.png" class="logo_said_navbar " alt="logo">
@@ -145,8 +146,12 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Vehiculos
                                 </a>
-                                <!-- <a class="nav-link ms-3"  onclick="handleClick(event,<?php echo json_encode($_SESSION);?>)"> -->
-                                <a class="nav-link ms-3"  onclick='handleClick(event,<?php echo json_encode($_SESSION, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);?>)'>    
+
+                                <div id="miDiv" style="display: none;">
+                             
+                                </div>
+
+                                <a class="nav-link ms-3"  onclick='handleClick(event,<?php echo $datos;?>,"ReporteVehiculos")'>    
                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Supervisión
                                 </a>

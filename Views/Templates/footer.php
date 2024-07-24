@@ -20,6 +20,9 @@
         <script src="<?php echo base_url;?>Assets/js/chart.min.js"></script>   
         <script src="<?php echo base_url;?>Assets/js/select2.min.js"></script>   
         <script src="<?php echo base_url;?>Assets/DataTables/datatables.min.js" crossorigin="anonymous"></script>
+
+        <script src="<?php echo base_url;?>Assets/js/funciones_header.js"></script>
+        
       
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>

@@ -75,7 +75,7 @@ class ReporteVehiculos extends Controller{
                     $this->views->getView($this,"index"); 
                 } 
                 else{                   
-                    header("Location: ".base_url."Proyectos?view=reporteVehiculos");
+                    header("Location: ".base_url."Proyectos?view=ReporteVehiculos");
                 }
             }
         }
