@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-$aux = ["id_usuario", "id_institucion", "rol"];
-$datos = json_encode(array_intersect_key($_SESSION,array_flip($aux)));
-?>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,13 +84,13 @@ $datos = json_encode(array_intersect_key($_SESSION,array_flip($aux)));
                                 </a>
                                 <div class="collapse" id="supervisores" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                     <?php if (isset($_SESSION['v_4'])) : ?>
-                                        <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=supervision"> 
+                                        <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=Supervision"> 
                                             <div class="sb-nav-link-icon "><i class="fas fa-bullseye"></i></div>
                                             Supervisión
                                         </a>
                                     <?php endif; ?>
                                     <?php if (isset($_SESSION['v_5'])) : ?>
-                                        <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=patrullaje">                                   
+                                        <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=Patrullaje">                                   
                                             <div class="sb-nav-link-icon"><i class="fas fa-building-shield"></i></div>
                                             Patrullaje 
                                         </a>
@@ -142,19 +138,27 @@ $datos = json_encode(array_intersect_key($_SESSION,array_flip($aux)));
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Supervisión
                                 </a>
-                                <a class="nav-link ms-3" href="<?php echo base_url?>ReporteVehiculos">                     
+                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>ReporteVehiculos">                     
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Vehiculos
+                                </a> -->
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteVehiculos">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Vehiculos
+                                </a>
+                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Materiales
                                 </a>
 
                                 <div id="miDiv" style="display: none;">
                              
                                 </div>
 
-                                <a class="nav-link ms-3"  onclick='handleClick(event,<?php echo $datos;?>,"ReporteVehiculos")'>    
+                                <!-- <a class="nav-link ms-3"  onclick='handleClick(event,<?php echo $datos;?>,"ReporteVehiculos")'>    
                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Supervisión
-                                </a>
+                                    Vehiculos
+                                </a> -->
                                
                                 <!-- <?php if (isset($_SESSION['v_2'])||isset($_SESSION['v_3'])) : ?>
                                 <?php endif; ?> -->

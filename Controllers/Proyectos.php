@@ -12,8 +12,9 @@ class Proyectos extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }     
+ 
         $id_user= $_SESSION['id_usuario'];
-        $type = $_GET['view'];
+        $type = $_GET['view'];        
         $permiso= $this->verificarPermiso($type);
         $verificar =    $this->model ->verificarPermiso($id_user,$permiso);
         if(!empty ($verificar)){
@@ -30,10 +31,10 @@ class Proyectos extends Controller{
     private function verificarPermiso(string $data){
         $permiso = '';
         switch ($data) {
-            case 'supervision':
+            case 'Supervision':
                 $permiso = 'supervision';
                 break;
-            case 'patrullaje':
+            case 'Patrullaje':
                 $permiso = 'patrullaje';
                 break;
             case 'ReporteSupervision':

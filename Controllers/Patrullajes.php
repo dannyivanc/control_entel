@@ -26,12 +26,12 @@ class Patrullajes extends Controller{
                     $data['sucursales'] =  $this->model->getSucursales($id_institucion);    
                     $this->views->getView($this, "index", $data);
                 } else {
-                    header('Location: '.base_url.'Proyectos?view=patrullaje');
+                    header('Location: '.base_url.'Proyectos?view=Patrullaje');
                     exit();
                 }
             } 
             else {          
-                header('Location: '.base_url.'Proyectos?view=patrullaje');
+                header('Location: '.base_url.'Proyectos?view=Patrullaje');
                 exit();
             }
         }

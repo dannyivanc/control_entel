@@ -1,7 +1,7 @@
 <?php include "Views/Templates/header.php";?>
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
-         <span class="text-black-75 fs-5">Reporte de entrada - salida de vehiculos</span> 
+         <span class="text-black-75 fs-5">Reporte de entrada - salida de vehiculoss</span> 
       </div>
    </div>
       <div >               

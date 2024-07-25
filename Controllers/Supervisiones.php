@@ -26,12 +26,12 @@ class Supervisiones extends Controller{
                     $data['vigilantes']= $this->model->getVigilantes($id_institucion);   
                     $this->views->getView($this, "index", $data);
                 } else {
-                    header('Location: '.base_url.'Proyectos?view=supervision');
+                    header('Location: '.base_url.'Proyectos?view=Supervision');
                     exit();
                 }
             } 
             else {          
-                header('Location: '.base_url.'Proyectos?view=supervision');
+                header('Location: '.base_url.'Proyectos?view=Supervision');
                 exit();
             }
         }

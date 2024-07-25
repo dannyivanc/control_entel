@@ -24,7 +24,7 @@
          $colorIndex = 0;
       ?> 
       <?php foreach ($data['sucursales'] as $sucursal): ?>
-         <div class="col-xl-3 col-md-6" onclick="viewInstitucion('<?php echo $sucursal['id']?>','<?php echo $data['vista']?>')">
+         <div class="col-xl-3 col-md-6" onclick="mostrarLista()">
             <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
                   <div class="card-body text-center fs-3"> 
                      <?php echo $sucursal["sucursal"]; ?>

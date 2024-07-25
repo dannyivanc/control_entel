@@ -63,7 +63,7 @@ class ProyectoSucursal extends Controller{
                 $data['sucursales'] = $this->model->getSucursales($_POST['id_institucion']);
                 $data['vista'] = $type;
                 $_SESSION['data'] = $data;
-                header('Location: ' . base_url . 'ProyectoSucursal?view=' . $type . '&reload=true');
+                header('Location: ' . base_url . 'ProyectoSucursal?view=' . $type);
                 exit;
             } else {
                 if (isset($_SESSION['data'])) {
@@ -71,7 +71,7 @@ class ProyectoSucursal extends Controller{
                     $this->views->getView($this, "index", $data);
                     unset($_SESSION['data']);
                 } else {
-                    header('Location: ' . base_url . 'Proyectos?view=reporteVehiculos');
+                    header('Location: ' . base_url . 'Proyectos?view='.$type);
                     exit;
                 }
             }
@@ -93,7 +93,7 @@ class ProyectoSucursal extends Controller{
             case 'reporteSupervision':
                 $permiso = 'reporte supervisiones';
                 break;
-            case 'reporteVehiculos':
+            case 'ReporteVehiculos':
                 $permiso = 'reporte vehiculos';
                 break;
         }
