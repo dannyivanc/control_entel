@@ -37,8 +37,7 @@
                <th>Km Salida</th>
                <th>Km Retorno</th>      
                <th>Conductor</th>  
-               <th>Destino</th>     
-               <th>Acciones</th>       
+               <th>Destino</th>       
             </tr>
          </thead>
          <tbody>

@@ -9,5 +9,9 @@ class Views{
         }
         require $vista;
     }
+    public function getViewFromController($controllerName, $vista, $data="") {
+        $vista = "Views/" . $controllerName . "/" . $vista . ".php";
+        require $vista;
+    }
 }
 ?>

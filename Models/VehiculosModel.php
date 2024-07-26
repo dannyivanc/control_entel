@@ -15,8 +15,7 @@
             return $data;
         }           
         public function getVehiculos(int $id_suc){
-            $sql="SELECT *
-            FROM vehiculos 
+            $sql="SELECT * FROM vehiculos 
             WHERE id_sucursal = $id_suc and estado = 1
             ORDER BY id DESC";
             $data= $this->selectAll($sql);

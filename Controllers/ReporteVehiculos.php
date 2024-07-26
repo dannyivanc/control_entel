@@ -65,19 +65,22 @@ class ReporteVehiculos extends Controller{
         $id_user= $_SESSION['id_usuario'];
         $verificar =$this->model ->verificarPermiso($id_user,'reporte vehiculos');
         if(!empty ($verificar)){
-            if($_SESSION['rol']=='cliente'){ 
-                $this->views->getView($this,"index");
-                
-            }
-            else{
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
-                    // $_SESSION['id_institucion'] = $_POST['id_institucion'];    
+            // if($_SESSION['rol']=='cliente'){ 
+            //     $this->views->getView($this,"index");
+            // }
+            // else{
+                // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
+
+
+                    $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
                     $this->views->getView($this,"index"); 
-                } 
-                else{                   
-                    header("Location: ".base_url."Proyectos?view=ReporteVehiculos");
-                }
-            }
+
+                    
+                // } 
+                // else{                   
+                //     header("Location: ".base_url."Proyectos?view=ReporteVehiculos");
+                // }
+            // }
         }
         else{
             header('Location:'.base_url.'Errors');
@@ -85,26 +88,25 @@ class ReporteVehiculos extends Controller{
     }
 
     public function listar(){
-        $id_institucion= $_SESSION['id_institucion'];
-        $data= $this->model->getSupervisiones($id_institucion);       
+        $id_sucursal= $_SESSION['id_sucursal'];
+        // $data= $this->model->getSupervisiones($id_institucion);    
+        $data= $this->model->getVehiculos($id_sucursal);    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            $btnUbicacion= '<button class="btn btn-success me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
-            $data[$i]['acciones'] =  $btnUbicacion;
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
     public function generarPDF() {
         ob_end_clean();
-        $id_institucion= $_SESSION['id_institucion'];        
+        $id_sucursal= $_SESSION['id_sucursal'];        
         $inicio= $_POST['inicio'];
         $fin= $_POST['fin'];
         if(empty($inicio)||empty($fin)){
-            $data= $this->model->getSupervisiones($id_institucion);   
+            $data= $this->model->getVehiculos($id_sucursal);   
         }
         else{
-            $data= $this->model->listarRango($id_institucion,$inicio,$fin);     
+            $data= $this->model->listarRango($id_sucursal,$inicio,$fin);     
         }  
         // $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
         $pdf = new CustomPDFVehiculos($inicio,$fin);  
@@ -116,16 +118,16 @@ class ReporteVehiculos extends Controller{
         $index=1;
         foreach($data as $row) {
             // Ajustar el tamaño del texto para cada celda
-            $fecha = $this->ajustarTexto($pdf, $row['fecha'], 25);
-            $id_sucursal = $this->ajustarTexto($pdf, $row['id_sucursal'], 58);
-            $id_vigilante = $this->ajustarTexto($pdf, $row['id_vigilante'], 57);
-            $puntualidad = $this->ajustarTexto($pdf, $row['puntualidad'], 18);
-            $pres_per = $this->ajustarTexto($pdf, $row['pres_per'], 14);
-            $patrulla = $this->ajustarTexto($pdf, $row['patrulla'], 12);
-            $epp = $this->ajustarTexto($pdf, $row['epp'], 9);
-            $libro = $this->ajustarTexto($pdf, $row['libro'], 10);
-            $verif_vehi = $this->ajustarTexto($pdf, $row['verif_vehi'], 16);           
-            $ubicacion = $this->ajustarTexto($pdf,$row['lat'].",".$row['lng'],32);
+            $fecha = $this->ajustarTexto($pdf, $row['salida'], 25);
+            $id_sucursal = $this->ajustarTexto($pdf, $row['retorno'], 58);
+            $id_vigilante = $this->ajustarTexto($pdf, $row['tipo'], 57);
+            $puntualidad = $this->ajustarTexto($pdf, $row['placa'], 18);
+            $pres_per = $this->ajustarTexto($pdf, $row['km_salida'], 14);
+            $patrulla = $this->ajustarTexto($pdf, $row['km_retorno'], 12);
+            $epp = $this->ajustarTexto($pdf, $row['destino'], 9);
+            $libro = $this->ajustarTexto($pdf, $row['salida'], 10);
+            $verif_vehi = $this->ajustarTexto($pdf, $row['salida'], 16);           
+            $ubicacion = $this->ajustarTexto($pdf,$row['salida'].",".$row['salida   '],32);
             //para color de las filas
             if ($fill) {
                 $pdf->SetFillColor(241, 249, 254);

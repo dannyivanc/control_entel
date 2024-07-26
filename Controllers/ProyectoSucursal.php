@@ -54,31 +54,58 @@ class ProyectoSucursal extends Controller{
         }
         $id_user = $_SESSION['id_usuario'];
         $type = $_GET['view'];
+        $id_institucion= $_GET['id'];
         $permiso = $this->verificarPermiso($type);
         $verificar = $this->model->verificarPermiso($id_user, $permiso);
-    
-        if (!empty($verificar)) {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
-                $data['institucion'] = $this->model->getInstitucion($_POST['id_institucion']);
-                $data['sucursales'] = $this->model->getSucursales($_POST['id_institucion']);
+
+        // print_r($type);
+        // print_r('---');
+        // print_r($id_institucion);
+        // print_r('---');
+        // print_r($permiso);
+        // print_r('---');
+        // print_r($verificar);
+        
+        
+        if (!empty($verificar)) {            
+                $data['institucion'] = $this->model->getInstitucion($id_institucion);
+                $data['sucursales'] = $this->model->getSucursales($id_institucion);
                 $data['vista'] = $type;
-                $_SESSION['data'] = $data;
-                header('Location: ' . base_url . 'ProyectoSucursal?view=' . $type);
+                // $_SESSION['data'] = $data;
+                $this->views->getView($this, "index", $data);
                 exit;
-            } else {
-                if (isset($_SESSION['data'])) {
-                    $data = $_SESSION['data'];
-                    $this->views->getView($this, "index", $data);
-                    unset($_SESSION['data']);
-                } else {
-                    header('Location: ' . base_url . 'Proyectos?view='.$type);
-                    exit;
-                }
-            }
+          
         } else {
             // header('Location:' . base_url . 'Errors');
             exit;
         }
+
+
+
+
+    
+        // if (!empty($verificar)) {
+        //     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
+        //         $data['institucion'] = $this->model->getInstitucion($_POST['id_institucion']);
+        //         $data['sucursales'] = $this->model->getSucursales($_POST['id_institucion']);
+        //         $data['vista'] = $type;
+        //         $_SESSION['data'] = $data;
+        //         header('Location: ' . base_url . 'ProyectoSucursal?view=' . $type);
+        //         exit;
+        //     } else {
+        //         if (isset($_SESSION['data'])) {
+        //             $data = $_SESSION['data'];
+        //             $this->views->getView($this, "index", $data);
+        //             unset($_SESSION['data']);
+        //         } else {
+        //             header('Location: ' . base_url . 'Proyectos?view='.$type);
+        //             exit;
+        //         }
+        //     }
+        // } else {
+        //     // header('Location:' . base_url . 'Errors');
+        //     exit;
+        // }
     }
     
     private function verificarPermiso(string $data){

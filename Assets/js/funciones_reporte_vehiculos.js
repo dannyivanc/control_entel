@@ -1,4 +1,4 @@
-let tblRepSupervisiones;
+let tblReportVehiculos;
 function mostrarAlerta(icon, title, timer = 2000,position="top") {
   Swal.fire({    
       icon: icon,
@@ -9,47 +9,42 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
   });
 }
 document.addEventListener("DOMContentLoaded",function(){
-        tblRepSupervisiones=$('#tblRepSupervisiones').DataTable( {
+        tblReportVehiculos=$('#tblReportVehiculos').DataTable( {
         responsive: true,
         ajax: {
-            url: base_url+"ReporteSupervisiones/listar",
+            url: base_url+"ReporteVehiculos/listar",
             dataSrc: ''
         },
-        columns: [
+        columns: [ 
           { 
-            'data':'index','width': '1%','className': 'text-end',
+            'data':'index','width': '3%','className': 'text-end',
           },
           {
-            'data':'fecha','width': '7%','className': 'text-end',
+            'data':'salida','width': '11%','className': 'text-end',
           },
           {
-            'data':'id_sucursal','width': '10%','className': 'text-end',
+            'data':'retorno','width': '11%','className': 'text-end',
           },
           {
-            'data':'id_vigilante','width': '10%','className': 'text-end',
+            'data':'tipo','width': '6%','className': 'text-end',
           },
           {
-            'data':'puntualidad','width': '4%','className': 'text-end',
+            'data':'placa','width': '7%','className': 'text-end',
           },
           {
-            'data':'pres_per','width': '5%','className': 'text-end',
+            'data':'km_salida','width': '7%','className': 'text-end',
           },
           {
-            'data':'patrulla','width': '4%','className': 'text-end',
+            'data':'km_retorno','width': '7%','className': 'text-end',
           },
           {
-            'data':'epp','width': '4%','className': 'text-end',
+            'data':'conductor','width': '18%','className': 'text-end',
           },
           {
-            'data': 'libro','width': '4%','className': 'text-center',
+            'data':'destino','width': '18%', 'className': 'text-end',
           },
-          {
-            'data': 'verif_vehi','width': '6%','className': 'text-center',
-          },
-          {
-            'data':'acciones','width': '3%','className': 'text-center',
-          }
-      ],
+        
+        ],
       language: {
         "decimal": "",
         "emptyTable": "No hay datos disponibles en la tabla",
@@ -85,7 +80,7 @@ async function enviarRango(e){
   if(inicio=="" ||fin==""){
     mostrarAlerta("error", "Ingrese el rango de fechas");
   }else{
-    const url = base_url + "ReporteSupervisiones/fechasSupervisiones";
+    const url = base_url + "ReporteVehiculos/fechasSupervisiones";
     const frm=document.getElementById("frmReporte");
     const formData = new FormData(frm);
     try {
@@ -109,15 +104,8 @@ async function enviarRango(e){
 
 }
 
-
-
-function btnUbicacion(lat,lng){ 
-  var url = `https://www.google.com/maps?q=${lat},${lng}&z=15&hl=es`;
-  window.open(url, '_blank');
-}
-
 async function descargarPdf (){
-  const url = base_url + "ReporteSupervisiones/generarPdf";
+  const url = base_url + "ReporteVehiculos/generarPdf";
   try {
     const frm=document.getElementById("frmReporte");
     const formData = new FormData(frm);

@@ -24,13 +24,21 @@
          $colorIndex = 0;
       ?> 
       <?php foreach ($data['sucursales'] as $sucursal): ?>
-         <div class="col-xl-3 col-md-6" onclick="mostrarLista()">
+         <div class="col-xl-3 col-md-6" onclick="mostrarLista( <?php echo $sucursal['id']; ?>,'<?php echo $data['vista']; ?>')">
             <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
                   <div class="card-body text-center fs-3"> 
                      <?php echo $sucursal["sucursal"]; ?>
                   </div>
             </div>
          </div>
+
+         <!-- <a style="text-decoration: none;" class="col-xl-3 col-md-6" href="<?php echo base_url?>ReporteVehiculos?view=ReporteVehiculos&id=<?php echo $institucion['id']?>>
+            <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
+                  <div class="card-body text-center fs-3"> 
+                     <?php echo $sucursal["sucursal"]; ?>
+                  </div>
+            </div>
+         </a> -->
          <?php
             $colorIndex++;
             if ($colorIndex >= count($colors)) {

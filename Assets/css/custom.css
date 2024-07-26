@@ -5,15 +5,32 @@
     text-align: center;
     
 }
+
+.cont-logo_inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo_inicio{
+    width: 85vh
+}
+
+@media (max-width: 800px) {
+    .logo_inicio{
+        width: 45vh
+    }
+  
+    
+}
 .pri_mayus::first-letter {
     text-transform: uppercase;
 }
 .login-said_img{
     margin-top: 90px;
     width: 200px;
-
-    
 }
+
+
 .login-said_t1{
     color: whitesmoke;
     text-shadow: 2px 10px 4px rgba(0, 0, 0); 
