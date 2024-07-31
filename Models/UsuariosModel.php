@@ -27,11 +27,24 @@
         }
 
         public function getUsuarios(){
-            
-            $sql="SELECT u.* , i.id as id_institucion, i.institucion 
-            FROM usuarios as u 
-            INNER JOIN instituciones as i ON u.id_institucion = i.id  
-            ORDER BY id DESC";
+            $sql=" SELECT u.*, 
+            COALESCE(
+                (SELECT instituciones.institucion 
+                FROM suc_vig 
+                INNER JOIN sucursales ON suc_vig.id_sucursal = sucursales.id 
+                INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion 
+                WHERE suc_vig.id_vigilante = u.id
+                LIMIT 1), 
+                (SELECT instituciones.institucion FROM instituciones
+                        INNER JOIN usuarios ON instituciones.id= usuarios.id_institucion 
+                        WHERE usuarios.id = u.id AND usuarios.id_institucion!=1 LIMIT 1), 'Sin asignar'
+            ) AS institucion
+            FROM 
+                usuarios AS u
+            LEFT JOIN 
+                suc_vig ON u.id = suc_vig.id_vigilante
+            ORDER BY 
+                u.id DESC;";
             $data= $this->selectAll($sql);
             return $data;
         }

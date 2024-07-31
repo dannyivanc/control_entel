@@ -17,9 +17,9 @@
                   <th>Nº</th>
                   <th>Usuario</th>
                   <th>Nombre</th>
-                  <th>Carnet</th>
-                  <th>Institucion</th>  
+                  <th>Carnet</th>              
                   <th>Celular</th>  
+                  <th>Institucion</th>  
                   <th>Rol</th>  
                   <th>Estado</th>  
                   <th>Acciones</th>      

@@ -16,8 +16,10 @@
                   <th>Nº</th>
                   <th>Nombre</th>
                   <th>Sucursal</th>
+                  <th>Institucion</th>
                   <th>Carnet</th>
-                  <th>Celular</th>     
+                  <th>Celular</th>   
+                  <th>Estado</th>     
                </tr>           
          </thead>
    </table>    

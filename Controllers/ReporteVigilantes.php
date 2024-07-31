@@ -45,8 +45,7 @@ class ReporteVigilantes extends Controller{
     }
     public function index(){
         if(empty($_SESSION['activo'])){
-            header("location:".base_url);
-        }
+            header("location:".base_url);}
         $id_user= $_SESSION['id_usuario'];
         $verificar =    $this->model ->verificarPermiso($id_user,'reporte vigilantes');
         if(!empty ($verificar)){
@@ -58,9 +57,18 @@ class ReporteVigilantes extends Controller{
     }
 
     public function listar(){
-        $data= $this->model->getUsuarios();       
+        $data[]='';
+        if($_SESSION['rol']=="cliente"){
+            $data= $this->model->getUsuarios2($_SESSION['id_institucion']);  
+        }else{
+            $data= $this->model->getUsuarios();  
+        }
+            
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
+            $activo='<span class="badge bg-success">Activo</span>';
+            $inactivo='<span class="badge bg-danger">Inactivo</span>';
+            $data[$i]['estado']==1?$data[$i]['estado']=$activo:$data[$i]['estado']=$inactivo;
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();

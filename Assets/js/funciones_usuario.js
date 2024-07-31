@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'carnet','className': 'text-end',
         },
         {
-          'data':'institucion','className': 'text-end',
+          'data':'cel','className': 'text-end',
         },
         {
-          'data':'cel','className': 'text-end',
+          'data':'institucion','className': 'text-end',
         },
         {
           'data':'rol','className': 'text-end','width': '8%',

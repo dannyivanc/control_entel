@@ -1,4 +1,4 @@
-let tblReportVehiculos;
+let tblRepPatrullajes;
 function mostrarAlerta(icon, title, timer = 2000,position="top") {
   Swal.fire({    
       icon: icon,
@@ -9,42 +9,32 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
   });
 }
 document.addEventListener("DOMContentLoaded",function(){
-        tblReportVehiculos=$('#tblReportVehiculos').DataTable( {
+        tblRepPatrullajes=$('#tblRepPatrullajes').DataTable( {
         responsive: true,
         ajax: {
-            url: base_url+"ReporteVehiculos/listar",
+            url: base_url+"ReportePatrullajes/listar",
             dataSrc: ''
         },
-        columns: [ 
+        columns: [
           { 
-            'data':'index','width': '3%','className': 'text-end',
+            'data':'index','width': '1%','className': 'text-end',
           },
           {
-            'data':'salida','width': '11%','className': 'text-end',
+            'data':'fecha','width': '7%','className': 'text-end',
           },
           {
-            'data':'retorno','width': '11%','className': 'text-end',
+            'data':'id_sucursal','width': '10%','className': 'text-end',
           },
           {
-            'data':'tipo','width': '6%','className': 'text-end',
+            'data':'id_supervisor','width': '10%','className': 'text-end',
           },
           {
-            'data':'placa','width': '7%','className': 'text-end',
+            'data':'descripcion','width': '4%','className': 'text-end',
           },
           {
-            'data':'km_salida','width': '7%','className': 'text-end',
-          },
-          {
-            'data':'km_retorno','width': '7%','className': 'text-end',
-          },
-          {
-            'data':'conductor','width': '18%','className': 'text-end',
-          },
-          {
-            'data':'destino','width': '30%', 'className': 'text-end',
-          },
-        
-        ],
+            'data':'acciones','width': '3%','className': 'text-center',
+          }
+      ],
       language: {
         "decimal": "",
         "emptyTable": "No hay datos disponibles en la tabla",
@@ -80,7 +70,7 @@ async function enviarRango(e){
   if(inicio=="" ||fin==""){
     mostrarAlerta("error", "Ingrese el rango de fechas");
   }else{
-    const url = base_url + "ReporteVehiculos/fechasReporte";
+    const url = base_url + "ReportePatrullajes/fechasPatrullajes";
     const frm=document.getElementById("frmReporte");
     const formData = new FormData(frm);
     try {
@@ -90,22 +80,29 @@ async function enviarRango(e){
         });
         if (response.ok) {
             const res = await response.json();
-            tblReportVehiculos.clear();
-            tblReportVehiculos.rows.add(res);
-            tblReportVehiculos.draw();
+            tblRepPatrullajes.clear();
+            tblRepPatrullajes.rows.add(res);
+            tblRepPatrullajes.draw();
         } else {
             mostrarAlerta("error", res);
         }
     } catch (error) {
-            mostrarAlerta("error","Error de servidor");
+            mostrarAlerta("error",error);
     }
      
   }
 
 }
 
+
+
+function btnUbicacion(lat,lng){ 
+  var url = `https://www.google.com/maps?q=${lat},${lng}&z=15&hl=es`;
+  window.open(url, '_blank');
+}
+
 async function descargarPdf (){
-  const url = base_url + "ReporteVehiculos/generarPdf";
+  const url = base_url + "ReportePatrullajes/generarPdf";
   try {
     const frm=document.getElementById("frmReporte");
     const formData = new FormData(frm);
@@ -118,7 +115,7 @@ async function descargarPdf (){
         const blob = await response.blob();
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'reporte_vigilantes.pdf'; // Especifica el nombre del archivo
+        link.download = 'reporte_patrullajes.pdf'; // Especifica el nombre del archivo
         link.click();
 
 

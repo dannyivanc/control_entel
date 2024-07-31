@@ -27,11 +27,60 @@
         }
 
         public function getUsuarios(){
-            
-            $sql="SELECT u.* , i.id as id_institucion, i.institucion 
-            FROM usuarios as u 
-            INNER JOIN instituciones as i ON u.id_institucion = i.id  
-            ORDER BY id DESC";
+
+            $sql=" SELECT u.nombre,u.cel,u.carnet,u.estado,
+            COALESCE(
+                (SELECT instituciones.institucion 
+                FROM suc_vig 
+                INNER JOIN sucursales ON suc_vig.id_sucursal = sucursales.id 
+                INNER JOIN instituciones ON instituciones.id = sucursales.id_institucion 
+                WHERE suc_vig.id_vigilante = u.id
+                LIMIT 1), 
+                (SELECT instituciones.institucion FROM instituciones
+                        INNER JOIN usuarios ON instituciones.id= usuarios.id_institucion 
+                        WHERE usuarios.id = u.id AND usuarios.id_institucion!=1 LIMIT 1), 'Sin asignar'
+            ) AS institucion,
+            COALESCE(
+                (SELECT sucursales.sucursal FROM suc_vig 
+                INNER JOIN sucursales ON suc_vig.id_sucursal = sucursales.id 
+                WHERE suc_vig.id_vigilante = u.id LIMIT 1), 'Sin asignar'
+            ) AS sucursal
+            FROM usuarios AS u
+            LEFT JOIN suc_vig ON u.id = suc_vig.id_vigilante
+            WHERE u.rol='vigilante'
+            ORDER BY u.id DESC   ";
+
+
+            // $sql="SELECT u.nombre,u.carnet,u.cel,
+            //   COALESCE(
+            //     (SELECT sucursales.sucursal FROM sucursales  
+            //     INNER JOIN suc_vig ON suc_vig.id_sucursal = sucursales.id
+            //     WHERE suc_vig.id_vigilante = u.id)
+            //     ,'Sin asignar'
+            // ) AS sucursal,
+            // instituciones.institucion FROM usuarios as u
+            //  INNER JOIN suc_vig ON suc_vig.id_vigilante= u.id
+            //  INNER JOIN sucursales ON suc_vig.id_sucursal = sucursales.id 
+            //  INNER JOIN instituciones ON sucursales.id_institucion= instituciones.id 
+            //  ORDER BY u.id DESC";
+
+            // $sql="SELECT u.nombre,u.carnet,u.cel,
+            // sucursales.sucursal as sucursal,
+            // instituciones.institucion FROM usuarios as u
+            //  INNER JOIN suc_vig ON suc_vig.id_vigilante= u.id
+            //  INNER JOIN sucursales ON suc_vig.id_sucursal = sucursales.id 
+            //  INNER JOIN instituciones ON sucursales.id_institucion= instituciones.id 
+            //  ORDER BY u.id DESC";
+            $data= $this->selectAll($sql);
+            return $data;
+        }
+        public function getUsuarios2(int $id_institucion){
+            $sql="SELECT u.nombre,u.carnet,u.cel,u.estado,sucursales.sucursal as sucursal,instituciones.institucion FROM usuarios as u
+             INNER JOIN suc_vig ON suc_vig.id_vigilante= u.id
+             INNER JOIN sucursales ON suc_vig.id_sucursal = sucursales.id 
+             INNER JOIN instituciones ON sucursales.id_institucion= instituciones.id 
+             WHERE instituciones.id= $id_institucion
+             ORDER BY u.id DESC";
             $data= $this->selectAll($sql);
             return $data;
         }

@@ -1,6 +1,6 @@
 <?php
     class MaterialesModel extends Query{
-        private $id,$fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_sucursal,$id_vigilante;
+        private $id,$fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_sucursal,$id_vigilante,$cantidad;
   
         public function __construct(){
             parent::__construct();
@@ -18,21 +18,15 @@
             // FROM materiales 
             // WHERE id_sucursal = $id_suc and estado = 1
             // ORDER BY id DESC";
-            $sql="SELECT *
-            FROM materiales
-            WHERE id_sucursal = $id_suc and estado = 1 
-            and MONTH(fecha) = MONTH(CURRENT_DATE())
-            and YEAR(fecha) = YEAR(CURRENT_DATE())
+            $sql="SELECT * FROM materiales WHERE id_sucursal = $id_suc and estado = 1 
+            -- and MONTH(fecha) = MONTH(CURRENT_DATE())
+            -- and YEAR(fecha) = YEAR(CURRENT_DATE())
             ORDER BY id DESC";
-
-
-
-
             $data= $this->selectAll($sql);
             return $data;
         }
         
-        public function registrarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_sucursal,int $id_vigilante){    
+        public function registrarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,int $cantidad, string $observacion,int $id_sucursal,int $id_vigilante){    
 
             list($fecha_registro, $hora_registro) = explode('T', $fecha);
           
@@ -41,11 +35,12 @@
             $this->persona=$persona;
             $this->destino=$destino;
             $this->descripcion=$descripcion;
+            $this->cantidad=$cantidad;
             $this->observacion=$observacion;       
             $this->id_vigilante=$id_vigilante;
             $this->id_sucursal=$id_sucursal;
-            $sql = "INSERT INTO materiales (fecha,movimiento,persona,destino,descripcion,observacion,id_vigilante,id_sucursal) VALUES (?,?,?,?,?,?,?,?)";
-            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id_sucursal);
+            $sql = "INSERT INTO materiales (fecha,movimiento,persona,destino,descripcion,cantidad,observacion,id_vigilante,id_sucursal) VALUES (?,?,?,?,?,?,?,?,?)";
+            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->cantidad,$this->observacion,$this->id_vigilante,$this->id_sucursal);
             $data =  $this-> save($sql,$datos);
             if($data==1){
                 $res = "ok";
@@ -54,8 +49,7 @@
             }
             return $res;
         }
-
-        public function modificarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,string $observacion,int $id_vigilante,int $id){
+        public function modificarMaterial(string $fecha,string $movimiento,string $persona,string $destino,string $descripcion,int $cantidad,string $observacion,int $id_vigilante,int $id){
             
             list($fecha_registro, $hora_registro) = explode('T', $fecha);
             $this->fecha = $fecha_registro . ' ' . substr($hora_registro, 0, 5) . ':00';
@@ -63,11 +57,12 @@
             $this->persona=$persona;
             $this->destino=$destino;
             $this->descripcion=$descripcion;
+            $this->cantidad=$cantidad;
             $this->observacion=$observacion;       
             $this->id_vigilante=$id_vigilante;
             $this->id=$id;
-            $sql = "UPDATE materiales SET fecha=?,movimiento=?,persona=?,destino=?,descripcion=?,observacion=?,id_vigilante=? WHERE id=?"; 
-            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->observacion,$this->id_vigilante,$this->id);
+            $sql = "UPDATE materiales SET fecha=?,movimiento=?,persona=?,destino=?,descripcion=?,cantidad=?,observacion=?,id_vigilante=? WHERE id=?"; 
+            $datos =array($this->fecha,$this->movimiento,$this->persona,$this->destino,$this->descripcion,$this->cantidad,$this->observacion,$this->id_vigilante,$this->id);
             $data =  $this-> save($sql,$datos);
             if($data==1){
                 $res = "modificado";
@@ -81,20 +76,13 @@
             $data= $this->select($sql);
             return $data;
         }
-
-
-
-        public function accionVehiculo (int $id){
+        public function accionMaterial (int $id){
             $this->id = $id;
-            // $this->estado = $estado;
-            // $sql ="UPDATE vehiculos SET estado =? WHERE id=?";
-            // $datos=array($this->estado,$this->id);
-            // $data = $this->save($sql,$datos);
-            // return $data;
-            $verificar ="SELECT *FROM vehiculos WHERE id=$id AND retorno!= '0000-00-00 00:00:00' AND km_retorno != 0";           
+
+            $verificar ="SELECT *FROM materiales WHERE id=$id ";           
             $existe =$this->select($verificar);
             if(!empty($existe)){
-                $sql ="UPDATE vehiculos SET estado =? WHERE id=?";
+                $sql ="UPDATE materiales SET estado =? WHERE id=?";
                 $datos=array(0,$this->id);
                 $data =  $this-> save($sql,$datos);
                 if($data==1){

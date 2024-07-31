@@ -1,9 +1,7 @@
 <?php
-ini_set('memory_limit', '512M');
-ini_set('max_execution_time', '600');
 require('Libraries/fpdf/fpdf.php');
 require('Controllers/Proyectos.php');
-class CustomPDFVehiculos extends FPDF {
+class CustomPDFSupervisiones extends FPDF {
     private $inicio;
     private $fin;
     public function __construct($inicio = '', $fin = '') {
@@ -31,15 +29,13 @@ class CustomPDFVehiculos extends FPDF {
         $this->SetFont('Arial', 'B', 8);
         $this->SetFillColor(200, 220, 255);
         $this->Cell( 7, 8, 'N', 1, 0, 'C', true);
-        $this->Cell(25, 8, 'Salida', 1, 0, 'C', true);
-        $this->Cell(25, 8, 'Retorno', 1, 0, 'C', true);
-        $this->Cell(23, 8, 'Tipo', 1, 0, 'C', true);
-        $this->Cell(15, 8, 'Placa', 1, 0, 'C', true);
-        $this->Cell(15, 8, 'Km Salida', 1, 0, 'C', true);
-        $this->Cell(17, 8, 'Km Retorno', 1, 0, 'C', true);
-        $this->Cell(34, 8, 'Conductor', 1, 0, 'C', true);
-        $this->Cell(98, 8, 'Destino', 1, 1, 'C', true);
+        $this->Cell(25, 8, 'Fecha', 1, 0, 'C', true);
+        $this->Cell(55, 8, 'Sucursal', 1, 0, 'C', true);
+        $this->Cell(55, 8, 'Supervisor', 1, 0, 'C', true);
 
+        $this->Cell(32, 8, 'Ubicacion', 1, 0, 'C', true);
+        $this->Cell(82, 8, 'Detalles', 1, 1, 'C', true);
+     
     }
     // Pie de página
     function Footer() {
@@ -54,34 +50,30 @@ class CustomPDFVehiculos extends FPDF {
         $this->Cell(0, 10, 'Pg ' . $this->PageNo(), 0, 0, 'R');
     }
 }
-class ReporteVehiculos extends Controller{
+class ReportePatrullajes extends Controller{
     public function __construct(){
         session_start();              
         parent::__construct();
     }
-    public function index(){       
+    public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
         }
         $id_user= $_SESSION['id_usuario'];
-        $verificar =$this->model ->verificarPermiso($id_user,'reporte vehiculos');
+        $verificar =$this->model ->verificarPermiso($id_user,'reporte supervisiones');
         if(!empty ($verificar)){
-            // if($_SESSION['rol']=='cliente'){ 
-            //     $this->views->getView($this,"index");
-            // }
-            // else{
-                // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
-
-
-                    $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
+            if($_SESSION['rol']=='cliente'){ 
+                $this->views->getView($this,"index");
+            }
+            else{
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
+                    $_SESSION['id_institucion'] = $_POST['id_institucion'];    
                     $this->views->getView($this,"index"); 
-
-                    
-                // } 
-                // else{                   
-                //     header("Location: ".base_url."Proyectos?view=ReporteVehiculos");
-                // }
-            // }
+                } 
+                else{                   
+                    header("Location: ".base_url."Proyectos?view=ReportePatrullajes");
+                }
+            }
         }
         else{
             header('Location:'.base_url.'Errors');
@@ -89,84 +81,87 @@ class ReporteVehiculos extends Controller{
     }
 
     public function listar(){
-        $id_sucursal= $_SESSION['id_sucursal'];
-        // $data= $this->model->getSupervisiones($id_institucion);    
-        $data= $this->model->getVehiculos($id_sucursal);    
+        $id_institucion= $_SESSION['id_institucion'];
+        $data= $this->model->getPatrullajes($id_institucion);       
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
+            $btnUbicacion= '<button class="btn btn-success me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
+            $data[$i]['acciones'] =  $btnUbicacion;
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
-        
         die();
     }
     public function generarPDF() {
         ob_end_clean();
-        $id_sucursal= $_SESSION['id_sucursal'];        
+        $id_institucion= $_SESSION['id_institucion'];        
         $inicio= $_POST['inicio'];
         $fin= $_POST['fin'];
         if(empty($inicio)||empty($fin)){
-            $data= $this->model->getVehiculos($id_sucursal);   
+            $data= $this->model->getPatrullajes($id_institucion);   
         }
         else{
-            $data= $this->model->listarRango($id_sucursal,$inicio,$fin);     
+            $data= $this->model->listarRango($id_institucion,$inicio,$fin);     
         }  
         // $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
-        $pdf = new CustomPDFVehiculos($inicio,$fin);  
+        $pdf = new CustomPDFSupervisiones($inicio,$fin);  
+
         $pdf->AddPage();
         // Datos de la tabla
         $pdf->SetFont('Arial', '', 7);
         $fill = false; 
         $index=1;
         foreach($data as $row) {
+
             // Ajustar el tamaño del texto para cada celda
-            $salida = $this->ajustarTexto($pdf, $row['salida'], 25);
-            $retorno = $this->ajustarTexto($pdf, $row['retorno'], 25);
-            $tipo = $this->ajustarTexto($pdf, $row['tipo'], 23);
-            $placa = $this->ajustarTexto($pdf, $row['placa'], 15);
-            $km_salida = $this->ajustarTexto($pdf, $row['km_salida'], 15);
-            $km_retorno = $this->ajustarTexto($pdf, $row['km_retorno'], 17);
-            $conductor = $this->ajustarTexto($pdf, $row['conductor'], 34);
-            $destino = $row['destino'];
-            $lng = $pdf->GetStringWidth($row['destino']) ;
-            
+            $fecha = $this->ajustarTexto($pdf, $row['fecha'], 25);
+            $id_sucursal = $this->ajustarTexto($pdf, $row['id_sucursal'], 55);
+            $id_supervisor = $this->ajustarTexto($pdf, $row['id_supervisor'], 55);    
+            $ubicacion = $this->ajustarTexto($pdf,$row['lat'].",".$row['lng'],32);
+            // $descripcion = $this->ajustarTexto($pdf, $row['descripcion'], 82); 
+            $descripcion = $row['descripcion'];
+            $lng = $pdf->GetStringWidth($row['descripcion']) ;
             $col=0;
-            if ($lng<= 98)$col=5;
-            else if ($lng> 98  && $lng<= 196) $col=10; 
-            else if ($lng> 196 && $lng<= 270) $col=15;
-            else if ($lng> 270 && $lng<= 294) $col=20;
-            else if ($lng> 294 && $lng<= 392) $col=25;
-            else if ($lng> 392 && $lng<= 490) $col=30;
+            if ($lng<= 82)$col=5;
+            else if ($lng> 82  && $lng<= 164) $col=10; 
+            else if ($lng> 164 && $lng<= 246) $col=15;
+            else if ($lng> 246 && $lng<= 328) $col=20;
+            else if ($lng> 328 && $lng<= 410) $col=25;
+            else if ($lng> 410 && $lng<= 490) $col=30;
 
-            $x = $pdf->GetX()-1;
-            $y = $pdf->GetY()-5;
-
+            
+            // $x = $pdf->GetX()-1;
+            // $y = $pdf->GetY()-5;
+            
+            //para color de las filas
             if ($fill) {
                 $pdf->SetFillColor(241, 249, 254);
             } else {
                 $pdf->SetFillColor(255, 255, 255);
             }
-            $pdf->Cell( 7, $col, $index, 1, 0, 'C', $fill);     
-            $pdf->Cell(25, $col, $salida, 1, 0, 'C', $fill);
-            $pdf->Cell(25, $col, $retorno, 1, 0, 'C', $fill);
-            $pdf->Cell(23, $col, $tipo, 1, 0, 'C', $fill);
-            $pdf->Cell(15, $col, $placa, 1, 0, 'C', $fill);
-            $pdf->Cell(15, $col, $km_salida, 1, 0, 'C', $fill);
-            $pdf->Cell(17, $col, $km_retorno, 1, 0, 'C', $fill);
-            $pdf->Cell(34, $col, $conductor, 1, 0, 'C', $fill);
+            $pdf->Cell(7, $col, $index, 1,0, 'C',  $fill);
+            $pdf->Cell(25, $col, $fecha, 1,0, 'C',  $fill);
+            $pdf->Cell(55, $col, $id_sucursal, 1, 0, 'C',  $fill);
+            $pdf->Cell(55, $col, $id_supervisor, 1, 0, 'C',  $fill);  
+            $pdf->Cell(32, $col, $ubicacion, 1,0, 'C',  $fill);     
+
+            // $pdf->MultiCell(82, 5, $descripcion, 1,0, 'C',  $fill);        
+            // $pdf->SetXY($x + 7 + 25 + 55 + 55 + 82 + 32, $y + $col);
 
             $startX = $pdf->GetX()-1;
             $startY = $pdf->GetY()-5;
-            $pdf->MultiCell(98, 5, $destino, 1, 'C', $fill);
+            $pdf->MultiCell(82, 5, $descripcion, 1, 'C', $fill);
             $endY = $pdf->GetY()-5;
-
-            $pdf->SetXY($startX + 98, $startY);
+    
+            // Volver a la posición correcta para la siguiente celda
+            $pdf->SetXY($startX + 82, $startY);
             $pdf->SetY($endY);
+
 
             $index++;
             $fill = !$fill;
             $pdf->Ln();
         }
-        $pdf->Output('I', 'reporte_de vehiculos.pdf');
+        $pdf->Output('I', 'reporte_patrullajes.pdf');
         ob_end_clean();
         exit;
     }
@@ -178,23 +173,20 @@ class ReporteVehiculos extends Controller{
         return $textoAjustado;
     }
 
-    public function fechasReporte(){
-        $id_sucursal= $_SESSION['id_sucursal'];
+    public function fechasPatrullajes(){
+        $id_institucion= $_SESSION['id_institucion'];
+   
         $inicio= $_POST['inicio'];
         $fin= $_POST['fin'];
-        $data= $this->model->listarRango($id_sucursal,$inicio,$fin);  
+        $data= $this->model->listarRango($id_institucion,$inicio,$fin);  
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
+            $btnUbicacion= '<button class="btn btn-primary me-1" type="button" onClick="btnUbicacion('.$data[$i]['lat'].','.$data[$i]['lng'].')"> <i class="fas fa-location-dot"></i> </button>';
+            $data[$i]['acciones'] =  $btnUbicacion;
         }
-        echo json_encode($data,JSON_UNESCAPED_UNICODE);
+        echo json_encode($data);
         die();
 
-    }
-    public function pipipi(){
-        // $_SESSION['rol']='laputie';
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
     }
 }
 ?>

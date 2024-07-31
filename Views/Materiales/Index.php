@@ -31,6 +31,7 @@
                <th>Fecha</th>
                <th>Movimiento</th>
                <th>Descripcion</th>
+               <th>Cantidad</th>
                <th>Personal</th>  
                <th>Origen/Destino</th>  
                <th>Observaciones</th> 
@@ -63,7 +64,7 @@
                         <div class="form-group position-relative">
                            <label for="movimiento">Movimiento</label>
                            <select class="form-control" id="movimiento" name="movimiento">
-                              <option value="" selected disabled>Seleccione una opci��n</option>
+                              <option value="" selected disabled>Seleccione una opcion</option>
                               <option value="ingreso">Ingreso</option>
                               <option value="salida ">Salida</option>
                            </select>
@@ -71,18 +72,28 @@
                         </div>
                      </div>
                   </div> 
-                     
-                  <div class="form-group">
-                     <label for="persona">Nombre del personal</label>
-                     <input id="persona" class="form-control" type="text" name="persona" placeholder="Nombre">
-                  </div>
+
+                  <div class="row">
+                     <div class="col-md-7">
+                        <div class="form-group">
+                           <label for="persona">Nombre del personal</label>
+                           <input id="persona" class="form-control" type="text" name="persona" placeholder="Nombre">
+                        </div>
+                     </div>
+                     <div class="col-md-5">
+                        <div class="form-group">
+                           <label for="cantidad">Cantidad de material</label>
+                           <input id="cantidad" class="form-control" type="number" name="cantidad" placeholder="Cantidad">
+                        </div>
+                     </div>
+                  </div> 
                   <div class="form-group">
                      <label for="destino">Destino/Origen</label>
                      <input id="destino" class="form-control" type="text" name="destino" placeholder="Destino/Origen">
                   </div>
                   <div class="form-group">
-                     <label for="descripcion">Descripci��n</label>
-                     <textarea id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripci��n"></textarea>
+                     <label for="descripcion">Descripcion</label>
+                     <textarea id="descripcion" class="form-control" type="text" name="descripcion" placeholder="Descripcion"></textarea>
                   </div>       
                   <div class="form-group">
                      <label for="observacion">Observaciones</label>

@@ -130,7 +130,7 @@ async function descargarPdf (){
         const blob = await response.blob();
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'reporte_vigilantes.pdf'; // Especifica el nombre del archivo
+        link.download = 'reporte_supervisiones.pdf'; // Especifica el nombre del archivo
         link.click();
 
 

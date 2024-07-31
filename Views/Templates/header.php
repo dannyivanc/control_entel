@@ -139,6 +139,11 @@
                                     Supervisión
                                 </a>
 
+                                <a class="nav-link ms-3" href="<?php echo base_url?>ReportePatrullajes">                     
+                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                    Patrullaje
+                                </a>
+
                                 <?php if ($_SESSION['rol']=='cliente') : ?>
                                     <a class="nav-link ms-3" href="<?php echo base_url?>ProyectoSucursal?view=ReporteVehiculos&id=<?php echo ($_SESSION['id_institucion'])?>">
                                         <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>

@@ -80,7 +80,7 @@
                      <div class="col-md-6">                            
                         <div class="form-group">
                            <label for="placa">Placa</label>
-                           <input id="placa" class="form-control" type="text" name="placa" placeholder="Placa de Vehiculo">
+                           <input id="placa" class="form-control text-uppercase" type="text" name="placa" placeholder="placa">
                         </div>
                      </div>
                   </div>  

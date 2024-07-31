@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'descripcion','width': '4%','className': 'text-end',
         },
         {
+          'data':'cantidad','width': '4%','className': 'text-end',
+        },
+        {
           'data':'persona','width': '10%','className': 'text-end',
         },
         {
@@ -54,6 +57,7 @@ document.addEventListener("DOMContentLoaded",function(){
         { responsivePriority: 6, targets: 5 },
         { responsivePriority: 7, targets: 6 },
         { responsivePriority: 8, targets: 7 },
+        { responsivePriority: 9, targets: 8 },
     ],
       language: {
         "decimal": "",
@@ -98,8 +102,10 @@ async function registrarMaterial (e){
     const movimiento = document.getElementById("movimiento");
     const persona = document.getElementById("persona");      
     const destino = document.getElementById("destino");
+    const cantidad = document.getElementById("cantidad");
     const descripcion = document.getElementById("descripcion");
-    if(fecha.value==""||movimiento.value==""||persona.value==""||destino.value==""||descripcion.value==""){
+
+    if(fecha.value==""||movimiento.value==""||persona.value==""||destino.value==""||descripcion.value==""||cantidad.value==""){
         mostrarAlerta("error", "Solo las observaciones pueden esta vacias");
     }else{
         const url = base_url + "Materiales/registrar";
@@ -161,6 +167,7 @@ async function btnEditarMaterial(id) {
             document.getElementById("id").value = res.id;
             document.getElementById("fecha").value = res.fecha;
             document.getElementById("movimiento").value = res.movimiento;
+            document.getElementById("cantidad").value = res.cantidad;
             document.getElementById("persona").value = res.persona;
             document.getElementById("destino").value = res.destino;
             document.getElementById("descripcion").value = res.descripcion;
@@ -174,7 +181,7 @@ async function btnEditarMaterial(id) {
     }
 }
 
-function btnDesactivarVehiculo(id){
+function btnDesactivarMaterial(id){
     Swal.fire({
       title: "Completar registro",
       icon: "warning",
@@ -187,17 +194,14 @@ function btnDesactivarVehiculo(id){
     }).then(async(result) => {
       if (result.isConfirmed) {   
         try {
-            const url = base_url + "Vehiculos/desactivar/"+id;
+            const url = base_url + "Materiales/desactivar/"+id;
             const response = await fetch(url);
             if (response.ok) {
                 const res = await response.json();
                 if (res == "ok") {
                     mostrarAlerta("success", "Registro completado con éxito");
                     tblMateriales.ajax.reload();
-                } else if(res == "void"){
-                    mostrarAlerta("error", "Completar los campos de RETORNO y KILOMETRAJE DE RETORNO",4000);
-                }
-                else {
+                }else {
                     mostrarAlerta("error ",res);
                 }
             } else {
@@ -210,47 +214,47 @@ function btnDesactivarVehiculo(id){
     });
   }
     //para controlar salida
-    var fechaActual = new Date();    
-    var FechaControl = new Date(fechaActual.getTime() - (14 * 60 * 60 * 1000));
-    var fechaControlString = FechaControl.toISOString().slice(0,16);
-    var salidaInput = document.getElementById("salida");
-    salidaInput.min = fechaControlString;
-    salidaInput.addEventListener("change", function() {
-        var salidaSeleccionada = new Date(this.value);
-        if (salidaSeleccionada < FechaControl) {
-            salidaInput.value = fechaControlString;
-        }
-    });
+    // var fechaActual = new Date();    
+    // var FechaControl = new Date(fechaActual.getTime() - (14 * 60 * 60 * 1000));
+    // var fechaControlString = FechaControl.toISOString().slice(0,16);
+    // var salidaInput = document.getElementById("salida");
+    // salidaInput.min = fechaControlString;
+    // salidaInput.addEventListener("change", function() {
+    //     var salidaSeleccionada = new Date(this.value);
+    //     if (salidaSeleccionada < FechaControl) {
+    //         salidaInput.value = fechaControlString;
+    //     }
+    // });
     
 //para controlar retorno    
-    var salidaInput = document.getElementById("salida");
-    var retornoInput = document.getElementById("retorno");
-    salidaInput.addEventListener("change", function() {
-        retornoInput.min = salidaInput.value;
-        if (retornoInput.value < salidaInput.value) {
-            retornoInput.value = "";
-        }
-    });
-    retornoInput.addEventListener("change", function() {
-        if (retornoInput.value < salidaInput.value) {
-            retornoInput.value = salidaInput.value;
-        }
-    });
+    // var salidaInput = document.getElementById("salida");
+    // var retornoInput = document.getElementById("retorno");
+    // salidaInput.addEventListener("change", function() {
+    //     retornoInput.min = salidaInput.value;
+    //     if (retornoInput.value < salidaInput.value) {
+    //         retornoInput.value = "";
+    //     }
+    // });
+    // retornoInput.addEventListener("change", function() {
+    //     if (retornoInput.value < salidaInput.value) {
+    //         retornoInput.value = salidaInput.value;
+    //     }
+    // });
 
 //controlando solo numeros en kp salida y retorno
-    var kmSalida = document.getElementById("km_salida");
-    kmSalida.addEventListener("input", function() {
-        this.value = this.value.replace(/\D/g, '');
-    });
-    var kmRetorno = document.getElementById("km_retorno");
-    kmRetorno.addEventListener("input", function() {
-        this.value = this.value.replace(/\D/g, '');
-    });
+    // var kmSalida = document.getElementById("km_salida");
+    // kmSalida.addEventListener("input", function() {
+    //     this.value = this.value.replace(/\D/g, '');
+    // });
+    // var kmRetorno = document.getElementById("km_retorno");
+    // kmRetorno.addEventListener("input", function() {
+    //     this.value = this.value.replace(/\D/g, '');
+    // });
 
 //controlar nombre
-    var conductorImput = document.getElementById("conductor");
-    conductorImput.addEventListener("input", function() {
-        this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-    });
+    // var conductorImput = document.getElementById("conductor");
+    // conductorImput.addEventListener("input", function() {
+    //     this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+    // });
 
 

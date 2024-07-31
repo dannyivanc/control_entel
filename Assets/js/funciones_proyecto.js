@@ -24,7 +24,7 @@ function viewInstitucion(id,vista) {
       form.appendChild(input);
       document.body.appendChild(form);
       form.submit();
-    }
+    }  
     else if(vista=="ReporteSupervision"){
       var form = document.createElement('form');
       form.method = 'post';
@@ -37,9 +37,18 @@ function viewInstitucion(id,vista) {
       document.body.appendChild(form);
       form.submit();
     }
-
-
-
+    else if(vista=="ReportePatrullajes"){
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action =  base_url+"ReportePatrullajes";
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id_institucion';
+      input.value = id;
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
     else if(vista=="ReporteVehiculos"){
       var form = document.createElement('form');
       form.method = 'post';
@@ -51,13 +60,6 @@ function viewInstitucion(id,vista) {
       input.name = 'id_institucion';
       input.value = id;
       form.appendChild(input);
-
-      // var input2 = document.createElement('input');
-      // input2.type = 'hidden';
-      // input2.name = 'view';
-      // input2.value = vista;
-      // form.appendChild(input2);
-
       document.body.appendChild(form);
       form.submit();
     }

@@ -39,19 +39,13 @@ class Materiales extends Controller{
     public function listar(){
         $id_sucursal= $this->sucursalInfo['id'];
         $data= $this->model->getMateriales($id_sucursal);       
-       
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
             $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarMaterial('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $btnDesactivar = '<button class="btn btn-warning" type="button" onClick="btnDesactivarMaterial('.$data[$i]['id'].')"> <i class="fas fa-check-double"></i> </button>';
-            $btnActivar= '<button class="btn btn-success" type="button" onClick="btnActivarMaterial('.$data[$i]['id'].')"> <i class="fas fa-check"></i> </button>';
             if($data[$i]['estado']==1){
                 $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
-                // $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
-                $data[$i]['acciones'] = $btnEditar  ;
-            }else{
-                $data[$i]['estado']='<span class="badge bg-danger">Inactivo</span>';
-                $data[$i]['acciones'] = $btnActivar;
+                $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
             }
 
         }
@@ -64,18 +58,19 @@ class Materiales extends Controller{
         $fecha= $_POST['fecha'];
         $movimiento =  $_POST['movimiento'];
         $persona= $_POST['persona'];
-        $destino= $_POST['destino'];    
+        $destino= $_POST['destino']; 
+        $cantidad= $_POST['cantidad'];    
         $descripcion= $_POST['descripcion'];   
         $observacion= $_POST['observacion'];   
         $id_vigilante= $_SESSION['id_usuario'];   
         $id_sucursal=$this->sucursalInfo['id'];
         $id= $_POST['id'];  
 
-        if(empty($fecha)||empty($movimiento)||empty($persona)||empty($destino)||empty($descripcion)){
+        if(empty($fecha)||empty($movimiento)||empty($persona)||empty($destino)||empty($descripcion)||empty($cantidad)){
             $msg= "Solo las observaciones pueden esta vacias";
         }else{
             if($id==""){
-                $data= $this->model->registrarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_vigilante,$id_sucursal);
+                $data= $this->model->registrarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$cantidad,$observacion,$id_sucursal,$id_vigilante);
                 if($data=="ok"){
                     $msg ="si";
                 }else{
@@ -83,7 +78,7 @@ class Materiales extends Controller{
                 }
             }
             else{       
-                $data= $this->model->modificarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$observacion,$id_vigilante,$id);
+                $data= $this->model->modificarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$cantidad,$observacion,$id_vigilante,$id);
                 if($data=="modificado"){
                     $msg ="modificado";
                 }else{
@@ -102,19 +97,26 @@ class Materiales extends Controller{
     }
 
     public function desactivar(int $id){
-        $data=$this->model ->accionVehiculo($id);
+        $data=$this->model ->accionMaterial($id);
        if($data=="ok"){
         $msg="ok";
        }else if($data=="void"){
         $msg="void";
        }
        else{
-        $msg="Error al desactivar el vehiculo";
+        $msg="Error en el material";
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
     }
 
+    public function pipipi(){
+        // $_SESSION['rol']='laputie';
+        echo '<pre>';
+        // print_r($_SESSION);
+        print_r($this->sucursalInfo);
+        echo '</pre>';
+    }
 
 }
 ?>

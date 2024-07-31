@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",function(){
       tblUsuarios=$('#tblUsuarios').DataTable( {
         responsive: true,
         ajax: {
-            url: base_url+"Usuarios/listar",
+            url: base_url+"ReporteVigilantes/listar",
             dataSrc: ''
         },
         columns: [ 
@@ -14,13 +14,19 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'nombre','className': 'text-end',
         },
         {
-          'data':'nombre','className': 'text-end',
+          'data':'sucursal','className': 'text-end',
+        },
+        {
+          'data':'institucion','className': 'text-end',
         },
         {
           'data':'carnet','className': 'text-end',
         },
         {
           'data':'cel','className': 'text-end',
+        },
+        {
+          'data':'estado','className': 'text-end',
         },
       ],
       language: {
