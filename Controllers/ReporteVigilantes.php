@@ -75,7 +75,7 @@ class ReporteVigilantes extends Controller{
     }
     public function generarPDF() {
         ob_end_clean();
-        $data = $this->model->getUsuarios();   
+        $data= $this->model->getUsuarios2($_SESSION['id_institucion']);  
         $pdf = new CustomPDFVigilantes('P', 'mm', 'Letter');  
 
         $pdf->AddPage();       

@@ -185,11 +185,11 @@ function btnDesactivarMaterial(id){
     Swal.fire({
       title: "Completar registro",
       icon: "warning",
-      text: "El registro del vehiculo ya no podra ser visualizado",
+      text: "El registro del material ya no podra ser visualizado",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Desactivar",
+      confirmButtonText: "Completar",
       cancelButtonText :"Cancelar"
     }).then(async(result) => {
       if (result.isConfirmed) {   

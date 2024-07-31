@@ -124,7 +124,8 @@
                             <?php endif; ?>
                             <?php endif; ?>
                             <!-- para reportes -->
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#reportes" aria-expanded="false" aria-controls="collapseLayouts">
+                            <?php if ($_SESSION['rol']!='vigilante') : ?>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#reportes" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-column"></i></div>
                                 Reportes
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -155,14 +156,6 @@
                                         Vehiculos
                                     </a>
                                 <?php endif; ?> 
-
-                            
-
-
-                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteVehiculos">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Vehiculos
-                                </a> -->
                                 <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                     Materiales
@@ -171,15 +164,14 @@
                                 <div id="miDiv" style="display: none;">
                              
                                 </div>
-
-                                <!-- <a class="nav-link ms-3"  onclick='handleClick(event,<?php echo $datos;?>,"ReporteVehiculos")'>    
-                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Vehiculos
-                                </a> -->
                                
                                 <!-- <?php if (isset($_SESSION['v_2'])||isset($_SESSION['v_3'])) : ?>
                                 <?php endif; ?> -->
                             </div> 
+                            <?php endif; ?>
+
+
+                          
                         </div>
                     </div>
                 </nav>

@@ -27,7 +27,7 @@
         }
 
         public function getUsuarios(){
-            $sql=" SELECT u.*, 
+            $sql=" SELECT DISTINCT u.*, 
             COALESCE(
                 (SELECT instituciones.institucion 
                 FROM suc_vig 
