@@ -156,10 +156,10 @@
                                         Vehiculos
                                     </a>
                                 <?php endif; ?> 
-                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                    Materiales
-                                </a>
+                                    <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                        Materiales
+                                    </a>
 
                                 <div id="miDiv" style="display: none;">
                              

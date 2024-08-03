@@ -63,6 +63,20 @@ function viewInstitucion(id,vista) {
       document.body.appendChild(form);
       form.submit();
     }
+    else if(vista=="ReporteMateriales"){
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action =  base_url+"ProyectoSucursal?view=ReporteMateriales";
+      console.log('asd')
+
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id_institucion';
+      input.value = id;
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
 
   
 }

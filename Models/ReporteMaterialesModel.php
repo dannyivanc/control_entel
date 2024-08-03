@@ -1,0 +1,54 @@
+<?php
+    class ReporteMaterialesModel extends Query{
+    public function __construct() {
+        parent::__construct();
+    }
+
+        public function getMateriales(int $id_sucursal) {   
+            $sql=" SELECT * FROM materiales WHERE id_sucursal=?
+            AND fecha >= DATE_SUB(CURDATE(), INTERVAL 31 DAY)
+            ORDER BY id DESC";
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$id_sucursal]);
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
+
+
+
+        public function getInstituciones(){
+            $sql="SELECT * FROM instituciones WHERE estado = 1";
+            $data= $this->selectAll($sql);
+            return $data;
+        }
+
+        public function getUsuarios(){
+            
+            $sql="SELECT u.* , i.id as id_institucion, i.institucion 
+            FROM usuarios as u 
+            INNER JOIN instituciones as i ON u.id_institucion = i.id  
+            ORDER BY id DESC";
+            $data= $this->selectAll($sql);
+            return $data;
+        }
+        
+  
+
+     
+        public function verificarPermiso(int $id_user, string $nombre){
+            $sql="SELECT p.id,p.permiso, d.id,d.id_usuario,d.id_permiso FROM permisos p INNER JOIN detalle_permisos d ON p.id=d.id_permiso WHERE d.id_usuario=$id_user AND p.permiso='$nombre'";
+            $data= $this-> selectAll($sql);
+            return $data;
+        }
+
+        public function listarRango(int $id_sucursal,string $inicio,string $fin){
+            $sql=" SELECT * FROM materiales
+            WHERE id_sucursal =? AND fecha BETWEEN ? AND ?
+            ORDER BY id DESC";
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$id_sucursal, $inicio, $fin]);
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
+    }
+?> 

@@ -8,45 +8,7 @@ class ProyectoSucursal extends Controller{
         }    
         parent::__construct();
     }  
-    // public function index(){
-    //     if(empty($_SESSION['activo'])){
-    //         header("location:".base_url);
-    //         exit;
-    //     }     
-    //     $id_user= $_SESSION['id_usuario'];
-    //     $type = $_GET['view'];
-    //     $permiso= $this->verificarPermiso($type);
-    //     $verificar =    $this->model ->verificarPermiso($id_user,$permiso);
-    //     if(!empty ($verificar)){       
-    //         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
-    //             $data['institucion']=$this->model->getInstitucion($_POST['id_institucion']);
-    //             $data['sucursales']=$this->model->getSucursales($_POST['id_institucion']);
-    //             $data['vista']=$type;
-    //             $_SESSION['data'] =  $data;
-
-    //             if ($type == 'reporteVehiculos') {
-    //                 header('Location: ' . base_url . 'ProyectoSucursal?view=' . $type . '&reload=true');
-    //             } else {
-    //                 header('Location: ' . base_url . 'Proyectos?view=' . $type . '&reload=true');
-    //             }
-    //             exit;
-    //         } 
-    //         else{
-    //             if (isset($_SESSION['data'])) {
-    //                 $data = $_SESSION['data'];
-    //                 $this->views->getView($this, "index", $data);
-    //             } else {
-    //                 header('Location: ' . base_url . 'Proyectos?view=reporteVehiculos');
-    //                 exit;
-    //             }
-    //         }
-    //     }
-    //     else{
-    //         header('Location:'.base_url.'Errors');
-    //         exit; 
-    //     }
-    // }
-
+  
     public function index() {
         if (empty($_SESSION['activo'])) {
             header("location:" . base_url);
@@ -56,16 +18,7 @@ class ProyectoSucursal extends Controller{
         $type = $_GET['view'];
         $id_institucion= $_GET['id'];
         $permiso = $this->verificarPermiso($type);
-        $verificar = $this->model->verificarPermiso($id_user, $permiso);
-
-        // print_r($type);
-        // print_r('---');
-        // print_r($id_institucion);
-        // print_r('---');
-        // print_r($permiso);
-        // print_r('---');
-        // print_r($verificar);
-        
+        $verificar = $this->model->verificarPermiso($id_user, $permiso);      
         
         if (!empty($verificar)) {            
                 $data['institucion'] = $this->model->getInstitucion($id_institucion);
@@ -79,33 +32,6 @@ class ProyectoSucursal extends Controller{
             // header('Location:' . base_url . 'Errors');
             exit;
         }
-
-
-
-
-    
-        // if (!empty($verificar)) {
-        //     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_institucion'])) {
-        //         $data['institucion'] = $this->model->getInstitucion($_POST['id_institucion']);
-        //         $data['sucursales'] = $this->model->getSucursales($_POST['id_institucion']);
-        //         $data['vista'] = $type;
-        //         $_SESSION['data'] = $data;
-        //         header('Location: ' . base_url . 'ProyectoSucursal?view=' . $type);
-        //         exit;
-        //     } else {
-        //         if (isset($_SESSION['data'])) {
-        //             $data = $_SESSION['data'];
-        //             $this->views->getView($this, "index", $data);
-        //             unset($_SESSION['data']);
-        //         } else {
-        //             header('Location: ' . base_url . 'Proyectos?view='.$type);
-        //             exit;
-        //         }
-        //     }
-        // } else {
-        //     // header('Location:' . base_url . 'Errors');
-        //     exit;
-        // }
     }
     
     private function verificarPermiso(string $data){
@@ -122,6 +48,9 @@ class ProyectoSucursal extends Controller{
                 break;
             case 'ReporteVehiculos':
                 $permiso = 'reporte vehiculos';
+                break;
+            case 'ReporteMateriales':
+                $permiso = 'reporte materiales';
                 break;
         }
         return $permiso;

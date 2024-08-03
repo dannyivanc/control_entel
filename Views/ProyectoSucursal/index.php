@@ -10,7 +10,32 @@
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
          <span class="text-black-75 fs-5">Lista de Sucursales</span> 
+         <?php
+         $title='';
+         switch ($data['vista']){
+            case "Supervision":
+               $title='Superviciones';
+               break;
+            case "Patrullaje":
+               $title='Patrullaje';
+               break;
+            case "ReporteSupervision":
+               $title='Reporte de Superviciones';
+               break;
+            case "ReportePatrullajes":
+               $title='Reporte de Patrullajes';
+               break;
+            case "ReporteVehiculos":
+               $title='Reporte de entrada y salida de Vehiculos';
+               break; 
+            case "ReporteMateriales":
+               $title='Reporte de entrada y salida de Materiales';
+               break; 
+         }
+         ?> 
+         <h2 class="text-black-75 fs-6"><?php echo $title?></h2>
       </div>
+      
       <table class="table">
             <tr>
                <td class="table-secondary"  style="width: 10%">Institucion</td>
