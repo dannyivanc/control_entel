@@ -9,7 +9,12 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
         timer: timer
     });
 }
-
+document.getElementById("frmInstitucion").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      registrarInstitucion(event); 
+  }
+});
 
   
 document.addEventListener("DOMContentLoaded",function(){
@@ -97,7 +102,6 @@ function frmMaterial(){
 
 async function registrarMaterial (e){
     e.preventDefault();
-
     const fecha = document.getElementById("fecha");
     const movimiento = document.getElementById("movimiento");
     const persona = document.getElementById("persona");      
@@ -110,7 +114,6 @@ async function registrarMaterial (e){
     }else{
         const url = base_url + "Materiales/registrar";
         const frm=document.getElementById("frmMaterial");
-
         const formData = new FormData(frm);
         try {
            const response = await fetch(url, {
@@ -139,23 +142,6 @@ async function registrarMaterial (e){
         }
     }
 }
-
-// function btnEditarVehiculo  (id){
-//     document.getElementById("title").innerHTML="Actualizar Registro";
-//     document.getElementById("btn_form_material").innerHTML="Actualizar";
-//     const url = base_url + "Materiales/editar/"+id;  
-//     const http = new XMLHttpRequest();
-//     http.open("GET",url,true);
-//     http.send();
-//     http.onreadystatechange = function(){
-//         if(this.readyState==4 && this.status==200){     
-//           const res = JSON.parse(this.responseText);
-//           document.getElementById("id").value=res.id;
-//           document.getElementById("institucion").value=res.institucion;
-//           $("#nuevo_vehiculo").modal("show");
-//         }
-//     }
-//   }
 async function btnEditarMaterial(id) {
     document.getElementById("title").innerHTML = "Actualizar Registro";
     document.getElementById("btn_form_material").innerHTML = "Actualizar";

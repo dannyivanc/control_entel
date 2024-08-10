@@ -17,7 +17,7 @@ class CustomPDFVehiculos extends FPDF {
         $this->Image('Assets/img/logo_web.png', 10, 10, 30);
         // Título
         $this->SetFont('Arial', 'B', 18);
-        $this->Cell(0, 10,  iconv('UTF-8', 'ISO-8859-1','Reporte de Supervisiones'), 0, 1, 'C');
+        $this->Cell(0, 10,  iconv('UTF-8', 'ISO-8859-1','Reporte de entrada y salida de vehiculos'), 0, 1, 'C');
         $this->SetFont('Arial', 'B', 14);
         // $this->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1','Lista de vigilantes asignados a la institución'), 0, 1, 'C');
         if(!empty($this->inicio)||!empty($this->fin)){
@@ -72,9 +72,9 @@ class ReporteVehiculos extends Controller{
             // else{
                 // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
 
-
-                    $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
-                    $this->views->getView($this,"index"); 
+                $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
+                $this->views->getView($this,"index"); 
+                exit;
 
                     
                 // } 
@@ -84,7 +84,8 @@ class ReporteVehiculos extends Controller{
             // }
         }
         else{
-            header('Location:'.base_url.'Errors');
+            header('Location:'.base_url.'Inicio');
+            exit;
         }
     }
 

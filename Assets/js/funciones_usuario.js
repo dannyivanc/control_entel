@@ -295,8 +295,6 @@ document.addEventListener("DOMContentLoaded",function(){
           } else {
               mostrarAlerta(res.ico,res.msg);
           }
-    
-    
     }
     
 

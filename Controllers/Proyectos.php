@@ -11,19 +11,30 @@ class Proyectos extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }     
         $id_user= $_SESSION['id_usuario'];
         $type = $_GET['view'];        
         $permiso= $this->verificarPermiso($type);
         $verificar = $this->model ->verificarPermiso($id_user,$permiso);
-        if(!empty ($verificar)){
+        if($_SESSION['rol']=='cliente'){
+            header('Location:'.base_url.'Inicio');
+            if(!empty ($verificar)){
                 $data['instituciones']=$this->model->getInstituciones();
                 $data['vista']=$type;
                 $this->views->getView($this, "index", $data); 
+                exit;
+            }
+            else{
+                header('Location:'.base_url.'Inicio');
+                exit;
+                // header('Location:'.base_url.'Proyectos?view='.$type);
+            }
         }
         else{
-            // header('Location:'.base_url.'Errors');
-            header('Location:'.base_url.'Proyectos?view='.$type);
+            header('Location:'.base_url.'Inicio');
+            exit;
+            // header('Location:'.base_url.'Proyectos?view='.$type);
         }
     }
     private function verificarPermiso(string $data){

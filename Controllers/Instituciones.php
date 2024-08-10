@@ -49,19 +49,21 @@ class Instituciones extends Controller{
             if($id==""){
                 $data= $this->model->registrarInstitucion($institucion);
                 if($data=="ok"){
-                    $msg ="si";
+                     $msg=array('ico'=>'success','msg'=> 'Exito Al registrar');
                 }else if($data=="existe") {
-                    $msg ="La institucion ya se encuentra registrada";
-                }else{
-                    $msg="Error al registrar la institucion";
+                    $msg=array('ico'=>'error','msg'=> 'La institucion ya se encuentrada registrada');
+                }else if ($data=="error"){
+                    $msg=array('ico'=>'error','msg'=> 'Error al registrar la institucion');
                 }
             }else{              
                 $data= $this->model->modificarInstitucion($institucion,$id);
                 if($data=="modificado"){
-                    $msg ="modificado";
+                    $msg=array('ico'=>'success','msg'=> 'Modificado');
+                }else if($data=="existe"){
+                    $msg=array('ico'=>'error','msg'=> 'El nonbre de la institucion ya se encuentra registrado');
                 }else{
-                    $msg="Error al modificar institucion";
-                }      
+                    $msg=array('ico'=>'error','msg'=> 'Error al modificar la institucion');
+                }    
             }  
         }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
@@ -77,9 +79,9 @@ class Instituciones extends Controller{
     public function desactivar(int $id){
         $data=$this->model ->accionInstitucion(0,$id);
        if($data==1){
-        $msg="ok";
+            $msg=array('ico'=>'success','msg'=> 'Desactivado');
        }else{
-        $msg="Error al desactivar usuario";
+            $msg=array('ico'=>'error','msg'=> 'Error al desactivar');
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
@@ -87,9 +89,9 @@ class Instituciones extends Controller{
     public function activar(int $id){
         $data=$this->model ->accionInstitucion(1,$id);
        if($data==1){
-        $msg="ok";
+            $msg=array('ico'=>'success','msg'=> 'Activado');
        }else{
-        $msg="Error al activar usuario";
+            $msg=array('ico'=>'error','msg'=> 'Error al activar');
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();

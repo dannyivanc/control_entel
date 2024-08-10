@@ -29,7 +29,7 @@ class ProyectoSucursal extends Controller{
                 exit;
           
         } else {
-            // header('Location:' . base_url . 'Errors');
+            header('Location:' . base_url . 'Inicio');
             exit;
         }
     }

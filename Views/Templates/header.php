@@ -156,11 +156,20 @@
                                         Vehiculos
                                     </a>
                                 <?php endif; ?> 
+
+
+                                <?php if ($_SESSION['rol']=='cliente') : ?>
+                                    <a class="nav-link ms-3" href="<?php echo base_url?>ProyectoSucursal?view=ReporteMateriales&id=<?php echo ($_SESSION['id_institucion'])?>">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                        Materiales
+                                    </a>
+                                <?php else : ?>
                                     <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
                                         <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                         Materiales
                                     </a>
-
+                                <?php endif; ?> 
+                             
                                 <div id="miDiv" style="display: none;">
                              
                                 </div>
