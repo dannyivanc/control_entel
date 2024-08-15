@@ -16,78 +16,65 @@ document.addEventListener("DOMContentLoaded",function(){
           }
       }
 })
-
-
-
-    function frmPassword(){
-      $("#change_pass").modal("show");
-      const id = document.getElementById('id').value;
-      const clave = document.getElementById('clave').value;
-      document.getElementById('modal-id').value = id;
-      document.getElementById('modal-clave').value = clave;      
-    }
+function mostrarAlerta(icon, title, timer = 2000,position="top") {
+    Swal.fire({    
+        icon: icon,
+        title: title,
+        position: position,
+        showConfirmButton: false,
+        timer: timer
+    });
+}
+function frmPassword(){
+    $("#change_pass").modal("show");
+    const id = document.getElementById('id').value;
+    // const clave = document.getElementById('clave').value;
+    document.getElementById('modal-id').value = id;
+    // document.getElementById('modal-clave').value = clave;      
+}
     
-    function btnEditarPerfil (e){
-      e.preventDefault();     
-        const claveActual = document.getElementById('clave-act');
-        const claveNueva = document.getElementById('clave-new');
-        const claveRepetida = document.getElementById('clave-rep'); 
+async function btnEditarPerfil (e){
+    e.preventDefault();     
+    const claveActual = document.getElementById('clave-act');
+    const claveNueva = document.getElementById('clave-new');
+    const claveRepetida = document.getElementById('clave-rep'); 
 
-        if(claveActual.value=="" ||claveNueva.value=="" ||claveRepetida.value==""){
-          Swal.fire({
-            position: "top",
-            icon: "error",
-            title: "Todos los campos son obligatorios",
-            showConfirmButton: false,
-            timer: 2000
-          });
-        }else{  
-          if(claveNueva.value!=claveRepetida.value){
-            Swal.fire({
-                position: "top",
-                icon: "error",
-                title: "Verifique la nueva contraseña",
-                showConfirmButton: false,
-                timer: 2000
-              });
-          }
-          else{
+    if(claveActual.value=="" ||claveNueva.value=="" ||claveRepetida.value==""){
+        mostrarAlerta("error", "Todos los campos son obligatorios");
+    }else{  
+        if(claveNueva.value!=claveRepetida.value){
+            mostrarAlerta("error", "Verifique la nueva contraseña");
+        }
+        else{
             const url = base_url + "Perfil/changePass";
             const frm=document.getElementById("frmPassword");
-            const http = new XMLHttpRequest();
-            http.open("POST",url,true);
-            http.send(new FormData(frm));
-            http.onreadystatechange = function(){
-                if(this.readyState==4 && this.status==200){ 
-                    const res= JSON.parse(this.responseText);
-                    if(res=="modificado"){
-                            Swal.fire({
-                            position: "top",
-                            icon: "success",
-                            title: "Contraseña modificada con exito",
-                            showConfirmButton: false,
-                            timer: 2000
-                            });  
-                            frm.reset();
-                            $("#change_pass").modal("hide");                  
-                        }else{
-                            Swal.fire({
-                            position: "top",
-                            icon: "error",
-                            title: res,
-                            showConfirmButton: false,
-                            timer: 2000
-                            });
-                        }
-                    
-                    }
+            const formData = new FormData(frm);
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    body: formData
+                });
+                if (response.ok) {
+                    const res = await response.json();
+                    mostrarAlerta(res.ico,res.msg);  
+                     if(res.ico=='success') {
+                        frm.reset();
+                        $("#change_pass").modal("hide"); 
+                     }  
+                    // frm.reset();
+                    // $("#change_pass").modal("hide"); 
+                } else {
+                    mostrarAlerta("error", "Se produjo un error");
                 }
+            } catch (error) {
+                    mostrarAlerta("error","Error de servidor");
             }
-           
         }
+       
     }
+}
    // para contraseñas
-    $(document).ready(function(){
+$(document).ready(function(){
         $('#btnMostrarAct').click(function(){
             var tipo = $('#clave-act').attr('type');
             if(tipo == 'password'){
@@ -98,8 +85,8 @@ document.addEventListener("DOMContentLoaded",function(){
                 $(this).html('<i class="fa fa-eye"></i>');
             }
         });
-    });
-    $(document).ready(function(){
+});
+$(document).ready(function(){
       $('#btnMostrarNew').click(function(){
           var tipo = $('#clave-new').attr('type');
           if(tipo == 'password'){
@@ -110,8 +97,8 @@ document.addEventListener("DOMContentLoaded",function(){
               $(this).html('<i class="fa fa-eye"></i>');
           }
       });
-  });
-  $(document).ready(function(){
+});
+$(document).ready(function(){
     $('#btnMostrarRep').click(function(){
         var tipo = $('#clave-rep').attr('type');
         if(tipo == 'password'){
@@ -127,10 +114,10 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
     // para controlar nombre de usuario
-    var userInput = document.getElementById("nombre");
-        userInput.addEventListener("input", function() {
-        this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-    });
+var userInput = document.getElementById("nombre");
+    userInput.addEventListener("input", function() {
+    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+});
 
 
 

@@ -17,7 +17,6 @@
     </head>
         
     <body class="sb-nav-fixed ">
-    
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="height: 65px;">
             <a class="navbar-brand ms-3 mt-2" href="<?php echo base_url;?>Inicio" >
                 <img src="<?php echo base_url?>/Assets/img/logo.png" class="logo_said_navbar " alt="logo">
@@ -33,7 +32,7 @@
                         <i class="fas fa-user fa-fw "></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item"  href="<?php echo base_url;?>Perfil" onclick="frmPerfil();">Perfil</a></li>
+                        <li><a class="dropdown-item"  href="<?php echo base_url;?>Perfil">Perfil</a></li>
                         <li><a class="dropdown-item"  href="<?php echo base_url;?>Usuarios/salir">Cerrar sesion</a></li>
                     </ul>
                 </li>
@@ -179,8 +178,6 @@
                             </div> 
                             <?php endif; ?>
 
-
-                          
                         </div>
                     </div>
                 </nav>

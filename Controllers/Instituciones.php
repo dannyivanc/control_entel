@@ -8,15 +8,17 @@ class Instituciones extends Controller{
     public function index(){    
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }
         $id_user= $_SESSION['id_usuario'];
         $verificar =    $this->model ->verificarPermiso($id_user,'institucion');
-        if(!empty ($verificar)){
-        
+        if(!empty ($verificar)){        
             $this->views->getView($this,"index");
+            exit;
         }
         else{
             header('Location:'.base_url.'Errors');
+            exit;
         }
     }
 

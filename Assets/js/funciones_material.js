@@ -9,12 +9,12 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
         timer: timer
     });
 }
-document.getElementById("frmInstitucion").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-      event.preventDefault();
-      registrarInstitucion(event); 
-  }
-});
+// document.getElementById("frmMaterial").addEventListener("keypress", function(event) {
+//   if (event.key === "Enter") {
+//       event.preventDefault();
+//       registrarMaterial(event); 
+//   }
+// });
 
   
 document.addEventListener("DOMContentLoaded",function(){
@@ -108,7 +108,6 @@ async function registrarMaterial (e){
     const destino = document.getElementById("destino");
     const cantidad = document.getElementById("cantidad");
     const descripcion = document.getElementById("descripcion");
-
     if(fecha.value==""||movimiento.value==""||persona.value==""||destino.value==""||descripcion.value==""||cantidad.value==""){
         mostrarAlerta("error", "Solo las observaciones pueden esta vacias");
     }else{
@@ -122,18 +121,10 @@ async function registrarMaterial (e){
             });
             if (response.ok) {
                 const res = await response.json();
-                if (res === "si") {
-                    mostrarAlerta("success", "Entrada registrada con éxito");
-                    frm.reset();
-                    $("#nuevo_material").modal("hide");
-                    tblMateriales.ajax.reload();
-                } else if (res === "modificado") {
-                    mostrarAlerta("success", "Modificacion completada");
-                    $("#nuevo_material").modal("hide");
-                    tblMateriales.ajax.reload();
-                } else {
-                    mostrarAlerta("error", res);
-                }
+                mostrarAlerta(res.ico,res.msg); 
+                frm.reset();
+                $("#nuevo_material").modal("hide");
+                tblMateriales.ajax.reload();
             } else {
                 mostrarAlerta("error", "Error en la solicitud");
             }
@@ -149,7 +140,7 @@ async function btnEditarMaterial(id) {
     try {
         const response = await fetch(url);
         if (response.ok) {
-             const res = await response.json();
+            const res = await response.json();
             document.getElementById("id").value = res.id;
             document.getElementById("fecha").value = res.fecha;
             document.getElementById("movimiento").value = res.movimiento;
@@ -171,7 +162,7 @@ function btnDesactivarMaterial(id){
     Swal.fire({
       title: "Completar registro",
       icon: "warning",
-      text: "El registro del material ya no podra ser visualizado",
+      text: "El registro ya no podra ser visualizado",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -183,13 +174,9 @@ function btnDesactivarMaterial(id){
             const url = base_url + "Materiales/desactivar/"+id;
             const response = await fetch(url);
             if (response.ok) {
-                const res = await response.json();
-                if (res == "ok") {
-                    mostrarAlerta("success", "Registro completado con éxito");
-                    tblMateriales.ajax.reload();
-                }else {
-                    mostrarAlerta("error ",res);
-                }
+              const res = await response.json();                
+              mostrarAlerta(res.ico,res.msg); 
+              res.ico=='success'?tblMateriales.ajax.reload():'';
             } else {
                 mostrarAlerta("error ","Error en la solicitud");
             }
@@ -199,48 +186,6 @@ function btnDesactivarMaterial(id){
       }
     });
   }
-    //para controlar salida
-    // var fechaActual = new Date();    
-    // var FechaControl = new Date(fechaActual.getTime() - (14 * 60 * 60 * 1000));
-    // var fechaControlString = FechaControl.toISOString().slice(0,16);
-    // var salidaInput = document.getElementById("salida");
-    // salidaInput.min = fechaControlString;
-    // salidaInput.addEventListener("change", function() {
-    //     var salidaSeleccionada = new Date(this.value);
-    //     if (salidaSeleccionada < FechaControl) {
-    //         salidaInput.value = fechaControlString;
-    //     }
-    // });
-    
-//para controlar retorno    
-    // var salidaInput = document.getElementById("salida");
-    // var retornoInput = document.getElementById("retorno");
-    // salidaInput.addEventListener("change", function() {
-    //     retornoInput.min = salidaInput.value;
-    //     if (retornoInput.value < salidaInput.value) {
-    //         retornoInput.value = "";
-    //     }
-    // });
-    // retornoInput.addEventListener("change", function() {
-    //     if (retornoInput.value < salidaInput.value) {
-    //         retornoInput.value = salidaInput.value;
-    //     }
-    // });
 
-//controlando solo numeros en kp salida y retorno
-    // var kmSalida = document.getElementById("km_salida");
-    // kmSalida.addEventListener("input", function() {
-    //     this.value = this.value.replace(/\D/g, '');
-    // });
-    // var kmRetorno = document.getElementById("km_retorno");
-    // kmRetorno.addEventListener("input", function() {
-    //     this.value = this.value.replace(/\D/g, '');
-    // });
-
-//controlar nombre
-    // var conductorImput = document.getElementById("conductor");
-    // conductorImput.addEventListener("input", function() {
-    //     this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-    // });
 
 

@@ -7,12 +7,11 @@ class Perfil extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }
         $this->views->getView($this,"index");
-   
+        exit;
     }
-
-    
 
     public function verPerfil(){
         $data= $this->model->getPerfil();   
@@ -20,7 +19,6 @@ class Perfil extends Controller{
         die();
     }
 
-    
     public function changePass(){
         $id= $_POST['modal-id'];
         $actual= $_POST['clave-act'];
@@ -29,17 +27,17 @@ class Perfil extends Controller{
         $hash=hash("SHA256",$actual);   
         $hashNuevo=hash("SHA256",$nueva);   
         if(empty($actual)||empty($nueva)||empty($repetir)){
-            $msg=  "Todos los campos son obligatorios";
+            $msg=array('ico'=>'error','msg'=>'Todos los campos son obligatorios');
         }else{               
                 $data= $this->model->modificarPerfilPass($hash,$hashNuevo,$id);
                 if($data=="modificado"){
-                    $msg =$data;
+                    $msg=array('ico'=>'success','msg'=>'Modificado correctamente');
                 }
                 else if($data=="incorrecto"){
-                    $msg ="La clave actual es incorrecta";
+                    $msg=array('ico'=>'error','msg'=>'La clave actual es incorrecta');
                 }
                 else{
-                    $msg="Error al modificar clave";
+                    $msg=array('ico'=>'error','msg'=>'Error al modificar clave');
                 }   
 
 

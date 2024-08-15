@@ -139,7 +139,7 @@ async function btnDesactivarInstitucion(id){
         const response = await fetch(url);
         if (response.ok) {
             const res =  await response.json();  
-            console.log(res)    
+            // console.log(res)    
             mostrarAlerta(res.ico,res.msg); 
             tblInstituciones.ajax.reload();
         }
@@ -166,10 +166,10 @@ async function btnActivarInstitucion(id){
           const url = base_url + "Instituciones/activar/"+id; 
           const response = await fetch(url);
           if (response.ok) {
-              const res =  await response.json();  
-              console.log(res)    
+              const res =  await response.json();      
               mostrarAlerta(res.ico,res.msg); 
-              tblInstituciones.ajax.reload();
+              // tblInstituciones.ajax.reload();
+              res.ico=='success'?tblInstituciones.ajax.reload():'';
           }
         } catch (error) {
           mostrarAlerta("error", "Error en el servidor");  

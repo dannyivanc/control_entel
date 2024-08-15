@@ -1,10 +1,10 @@
 <?php
 class Patrullajes extends Controller{
-    private $institucionInfo;
     public function __construct(){
         session_start();          
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }    
         parent::__construct();    
     }
@@ -12,8 +12,8 @@ class Patrullajes extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }      
-
         $id_user= $_SESSION['id_usuario'];
         $verificar = $this->model ->verificarPermiso($id_user,'patrullaje');
         if(!empty ($verificar)){
@@ -25,14 +25,15 @@ class Patrullajes extends Controller{
                     $data['institucion'] =  $institucion_data;    
                     $data['sucursales'] =  $this->model->getSucursales($id_institucion);    
                     $this->views->getView($this, "index", $data);
+                    exit;
                 } else {
                     header('Location: '.base_url.'Proyectos?view=Patrullaje');
-                    exit();
+                    exit;
                 }
             } 
             else {          
                 header('Location: '.base_url.'Proyectos?view=Patrullaje');
-                exit();
+                exit;
             }
         }
         else{
@@ -63,18 +64,6 @@ class Patrullajes extends Controller{
         die();
     }
 
-    // public function popopo(){
-    //     $fecha =date('Y-m-d H:i:s');
-    //     $lat= 19.90;
-    //     $lng= 19.90;           
-    //     $descripcion= 'hola';
-    //     $id_sucursal= 6;     
-    //     $id_supervisor= 2;   
-    //     for ($i = 130001; $i < 500000; $i++) {
-    //         $data= $this->model->registrarPatrullaje($fecha,$lat,$lng,$i,$id_sucursal,$id_supervisor);        
-    //     }
-       
-    // }
     public function registrar(){
         $fecha =date('Y-m-d H:i:s');
         $lat= $_POST['lat'];    
@@ -83,28 +72,24 @@ class Patrullajes extends Controller{
         $id_sucursal= $_POST['id_sucursal'];     
         $id_supervisor= $_SESSION['id_usuario'];     
         $id= $_POST['id'];    
-
-
         if(empty($lat)||empty($lng)||empty($id_sucursal) || empty($descripcion)){
-            $msg= "Todos los campos son obligatorios";
+            $msg=array('ico'=>'error','msg'=>'Todos los campos son obligatorios');
         }else{
             if($id==""){       
                 $data= $this->model->registrarPatrullaje($fecha,$lat,$lng,$descripcion,$id_sucursal,$id_supervisor);
                 if($data=="ok"){
-                    $msg ="si";
+                   $msg= array('ico'=>'success','msg'=>'Registrado');
                 }else if($data=="existe") {
-                    $msg ="La sucursal ya se encuentra registrada";
+                    $msg=array('ico'=>'error','msg'=>'Ya se encuentra registrado');
                 }else{
-                    $msg=$data;
+                    $msg=array('ico'=>'error','msg'=>'Se produjo un error');
                 }
-               
             }else{       
                 $data= $this->model->modificarPatrullaje($descripcion,$id_sucursal,$id);
                 if($data=="modificado"){
-                    $msg ="modificado";
+                    $msg=array('ico'=>'success','msg'=>'Modificado correctamente');
                 }else{
-                    $msg="Error al modificar la sucursal";
-                    
+                    $msg=array('ico'=>'error','msg'=>'Error al modificar');
                 }      
             }  
         }
@@ -117,11 +102,6 @@ class Patrullajes extends Controller{
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
       }
-
-
-
-
-
 }
 ?>
 

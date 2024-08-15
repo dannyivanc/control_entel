@@ -11,7 +11,6 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
     });
 }
 
-
 document.addEventListener("DOMContentLoaded",function(){
         tblPatrullajes=$('#tblPatrullajes').DataTable({
         responsive: true,
@@ -69,13 +68,13 @@ document.addEventListener("DOMContentLoaded",function(){
    
 function frmPatrullaje(){
     document.getElementById("map").style.display = "none";
-  document.getElementById("title").innerHTML="Registro Patrullaje";
-  document.getElementById("btn_form_patrullaje").innerHTML="Nuevo Registro";
-  document.getElementById("frmPatrullaje").reset();
-  document.getElementById("descripcion").value="Sin novedad";
-  document.getElementById("btn_obtener").style.display = "block";
-  $("#nuevo_patrullaje").modal("show");
-  document.getElementById("id").value="";
+    document.getElementById("title").innerHTML="Registro Patrullaje";
+    document.getElementById("btn_form_patrullaje").innerHTML="Nuevo Registro";
+    document.getElementById("frmPatrullaje").reset();
+    document.getElementById("descripcion").value="Sin novedad";
+    document.getElementById("btn_obtener").style.display = "block";
+    $("#nuevo_patrullaje").modal("show");
+    document.getElementById("id").value="";
 }
 
 async function registrarPatrullaje (e){
@@ -86,7 +85,6 @@ async function registrarPatrullaje (e){
     const lng = document.getElementById("lng");
     lat.value=lati;
     lng.value=long;
-
     if(id_sucursal.value==""||descripcion.value==""||lat.value==""||lng.value==""){
         mostrarAlerta("error", "Complete el formulario correctamente");
     }else{
@@ -98,32 +96,22 @@ async function registrarPatrullaje (e){
                 method: "POST",
                 body: formData
             });
-        //    console.log(response)
             if (response.ok) {
                 const res = await response.json();
-                console.log(res)
-                if (res === "si") {
-                    mostrarAlerta("error", res);
-                    mostrarAlerta("success", "Entrada registrada con éxito");
+                mostrarAlerta(res.ico,res.msg);  
+                if(res.ico=='success') {
+                    tblPatrullajes.ajax.reload()   
                     frm.reset();
                     $("#nuevo_patrullaje").modal("hide");
-                    tblPatrullajes.ajax.reload();
-                } else if (res === "modificado") {
-                    mostrarAlerta("success", "Modificacion completada");
-                    $("#nuevo_patrullaje").modal("hide");
-                    tblPatrullajes.ajax.reload();
-                } else {
-                    mostrarAlerta("error", res);
-                }
+                }                        
             } else {
-                mostrarAlerta("error", res);
+                mostrarAlerta("error", "Se produjo un error");
             }
         } catch (error) {
                 mostrarAlerta("error","Error de servidor");
         }
     }
 }
-
 
 async function btnEditarSupervision(id) {
     document.getElementById("title").innerHTML = "Modificar Supervision";
@@ -149,15 +137,6 @@ async function btnEditarSupervision(id) {
     }
 }
 
-
-
-
-
-
-
-
-
-
 // para el mapa
 function obtenerUbicacion (){
     if (navigator.geolocation) {
@@ -178,9 +157,6 @@ function obtenerUbicacion (){
     }
 }
 
-
-
-
 async function initMap(lat=-19.583309,lng=-65.759771)  {
     lati=lat;
     long=lng;
@@ -200,5 +176,3 @@ async function initMap(lat=-19.583309,lng=-65.759771)  {
         map:map,
         title: 'Uluru',
     });}
-
-

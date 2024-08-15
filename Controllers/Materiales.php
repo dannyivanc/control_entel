@@ -15,15 +15,18 @@ class Materiales extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }       
         $id_user= $_SESSION['id_usuario'];
         $verificar =    $this->model ->verificarPermiso($id_user,'materiales');
         if(!empty ($verificar)){
             $data= $this->sucursalInfo;
             $this->views->getView($this, "index", $data);
+            exit;
         }
         else{
             header('Location:'.base_url.'Errors');
+            exit;
         }
 
 
@@ -67,22 +70,22 @@ class Materiales extends Controller{
         $id= $_POST['id'];  
 
         if(empty($fecha)||empty($movimiento)||empty($persona)||empty($destino)||empty($descripcion)||empty($cantidad)){
-            $msg= "Solo las observaciones pueden esta vacias";
+            $msg=array('ico'=>'success','msg'=> 'Exito al registrar');
         }else{
             if($id==""){
                 $data= $this->model->registrarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$cantidad,$observacion,$id_sucursal,$id_vigilante);
                 if($data=="ok"){
-                    $msg ="si";
+                    $msg=array('ico'=>'success','msg'=> 'Exito al registrar');
                 }else{
-                    $msg="Error al registrar movimiento";
+                    $msg=array('ico'=>'error','msg'=> 'Error al registrar');
                 }
             }
             else{       
                 $data= $this->model->modificarMaterial($fecha,$movimiento,$persona,$destino,$descripcion,$cantidad,$observacion,$id_vigilante,$id);
                 if($data=="modificado"){
-                    $msg ="modificado";
+                    $msg=array('ico'=>'success','msg'=> 'Modificado');
                 }else{
-                    $msg="Error al modificar el movimiento";
+                    $msg=array('ico'=>'error','msg'=> 'Error al modificar');
                 }
             }
         }
@@ -99,12 +102,12 @@ class Materiales extends Controller{
     public function desactivar(int $id){
         $data=$this->model ->accionMaterial($id);
        if($data=="ok"){
-        $msg="ok";
-       }else if($data=="void"){
-        $msg="void";
+            $msg=array('ico'=>'success','msg'=> 'Registro completado con éxito');
+       }else if($data=="vacio"){
+            $msg=array('ico'=>'error','msg'=> 'No se pudo completar');
        }
        else{
-        $msg="Error en el material";
+            $msg=array('ico'=>'error','msg'=> 'Se produjo un error');
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();

@@ -19,6 +19,8 @@ class Proyectos extends Controller{
         $verificar = $this->model ->verificarPermiso($id_user,$permiso);
         if($_SESSION['rol']=='cliente'){
             header('Location:'.base_url.'Inicio');
+        }
+        else if ($_SESSION['rol']!='cliente'){
             if(!empty ($verificar)){
                 $data['instituciones']=$this->model->getInstituciones();
                 $data['vista']=$type;
@@ -28,13 +30,10 @@ class Proyectos extends Controller{
             else{
                 header('Location:'.base_url.'Inicio');
                 exit;
-                // header('Location:'.base_url.'Proyectos?view='.$type);
             }
-        }
-        else{
+        }else{
             header('Location:'.base_url.'Inicio');
             exit;
-            // header('Location:'.base_url.'Proyectos?view='.$type);
         }
     }
     private function verificarPermiso(string $data){
