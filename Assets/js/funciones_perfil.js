@@ -61,8 +61,6 @@ async function btnEditarPerfil (e){
                         frm.reset();
                         $("#change_pass").modal("hide"); 
                      }  
-                    // frm.reset();
-                    // $("#change_pass").modal("hide"); 
                 } else {
                     mostrarAlerta("error", "Se produjo un error");
                 }

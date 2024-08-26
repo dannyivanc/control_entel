@@ -52,23 +52,23 @@ class Sucursales extends Controller{
             if($id==""){  
                 $data= $this->model->registrarSucursal($sucursal,$institucion,$ciudad,$direccion);  
                 if($data=="error"){
-                    $msg=array('ico'=>'error','msg'=> 'Error al crear la sucursal');
+                    $msg=array('ico'=>'error','msg'=> 'Se produjo un error');
                 }
                 else if($data=="existe"){
-                    $msg=array('ico'=>'error','msg'=> 'El nombre de la sucursal ya esta registrada');
+                    $msg=array('ico'=>'error','msg'=> 'La sucursal ya se encuentra registrada');
                 }
                 else{
                     foreach($vigilantes as $vigilante){
                         $this->model->cambiarVigilante($vigilante,$data);    
                     }
-                    $msg=array('ico'=>'success','msg'=> 'Registrado con exito');
+                    $msg=array('ico'=>'success','msg'=> 'Registro existoso');
                 }
             }
-            else{  
+            else{                 
                 $dataSuc= $this->model->modificarSucursal($sucursal,$institucion,$ciudad,$direccion,$id);  
                 if($dataSuc=="modificado"){
                     foreach($vigilantes as $vigilante){
-                        $this->model->cambiarVigilante($vigilante,$id);
+                      $this->model->cambiarVigilante($vigilante,$id);
                      }
                      $msg=array('ico'=>'success','msg'=> 'Modificado');
                 }
@@ -89,9 +89,9 @@ class Sucursales extends Controller{
     public function desactivar(int $id){
         $data=$this->model ->accionInstitucion(0,$id);
        if($data==1){
-        $msg="ok";
+            $msg=array('ico'=>'success','msg'=> 'La sucursal desactivado con exito');
        }else{
-        $msg="Error al desactivar usuario";
+            $msg=array('ico'=>'error','msg'=> 'Error al desactivar');
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
@@ -100,9 +100,9 @@ class Sucursales extends Controller{
     public function activar(int $id){
         $data=$this->model ->accionInstitucion(1,$id);
        if($data==1){
-        $msg="ok";
+            $msg=array('ico'=>'success','msg'=> 'La sucursal activada con exito');
        }else{
-        $msg="Error al activar usuario";
+            $msg=array('ico'=>'error','msg'=> 'Error al activar');
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();

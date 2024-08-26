@@ -19,15 +19,12 @@ class ProyectoSucursal extends Controller{
         $id_institucion= $_GET['id'];
         $permiso = $this->verificarPermiso($type);
         $verificar = $this->model->verificarPermiso($id_user, $permiso);      
-        
         if (!empty($verificar)) {            
                 $data['institucion'] = $this->model->getInstitucion($id_institucion);
                 $data['sucursales'] = $this->model->getSucursales($id_institucion);
                 $data['vista'] = $type;
-                // $_SESSION['data'] = $data;
                 $this->views->getView($this, "index", $data);
                 exit;
-          
         } else {
             header('Location:' . base_url . 'Inicio');
             exit;
@@ -60,41 +57,6 @@ class ProyectoSucursal extends Controller{
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    public function pipipi(){
-        // $_SESSION['rol']='laputie';
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
-    }
-
- 
-
-
-    // public function index(){
-    //     if(empty($_SESSION['activo'])){
-    //     header("location:".base_url);
-    //     }     
-    //     $id_user= $_SESSION['id_usuario'];
-    //     $type = $_GET['view'];        
-    //     $permiso= $this->verificarPermiso($type);
-    //     $verificar =    $this->model ->verificarPermiso($id_user,$permiso);
-    //     if(!empty ($verificar)){       
-    //         if ($_SESSION['id_usuario'] === 'POST' && isset($_POST['id_institucion'])) {
-    //             $data['institucion']=$this->model->getInstitucion($_POST['id_institucion']);
-    //             $data['sucursales']=$this->model->getSucursales($_POST['id_institucion']);
-    //             $data['vista']=$type;
-    //             $this->views->getView($this,"index",$data);
-    //         } 
-    //         else{
-    //             header('Location:'.base_url.'Errors');
-    //         }
-    //     }
-    //     else{
-    //         header('Location:'.base_url.'Errors');
-    //     }
-    // }
-
 }
 ?>
 

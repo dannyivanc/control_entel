@@ -1,4 +1,4 @@
-        $sql=" SELECT * FROM vehiculos
+            $sql=" SELECT * FROM vehiculos
             WHERE id_sucursal =? AND salida BETWEEN ? AND ?
             ORDER BY id DESC";
             $stmt = $this->conect->prepare($sql);
@@ -7,11 +7,17 @@
 
 
 
-            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,cel=?rol=?,id_institucion =? WHERE id=?";         
-            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->cel,$this->rol,$this->clave,$this->id_institucion,$this->id);
-            $data =  $this-> save($sql,$datos);
+            $sql = "INSERT INTO patrullaje (fecha,lat,lng,descripcion,id_sucursal,id_supervisor) VALUES (?,?,?,?,?,?)";
+            $stmt = $this->conect->prepare($sql);
+            $stmt-> execute([$fecha,$lat,$lng,$descripcion,$id_sucursal,$id_supervisor]);
+            $data = $stmt->rowCount();
 
 
-            $sql = "INSERT INTO usuarios (usuario,nombre,carnet,clave,rol,cel,id_institucion) VALUES (?,?,?,?,?,?,?)";
-                $datos =array($this->usuario,$this->nombre,$this->carnet,$this->clave,$this->rol,$this->cel,$this->id_institucion);
-                $data =  $this-> save($sql,$datos);
+            $sql = "UPDATE patrullaje SET descripcion=?,id_sucursal=? WHERE id=?"; 
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$descripcion,$id_sucursal,$id]);
+
+
+            $sql = "DELETE FROM patrullaje WHERE id = ?";
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$id]);

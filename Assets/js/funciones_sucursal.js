@@ -9,8 +9,7 @@ function mostrarAlerta(icon, title,timer = 2000,position="top") {
   });
 }
 document.addEventListener("DOMContentLoaded",function(){
-  //  if(window.location.pathname ===`/control/Usuarios`){
-    tblSucursales=$('#tblSucursales').DataTable( {
+     tblSucursales=$('#tblSucursales').DataTable( {
       responsive: true,
       ajax: {
           url: base_url+"Sucursales/listar",
@@ -107,8 +106,9 @@ async function registrarSucursal (e){
                 method: "POST",
                 body: formData
             });
-            if (response.ok) {  
+            if (response.ok) {              
                 const res = await response.json();
+                console.log(res)
                 if(res.ico =='success'){  
                   mostrarAlerta(res.ico,res.msg);  
                   $("#nuevo_sucursal").modal("hide");
@@ -122,20 +122,18 @@ async function registrarSucursal (e){
           }
       }catch (error) {
         mostrarAlerta("error",  error);
-        // console.log(error)
     }
   }
 }
-function btnEditarSucursal(id){
+
+async function btnEditarSucursal(id){
   document.getElementById("title").innerHTML="Actualizar Sucursal";
   document.getElementById("btn_form_sucursal").innerHTML="Actualizar";
   const url = base_url + "Sucursales/editar/"+id;  
-  const http = new XMLHttpRequest();
-  http.open("GET",url,true);
-  http.send();
-  http.onreadystatechange = function(){
-    if(this.readyState==4 && this.status==200){     
-        const res = JSON.parse(this.responseText);
+  try{
+    const response= await fetch(url);
+    if(response.ok){
+        const res = await response.json(); 
         document.getElementById("id").value=res.sucursal.id;
         document.getElementById("sucursal").value=res.sucursal.sucursal;
         document.getElementById("institucion").value=res.sucursal.id_institucion;          
@@ -144,10 +142,15 @@ function btnEditarSucursal(id){
         let vigilanteValues = res.vigilantes.map(v => v.id); 
         $('#vigilante').val(vigilanteValues).trigger('change');
         $("#nuevo_sucursal").modal("show");
-      }
+
+    }else{
+      mostrarAlerta("error", "Error en la solicitud");
+    }
+  }catch(err){
+    mostrarAlerta("error", "Error en el servidor");
   }
 }
-function btnDesactivarSucursal(id){
+ function btnDesactivarSucursal(id){
   Swal.fire({
     title: "Desactivar Sucursal",
     icon: "warning",
@@ -156,33 +159,21 @@ function btnDesactivarSucursal(id){
     cancelButtonColor: "#d33",
     confirmButtonText: "Desactivar",
     cancelButtonText :"Cancelar"
-  }).then((result) => {
-    if (result.isConfirmed) {   
-      const url = base_url + "Sucursales/desactivar/"+id;  
-      const http = new XMLHttpRequest();
-      http.open("GET",url,true);
-      http.send();
-      http.onreadystatechange = function(){
-          if(this.readyState==4 && this.status==200){ 
-            const res=JSON.parse(this.responseText); 
-           if(res=="ok"){
-            Swal.fire({
-              title: "Desactivado",
-              text: "La sucursal desactivado con exito",
-              icon: "success"
-            });
-            tblSucursales.ajax.reload();
-           }
-           else{
-            Swal.fire({
-              title: "Se produjo un error",
-              text: res,
-              icon: "error"
-            });
-           }
-           
-          }
-      }   
+  }).then(async (result) => {
+    if (result.isConfirmed) {  
+      try {
+        const url = base_url + "Sucursales/desactivar/"+id;  
+        const response = await fetch(url);
+        if (response.ok) {
+          const res = await response.json();                
+          mostrarAlerta(res.ico,res.msg); 
+          res.ico=='success'?tblSucursales.ajax.reload():'';
+        } else {
+            mostrarAlerta("error ","Error en la solicitud");
+        }
+      } catch (error) {
+          mostrarAlerta("error ","Error en el servidor");
+      }  
     }
   });
 }
@@ -195,32 +186,20 @@ function btnActivarSucursal(id){
     cancelButtonColor: "#d33",
     confirmButtonText: "Activar",
     cancelButtonText :"Cancelar"
-  }).then((result) => {
+  }).then(async(result) => {
     if (result.isConfirmed) {   
-      const url = base_url + "Sucursales/activar/"+id;  
-      const http = new XMLHttpRequest();
-      http.open("GET",url,true);
-      http.send();
-      http.onreadystatechange = function(){
-          if(this.readyState==4 && this.status==200){ 
-            const res=JSON.parse(this.responseText); 
-           if(res=="ok"){
-            Swal.fire({
-              title: "Activado",
-              text: "La sucursal activado con exito",
-              icon: "success"
-            });
-            tblSucursales.ajax.reload();
-           }
-           else{
-            Swal.fire({
-              title: "Se produjo un error",
-              text: res,
-              icon: "error"
-            });
-           }
-           
-          }
+      try {
+        const url = base_url + "Sucursales/activar/"+id;  
+        const response = await fetch(url);
+        if (response.ok) {
+          const res = await response.json();                
+          mostrarAlerta(res.ico,res.msg); 
+          res.ico=='success'?tblSucursales.ajax.reload():'';
+        } else {
+            mostrarAlerta("error ","Error en la solicitud");
+        }
+      } catch (error) {
+          mostrarAlerta("error ","Error en el servidor");
       }    
     }
   });

@@ -1,7 +1,5 @@
 <?php
     class SucursalesModel extends Query{
-        private $id,$sucursal,$id_institucion,$id_vigilante,$ciudad,$direccion,$estado;
-  
         public function __construct(){
             parent::__construct();
   
@@ -9,88 +7,81 @@
         }
         public function getInstituciones(){
             $sql="SELECT * FROM instituciones WHERE estado = 1";
-            $data= $this->selectAll($sql);
+            $stmt= $this->conect->prepare($sql);
+            $stmt->execute();
+            $data= $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }      
         
         public function getVigilantes(){
             $sql="SELECT id,nombre as vigilante FROM usuarios WHERE estado = 1 and rol='vigilante'";
-            $data= $this->selectAll($sql);
+            $stmt=$this->conect->prepare($sql);
+            $stmt->execute();
+            $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }       
         
         public function getSucursales(){ 
             $sql="SELECT s.*, i.id AS id_institucion, i.institucion,
                   GROUP_CONCAT(u.nombre SEPARATOR ', ') AS vigilante
-            FROM 
-                sucursales AS s
+            FROM sucursales AS s
                 INNER JOIN instituciones AS i ON s.id_institucion = i.id
                 LEFT JOIN suc_vig AS sv ON s.id = sv.id_sucursal
                 LEFT JOIN usuarios AS u ON sv.id_vigilante = u.id
-            GROUP BY 
-                s.id, i.id
-            ORDER BY 
-                s.id DESC" ;  
-                
-            $data= $this->selectAll($sql);
+            GROUP BY s.id, i.id
+            ORDER BY s.id DESC" ;        
+            $stmt=$this->conect->prepare($sql);
+            $stmt->execute();
+            $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
 
         } 
 
-        public function cambiarVigilante(int $id_vigilante,int $id_sucursal){
-            $this->id_vigilante=$id_vigilante;
-            $this->sucursal=$id_sucursal;
-            $sql = "DELETE FROM suc_vig WHERE id_vigilante=?";
-            $datos =array($id_vigilante);
-            $this-> save($sql,$datos);
-            $sqlsuc_vib = "INSERT INTO suc_vig (id_sucursal,id_vigilante) VALUES (?,?)";
-            $datos_suc_vig= array($this->sucursal, $this->id_vigilante);
-            $this-> save($sqlsuc_vib,$datos_suc_vig);  
-        }
+     
 
 
         public function registrarSucursal(string $sucursal, int $id_institucion, string $ciudad, string $direccion) {
                 $res='';
-                $this->sucursal=$sucursal;
-                $this->id_institucion=$id_institucion;
-                $this->ciudad=$ciudad;
-                $this->direccion=$direccion;
-                $verificar ="SELECT * FROM sucursales WHERE sucursal='$this->sucursal' AND id_institucion='$this->id_institucion' ";
-                $existe =$this->select($verificar);
+                $verificar ="SELECT * FROM sucursales WHERE sucursal=? AND id_institucion=? ";
+                $stmt_ver= $this->conect->prepare($verificar);
+                $stmt_ver->execute([$sucursal,$id_institucion]);
+                $existe = $stmt_ver->fetch(PDO::FETCH_ASSOC);
                 if(empty($existe)){
                     $sqlsuc = "INSERT INTO sucursales (sucursal,id_institucion,ciudad,direccion) VALUES (?,?,?,?)";
-                    $datos= array($this->sucursal, $this->id_institucion, $this->ciudad, $this->direccion);
-                    $data =  $this-> save($sqlsuc,$datos);       
-                    if(!empty($data)){             
-                        $sqlLastId = "SELECT id FROM sucursales ORDER BY id DESC LIMIT 1;";
-                        $id= $this->select($sqlLastId);
-                        $res =$id['id']; ;
-                    }else{
-                        $res = "error";
-                    }  
+                    $stmt=$this->conect->prepare($sqlsuc);
+                    $stmt->execute([$sucursal, $id_institucion, $ciudad, $direccion]);
+
+                    $lastId = $this->conect->lastInsertId();
+                    $sql = "SELECT * FROM sucursales WHERE id = ?";
+                    $stmt2 = $this->conect->prepare($sql);
+                    $stmt2->execute([$lastId]);
+                    $data = $stmt2->fetch(PDO::FETCH_ASSOC);
+                    $res=$data['id'];
                 }
                 else{
-                    $res ="existe";
+                    $res = 'error';
                 }
                 return $res;
         }
+        
+        public function cambiarVigilante(int $id_vigilante,int $id_sucursal){
+            $sql = "DELETE FROM suc_vig WHERE id_vigilante=?";
+            $stmt= $this->conect->prepare($sql);
+            $stmt->execute([$id_vigilante]);       
+            $sqlsuc_vib = "INSERT INTO suc_vig (id_sucursal,id_vigilante) VALUES (?,?)";
+            $stmt2= $this->conect->prepare($sqlsuc_vib);
+            $stmt2->execute([$id_sucursal,$id_vigilante]);
+           
+        }
 
-        public function modificarSucursal(string $sucursal,int $id_institucion,string $ciudad,string $direccion, int $id){
-            $this->sucursal=$sucursal;
-            $this->id_institucion=$id_institucion;
-            $this->ciudad=$ciudad;
-            $this->direccion=$direccion;
-            $this->id=$id;
+        public function modificarSucursal(string $sucursal,int $id_institucion,string $ciudad,string $direccion, int $id){            
             $sql = "UPDATE sucursales SET sucursal=?,id_institucion=?,ciudad=?,direccion=? WHERE id=?"; 
-            $datos =array( $this->sucursal,$this->id_institucion,$this->ciudad,$this->direccion,$this->id);
-            $datasuc =  $this-> save($sql,$datos);
-            if(!empty($datasuc)){
-                $sql_del = "DELETE FROM suc_vig WHERE id_sucursal=?";
-                $datos_del =array($id);                    $this-> save($sql_del,$datos_del); 
-                $res = "modificado";
-            }else{
-                $res ="error";
-            }
+            $stmt= $this->conect->prepare($sql);
+            $stmt->execute([$sucursal,$id_institucion,$ciudad,$direccion,$id]);
+            $sql_del = "DELETE FROM suc_vig WHERE id_sucursal=?";
+            $stmt2= $this->conect->prepare($sql_del);
+            $stmt2->execute([$id]);
+            $res='modificado';            
             return $res;            
         }
          public function editarSucursal(int $id){
@@ -101,16 +92,18 @@
             return $data;
         }
         public function accionInstitucion (int $estado,int $id){
-            $this->id = $id;
-            $this->estado = $estado;
             $sql ="UPDATE sucursales SET estado =? WHERE id=?";
-            $datos=array($this->estado,$this->id);
-            $data = $this->save($sql,$datos);
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$estado, $id]);
+            $data = $stmt->rowCount();
             return $data;
         }
+        
         public function verificarPermiso(int $id_user, string $nombre){
-            $sql="SELECT p.id,p.permiso, d.id,d.id_usuario,d.id_permiso FROM permisos p INNER JOIN detalle_permisos d ON p.id=d.id_permiso WHERE d.id_usuario=$id_user AND p.permiso='$nombre'";
-            $data= $this-> selectAll($sql);
+            $sql="SELECT p.id,p.permiso, d.id,d.id_usuario,d.id_permiso FROM permisos p INNER JOIN detalle_permisos d ON p.id=d.id_permiso WHERE d.id_usuario=? AND p.permiso=?";
+            $stmt = $this->conect->prepare($sql);
+            $stmt->execute([$id_user,$nombre]);
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
     }

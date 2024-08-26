@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded",function(){
 })
    
 function frmSupervision(){
-    document.getElementById("map").style.display = "none";
+  document.getElementById("map").style.display = "none";
   document.getElementById("title").innerHTML="Registro Supervision";
   document.getElementById("btn_form_supervision").innerHTML="Nuevo Registro";
   document.getElementById("frmSupervision").reset();
@@ -112,7 +112,6 @@ async function registrarSupevision (e){
                 method: "POST",
                 body: formData
             });
-        //    console.log(response)
             if (response.ok) {
                 const res = await response.json();
                 console.log(res)
@@ -169,9 +168,6 @@ async function btnEditarSupervision(id) {
     }
 }
 
-
-
-//para los switch
 const updateSwitchLabel = (switchElement, labelElement) => {
     if (switchElement.checked) {
         labelElement.textContent = 'Si';
@@ -216,9 +212,6 @@ function obtenerUbicacion (){
         initMap();
     }
 }
-
-
-
 
 async function initMap(lat=-19.583309,lng=-65.759771)  {
     lati=lat;

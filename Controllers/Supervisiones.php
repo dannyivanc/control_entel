@@ -40,22 +40,12 @@ class Supervisiones extends Controller{
         }    
     }
 
-    public function perrie(){
-        print_r($_SESSION['id_usuario']);
-        print_r('---');
-        // $id_sucursal= $this->institucionInfo;
-        $id_sucursal= $_SESSION['institucionInfo'];
-        print_r($id_sucursal);
-    }
-
     public function listar(){
         $data= $this->model->listarSupervisiones($_SESSION['institucionInfo']['id']);   
-   
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
             $btnEditar= '<button class="btn btn-primary me-1" type="button" onClick="btnEditarSupervision('.$data[$i]['id'].')"> <i class="fas fa-edit"></i> </button>';
             $data[$i]['acciones'] = $btnEditar;
-
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
@@ -75,35 +65,30 @@ class Supervisiones extends Controller{
         $id_supervisor= $_SESSION['id_usuario'];     
         $id_vigilante= $_POST['id_vigilante']; 
         $id= $_POST['id'];    
-
-
         if(empty($lat)||empty($lng)||empty($id_sucursal) ||empty($id_vigilante)){
             $msg= "Todos los campos son obligatorios";
         }else{
             if($id==""){       
                 $data= $this->model->registrarSupervision($fecha,$lat,$lng,$puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_supervisor,$id_vigilante);
                 if($data=="ok"){
-                    $msg ="si";
+                    $msg=array('ico'=>'success','msg'=>'Registado con exito');
                 }else if($data=="existe") {
-                    $msg ="La sucursal ya se encuentra registrada";
+                    $msg=array('ico'=>'error','msg'=>'Error al registrar');
                 }else{
                     $msg=$data;
                 }
-               
             }else{       
                 $data= $this->model->modificarSupervision($puntualidad,$pres_per,$patrulla, $epp,$libro,$verif_vehi,$id_sucursal,$id_vigilante,$id);
                 if($data=="modificado"){
-                    $msg ="modificado";
-                }else{
-                    $msg="Error al modificar la sucursal";
-                    
+                    $msg=array('ico'=>'success','msg'=>'Modificado con exito');
+                }else if($data=="existe") {
+                    $msg=array('ico'=>'error','msg'=>'Error al modificar');
                 }      
             }  
         }
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
     }
-
     public function editar (int $id){
         $data=$this->model->editarSupervision($id);
         echo json_encode($data, JSON_UNESCAPED_UNICODE);

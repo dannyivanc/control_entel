@@ -4,6 +4,7 @@ class Proyectos extends Controller{
         session_start();          
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }    
         parent::__construct();
     }

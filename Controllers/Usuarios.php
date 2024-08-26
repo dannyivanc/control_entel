@@ -120,7 +120,10 @@ class Usuarios extends Controller{
                      $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id,$cel,$rol);
                      if($data=="modificado"){
                          $msg ="modificado";
-                     }else{
+                     }else if($data=="existe"){
+                        $msg="el nombre de usuario o nuemro de carnet ya estan registrados";
+                    }
+                     else{
                          $msg="Error al modificar usuario";
                      }
                 }
@@ -192,8 +195,7 @@ class Usuarios extends Controller{
 
     public function registrarPermiso(){
         $id_user= $_POST['id_usuario'];     
-        $id_decrip = $this->decryptId($id_user);     
-        
+        $id_decrip = $this->decryptId($id_user);    
         $eliminar= $this->model->elimiarPermisos( $id_decrip);     
         if($eliminar == 'ok'){
             if(!empty($_POST ['permisos'])){
@@ -203,7 +205,8 @@ class Usuarios extends Controller{
                 if($msg=='ok'){
                     $msg=array('ico'=>'success','msg'=> 'permisos asignados');
                 }else{
-                    $msg='Error al error al asignar los permisos';
+                    $msg=array('ico'=>'error','msg'=> 'Error al error al asignar los permisos');
+                    // $msg='Error al error al asignar los permisos';
                 }
             }
             else{
