@@ -1,9 +1,7 @@
  function frmLogin(e) {
-            e.preventDefault();
-        
+            e.preventDefault();        
             const usuario = document.getElementById("usuario");
-            const clave = document.getElementById("clave");
-        
+            const clave = document.getElementById("clave");        
             if (usuario.value.trim() === "" || clave.value.trim() === "") {
                 document.getElementById("alerta").classList.remove("d-none");
                 document.getElementById("alerta").innerHTML = "Por favor, complete todos los campos.";

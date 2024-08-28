@@ -1,7 +1,5 @@
 <?php
     class UsuariosModel extends Query{
-         private $id, $usuario, $nombre, $carnet, $clave, $id_institucion, $estado, $cel, $rol, $id_permiso;
-
         public function __construct() {
             parent::__construct();
         }
@@ -95,39 +93,43 @@
             }
             return $res;
         }
-
-        //
+                                                    
         public function modificarUsuarioPass(string $usuario, string $nombre, string $carnet,string $clave, int $id_institucion, int $id,int $cel,string $rol){
-            $this->usuario=$usuario;
-            $this->nombre=$nombre;
-            $this->carnet=$carnet;
-            $this->clave=$clave;
-            $this->cel=$cel;
-            $this->rol=$rol;
-            $this->id_institucion=$id_institucion;
-            $this->id=$id;
-            $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,cel=?rol=?,id_institucion =? WHERE id=?";         
-            $datos =array($this->usuario,$this->nombre,$this->carnet,$this->cel,$this->rol,$this->clave,$this->id_institucion,$this->id);
-            $data =  $this-> save($sql,$datos);
-            if($data==1){
-                $res = "modificado";
-            }else{
-                $res = "error";
+            $id_inst = ($rol == 'cliente') ? $id_institucion : 1;
+            $verificar ="SELECT *FROM usuarios WHERE id!=? and (carnet =? or usuario=?)";
+            $stmt_ver=$this->conect->prepare($verificar);
+            $stmt_ver->execute([$id,$carnet,$usuario]);
+            $existe=$stmt_ver->fetchAll(PDO::FETCH_ASSOC);
+            if(empty($existe)){
+                $sql = "UPDATE usuarios SET usuario=?,nombre=?,carnet=?,clave=?,cel=?,rol=?,id_institucion=? WHERE id=?";         
+                $stmt= $this->conect->prepare($sql);
+                $stmt->execute([$usuario, $nombre, $carnet,$clave,$cel, $rol, $id_inst, $id]);
+                $data=$stmt->rowCount();
+                if($data==1){
+                    $res = "modificado";
+                }else{
+                    $res = "error";
+                }
+            }else {
+                $res ="existe";
             }
             return $res;
-
         }
+
         public function editarUser(int $id){
-            $sql = "SELECT * FROM usuarios WHERE id=$id";
-            $data= $this->select($sql);
+            $sql = "SELECT * FROM usuarios WHERE id=?";
+            $stmt= $this->conect->prepare($sql);
+            $stmt->execute([$id]);
+            $data=$stmt->fetch(PDO::FETCH_ASSOC);
+            // $data= $this->select($sql);
             return $data;
         }
+
         public function accionUser (int $estado,int $id){
-            $this->id = $id;
-            $this->estado = $estado;
             $sql ="UPDATE usuarios SET estado =? WHERE id=?";
-            $datos=array($this->estado,$this->id);
-            $data = $this->save($sql,$datos);
+            $stmt= $this->conect->prepare($sql);
+            $stmt->execute([$estado,$id]);
+            $data=$stmt->rowCount();
             return $data;
         }
         //para permisos
@@ -139,6 +141,7 @@
             $data= $stmt->fetchAll(PDO::FETCH_ASSOC);   
             return $data;
         }
+
         public function getPermisos(){
             $sql="SELECT * FROM permisos";
             $stmt=$this->conect->prepare($sql);
@@ -159,6 +162,7 @@
             }
             return $res;
         }
+
         public function registrarPermisos(int $id_usuario, int $id_permiso){                
             $sql = "INSERT INTO detalle_permisos (id_usuario,id_permiso) VALUES (?,?)";
             $stmt=$this->conect->prepare($sql);
@@ -177,19 +181,14 @@
             $stmt=$this->conect->prepare($sql);
             $stmt->execute([$id_usuario]);
             $data= $stmt->fetchAll(PDO::FETCH_ASSOC);  
-
-            // $data= $this->selectAll($sql);
             return $data;
         }
+
         public function  getArrPermiso(int $id_usuario){
             $sql="SELECT id_permiso  as vista FROM detalle_permisos WHERE id_usuario=?";
             $stmt=$this->conect->prepare($sql);
             $stmt->execute([$id_usuario]);
             $data= $stmt->fetchAll(PDO::FETCH_ASSOC);  
-            
-            
-
-            // $data= $this->selectAll($sql);
             return $data;
         }
 
@@ -201,6 +200,5 @@
             return $data; 
 
         }
-       
     }
 ?> 

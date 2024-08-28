@@ -9,6 +9,7 @@ class Usuarios extends Controller{
     public function encryptId($id) {
         return base64_encode($id);
     }
+
     public function decryptId($encryptedId) {
         return base64_decode($encryptedId);
     }
@@ -16,24 +17,25 @@ class Usuarios extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }
         $id_user= $_SESSION['id_usuario'];
         $verificar = $this->model ->verificarPermiso($id_user,'usuarios');
         if(!empty ($verificar)){
             $data['instituciones']=$this->model->getInstituciones();
             $this->views->getView($this,"index",$data);
+            exit;
         }
         else{
             header('Location:'.base_url.'Inicio');
+            exit;
         }
     }
 
     public function listar(){
-             $data= $this->model->getUsuarios();       
-       
+        $data= $this->model->getUsuarios();      
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
-            // $encryptedId = encryptId($data[$i]['id']);
             $encryptedId = $this->encryptId($data[$i]['id']);
             // $btnPermisos= '<a class="btn btn-dark me-1" href="'.base_url.'Usuarios/permisos/'.$data[$i]['id'].'"> <i class="fas fa-key"></i> </a>';
             $btnPermisos= '<a class="btn btn-dark me-1" href="'.base_url.'Usuarios/permisos/'.$encryptedId.'"> <i class="fas fa-key"></i> </a>';
@@ -80,8 +82,7 @@ class Usuarios extends Controller{
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    
+ 
     public function registrar(){
         $usuario= $_POST['usuario'];
         $nombre= $_POST['nombre'];
@@ -92,7 +93,6 @@ class Usuarios extends Controller{
         $institucion= $_POST['institucion'];
         $id= $_POST['id'];      
         $hash=hash("SHA256",$clave);   
-            
         $clave_ant=$_POST['clave_ant'];
         if(empty($usuario)||empty($nombre)||empty($carnet)||empty($clave)||empty($institucion)||empty($cel)||empty($rol)){
             $msg= "todos los campos son obligatorios";
@@ -100,31 +100,31 @@ class Usuarios extends Controller{
             if($id==""){
                 $data= $this->model->registrarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$cel,$rol);
                 if($data=="ok"){
-                    $msg ="si";
+                    $msg = array('ico'=>'success','msg'=>'Registrado');
                 }else if($data=="existe") {
-                    $msg ="El usuario ya se encuentra registrado, Verifique el usuario o carnet";
+                    $msg = array('ico'=>'error','msg'=>'El usuario ya se encuentra registrado, Verifique el usuario o carnetado');
                 }else{
-                    $msg="Error al registrar usuario";
+                    $msg = array('ico'=>'error','msg'=>'Error al registrar usuario');
                 }
             }else{
                 if ( $clave_ant==$clave){
-                    // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
                     $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$institucion,$id,$cel,$rol);
                     if($data=="modificado"){
-                        $msg ="modificado";
+                        $msg = array('ico'=>'success','msg'=>'Modificado');
+                    }else if($data=="existe"){
+                        $msg = array('ico'=>'error','msg'=>'El nombre de usuario o nuemro de carnet ya estan registrados');    
                     }else{
-                        $msg="Error al modificar usuario";
+                        $msg = array('ico'=>'error','msg'=>'Error al modificar');
                     }
                 }else{
-                     // $data= $this->model->modificarUsuario($usuario,$nombre,$carnet,$hash,$institucion,$id);
                      $data= $this->model->modificarUsuarioPass($usuario,$nombre,$carnet,$hash,$institucion,$id,$cel,$rol);
                      if($data=="modificado"){
-                         $msg ="modificado";
+                        $msg = array('ico'=>'success','msg'=>'Modificado');
                      }else if($data=="existe"){
-                        $msg="el nombre de usuario o nuemro de carnet ya estan registrados";
+                        $msg = array('ico'=>'error','msg'=>'El nombre de usuario o nuemro de carnet ya estan registrados');
                     }
                      else{
-                         $msg="Error al modificar usuario";
+                        $msg = array('ico'=>'error','msg'=>'Error al modificar');
                      }
                 }
             }
@@ -142,23 +142,23 @@ class Usuarios extends Controller{
 
     public function desactivar(int $id){
         $data=$this->model ->accionUser(0,$id);
-       if($data==1){
-        $msg="ok";
-       }else{
-        $msg="Error al desactivar usuario";
-       }
-       echo json_encode($msg,JSON_UNESCAPED_UNICODE);
-       die();
+        if($data==1){
+                $msg = array('ico'=>'success','msg'=>'Desactivado');
+        }else{
+                $msg = array('ico'=>'success','msg'=>'Error al desactivar');
+        }
+        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+        die();
     }
     public function activar(int $id){
         $data=$this->model ->accionUser(1,$id);
-       if($data==1){
-        $msg="ok";
-       }else{
-        $msg="Error al activar usuario";
-       }
-       echo json_encode($msg,JSON_UNESCAPED_UNICODE);
-       die();
+        if($data==1){
+                $msg = array('ico'=>'success','msg'=>'Desactivado');
+        }else{
+                $msg = array('ico'=>'success','msg'=>'Error al activar');
+        }
+        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
+        die();
     }   
 
 

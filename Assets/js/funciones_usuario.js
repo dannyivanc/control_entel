@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded",function(){
       $("#nuevo_usuario").modal("show");
       document.getElementById("id").value="";
     }
-    function registrarUser (e){
+    async function registrarUser (e){
         e.preventDefault();
         const usuario = document.getElementById("usuario");
         const nombre = document.getElementById("nombre");
@@ -103,91 +103,62 @@ document.addEventListener("DOMContentLoaded",function(){
         const institucion = document.getElementById("institucion");
        
         if(usuario.value=="" ||nombre.value=="" ||carnet.value==""||clave.value==""||institucion.value=="" ||rol.value=="" ||cel.value==""){
-          Swal.fire({
-            position: "top",
-            icon: "error",
-            title: "Todos los campos son obligatorios",
-            showConfirmButton: false,
-            timer: 2000
-          });
+            mostrarAlerta('error','Todos los campos son obligatorios')
         }else{
             const url = base_url + "Usuarios/registrar";
             const frm=document.getElementById("frmUsuario");
-            const http = new XMLHttpRequest();
-            http.open("POST",url,true);
-            http.send(new FormData(frm));      
-            http.onreadystatechange = function(){
-                if(this.readyState==4 && this.status==200){ 
-                  const res= JSON.parse(this.responseText);
-                  if(res=="si"){
-                    Swal.fire({
-                      position: "top",
-                      icon: "success",
-                      title: "Usuario registrado con exito",
-                      showConfirmButton: false,
-                      timer: 2000
-                    });  
-                    frm.reset();
-                    $("#nuevo_usuario").modal("hide");
-                    tblUsuarios.ajax.reload();
-                  }else if(res=="modificado"){
-                    Swal.fire({
-                      position: "top",
-                      icon: "success",
-                      title: "Usuario modificado con exito",
-                      showConfirmButton: false,
-                      timer: 2000
-                    });  
-                    $("#nuevo_usuario").modal("hide");
-                    tblUsuarios.ajax.reload();
-                  }else{
-                    Swal.fire({
-                      position: "top",
-                      icon: "error",
-                      title: res,
-                      showConfirmButton: false,
-                      timer: 2000
-                    });
-                  }
+            const formData= new FormData(frm);
+            try{
+              const response= await fetch(url,{
+                method:'POST',
+                body:formData
+              });
+              if(response.ok){
+                const res = await response.json();
+                if(res.ico =='success'){  
+                  mostrarAlerta(res.ico,res.msg);  
+                  $("#nuevo_usuario").modal("hide");
+                  tblUsuarios.ajax.reload();               
+                }else{
+                  mostrarAlerta(res.ico,res.msg);  
                 }
+              }else{
+                mostrarAlerta(res.ico,res.msg);  
+              }
+            }catch(err){
+              mostrarAlerta('error','Error en la solicitud')
             }
-           
         }
     }
-    function btnEditarUser (id){
+    async function btnEditarUser (id){
       document.getElementById("title").innerHTML="Actualizar usuario";
       document.getElementById("btn_form_usuario").innerHTML="Actualizar";
       const url = base_url + "Usuarios/editar/"+id;  
-      const http = new XMLHttpRequest();
-      http.open("GET",url,true);
-      http.send();
-      http.onreadystatechange = function(){
-          if(this.readyState==4 && this.status==200){     
-            const res = JSON.parse(this.responseText);
-    
-            //provando para la contraseña
-            var clave_ant = document.getElementById("clave_ant");  
-            clave_ant.value = res.clave;
-            //provando para la contraseña
-    
-            document.getElementById("id").value=res.id;
-            document.getElementById("usuario").value=res.usuario;
-            document.getElementById("nombre").value=res.nombre;
-            document.getElementById("carnet").value=res.carnet;
-            document.getElementById("cel").value=res.cel;
-            document.getElementById("rol").value=res.rol;
-            document.getElementById("clave").value=res.clave;      
-            document.getElementById("institucion").value=res.id_institucion;
-    
-            // document.getElementById("cont-pass").classList.add("d-none");
-    
-            //conrovando si la contraseña esta
-            document.getElementById("clave_ant").value= clave_ant.value; 
-            
-            $("#nuevo_usuario").modal("show");
-          }
+      try{
+        const response= await fetch(url);
+        if(response.ok){
+          const res= await response.json();
+          var clave_ant = document.getElementById("clave_ant");  
+          clave_ant.value = res.clave;
+          document.getElementById("id").value=res.id;
+          document.getElementById("usuario").value=res.usuario;
+          document.getElementById("nombre").value=res.nombre;
+          document.getElementById("carnet").value=res.carnet;
+          document.getElementById("cel").value=res.cel;
+          document.getElementById("rol").value=res.rol;
+          document.getElementById("clave").value=res.clave;      
+          document.getElementById("institucion").value=res.id_institucion;
+          document.getElementById("clave_ant").value= clave_ant.value; 
+          $("#nuevo_usuario").modal("show");
+        }
+        else{
+          mostrarAlerta("error", "Error en la peticion");
+        }
+      }catch(error){
+        mostrarAlerta("error", "Error en el servidor");
       }
     }
+
     function btnDesactivarUsuario(id){
       Swal.fire({
         title: "Desactivar Usuario",
@@ -198,85 +169,49 @@ document.addEventListener("DOMContentLoaded",function(){
         cancelButtonColor: "#d33",
         confirmButtonText: "Desactivar",
         cancelButtonText :"Cancelar"
-      }).then((result) => {
-
+      }).then(async(result) => {
         if (result.isConfirmed) {
-          const url = base_url + "Usuarios/desactivar/" + id;
-
-          fetch(url, {
-              method: 'GET'
-          })
-          .then(response => {
-              if (response.ok) {
-                  return response.json();
-              } else {
-                  throw new Error('Error en la solicitud');
-              }
-          })
-          .then(res => {
-              if (res === "ok") {
-                  Swal.fire({
-                      title: "Desactivado",
-                      text: "El usuario fue desactivado con éxito",
-                      icon: "success"
-                  });
-                  tblUsuarios.ajax.reload();
-              } else {
-                  Swal.fire({
-                      title: "Se produjo un error",
-                      text: res,
-                      icon: "error"
-                  });
-              }
-          })
-          .catch(error => {
-              Swal.fire({
-                  title: "Error",
-                  text: "Hubo un problema con la solicitud: " + error.message,
-                  icon: "error"
-              });
-          });
-      }
+          try{
+            const url = base_url + "Usuarios/desactivar/" + id;
+            const response = await fetch(url);
+            if (response.ok) {
+              const res = await response.json();                
+              mostrarAlerta(res.ico,res.msg); 
+              res.ico=='success'?tblSucursales.ajax.reload():'';
+            } else {
+                mostrarAlerta("error ","Error en la solicitud");
+            }
+          } catch (error) {
+            mostrarAlerta("error ","Error en el servidor");
+          } 
+        }
       });
     }
     function btnActivarUsuario(id){
       Swal.fire({
         title: "Activar Usuario",
-        // text: "El usuario tendra acceso nuevamente",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Activar",
         cancelButtonText :"Cancelar"
-      }).then((result) => {
-        if (result.isConfirmed) {   
-          const url = base_url + "Usuarios/activar/"+id;  
-          const http = new XMLHttpRequest();
-          http.open("GET",url,true);
-          http.send();
-          http.onreadystatechange = function(){
-              if(this.readyState==4 && this.status==200){ 
-                const res=JSON.parse(this.responseText); 
-               if(res=="ok"){
-                Swal.fire({
-                  title: "Activado",
-                  text: "El usuario activado con exito",
-                  icon: "success"
-                });
-                tblUsuarios.ajax.reload();
-               }
-               else{
-                Swal.fire({
-                  title: "Se produjo un error",
-                  text: res,
-                  icon: "error"
-                });
-               }
-               
-              }
-          }    
-        }
+      }).then(async(result) => {
+        if (result.isConfirmed) {  
+          try{
+            const url = base_url + "Usuarios/desactivar/" + id;
+            const response = await fetch(url);
+            if (response.ok) {
+              const res = await response.json();                
+              mostrarAlerta(res.ico,res.msg); 
+              res.ico=='success'?tblSucursales.ajax.reload():'';
+            } else {
+                mostrarAlerta("error ","Error en la solicitud");
+            }
+          } catch (error) {
+            mostrarAlerta("error ","Error en el servidor");
+          } 
+        }      
       });
     }   
 
@@ -316,10 +251,6 @@ document.addEventListener("DOMContentLoaded",function(){
           mostrarInstitucion();
       }
     });
-
-
-
-
 
    // para contraseña de usuario
     $(document).ready(function() {     

@@ -1,6 +1,6 @@
 function viewInstitucion(id,vista) { 
-  console.log(id)
-  console.log(vista)
+  // console.log(id)
+  // console.log(vista)
     if(vista=="Patrullaje"){
       var form = document.createElement('form');
       form.method = 'post';
