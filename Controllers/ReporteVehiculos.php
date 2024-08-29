@@ -66,22 +66,9 @@ class ReporteVehiculos extends Controller{
         $id_user= $_SESSION['id_usuario'];
         $verificar =$this->model ->verificarPermiso($id_user,'reporte vehiculos');
         if(!empty ($verificar)){
-            // if($_SESSION['rol']=='cliente'){ 
-            //     $this->views->getView($this,"index");
-            // }
-            // else{
-                // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_sucursal'])) {
-
                 $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
                 $this->views->getView($this,"index"); 
                 exit;
-
-                    
-                // } 
-                // else{                   
-                //     header("Location: ".base_url."Proyectos?view=ReporteVehiculos");
-                // }
-            // }
         }
         else{
             header('Location:'.base_url.'Inicio');
@@ -91,7 +78,6 @@ class ReporteVehiculos extends Controller{
 
     public function listar(){
         $id_sucursal= $_SESSION['id_sucursal'];
-        // $data= $this->model->getSupervisiones($id_institucion);    
         $data= $this->model->getVehiculos($id_sucursal);    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
@@ -111,7 +97,6 @@ class ReporteVehiculos extends Controller{
         else{
             $data= $this->model->listarRango($id_sucursal,$inicio,$fin);     
         }  
-        // $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
         $pdf = new CustomPDFVehiculos($inicio,$fin);  
         $pdf->AddPage();
         // Datos de la tabla
@@ -190,12 +175,6 @@ class ReporteVehiculos extends Controller{
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();
 
-    }
-    public function pipipi(){
-        // $_SESSION['rol']='laputie';
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
     }
 }
 ?>

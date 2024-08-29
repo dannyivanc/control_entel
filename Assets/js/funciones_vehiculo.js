@@ -96,10 +96,8 @@ async function registrarVehiculo (e){
     if(salida.value==""||tipo.value==""||placa.value==""||km_salida.value==""||conductor.value=="" ||destino.value==""){
         mostrarAlerta("error", "Solo los retornos pueden estar en blanco");
     }else{
-       
         const url = base_url + "Vehiculos/registrar";
         const frm=document.getElementById("frmVehiculo");
-
         const formData = new FormData(frm);      
         try {
            const response = await fetch(url, {
@@ -108,20 +106,16 @@ async function registrarVehiculo (e){
             });
             if (response.ok) {
                 const res = await response.json();
-                if (res === "si") {
-                    mostrarAlerta("success", "Entrada registrada con éxito");
+                if(res.ico=='success'){
+                    mostrarAlerta(res.ico,res.msg);
                     frm.reset();
                     $("#nuevo_vehiculo").modal("hide");
-                    tblVehiculos.ajax.reload();
-                } else if (res === "modificado") {
-                    mostrarAlerta("success", "Modificacion completada");
-                    $("#nuevo_vehiculo").modal("hide");
-                    tblVehiculos.ajax.reload();
-                } else {
-                    mostrarAlerta("error", res);
+                }
+                else{
+                    mostrarAlerta(res.ico,res.msg);
                 }
             } else {
-                mostrarAlerta("error", "Error en la solicitud");
+                mostrarAlerta(res.ico, res.msg);
             }
         } catch (error) {
                 mostrarAlerta("error","Error de servidor");
@@ -129,22 +123,22 @@ async function registrarVehiculo (e){
     }
 }
 
-function btnEditarVehiculo  (id){
-    document.getElementById("title").innerHTML="Actualizar Vehiculo";
-    document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
-    const url = base_url + "Vehiculos/editar/"+id;  
-    const http = new XMLHttpRequest();
-    http.open("GET",url,true);
-    http.send();
-    http.onreadystatechange = function(){
-        if(this.readyState==4 && this.status==200){     
-          const res = JSON.parse(this.responseText);
-          document.getElementById("id").value=res.id;
-          document.getElementById("institucion").value=res.institucion;
-          $("#nuevo_vehiculo").modal("show");
-        }
-    }
-  }
+    // async function btnEditarVehiculo(id){
+    //     document.getElementById("title").innerHTML="Actualizar Vehiculo";
+    //     document.getElementById("btn_form_vehiculo").innerHTML="Actualizar";
+    //     const url = base_url + "Vehiculos/editar/"+id;  
+    //     try{
+    //         const response= await fetch(url);
+    //         if(response.ok){
+    //             const res= await response.json();
+    //             document.getElementById("id").value=res.id;
+    //             document.getElementById("institucion").value=res.institucion;
+    //             $("#nuevo_vehiculo").modal("show");
+    //         }
+    //     }catch(err){
+    //         mostrarAlerta("error", "Error en el servidor");
+    //     }
+    //   }
 async function btnEditarVehiculo(id) {
     document.getElementById("title").innerHTML = "Actualizar Vehiculo";
     document.getElementById("btn_form_vehiculo").innerHTML = "Actualizar";
@@ -188,15 +182,7 @@ function btnDesactivarVehiculo(id){
             const response = await fetch(url);
             if (response.ok) {
                 const res = await response.json();
-                if (res == "ok") {
-                    mostrarAlerta("success", "Registro completado con éxito");
-                    tblVehiculos.ajax.reload();
-                } else if(res == "void"){
-                    mostrarAlerta("error", "Completar los campos de RETORNO y KILOMETRAJE DE RETORNO",4000);
-                }
-                else {
-                    mostrarAlerta("error ",res);
-                }
+                    res.ico=='error'? mostrarAlerta(res.ico,res.msg,4000):mostrarAlerta(res.ico,res.msg),tblVehiculos.ajax.reload();;
             } else {
                 mostrarAlerta("error ","Error en la solicitud");
             }

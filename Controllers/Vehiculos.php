@@ -15,6 +15,7 @@ class Vehiculos extends Controller{
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
+            exit;
         }    
         
         $id_user= $_SESSION['id_usuario'];
@@ -22,15 +23,12 @@ class Vehiculos extends Controller{
         if(!empty ($verificar)){
             $data= $this->sucursalInfo;
             $this->views->getView($this, "index", $data);
+            exit;
         }
         else{
             header('Location:'.base_url.'Inicio');
+            exit;
         }
-    }
-    public function perrie(){
-        print_r($_SESSION['id_usuario']);
-        print_r('---');
-        print_r($this->sucursalInfo['id']);
     }
 
     public function listar(){
@@ -66,23 +64,22 @@ class Vehiculos extends Controller{
         $id= $_POST['id'];   
         $msg= $retorno;   
         if(empty($salida)||empty($tipo)||empty($placa)||empty($km_salida)||empty($conductor)||empty($destino)){
-            $msg= "todos los campos son obligatorios";
+            $msg=array('ico'=>'error','msg'=> 'Llenar');
         }else{
-
             if($id==""){
                 $data= $this->model->registrarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_vigilante,$id_sucursal);
                 if($data=="ok"){
-                    $msg ="si";
+                    $msg=array('ico'=>'success','msg'=> 'Registrado');
                 }else{
-                    $msg="Error al registrar vehiculo";
+                    $msg=array('ico'=>'error','msg'=> 'Error al registrar');
                 }
             }
             else{       
                 $data= $this->model->modificarVehiculo($salida,$retorno,$tipo,$placa,$km_salida,$km_retorno,$conductor,$destino,$id_vigilante,$id);
                 if($data=="modificado"){
-                    $msg ="modificado";
+                    $msg=array('ico'=>'success','msg'=> 'Modificado');
                 }else{
-                    $msg="Error al modificar el vehiculo";
+                    $msg=array('ico'=>'error','msg'=> 'Error al modificar');
                 }
             }
         }
@@ -99,25 +96,16 @@ class Vehiculos extends Controller{
     public function desactivar(int $id){
         $data=$this->model ->accionVehiculo($id);
        if($data=="ok"){
-        $msg="ok";
+            $msg=array('ico'=>'success','msg'=> 'Registro completado');
        }else if($data=="void"){
-        $msg="void";
+            $msg=array('ico'=>'error','msg'=> 'Completar los campos de RETORNO y KILOMETRAJE DE RETORNO');
        }
        else{
-        $msg="Error al desactivar el vehiculo";
+            $msg=array('ico'=>'error','msg'=> 'Error al desactivar el vehiculo');
        }
        echo json_encode($msg,JSON_UNESCAPED_UNICODE);
        die();
     }
-
-    public function pipipi(){
-        // $_SESSION['rol']='laputie';
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
-    }
-
-
 }
 ?>
 

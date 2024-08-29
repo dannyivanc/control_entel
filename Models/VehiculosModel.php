@@ -94,7 +94,6 @@
             $stmt->execute([$id_user,$nombre]);
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data; 
-
         }
     }
 ?> 
