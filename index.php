@@ -34,7 +34,4 @@
    }else{
     echo "no existe controlador";
    }
-   
-
-
 ?>

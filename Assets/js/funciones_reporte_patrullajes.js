@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded",function(){
     });
     //  }
 })
+
 async function enviarRango(e){
   e.preventDefault();
   const inicio= document.getElementById('inicio').value;
@@ -93,8 +94,6 @@ async function enviarRango(e){
   }
 
 }
-
-
 
 function btnUbicacion(lat,lng){ 
   var url = `https://www.google.com/maps?q=${lat},${lng}&z=15&hl=es`;

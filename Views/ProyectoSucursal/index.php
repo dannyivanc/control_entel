@@ -1,11 +1,4 @@
 <?php include "Views/Templates/header.php";?>
-   <!-- <div class="card mb-3">
-      <div class="card-body text-center bg-opacity-5 bg-black">
-         <span class="text-black-75 fs-5">Lista de Sucursales del proyecto</span> 
-         <div>
-         </div>
-      </div>
-   </div> -->
 
    <div class="card mb-3">
       <div class="card-body text-center bg-opacity-5 bg-black">
@@ -57,13 +50,6 @@
             </div>
          </div>
 
-         <!-- <a style="text-decoration: none;" class="col-xl-3 col-md-6" href="<?php echo base_url?>ReporteVehiculos?view=ReporteVehiculos&id=<?php echo $institucion['id']?>>
-            <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
-                  <div class="card-body text-center fs-3"> 
-                     <?php echo $sucursal["sucursal"]; ?>
-                  </div>
-            </div>
-         </a> -->
          <?php
             $colorIndex++;
             if ($colorIndex >= count($colors)) {
