@@ -93,7 +93,7 @@
                                                 Patrullaje 
                                             </a>
                                         <?php endif; ?>                                   
-                                    </div>  
+                                    </div>                                         
                                 <?php endif; ?>    
                                 
                                 <?php if ($_SESSION['rol']=='vigilante') : ?>
@@ -119,7 +119,46 @@
                                             <?php endif;?>                                       
                                             </div>
                                         <?php endif;?>
-                                                                             
+                                <?php else : ?>                                    
+                                        <?php if (isset($_SESSION['v_6'])||isset($_SESSION['v_7'])) : ?>
+                                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#controles" aria-expanded="false" aria-controls="collapseLayouts">
+                                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                                Controles
+                                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                            </a>
+                                            <div class="collapse" id="controles" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">       
+                                            <?php if (isset($_SESSION['v_6'])) : ?>
+                                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Vehiculos">                     
+                                                    <div class="sb-nav-link-icon"><i class="fas fa-car-side"></i></div>
+                                                    Vehiculos
+                                                </a>    -->
+                                                
+                                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=RegistroVehiculo">
+                                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                                    Vehiculos
+                                                </a>
+
+
+                                            <?php endif; ?>                                
+                                            <?php if (isset($_SESSION['v_7'])) : ?>
+                                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
+                                                    <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                                                    Materiales
+                                                </a> -->
+                                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=RegistroMaterial">
+                                                    <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                                    Materiales
+                                                </a>
+
+                                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
+                                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                                Materiales
+                                            </a> -->
+                                            <?php endif;?>                                       
+                                            </div>
+                                        <?php endif;?>
+
+                                                                                
                                 <?php endif; ?> 
                             <?php endif; ?>
                           

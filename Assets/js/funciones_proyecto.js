@@ -1,6 +1,4 @@
 function viewInstitucion(id,vista) { 
-  // console.log(id)
-  // console.log(vista)
     if(vista=="Patrullaje"){
       var form = document.createElement('form');
       form.method = 'post';
@@ -24,7 +22,7 @@ function viewInstitucion(id,vista) {
       form.appendChild(input);
       document.body.appendChild(form);
       form.submit();
-    }  
+    }     
     else if(vista=="ReporteSupervision"){
       var form = document.createElement('form');
       form.method = 'post';
@@ -53,8 +51,6 @@ function viewInstitucion(id,vista) {
       var form = document.createElement('form');
       form.method = 'post';
       form.action =  base_url+"ProyectoSucursal?view=ReporteVehiculos";
-      console.log('asd')
-
       var input = document.createElement('input');
       input.type = 'hidden';
       input.name = 'id_institucion';
@@ -67,8 +63,6 @@ function viewInstitucion(id,vista) {
       var form = document.createElement('form');
       form.method = 'post';
       form.action =  base_url+"ProyectoSucursal?view=ReporteMateriales";
-      console.log('asd')
-
       var input = document.createElement('input');
       input.type = 'hidden';
       input.name = 'id_institucion';
@@ -77,6 +71,33 @@ function viewInstitucion(id,vista) {
       document.body.appendChild(form);
       form.submit();
     }
+
+    // de aqui
+    else if(vista=="RegistroVehiculo"){
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action =  base_url+"ProyectoSucursal?view=RegistroVehiculo";
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id_institucion';
+      input.value = id;
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
+    else if(vista=="RegistroMaterial"){
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action =  base_url+"ProyectoSucursal?view=RegistroMaterial";
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id_institucion';
+      input.value = id;
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  // aqui
 
   
 }

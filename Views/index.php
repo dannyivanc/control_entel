@@ -10,9 +10,61 @@
         <title>Said</title>
         <link href="<?php echo base_url?>Assets/css/custom.css" rel="stylesheet" />
         <link href="<?php echo base_url?>Assets/css/styles.css" rel="stylesheet" />
+
+        <link href="<?php echo base_url?>Assets/css/custom2.css" rel="stylesheet"/>
+        <link href="<?php echo base_url?>Assets/css/style.css" rel="stylesheet">
         <script src="<?php echo base_url?>Assets/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body  class="background"">
+        <div class="container-fluid position-relative p-0">
+            <nav class="bounce-in-top navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="https://www.saidbolivia.com.bo/" class="navbar-brand p-0">
+                    <div class="header-link-cont">
+                        <img class="mt-1" src="<?php echo base_url?>Assets/img/logo2.png" alt="SAID">                        
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                    <div class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                <span>
+                                    Empresa <i class="fa-solid fa-caret-down"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu m-0">
+                                <a href="https://www.saidbolivia.com.bo/quien" class="dropdown-item">¿Quienes Somos?</a>
+                                <a href="https://www.saidbolivia.com.bo/ubicaciones" class="dropdown-item">Ubicaciones</a>
+                                <a href="https://www.saidbolivia.com.bo/certificacion" class="dropdown-item">Licencias</a>
+                                <a href="https://www.saidbolivia.com.bo/clientes" class="dropdown-item">Clientes</a>
+                                <a href="https://www.saidbolivia.com.bo/epp" class="dropdown-item">Epp</a>
+                            </div>
+                        </div>                       
+                        <a href="https://www.saidbolivia.com.bo/organigrama" class="nav-item nav-link">Organizacion</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                <span>
+                                    Servicios <i class="fa-solid fa-caret-down"></i>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu m-0">
+                                <a href="https://www.saidbolivia.com.bo/fisica" class="dropdown-item">Vigilancia Fisica</a>
+                                <a href="https://www.saidbolivia.com.bo/proteccion" class="dropdown-item">Proteccion Personal</a>
+                                <a href="https://www.saidbolivia.com.bo/eventos" class="dropdown-item">Seguridad de Eventos</a>
+                                <a href="https://www.saidbolivia.com.bo/electronica" class="dropdown-item">Seguridad Electronica</a>
+                                <a href="https://www.saidbolivia.com.bo/monitoreo" class="dropdown-item">Monitoreo de Camaras y Respuesta con Patrulla</a>
+                            </div>
+                        </div>
+                        <a href="https://www.saidbolivia.com.bo/said" class="nav-item nav-link">Correspondencia</a>
+                        <a href="https://www.saidbolivia.com.bo/credenciales" class="nav-item nav-link">Control de Credenciales</a>
+                        <a href="https://www.samibolivia.com.bo/control" class="nav-item nav-link">Seguimiento</a>
+                    </div>                 
+                </div>
+            </nav>
+        </div>
+ 
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -71,5 +123,6 @@
             const base_url="<?php echo base_url; ?>";
         </script>
         <script src="<?php echo base_url?>Assets/js/login.js"></script>
+
     </body>
 </html>

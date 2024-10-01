@@ -48,8 +48,7 @@
                <button class="btn-close btn-x" data-bs-dismiss="modal" aria-label="Close">              
                </button>
             </div>
-            <div class="modal-body">
-               
+            <div class="modal-body">               
                <form method="post" id="frmMaterial" action="">
                   <input type="hidden"id="id" name="id">   
                   <div class="row">

@@ -7,37 +7,42 @@ class Materiales extends Controller{
             header("location:".base_url);
         }    
         parent::__construct();
-        $id = $_SESSION['id_usuario'];
-        $sucursal= $this->model->getSucursal($id);
-        $this->sucursalInfo=$sucursal;
-    }
-    
+        if($_SESSION['rol']=='vigilante'){
+            $id = $_SESSION['id_usuario'];
+            $sucursal= $this->model->getSucursal($id);
+            $this->sucursalInfo=$sucursal;
+        }
+        else{
+          if (isset($_POST['id_sucursal'])) {
+            $id = intval($_POST['id_sucursal']);
+            $_SESSION['aux'] = $id;  
+            $sucursal = $this->model->getSucursalOthers($id);            
+            $this->sucursalInfo = $sucursal;  
+          }else {
+                $id =  $_SESSION['aux'];  
+                $sucursal = $this->model->getSucursalOthers($id);            
+                $this->sucursalInfo = $sucursal;  
+            }
+        }
+    }    
     public function index(){
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
             exit;
         }       
-        $id_user= $_SESSION['id_usuario'];
-        $verificar =    $this->model ->verificarPermiso($id_user,'materiales');
+        $id_user= $_SESSION['id_usuario'];        
+        $verificar =$this->model ->verificarPermiso($id_user,'materiales');
         if(!empty ($verificar)){
             $data= $this->sucursalInfo;
             $this->views->getView($this, "index", $data);
-            exit;
+            exit; 
         }
         else{
             header('Location:'.base_url.'Errors');
             exit;
         }
-
-
-        // $data= $this->sucursalInfo;
-        // $this->views->getView($this, "index", $data);
     }
-    public function perrie(){
-        print_r($_SESSION['id_usuario']);
-        print_r('---');
-        print_r($this->sucursalInfo);
-    }
+ 
 
     public function listar(){
         $id_sucursal= $this->sucursalInfo['id'];

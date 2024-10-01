@@ -22,7 +22,13 @@
                break; 
             case "ReporteMateriales":
                $title='Reporte de entrada y salida de Materiales';
+               break;
+            case "RegistroVehiculo":
+               $title='Registro de Vehiculos';
                break; 
+            case "RegistroMaterial":
+               $title='Registro de Materiales';
+               break;
          }
          ?> 
          <h2 class="text-black-75 fs-6"><?php echo $title?></h2>
@@ -68,24 +74,29 @@
                   </div>
                </div>
          </a>
+
+         <?php
+             } else if ($view == 'RegistroVehiculo'|| $view == 'RegistroMaterial') {
+         ?>
+         <a style="text-decoration: none;" class="col-xl-3 col-md-6" href="<?php echo base_url?>ProyectoSucursal?view=<?php echo $data['vista']?>&id=<?php echo $institucion['id']?>">
+               <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
+                  <div class="card-body text-center fs-3"> 
+                     <?php echo $institucion["institucion"]; ?>
+                  </div>
+               </div>
+         </a>
          <?php
             }
          ?>
+
          <?php
             $colorIndex++;
             if ($colorIndex >= count($colors)) {
                $colorIndex = 0;
             }
-         ?>
-
-
-
-         
+         ?>         
       <?php endforeach; ?>
-
-
    </div>
-
 <?php include "Views/Templates/footer.php";?>
 <script src="<?php echo base_url;?>Assets/js/funciones_proyecto.js"></script>
 </body>

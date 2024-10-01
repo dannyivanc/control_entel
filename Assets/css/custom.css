@@ -1,5 +1,9 @@
 .background{
     background-image: url('../img/bg-image.jpg') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
 }
 .login-said{
     text-align: center;

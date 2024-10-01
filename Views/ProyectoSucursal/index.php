@@ -24,6 +24,12 @@
             case "ReporteMateriales":
                $title='Reporte de entrada y salida de Materiales';
                break; 
+            case "RegistroVehiculo":
+               $title='Registro de Vehiculos';
+               break; 
+            case "RegistroMaterial":
+               $title='Registro de Materiales';
+               break;
          }
          ?> 
          <h2 class="text-black-75 fs-6"><?php echo $title?></h2>

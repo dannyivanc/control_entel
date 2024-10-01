@@ -7,9 +7,23 @@ class Vehiculos extends Controller{
             header("location:".base_url);
         }    
         parent::__construct();
-        $id = $_SESSION['id_usuario'];
-        $sucursal= $this->model->getSucursal($id);
-        $this->sucursalInfo=$sucursal;
+        if($_SESSION['rol']=='vigilante'){
+            $id = $_SESSION['id_usuario'];
+            $sucursal= $this->model->getSucursal($id);
+            $this->sucursalInfo=$sucursal;
+        }
+        else{
+          if (isset($_POST['id_sucursal'])) {
+            $id = intval($_POST['id_sucursal']);
+            $_SESSION['aux'] = $id;  
+            $sucursal = $this->model->getSucursalOthers($id);            
+            $this->sucursalInfo = $sucursal;  
+          }else {
+                $id =  $_SESSION['aux'];  
+                $sucursal = $this->model->getSucursalOthers($id);            
+                $this->sucursalInfo = $sucursal;  
+            }
+        }
     }
     
     public function index(){
