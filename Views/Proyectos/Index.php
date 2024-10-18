@@ -29,6 +29,9 @@
             case "RegistroMaterial":
                $title='Registro de Materiales';
                break;
+            case "RegistroVisita":
+               $title='Registro de Visitas';
+               break;
          }
          ?> 
          <h2 class="text-black-75 fs-6"><?php echo $title?></h2>
@@ -76,7 +79,7 @@
          </a>
 
          <?php
-             } else if ($view == 'RegistroVehiculo'|| $view == 'RegistroMaterial') {
+             } else if ($view == 'RegistroVehiculo'|| $view == 'RegistroMaterial' || $view == 'RegistroVisita') {
          ?>
          <a style="text-decoration: none;" class="col-xl-3 col-md-6" href="<?php echo base_url?>ProyectoSucursal?view=<?php echo $data['vista']?>&id=<?php echo $institucion['id']?>">
                <div class="card <?php echo $colors[$colorIndex]; ?> text-white mb-4 align-middle">
@@ -88,6 +91,9 @@
          <?php
             }
          ?>
+
+         
+
 
          <?php
             $colorIndex++;

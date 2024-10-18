@@ -3,10 +3,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100%;
+    height: 100vh;
 }
 .login-said{
     text-align: center;
+    margin-top: 3vh;
     
 }
 
@@ -18,13 +19,20 @@
 .logo_inicio{
     width: 85vh
 }
+.bh-header{
+    background-color: rgba(255, 255, 255,0.4) !important;
+    
+}
 
 @media (max-width: 800px) {
     .logo_inicio{
         width: 45vh
     }
-  
-    
+    .login-said{
+        margin-top: -5vh;
+        
+    }
+
 }
 .pri_mayus::first-letter {
     text-transform: uppercase;
@@ -191,4 +199,10 @@ input[type="checkbox"]::before{
 }
 input:checked[type="checkbox"]::before{
     left: 30px;
+}
+
+
+
+.miss-5{
+    margin-left: -5px;
 }

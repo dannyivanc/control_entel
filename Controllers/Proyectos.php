@@ -64,6 +64,9 @@ class Proyectos extends Controller{
             case 'RegistroMaterial':
                 $permiso = 'materiales';
                 break;
+            case 'RegistroVisita':
+                $permiso = 'visitas';
+                break;
         }
         return $permiso;
     } 

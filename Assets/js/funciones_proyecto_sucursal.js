@@ -49,6 +49,16 @@ function mostrarLista(id,vista) {
       document.body.appendChild(form);
       form.submit();
     }
-
-  
+    else if(vista=="RegistroVisita"){
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action =  base_url+"Visitas";
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id_sucursal';
+      input.value = id;      
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
 }

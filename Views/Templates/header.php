@@ -97,7 +97,7 @@
                                 <?php endif; ?>    
                                 
                                 <?php if ($_SESSION['rol']=='vigilante') : ?>
-                                        <?php if (isset($_SESSION['v_6'])||isset($_SESSION['v_7'])) : ?>
+                                        <?php if (isset($_SESSION['v_6'])||isset($_SESSION['v_7'])||isset($_SESSION['v_8'])) : ?>
                                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#controles" aria-expanded="false" aria-controls="collapseLayouts">
                                                 <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                                                 Controles
@@ -116,11 +116,17 @@
                                                     <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
                                                     Materiales
                                                 </a>
-                                            <?php endif;?>                                       
+                                            <?php endif;?>         
+                                            <?php if (isset($_SESSION['v_8'])) : ?>
+                                                <a class="nav-link ms-3" href="<?php echo base_url?>Visitas">                     
+                                                    <div class="sb-nav-link-icon"><i class="fa-regular fa-address-card"></i></div>
+                                                    Visitas
+                                                </a>
+                                            <?php endif;?>                                 
                                             </div>
                                         <?php endif;?>
                                 <?php else : ?>                                    
-                                        <?php if (isset($_SESSION['v_6'])||isset($_SESSION['v_7'])) : ?>
+                                        <?php if (isset($_SESSION['v_6'])||isset($_SESSION['v_7'])||isset($_SESSION['v_8'])) : ?>
                                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#controles" aria-expanded="false" aria-controls="collapseLayouts">
                                                 <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                                                 Controles
@@ -128,37 +134,25 @@
                                             </a>
                                             <div class="collapse" id="controles" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">       
                                             <?php if (isset($_SESSION['v_6'])) : ?>
-                                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Vehiculos">                     
-                                                    <div class="sb-nav-link-icon"><i class="fas fa-car-side"></i></div>
-                                                    Vehiculos
-                                                </a>    -->
-                                                
                                                 <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=RegistroVehiculo">
                                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                                     Vehiculos
                                                 </a>
-
-
                                             <?php endif; ?>                                
                                             <?php if (isset($_SESSION['v_7'])) : ?>
-                                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Materiales">                     
-                                                    <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
-                                                    Materiales
-                                                </a> -->
                                                 <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=RegistroMaterial">
                                                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                                     Materiales
                                                 </a>
-
-                                                <!-- <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteMateriales">
-                                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                                                Materiales
-                                            </a> -->
-                                            <?php endif;?>                                       
+                                            <?php endif;?>   
+                                            <?php if (isset($_SESSION['v_8'])) : ?>
+                                                <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=RegistroVisita">
+                                                    <div class="sb-nav-link-icon"><i class="fa-solid fa-address-card"></i></div>
+                                                    Visitas
+                                                </a>
+                                            <?php endif;?>                                                                           
                                             </div>
-                                        <?php endif;?>
-
-                                                                                
+                                        <?php endif;?>                                           
                                 <?php endif; ?> 
                             <?php endif; ?>
                           
@@ -169,27 +163,27 @@
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>                                
                                 <div class="collapse" id="reportes" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                    <?php if (isset($_SESSION['v_8'])) : ?>
+                                    <?php if (isset($_SESSION['v_20'])) : ?>
                                         <a class="nav-link ms-3" href="<?php echo base_url?>ReporteVigilantes">                     
                                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                             Vigilantes
                                         </a>
                                     <?php endif; ?>   
-                                    <?php if (isset($_SESSION['v_9'])) : ?>
+                                    <?php if (isset($_SESSION['v_21'])) : ?>
                                         <a class="nav-link ms-3" href="<?php echo base_url?>ReporteSupervisiones">                     
                                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                             Supervisión
                                         </a>
                                     <?php endif; ?>                               
 
-                                    <?php if (isset($_SESSION['v_10'])) : ?>
+                                    <?php if (isset($_SESSION['v_22'])) : ?>
                                         <a class="nav-link ms-3" href="<?php echo base_url?>ReportePatrullajes">                     
                                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                                             Patrullaje
                                         </a>   
                                     <?php endif; ?>  
 
-                                    <?php if (isset($_SESSION['v_11'])) : ?>
+                                    <?php if (isset($_SESSION['v_23'])) : ?>
                                         <?php if ($_SESSION['rol']=='cliente') : ?>
                                             <a class="nav-link ms-3" href="<?php echo base_url?>ProyectoSucursal?view=ReporteVehiculos&id=<?php echo ($_SESSION['id_institucion'])?>">
                                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
@@ -203,7 +197,7 @@
                                         <?php endif; ?> 
                                     <?php endif; ?>  
                             
-                                    <?php if (isset($_SESSION['v_12'])) : ?>
+                                    <?php if (isset($_SESSION['v_24'])) : ?>
                                         <?php if ($_SESSION['rol']=='cliente') : ?>
                                             <a class="nav-link ms-3" href="<?php echo base_url?>ProyectoSucursal?view=ReporteMateriales&id=<?php echo ($_SESSION['id_institucion'])?>">
                                                 <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>

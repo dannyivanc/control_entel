@@ -1,4 +1,4 @@
-let tblVehiculos;
+let tblVisitas;
 function mostrarAlerta(icon, title, timer = 2000,position="top") {
     Swal.fire({    
         icon: icon,
@@ -10,10 +10,10 @@ function mostrarAlerta(icon, title, timer = 2000,position="top") {
 }
   
 document.addEventListener("DOMContentLoaded",function(){
-        tblVehiculos=$('#tblVehiculos').DataTable( {
+        tblVisitas=$('#tblVisitas').DataTable( {
         responsive: true,
         ajax: {
-            url: base_url+"Vehiculos/listar",
+            url: base_url+"Visitas/listar",
             dataSrc: ''
         },
         columns: [ 
@@ -21,28 +21,19 @@ document.addEventListener("DOMContentLoaded",function(){
           'data':'index','width': '3%','className': 'text-end',
         },
         {
-          'data':'salida','width': '11%','className': 'text-end',
+          'data':'ingreso','width': '11%','className': 'text-end',
         },
         {
-          'data':'retorno','width': '11%','className': 'text-end',
+          'data':'nombre','width': '20%','className': 'text-end',
         },
         {
-          'data':'tipo','width': '6%','className': 'text-end',
+          'data':'carnet','width': '6%','className': 'text-end',
         },
         {
-          'data':'placa','width': '7%','className': 'text-end',
+          'data':'salida','width': '7%','className': 'text-end',
         },
         {
-          'data':'km_salida','width': '7%','className': 'text-end',
-        },
-        {
-          'data':'km_retorno','width': '7%','className': 'text-end',
-        },
-        {
-          'data':'conductor','width': '12%','className': 'text-end',
-        },
-        {
-          'data':'destino', 'className': 'text-end',
+          'data':'detalle','width': '7%','className': 'text-end',
         },
         {
           'data': 'acciones','width': '12%','className': 'text-center',
@@ -75,28 +66,28 @@ document.addEventListener("DOMContentLoaded",function(){
     });
     //  }
 })
-   
-function frmVehiculo(){
-  document.getElementById("title").innerHTML="Registro de Vehiculos";
-  document.getElementById("btn_form_vehiculo").innerHTML="Nuevo Vehiculo";
-  document.getElementById("frmVehiculo").reset();
-  $("#nuevo_vehiculo").modal("show");
+
+function frmVisita(){
+  document.getElementById("title").innerHTML="Registro de Visitas";
+  document.getElementById("btn_form_visita").innerHTML="Nueva Visita";
+  document.getElementById("frmVisita").reset();
+  $("#nuevo_visita").modal("show");
   document.getElementById("id").value="";
 }
 
-async function registrarVehiculo (e){
+async function registrarVisita (e){
     e.preventDefault();
-    const salida = document.getElementById("salida");
-    const tipo = document.getElementById("tipo");      
-    const placa = document.getElementById("placa");
-    const km_salida = document.getElementById("km_salida");
-    const conductor = document.getElementById("conductor");
-    const destino = document.getElementById("destino"); 
-    if(salida.value==""||tipo.value==""||placa.value==""||km_salida.value==""||conductor.value=="" ||destino.value==""){
-        mostrarAlerta("error", "Solo los retornos pueden estar en blanco");
+    const ingreso = document.getElementById("ingreso");
+    const salida = document.getElementById("salida");      
+    const nombre = document.getElementById("nombre");
+    const carnet = document.getElementById("carnet");
+    const detalle = document.getElementById("detalle");
+
+    if(ingreso.value==""||nombre.value==""||carnet.value==""||detalle.value==""){
+        mostrarAlerta("error", "Solo la hora de salida puede estar en blanco");
     }else{
-        const url = base_url + "Vehiculos/registrar";
-        const frm=document.getElementById("frmVehiculo");
+        const url = base_url + "Visitas/registrar";
+        const frm=document.getElementById("frmVisita");
         const formData = new FormData(frm);      
         try {
            const response = await fetch(url, {
@@ -108,8 +99,8 @@ async function registrarVehiculo (e){
                 if(res.ico=='success'){
                     mostrarAlerta(res.ico,res.msg);
                     frm.reset();
-                    $("#nuevo_vehiculo").modal("hide");
-                    tblVehiculos.ajax.reload();
+                    $("#nuevo_visita").modal("hide");
+                    tblVisitas.ajax.reload();
                 }
                 else{
                     mostrarAlerta(res.ico,res.msg);
@@ -123,24 +114,21 @@ async function registrarVehiculo (e){
     }
 }
 
-async function btnEditarVehiculo(id) {
-    document.getElementById("title").innerHTML = "Actualizar Vehiculo";
-    document.getElementById("btn_form_vehiculo").innerHTML = "Actualizar";
-    const url = base_url + "Vehiculos/editar/" + id;
+async function btnEditarVisita(id) {
+    document.getElementById("title").innerHTML = "Actualizar Visita";
+    document.getElementById("btn_form_visita").innerHTML = "Actualizar";
+    const url = base_url + "Visitas/editar/" + id;
     try {
         const response = await fetch(url);
         if (response.ok) {
             const res = await response.json();
             document.getElementById("id").value = res.id;
+            document.getElementById("ingreso").value = res.ingreso;
             document.getElementById("salida").value = res.salida;
-            document.getElementById("retorno").value = res.retorno;
-            document.getElementById("tipo").value = res.tipo;
-            document.getElementById("placa").value = res.placa;
-            document.getElementById("km_salida").value = res.km_salida;
-            document.getElementById("km_retorno").value = res.km_retorno;
-            document.getElementById("conductor").value = res.conductor;
-            document.getElementById("destino").value = res.destino;
-            $("#nuevo_vehiculo").modal("show");
+            document.getElementById("nombre").value = res.nombre;
+            document.getElementById("carnet").value = res.carnet;
+            document.getElementById("detalle").value = res.detalle;
+            $("#nuevo_visita").modal("show");
         } else {
             mostrarAlerta("error", "Error en la solicitud");
         }
@@ -149,11 +137,11 @@ async function btnEditarVehiculo(id) {
     }
 }
 
-function btnDesactivarVehiculo(id){
+function btnDesactivarVisita(id){
     Swal.fire({
       title: "Completar registro",
       icon: "warning",
-      text: "El registro del vehiculo ya no podra ser visualizado",
+      text: "El registro de la visita ya no podra ser visualizada",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -162,11 +150,11 @@ function btnDesactivarVehiculo(id){
     }).then(async(result) => {
       if (result.isConfirmed) {   
         try {
-            const url = base_url + "Vehiculos/desactivar/"+id;
+            const url = base_url + "Visitas/desactivar/"+id;
             const response = await fetch(url);
             if (response.ok) {
                 const res = await response.json();
-                    res.ico=='error'? mostrarAlerta(res.ico,res.msg,4000):mostrarAlerta(res.ico,res.msg),tblVehiculos.ajax.reload();;
+                    res.ico=='error'? mostrarAlerta(res.ico,res.msg,4000):mostrarAlerta(res.ico,res.msg),tblVisitas.ajax.reload();;
             } else {
                 mostrarAlerta("error ","Error en la solicitud");
             }
@@ -180,42 +168,33 @@ function btnDesactivarVehiculo(id){
     var fechaActual = new Date();    
     var FechaControl = new Date(fechaActual.getTime() - (14 * 60 * 60 * 1000));
     var fechaControlString = FechaControl.toISOString().slice(0,16);
-    var salidaInput = document.getElementById("salida");
-    salidaInput.min = fechaControlString;
-    salidaInput.addEventListener("change", function() {
+    var ingresoInput = document.getElementById("ingreso");
+    ingresoInput.min = fechaControlString;
+    ingresoInput.addEventListener("change", function() {
         var salidaSeleccionada = new Date(this.value);
         if (salidaSeleccionada < FechaControl) {
-            salidaInput.value = fechaControlString;
+            ingresoInput.value = fechaControlString;
         }
     });
     
-//para controlar retorno    
+//para controlar ingreso    
+    var ingresoInput = document.getElementById("ingreso");
     var salidaInput = document.getElementById("salida");
-    var retornoInput = document.getElementById("retorno");
-    salidaInput.addEventListener("change", function() {
-        retornoInput.min = salidaInput.value;
-        if (retornoInput.value < salidaInput.value) {
-            retornoInput.value = "";
+    ingresoInput.addEventListener("change", function() {
+        salidaInput.min = ingresoInput.value;
+        if (ingresoInput.value < ingresoInput.value) {
+            ingresoInput.value = "";
         }
     });
-    retornoInput.addEventListener("change", function() {
-        if (retornoInput.value < salidaInput.value) {
-            retornoInput.value = salidaInput.value;
+    salidaInput.addEventListener("change", function() {
+        if (salidaInput.value < ingresoInput.value) {
+            salidaInput.value = ingresoInput.value;
         }
     });
 
-//controlando solo numeros en kp salida y retorno
-    var kmSalida = document.getElementById("km_salida");
-    kmSalida.addEventListener("input", function() {
-        this.value = this.value.replace(/\D/g, '');
-    });
-    var kmRetorno = document.getElementById("km_retorno");
-    kmRetorno.addEventListener("input", function() {
-        this.value = this.value.replace(/\D/g, '');
-    });
 
 //controlar nombre
-    var conductorImput = document.getElementById("conductor");
+    var conductorImput = document.getElementById("nombre");
     conductorImput.addEventListener("input", function() {
         this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
     });

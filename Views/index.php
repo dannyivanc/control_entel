@@ -16,7 +16,7 @@
         <script src="<?php echo base_url?>Assets/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body  class="background"">
-        <div class="container-fluid position-relative p-0">
+        <div class="container-fluid position-relative p-0 bh-header">
             <nav class="bounce-in-top navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="https://www.saidbolivia.com.bo/" class="navbar-brand p-0">
                     <div class="header-link-cont">

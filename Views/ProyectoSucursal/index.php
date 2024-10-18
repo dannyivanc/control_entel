@@ -30,6 +30,9 @@
             case "RegistroMaterial":
                $title='Registro de Materiales';
                break;
+            case "RegistroVisita":
+               $title='Registro de Visitas';
+               break;
          }
          ?> 
          <h2 class="text-black-75 fs-6"><?php echo $title?></h2>

@@ -92,14 +92,14 @@
                      <div class="col-md-4">
                         <label >Puntualidad</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="puntualidad" name="puntualidad" checked>
+                              <input class="miss-5" type="checkbox" role="switch" id="puntualidad" name="puntualidad" checked>
                               <label class="form-check-label" for="puntualidad" id="labelPuntualidad">Si</label>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label >Presentacion</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="pres_per" name="pres_per" checked>
+                              <input class="" type="checkbox" role="switch" id="pres_per" name="pres_per" checked>
                               <label class="form-check-label" for="pres_per" id="labelPres_per">Si</label>
                         </div>
                      </div>
@@ -107,7 +107,7 @@
                      <div class="col-md-4">
                         <label  label >Patrulla</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="patrulla" name="patrulla" checked>
+                              <input class="" type="checkbox" role="switch" id="patrulla" name="patrulla" checked>
                               <label class="form-check-label" for="patrulla" id="labelPatrulla">Si</label>
                         </div>
                      </div>
@@ -117,14 +117,14 @@
                      <div class="col-md-4">
                         <label >Epp</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="epp" name="epp" checked>
+                              <input class="" type="checkbox" role="switch" id="epp" name="epp" checked>
                               <label class="form-check-label" for="epp" id="labelEpp"></label>
                         </div>
                      </div>
                      <div class="col-md-4">
                         <label >Libro</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="libro" name="libro" checked>
+                              <input class="" type="checkbox" role="switch" id="libro" name="libro" checked>
                               <label class="form-check-label" for="libro" id="labelLibro"></label>
                         </div>
                      </div>
@@ -132,7 +132,7 @@
                      <div class="col-md-4">
                         <label >Verif. vehi.</label>
                         <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" role="switch" id="verif_vehi" name="verif_vehi" checked>
+                              <input class="" type="checkbox" role="switch" id="verif_vehi" name="verif_vehi" checked>
                               <label class="form-check-label" for="verif_vehi" id="labelVerif_vehi">Si</label>
                         </div>
                      </div>

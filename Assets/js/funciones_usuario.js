@@ -217,19 +217,32 @@ document.addEventListener("DOMContentLoaded",function(){
 
    async function registrarPermisos(e){
       e.preventDefault();
-         const url = base_url + "Usuarios/registrarPermiso";
-         const frm=document.getElementById("frmPermisos");
-         const formData = new FormData(frm);    
-         const response = await fetch(url, {
-              method: "POST",
-              body: formData
-          });
-          if (response.ok) {           
-              const res = await response.json();     
-              mostrarAlerta(res.ico,res.msg);   
-          } else {
-              mostrarAlerta(res.ico,res.msg);
-          }
+            Swal.fire({
+              title: "¿Esta seguro de asignar los permisos?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Completar",
+              cancelButtonText :"Cancelar"
+            }).then(async(result) => {
+              if (result.isConfirmed) {   
+                const url = base_url + "Usuarios/registrarPermiso";
+                const frm=document.getElementById("frmPermisos");
+                console.log(frm)
+                const formData = new FormData(frm);    
+                const response = await fetch(url, {
+                     method: "POST",
+                     body: formData
+                 });
+                 if (response.ok) {           
+                  window.location.href = base_url+'Usuarios'
+                 }
+                 else{
+                  mostrarAlerta(res.ico,res.msg);
+                 }
+              }
+            });
     }
     
 

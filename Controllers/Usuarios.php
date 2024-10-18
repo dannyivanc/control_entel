@@ -196,7 +196,8 @@ class Usuarios extends Controller{
     public function registrarPermiso(){
         $id_user= $_POST['id_usuario'];     
         $id_decrip = $this->decryptId($id_user);    
-        $eliminar= $this->model->elimiarPermisos( $id_decrip);     
+        $verificar_permiso = $this->model->verifificarDetallePermiso($id_decrip); 
+        $eliminar = ($verificar_permiso==0) ? 'ok' : $this->model->elimiarPermisos($id_decrip);
         if($eliminar == 'ok'){
             if(!empty($_POST ['permisos'])){
                 foreach($_POST ['permisos'] as $id_permiso ){
@@ -206,16 +207,11 @@ class Usuarios extends Controller{
                     $msg=array('ico'=>'success','msg'=> 'permisos asignados');
                 }else{
                     $msg=array('ico'=>'error','msg'=> 'Error al error al asignar los permisos');
-                    // $msg='Error al error al asignar los permisos';
                 }
             }
             else{
                 $msg=array('ico'=>'success','msg'=> 'Todos los permisos retirados');
-            }
-            // foreach($_POST ['permisos'] as $id_permiso ){
-            //     $msg=$this->model->registrarPermisos($id_decrip,$id_permiso);
-            // }
-           
+            }           
         }else {
             $msg='Error no identificado';
         }

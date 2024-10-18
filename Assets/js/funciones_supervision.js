@@ -108,35 +108,26 @@ async function registrarSupevision (e){
         const frm=document.getElementById("frmSupervision");
         const formData = new FormData(frm);
         try {
-           const response = await fetch(url, {
-                method: "POST",
-                body: formData
-            });
-            if (response.ok) {
-                const res = await response.json();
-                console.log(res)
-                if (res === "si") {
-                    mostrarAlerta("error", res);
-                    mostrarAlerta("success", "Entrada registrada con éxito");
-                    frm.reset();
-                    $("#nuevo_supervision").modal("hide");
-                    tblSupervisiones.ajax.reload();
-                } else if (res === "modificado") {
-                    mostrarAlerta("success", "Modificacion completada");
-                    $("#nuevo_supervision").modal("hide");
-                    tblSupervisiones.ajax.reload();
-                } else {
-                    mostrarAlerta("error", res);
-                }
-            } else {
-                mostrarAlerta("error", res);
-            }
-        } catch (error) {
-                mostrarAlerta("error","Error de servidor");
-        }
+            const response = await fetch(url, {
+                 method: "POST",
+                 body: formData
+             });
+             if (response.ok) {
+                 const res = await response.json();
+                 mostrarAlerta(res.ico,res.msg);  
+                 if(res.ico=='success') {
+                    tblSupervisiones.ajax.reload()   
+                     frm.reset();
+                     $("#nuevo_supervision").modal("hide");
+                 }                        
+             } else {
+                 mostrarAlerta("error", "Se produjo un error");
+             }
+         } catch (error) {
+                 mostrarAlerta("error","Error de servidor");
+         }
     }
 }
-
 
 async function btnEditarSupervision(id) {
     document.getElementById("title").innerHTML = "Modificar Supervision";

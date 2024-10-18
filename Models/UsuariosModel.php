@@ -150,6 +150,14 @@
             return $data;
         }
         
+        public function verifificarDetallePermiso(int $id_usuario){                
+            $sql = "SELECT * FROM detalle_permisos WHERE id_usuario=?";
+            $stmt=$this->conect->prepare($sql);
+            $stmt->execute([$id_usuario]);
+            $data= $stmt->rowCount();           
+            return $data;
+        }
+
         public function elimiarPermisos(int $id_usuario){                
             $sql = "DELETE FROM detalle_permisos WHERE id_usuario=?";
             $stmt=$this->conect->prepare($sql);
