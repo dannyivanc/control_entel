@@ -25,6 +25,19 @@ function mostrarLista(id,vista) {
       form.submit();
     }
 
+    else if(vista=="ReporteVisitas"){
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action =  base_url+"ReporteVisitas";
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id_sucursal';
+      input.value = id;      
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
+
     else if(vista=="RegistroVehiculo"){
       var form = document.createElement('form');
       form.method = 'post';

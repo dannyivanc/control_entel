@@ -66,9 +66,9 @@ class ReporteVehiculos extends Controller{
         $id_user= $_SESSION['id_usuario'];
         $verificar =$this->model ->verificarPermiso($id_user,'reporte vehiculos');
         if(!empty ($verificar)){
-                $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
-                $this->views->getView($this,"index"); 
-                exit;
+            $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
+            $this->views->getView($this,"index"); 
+            exit;
         }
         else{
             header('Location:'.base_url.'Inicio');

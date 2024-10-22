@@ -24,6 +24,9 @@
             case "ReporteMateriales":
                $title='Reporte de entrada y salida de Materiales';
                break; 
+            case "ReporteVisitas":
+               $title='Reporte de Visitas';
+               break;
             case "RegistroVehiculo":
                $title='Registro de Vehiculos';
                break; 

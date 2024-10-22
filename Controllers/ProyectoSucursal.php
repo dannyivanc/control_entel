@@ -49,6 +49,9 @@ class ProyectoSucursal extends Controller{
             case 'ReporteMateriales':
                 $permiso = 'reporte materiales';
                 break;
+            case "ReporteVisitas":
+                $permiso='reporte visitas';
+                break;
             case 'RegistroVehiculo':
                 $permiso = 'materiales';
                 break;

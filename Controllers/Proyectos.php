@@ -58,6 +58,9 @@ class Proyectos extends Controller{
             case 'ReporteMateriales':
                 $permiso = 'reporte materiales';
                 break;
+            case "ReporteVisitas":
+                $permiso='reporte visitas';
+                break;
             case 'RegistroVehiculo':
                 $permiso = 'vehiculos';
                 break;
@@ -67,6 +70,8 @@ class Proyectos extends Controller{
             case 'RegistroVisita':
                 $permiso = 'visitas';
                 break;
+
+                
         }
         return $permiso;
     } 

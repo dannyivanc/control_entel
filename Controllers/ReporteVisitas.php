@@ -3,7 +3,7 @@ ini_set('memory_limit', '512M');
 ini_set('max_execution_time', '600');
 require('Libraries/fpdf/fpdf.php');
 require('Controllers/Proyectos.php');
-class CustomPDFMateriales extends FPDF {
+class CustomPDFVisitas extends FPDF {
     private $inicio;
     private $fin;
     public function __construct($inicio = '', $fin = '') {
@@ -17,7 +17,7 @@ class CustomPDFMateriales extends FPDF {
         $this->Image('Assets/img/logo_web.png', 10, 10, 30);
         // Título
         $this->SetFont('Arial', 'B', 18);
-        $this->Cell(0, 10,  iconv('UTF-8', 'ISO-8859-1','Reporte de entrada y salida de materiales'), 0, 1, 'C');
+        $this->Cell(0, 10,  iconv('UTF-8', 'ISO-8859-1','Reporte de Visitas'), 0, 1, 'C');
         $this->SetFont('Arial', 'B', 14);
         // $this->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1','Lista de vigilantes asignados a la institución'), 0, 1, 'C');
         if(!empty($this->inicio)||!empty($this->fin)){
@@ -32,15 +32,12 @@ class CustomPDFMateriales extends FPDF {
         $this->SetFont('Arial', 'B', 8);
         $this->SetFillColor(200, 220, 255);
         $this->Cell( 7, 8, 'N', 1, 0, 'C', true);
-        $this->Cell(25, 8, 'Fecha', 1, 0, 'C', true);
-        $this->Cell(18, 8, 'Movimiento', 1, 0, 'C', true);
-        $this->Cell(14, 8, 'Cantidad', 1, 0, 'C', true);
-        $this->Cell(44, 8, 'Persona', 1, 0, 'C', true);
-        $this->Cell(55, 8, 'Destino', 1, 0, 'C', true);
-        $this->Cell(55, 8, 'Observacion', 1, 0, 'C', true);
-        $this->Cell(40, 8, 'Descripcion', 1, 1, 'C', true);
+        $this->Cell(75, 8, 'Nombre', 1, 0, 'C', true);
+        $this->Cell(18, 8, 'Carnet', 1, 0, 'C', true);
+        $this->Cell(26, 8, 'Ingreso', 1, 0, 'C', true);
+        $this->Cell(26, 8, 'Salida', 1, 0, 'C', true);
+        $this->Cell(106, 8, 'Detalle', 1, 1, 'C', true);
         // $this->Cell(98, 8, 'Destino', 1, 1, 'C', true);
-
     }
     // Pie de página
     function Footer() {
@@ -55,7 +52,7 @@ class CustomPDFMateriales extends FPDF {
         $this->Cell(0, 10, 'Pg ' . $this->PageNo(), 0, 0, 'R');
     }
 }
-class ReporteMateriales extends Controller{
+class ReporteVisitas extends Controller{
     public function __construct(){
         session_start();              
         parent::__construct();
@@ -65,7 +62,7 @@ class ReporteMateriales extends Controller{
             header("location:".base_url);
         }
         $id_user= $_SESSION['id_usuario'];
-        $verificar =$this->model ->verificarPermiso($id_user,'reporte materiales');
+        $verificar =$this->model ->verificarPermiso($id_user,'reporte visitas');
         if(!empty ($verificar)){
             $_SESSION['id_sucursal'] = $_POST['id_sucursal'];    
             $this->views->getView($this,"index"); 
@@ -77,9 +74,8 @@ class ReporteMateriales extends Controller{
     }
 
     public function listar(){
-        $id_sucursal= $_SESSION['id_sucursal'];
-        // $data= $this->model->getSupervisiones($id_institucion);    
-        $data= $this->model->getMateriales($id_sucursal);    
+        $id_sucursal= $_SESSION['id_sucursal'];  
+        $data= $this->model->getVisitas($id_sucursal);    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
         }
@@ -93,13 +89,13 @@ class ReporteMateriales extends Controller{
         $inicio= $_POST['inicio'];
         $fin= $_POST['fin'];
         if(empty($inicio)||empty($fin)){
-            $data= $this->model->getMateriales($id_sucursal);   
+            $data= $this->model->getVisitas($id_sucursal);   
         }
         else{
             $data= $this->model->listarRango($id_sucursal,$inicio,$fin);     
         }  
         // $pdf = new CustomPDFSupervisiones('L', 'mm', 'Letter');  
-        $pdf = new CustomPDFMateriales($inicio,$fin);  
+        $pdf = new CustomPDFVisitas($inicio,$fin);  
         $pdf->AddPage();
         // Datos de la tabla
         $pdf->SetFont('Arial', '', 7);
@@ -108,15 +104,14 @@ class ReporteMateriales extends Controller{
         foreach($data as $row) {
 
             // Ajustar el tamaño del texto para cada celda
-            $fecha = $this->ajustarTexto($pdf, $row['fecha'], 25);
-            $movimiento = $this->ajustarTexto($pdf, $row['movimiento'], 25);
-            $descripcion = $this->ajustarTexto($pdf, $row['descripcion'], 23);
-            $cantidad = $this->ajustarTexto($pdf, $row['cantidad'], 15);
-            $persona = $this->ajustarTexto($pdf, $row['persona'], 15);
-            $destino = $this->ajustarTexto($pdf, $row['destino'], 17);
+            $nombre = $this->ajustarTexto($pdf, $row['nombre'], 25);
+            $carnet = $this->ajustarTexto($pdf, $row['carnet'], 25);
+            $ingreso = $this->ajustarTexto($pdf, $row['ingreso'], 26);
+            $salida = $this->ajustarTexto($pdf, $row['salida'], 26);
+            // $detalle = $this->ajustarTexto($pdf, $row['detalle'], 15);
+            $detalle = $row['detalle'];
             // $observacion = $this->ajustarTexto($pdf, $row['observacion'], 34);
-            $observacion = $row['observacion'];
-            $lng = $pdf->GetStringWidth($row['observacion']) ;
+            $lng = $pdf->GetStringWidth($row['detalle']) ;
             
             $col=0;
             if ($lng<= 98)$col=5;
@@ -136,16 +131,15 @@ class ReporteMateriales extends Controller{
             }
        
             $pdf->Cell( 7, $col, $index, 1, 0, 'C', $fill);     
-            $pdf->Cell(25, $col, $fecha, 1, 0, 'C', $fill);
-            $pdf->Cell(18, $col, $movimiento, 1, 0, 'C', $fill);
-            $pdf->Cell(14, $col, $cantidad, 1, 0, 'C', $fill);
-            $pdf->Cell(44, $col, $persona, 1, 0, 'C', $fill);
-            $pdf->Cell(55, $col, $destino, 1, 0, 'C', $fill);
-            $pdf->Cell(55, $col, $observacion, 1, 0, 'C', $fill);
+            $pdf->Cell(75, $col, $nombre, 1, 0, 'C', $fill);
+            $pdf->Cell(18, $col, $carnet, 1, 0, 'C', $fill);
+            $pdf->Cell(26, $col, $ingreso, 1, 0, 'C', $fill);
+            $pdf->Cell(26, $col, $salida, 1, 0, 'C', $fill);
+            // $pdf->Cell(55, $col, $detalle, 1, 0, 'C', $fill);
     
             $startX = $pdf->GetX()-1;
             $startY = $pdf->GetY()-5;
-            $pdf->MultiCell(40, 5, $descripcion, 1, 'C', $fill);
+            $pdf->MultiCell(106, 5, $detalle, 1, 'C', $fill);
             $endY = $pdf->GetY()-5;
 
             $pdf->SetXY($startX + 40, $startY);

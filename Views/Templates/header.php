@@ -210,6 +210,20 @@
                                             </a>
                                         <?php endif; ?> 
                                     <?php endif; ?>  
+
+                                    <?php if (isset($_SESSION['v_25'])) : ?>
+                                        <?php if ($_SESSION['rol']=='cliente') : ?>
+                                            <a class="nav-link ms-3" href="<?php echo base_url?>ProyectoSucursal?view=ReporteVisitas&id=<?php echo ($_SESSION['id_institucion'])?>">
+                                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                                Visitas
+                                            </a>
+                                        <?php else : ?>
+                                            <a class="nav-link ms-3" href="<?php echo base_url?>Proyectos?view=ReporteVisitas">
+                                                <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                                                Visitas
+                                            </a>
+                                        <?php endif; ?> 
+                                    <?php endif; ?>  
                                     <div id="miDiv" style="display: none;">
                                     </div>
                                 </div> 
