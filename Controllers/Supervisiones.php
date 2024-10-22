@@ -1,6 +1,5 @@
 <?php
 class Supervisiones extends Controller{
-    private $institucionInfo;
     public function __construct(){
         session_start();          
         if(empty($_SESSION['activo'])){
@@ -94,11 +93,6 @@ class Supervisiones extends Controller{
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
       }
-
-
-
-
-
 }
 ?>
 

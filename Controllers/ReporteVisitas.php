@@ -123,13 +123,11 @@ class ReporteVisitas extends Controller{
 
             $x = $pdf->GetX()-1;
             $y = $pdf->GetY()-5;
-
             if ($fill) {
                 $pdf->SetFillColor(241, 249, 254);
             } else {
                 $pdf->SetFillColor(255, 255, 255);
-            }
-       
+            }       
             $pdf->Cell( 7, $col, $index, 1, 0, 'C', $fill);     
             $pdf->Cell(75, $col, $nombre, 1, 0, 'C', $fill);
             $pdf->Cell(18, $col, $carnet, 1, 0, 'C', $fill);
@@ -141,10 +139,8 @@ class ReporteVisitas extends Controller{
             $startY = $pdf->GetY()-5;
             $pdf->MultiCell(106, 5, $detalle, 1, 'C', $fill);
             $endY = $pdf->GetY()-5;
-
             $pdf->SetXY($startX + 40, $startY);
             $pdf->SetY($endY);
-
             $index++;
             $fill = !$fill;
             $pdf->Ln();
@@ -174,7 +170,6 @@ class ReporteVisitas extends Controller{
 
     }
     public function pipipi(){
-        // $_SESSION['rol']='laputie';
         echo '<pre>';
         print_r($_SESSION);
         echo '</pre>';

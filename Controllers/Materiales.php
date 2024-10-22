@@ -119,9 +119,7 @@ class Materiales extends Controller{
     }
 
     public function pipipi(){
-        // $_SESSION['rol']='laputie';
         echo '<pre>';
-        // print_r($_SESSION);
         print_r($this->sucursalInfo);
         echo '</pre>';
     }

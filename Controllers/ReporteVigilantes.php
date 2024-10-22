@@ -105,13 +105,7 @@ class ReporteVigilantes extends Controller{
             $fill = !$fill;
             $pdf->Ln();
         }
-        // $pdf->Output('I', 'reporte_vigilantes.pdf');
-
-
         $pdf->Output('I', 'reporte_vigilantes.pdf');
-
-
-
         ob_end_clean();
         exit;
     }

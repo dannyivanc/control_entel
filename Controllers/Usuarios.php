@@ -160,8 +160,6 @@ class Usuarios extends Controller{
         echo json_encode($msg,JSON_UNESCAPED_UNICODE);
         die();
     }   
-
-
     //permisos
     public function permisos($id){
         
@@ -224,7 +222,6 @@ class Usuarios extends Controller{
         header("location:".base_url);
     }
     public function pipipi(){
-        // $_SESSION['rol']='laputie';
         echo '<pre>';
         print_r($_SESSION);
         echo '</pre>';

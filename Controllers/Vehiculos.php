@@ -30,8 +30,7 @@ class Vehiculos extends Controller{
         if(empty($_SESSION['activo'])){
             header("location:".base_url);
             exit;
-        }    
-        
+        }            
         $id_user= $_SESSION['id_usuario'];
         $verificar = $this->model ->verificarPermiso($id_user,'vehiculos');
         if(!empty ($verificar)){
@@ -57,7 +56,6 @@ class Vehiculos extends Controller{
                 $data[$i]['estado']='<span class="badge bg-success">Activo</span>';
                 $data[$i]['acciones'] = $btnEditar . $btnDesactivar;
             }
-
         }
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
         die();

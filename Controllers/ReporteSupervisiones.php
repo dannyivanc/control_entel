@@ -125,7 +125,6 @@ class ReporteSupervisiones extends Controller{
             $libro = $this->ajustarTexto($pdf, $row['libro'], 10);
             $verif_vehi = $this->ajustarTexto($pdf, $row['verif_vehi'], 16);           
             $ubicacion = $this->ajustarTexto($pdf,$row['lat'].",".$row['lng'],32);
-            //para color de las filas
             if ($fill) {
                 $pdf->SetFillColor(241, 249, 254);
             } else {

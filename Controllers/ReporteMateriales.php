@@ -78,13 +78,11 @@ class ReporteMateriales extends Controller{
 
     public function listar(){
         $id_sucursal= $_SESSION['id_sucursal'];
-        // $data= $this->model->getSupervisiones($id_institucion);    
         $data= $this->model->getMateriales($id_sucursal);    
         for ($i=0; $i <count($data) ; $i++) { 
             $data[$i]['index']=$i+1;
         }
-        echo json_encode($data,JSON_UNESCAPED_UNICODE);
-        
+        echo json_encode($data,JSON_UNESCAPED_UNICODE);        
         die();
     }
     public function generarPDF() {
@@ -106,18 +104,14 @@ class ReporteMateriales extends Controller{
         $fill = false; 
         $index=1;
         foreach($data as $row) {
-
-            // Ajustar el tamaño del texto para cada celda
             $fecha = $this->ajustarTexto($pdf, $row['fecha'], 25);
             $movimiento = $this->ajustarTexto($pdf, $row['movimiento'], 25);
             $descripcion = $this->ajustarTexto($pdf, $row['descripcion'], 23);
             $cantidad = $this->ajustarTexto($pdf, $row['cantidad'], 15);
             $persona = $this->ajustarTexto($pdf, $row['persona'], 15);
             $destino = $this->ajustarTexto($pdf, $row['destino'], 17);
-            // $observacion = $this->ajustarTexto($pdf, $row['observacion'], 34);
             $observacion = $row['observacion'];
-            $lng = $pdf->GetStringWidth($row['observacion']) ;
-            
+            $lng = $pdf->GetStringWidth($row['observacion']) ;            
             $col=0;
             if ($lng<= 98)$col=5;
             else if ($lng> 98  && $lng<= 196) $col=10; 
@@ -133,24 +127,20 @@ class ReporteMateriales extends Controller{
                 $pdf->SetFillColor(241, 249, 254);
             } else {
                 $pdf->SetFillColor(255, 255, 255);
-            }
-       
+            }       
             $pdf->Cell( 7, $col, $index, 1, 0, 'C', $fill);     
             $pdf->Cell(25, $col, $fecha, 1, 0, 'C', $fill);
             $pdf->Cell(18, $col, $movimiento, 1, 0, 'C', $fill);
             $pdf->Cell(14, $col, $cantidad, 1, 0, 'C', $fill);
             $pdf->Cell(44, $col, $persona, 1, 0, 'C', $fill);
             $pdf->Cell(55, $col, $destino, 1, 0, 'C', $fill);
-            $pdf->Cell(55, $col, $observacion, 1, 0, 'C', $fill);
-    
+            $pdf->Cell(55, $col, $observacion, 1, 0, 'C', $fill);    
             $startX = $pdf->GetX()-1;
             $startY = $pdf->GetY()-5;
             $pdf->MultiCell(40, 5, $descripcion, 1, 'C', $fill);
             $endY = $pdf->GetY()-5;
-
             $pdf->SetXY($startX + 40, $startY);
             $pdf->SetY($endY);
-
             $index++;
             $fill = !$fill;
             $pdf->Ln();
@@ -180,7 +170,6 @@ class ReporteMateriales extends Controller{
 
     }
     public function pipipi(){
-        // $_SESSION['rol']='laputie';
         echo '<pre>';
         print_r($_SESSION);
         echo '</pre>';
